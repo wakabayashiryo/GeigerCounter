@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "eeprom.c"
 
 # 26 "/opt/microchip/xc8/v1.41/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -3910,31 +3910,31 @@ int8_t Basic_Init(void);
 int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
 int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
 
-# 13 "main.c"
-int8_t main(void)
+# 9 "eeprom.c"
+int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr)
 {
-Basic_Init();
+uint8_t i = 0;
+
+for(;i<size;i++)
+{
+if((addr+i)>256)
+return 1;
+eeprom_write(addr+i,pData[i]);
+}
 
 return 0;
 }
 
-int8_t Basic_Init(void)
+int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr)
 {
-OSCCON = 0xF3;
+uint8_t i = 0;
 
-
-
-TRISA = 0x07;
-ANSELA = 0x07;
-
-TRISB = 0x40;
-ANSELB = 0x00;
-
-APFCON0 = 0x08;
-APFCON1 = 0x00;
-
-PORTA = 0x00;
-PORTB = 0x00;
+for(;i<size;i++)
+{
+if((addr+i)>256)
+return 1;
+pData[i] = eeprom_read(addr+i);
+}
 
 return 0;
 }

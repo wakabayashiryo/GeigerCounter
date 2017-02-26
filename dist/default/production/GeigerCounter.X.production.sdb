@@ -11,9 +11,13 @@
 [v _eecpymem eecpymem `(v  1 e 1 0 ]
 "39
 [v _memcpyee memcpyee `(v  1 e 1 0 ]
-"12 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+"6 /opt/microchip/xc8/v1.41/sources/pic/eeread.c
+[v _eeprom_read eeprom_read `(uc  1 e 1 0 ]
+"6 /opt/microchip/xc8/v1.41/sources/pic/eewrite.c
+[v _eeprom_write eeprom_write `(v  1 e 1 0 ]
+"13 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
-"19
+"20
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
 "412 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [v _PORTA PORTA `VEuc  1 e 1 @12 ]
@@ -33,13 +37,13 @@
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
 "2846
 [v _ANSELB ANSELB `VEuc  1 e 1 @397 ]
-"12 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+"13 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
 {
-"17
+"18
 } 0
-"19
+"20
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
 {
-"38
+"39
 } 0

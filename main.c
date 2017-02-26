@@ -8,11 +8,12 @@
 
 #include <xc.h>
 #include "main.h"
+#include "eeprom.h"
 
 int8_t main(void)
 {
     Basic_Init();
-
+   
     return EXIT_SUCCESS;
 }
 

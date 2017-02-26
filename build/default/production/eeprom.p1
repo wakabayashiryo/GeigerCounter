@@ -1,25 +1,8 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[p mainexit ]
-"47 main.h
-[v _Basic_Init `(c ~T0 @X0 0 ef ]
-"1662 /opt/microchip/xc8/v1.41/include/pic16f1827.h
-[v _OSCCON `Vuc ~T0 @X0 0 e@153 ]
-"1118
-[v _TRISA `Vuc ~T0 @X0 0 e@140 ]
-"2795
-[v _ANSELA `Vuc ~T0 @X0 0 e@396 ]
-"1179
-[v _TRISB `Vuc ~T0 @X0 0 e@141 ]
-"2846
-[v _ANSELB `Vuc ~T0 @X0 0 e@397 ]
-"2715
-[v _APFCON0 `Vuc ~T0 @X0 0 e@285 ]
-"2776
-[v _APFCON1 `Vuc ~T0 @X0 0 e@286 ]
-"412
-[v _PORTA `Vuc ~T0 @X0 0 e@12 ]
-"473
-[v _PORTB `Vuc ~T0 @X0 0 e@13 ]
+"114 /opt/microchip/xc8/v1.41/include/eeprom_routines.h
+[v _eeprom_write `(v ~T0 @X0 0 ef2`uc`uc ]
+"115
+[v _eeprom_read `(uc ~T0 @X0 0 ef1`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2886,65 +2869,111 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.h: 47: int8_t Basic_Init(void);
 [; ;eeprom.h: 18: int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
 [; ;eeprom.h: 19: int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
-"13 main.c
-[v _main `(c ~T0 @X0 1 ef ]
-"14
+"9 eeprom.c
+[v _EEPROM_MultiWrite `(c ~T0 @X0 1 ef3`*uc`uc`uc ]
+"10
 {
-[; ;main.c: 13: int8_t main(void)
-[; ;main.c: 14: {
-[e :U _main ]
+[; ;eeprom.c: 9: int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr)
+[; ;eeprom.c: 10: {
+[e :U _EEPROM_MultiWrite ]
+"9
+[v _pData `*uc ~T0 @X0 1 r1 ]
+[v _size `uc ~T0 @X0 1 r2 ]
+[v _addr `uc ~T0 @X0 1 r3 ]
+"10
 [f ]
-[; ;main.c: 15: Basic_Init();
+"11
+[v _i `uc ~T0 @X0 1 a ]
+[; ;eeprom.c: 11: uint8_t i = 0;
+[e = _i -> -> 0 `i `uc ]
+[; ;eeprom.c: 13: for(;i<size;i++)
+"13
+{
+[e $U 357  ]
+"14
+[e :U 354 ]
+[; ;eeprom.c: 14: {
+{
+[; ;eeprom.c: 15: if((addr+i)>256)
 "15
-[e ( _Basic_Init ..  ]
-[; ;main.c: 17: return 0;
+[e $ ! > + -> _addr `i -> _i `i -> 256 `i 358  ]
+[; ;eeprom.c: 16: return 1;
+"16
+[e ) -> -> 1 `i `c ]
+[e $UE 353  ]
+[e :U 358 ]
+[; ;eeprom.c: 17: eeprom_write(addr+i,pData[i]);
 "17
+[e ( _eeprom_write (2 , -> + -> _addr `i -> _i `i `uc *U + _pData * -> _i `ux -> -> # *U _pData `ui `ux ]
+"18
+}
+"13
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 357 ]
+[e $ < -> _i `i -> _size `i 354  ]
+[e :U 355 ]
+"18
+}
+[; ;eeprom.c: 18: }
+[; ;eeprom.c: 20: return 0;
+"20
 [e ) -> -> 0 `i `c ]
 [e $UE 353  ]
-[; ;main.c: 18: }
-"18
+[; ;eeprom.c: 21: }
+"21
 [e :UE 353 ]
 }
-"20
-[v _Basic_Init `(c ~T0 @X0 1 ef ]
-"21
+"23
+[v _EEPROM_MultiRead `(c ~T0 @X0 1 ef3`*uc`uc`uc ]
+"24
 {
-[; ;main.c: 20: int8_t Basic_Init(void)
-[; ;main.c: 21: {
-[e :U _Basic_Init ]
+[; ;eeprom.c: 23: int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr)
+[; ;eeprom.c: 24: {
+[e :U _EEPROM_MultiRead ]
+"23
+[v _pData `*uc ~T0 @X0 1 r1 ]
+[v _size `uc ~T0 @X0 1 r2 ]
+[v _addr `uc ~T0 @X0 1 r3 ]
+"24
 [f ]
-[; ;main.c: 22: OSCCON = 0xF3;
-"22
-[e = _OSCCON -> -> 243 `i `uc ]
-[; ;main.c: 26: TRISA = 0x07;
-"26
-[e = _TRISA -> -> 7 `i `uc ]
-[; ;main.c: 27: ANSELA = 0x07;
+"25
+[v _i `uc ~T0 @X0 1 a ]
+[; ;eeprom.c: 25: uint8_t i = 0;
+[e = _i -> -> 0 `i `uc ]
+[; ;eeprom.c: 27: for(;i<size;i++)
 "27
-[e = _ANSELA -> -> 7 `i `uc ]
-[; ;main.c: 29: TRISB = 0x40;
+{
+[e $U 363  ]
+"28
+[e :U 360 ]
+[; ;eeprom.c: 28: {
+{
+[; ;eeprom.c: 29: if((addr+i)>256)
 "29
-[e = _TRISB -> -> 64 `i `uc ]
-[; ;main.c: 30: ANSELB = 0x00;
+[e $ ! > + -> _addr `i -> _i `i -> 256 `i 364  ]
+[; ;eeprom.c: 30: return 1;
 "30
-[e = _ANSELB -> -> 0 `i `uc ]
-[; ;main.c: 32: APFCON0 = 0x08;
+[e ) -> -> 1 `i `c ]
+[e $UE 359  ]
+[e :U 364 ]
+[; ;eeprom.c: 31: pData[i] = eeprom_read(addr+i);
+"31
+[e = *U + _pData * -> _i `ux -> -> # *U _pData `ui `ux ( _eeprom_read (1 -> + -> _addr `i -> _i `i `uc ]
 "32
-[e = _APFCON0 -> -> 8 `i `uc ]
-[; ;main.c: 33: APFCON1 = 0x00;
-"33
-[e = _APFCON1 -> -> 0 `i `uc ]
-[; ;main.c: 35: PORTA = 0x00;
-"35
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 36: PORTB = 0x00;
-"36
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 38: return 0;
-"38
+}
+"27
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 363 ]
+[e $ < -> _i `i -> _size `i 360  ]
+[e :U 361 ]
+"32
+}
+[; ;eeprom.c: 32: }
+[; ;eeprom.c: 34: return 0;
+"34
 [e ) -> -> 0 `i `c ]
-[e $UE 354  ]
-[; ;main.c: 39: }
-"39
-[e :UE 354 ]
+[e $UE 359  ]
+[; ;eeprom.c: 35: }
+"35
+[e :UE 359 ]
 }
