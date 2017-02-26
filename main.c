@@ -13,7 +13,11 @@
 int8_t main(void)
 {
     Basic_Init();
-   
+
+    while(1)
+    {
+        
+    }
     return EXIT_SUCCESS;
 }
 
