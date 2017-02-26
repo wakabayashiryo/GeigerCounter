@@ -12,7 +12,12 @@
 int8_t main(void)
 {
     Basic_Init();
-
+    LCD_Init();
+    xdev_out(LCD_Put);
+    
+    LCD_CursorPosition(0,0);
+    xprintf("Hellow World");
+    
     return EXIT_SUCCESS;
 }
 
