@@ -2895,54 +2895,67 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 14: Basic_Init();
 "14
 [e ( _Basic_Init ..  ]
-[; ;main.c: 16: return 0;
+[; ;main.c: 16: while(1)
 "16
+[e :U 355 ]
+[; ;main.c: 17: {
+"17
+{
+"19
+}
+[e :U 354 ]
+"16
+[e $U 355  ]
+[e :U 356 ]
+[; ;main.c: 19: }
+[; ;main.c: 20: return 0;
+"20
 [e ) -> -> 0 `i `c ]
 [e $UE 353  ]
-[; ;main.c: 17: }
-"17
+[; ;main.c: 21: }
+"21
 [e :UE 353 ]
 }
-"19
+"23
 [v _Basic_Init `(c ~T0 @X0 1 ef ]
-"20
+"24
 {
-[; ;main.c: 19: int8_t Basic_Init(void)
-[; ;main.c: 20: {
+[; ;main.c: 23: int8_t Basic_Init(void)
+[; ;main.c: 24: {
 [e :U _Basic_Init ]
 [f ]
-[; ;main.c: 21: OSCCON = 0xF3;
-"21
-[e = _OSCCON -> -> 243 `i `uc ]
-[; ;main.c: 25: TRISA = 0x07;
+[; ;main.c: 25: OSCCON = 0xF3;
 "25
-[e = _TRISA -> -> 7 `i `uc ]
-[; ;main.c: 26: ANSELA = 0x07;
-"26
-[e = _ANSELA -> -> 7 `i `uc ]
-[; ;main.c: 28: TRISB = 0x40;
-"28
-[e = _TRISB -> -> 64 `i `uc ]
-[; ;main.c: 29: ANSELB = 0x00;
+[e = _OSCCON -> -> 243 `i `uc ]
+[; ;main.c: 29: TRISA = 0x07;
 "29
-[e = _ANSELB -> -> 0 `i `uc ]
-[; ;main.c: 31: APFCON0 = 0x08;
-"31
-[e = _APFCON0 -> -> 8 `i `uc ]
-[; ;main.c: 32: APFCON1 = 0x00;
+[e = _TRISA -> -> 7 `i `uc ]
+[; ;main.c: 30: ANSELA = 0x07;
+"30
+[e = _ANSELA -> -> 7 `i `uc ]
+[; ;main.c: 32: TRISB = 0x40;
 "32
-[e = _APFCON1 -> -> 0 `i `uc ]
-[; ;main.c: 34: PORTA = 0x00;
-"34
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 35: PORTB = 0x00;
+[e = _TRISB -> -> 64 `i `uc ]
+[; ;main.c: 33: ANSELB = 0x00;
+"33
+[e = _ANSELB -> -> 0 `i `uc ]
+[; ;main.c: 35: APFCON0 = 0x08;
 "35
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 37: return 0;
-"37
-[e ) -> -> 0 `i `c ]
-[e $UE 354  ]
-[; ;main.c: 38: }
+[e = _APFCON0 -> -> 8 `i `uc ]
+[; ;main.c: 36: APFCON1 = 0x00;
+"36
+[e = _APFCON1 -> -> 0 `i `uc ]
+[; ;main.c: 38: PORTA = 0x00;
 "38
-[e :UE 354 ]
+[e = _PORTA -> -> 0 `i `uc ]
+[; ;main.c: 39: PORTB = 0x00;
+"39
+[e = _PORTB -> -> 0 `i `uc ]
+[; ;main.c: 41: return 0;
+"41
+[e ) -> -> 0 `i `c ]
+[e $UE 357  ]
+[; ;main.c: 42: }
+"42
+[e :UE 357 ]
 }
