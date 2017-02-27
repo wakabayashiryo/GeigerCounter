@@ -40,3 +40,8 @@ int8_t Basic_Init(void)
     
     return EXIT_SUCCESS;
 }
+
+void interrupt Handler(void)
+{
+    
+}

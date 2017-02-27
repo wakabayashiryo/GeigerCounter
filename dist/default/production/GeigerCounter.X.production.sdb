@@ -11,14 +11,22 @@
 [v _eecpymem eecpymem `(v  1 e 1 0 ]
 "39
 [v _memcpyee memcpyee `(v  1 e 1 0 ]
-"12 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+"12 /home/evaota/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
 "23
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
+"44
+[v _Handler Handler `II(v  1 e 1 0 ]
 "412 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [v _PORTA PORTA `VEuc  1 e 1 @12 ]
 "473
 [v _PORTB PORTB `VEuc  1 e 1 @13 ]
+"728
+[v _TMR1 TMR1 `VEus  1 e 2 @22 ]
+"772
+[v _T1CON T1CON `VEuc  1 e 1 @24 ]
+"843
+[v _T1GCON T1GCON `VEuc  1 e 1 @25 ]
 "1118
 [v _TRISA TRISA `VEuc  1 e 1 @140 ]
 "1179
@@ -33,7 +41,17 @@
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
 "2846
 [v _ANSELB ANSELB `VEuc  1 e 1 @397 ]
-"12 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+"6960
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"7182
+[v _PEIE PEIE `VEb  1 e 0 @94 ]
+"7430
+[v _TMR1IE TMR1IE `VEb  1 e 0 @1160 ]
+"7432
+[v _TMR1IF TMR1IF `VEb  1 e 0 @136 ]
+"7434
+[v _TMR1ON TMR1ON `VEb  1 e 0 @192 ]
+"12 /home/evaota/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
 {
 "21
@@ -42,4 +60,9 @@
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
 {
 "42
+} 0
+"44
+[v _Handler Handler `II(v  1 e 1 0 ]
+{
+"47
 } 0

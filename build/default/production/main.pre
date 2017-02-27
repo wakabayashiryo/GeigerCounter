@@ -3938,3 +3938,8 @@ PORTB = 0x00;
 
 return 0;
 }
+
+void interrupt Handler(void)
+{
+
+}
