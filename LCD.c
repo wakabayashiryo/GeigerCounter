@@ -7,6 +7,10 @@
 #include "LCD.h"
 
 /*----------------------------------------------------------
+ * Feature:
+ *  This function is sending data from MCU to LCD.
+ * Worning:
+ *  User is not able to use.
 ----------------------------------------------------------*/
 static void LCD_WriteData(int8_t point)
 {
@@ -18,6 +22,8 @@ static void LCD_WriteData(int8_t point)
 }
 
 /*----------------------------------------------------------
+ * Feature:
+ *  Intialize LCD module in 4Bit mode
 ----------------------------------------------------------*/
 void LCD_Init(void)
 {
@@ -39,10 +45,11 @@ void LCD_Init(void)
     LCD_WriteData(0x0c);    // Display=on / Cursol=on / Blink=on
     LCD_DisplayClear();  
     LCD_WriteData(0x06);    // Cursor=incriment /Display_shift=off	
-    
 }
 
 /*----------------------------------------------------------
+ * Feature:
+ *  Display a word on LCD
 ----------------------------------------------------------*/
 void LCD_Put(int8_t word)
 {
@@ -51,33 +58,41 @@ void LCD_Put(int8_t word)
 }
 
 /*----------------------------------------------------------
+ * Feature:
+ *  Clear all words on LCD
 ----------------------------------------------------------*/
 void LCD_DisplayClear(void)
 {
     LCD_RS  = 0;				
     LCD_WriteData(0x01);    //clear command
-    __delay_ms(2);
+    __delay_ms(2);          //excuted time
 }
 
 /*----------------------------------------------------------
+ * Feature:
+ *  Move cursor to first point.
 ----------------------------------------------------------*/
 void LCD_CursorHome(void)
 {
     LCD_RS = 0;			 					
     LCD_WriteData(0x02);
-    __delay_ms(2);
+    __delay_ms(2);          //excuted time
 }
 
-/*----------------------------------------------------------
+/*---------------------------------------------------------
+ * Feature:
+ *  Cursor is set arbitary point.
 ----------------------------------------------------------*/
 void LCD_CursorPosition(uint8_t tx ,uint8_t ty)
 {
     LCD_RS = 0; 					
     LCD_WriteData(0x80|tx|(0x40*ty));	// Address =0 		
-    __delay_us(40);											
+    __delay_us(40);                     //excuted time					
 } 
 
 /*----------------------------------------------------------
+ * Feature:
+ *  Cursor is moved Left or Right.
 ----------------------------------------------------------*/
 void LCD_CursorShift(uint8_t shift,uint8_t RL)
 {
@@ -88,11 +103,13 @@ void LCD_CursorShift(uint8_t shift,uint8_t RL)
     for(i=0;i<shift;i++)
     {
         LCD_WriteData(0x10|((RL&0x01)<<2));
-        __delay_us(40);
+        __delay_us(40);                 //excuted time
     }
 }
 
 /*----------------------------------------------------------
+ * Feature:
+ *  Some words on LCD is moved right or left
 ----------------------------------------------------------*/
 void LCD_DispShift(uint8_t shift,uint8_t RL)
 {

@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.41 build -162212810 
-                                                                                               Sun Feb 26 05:10:11 2017
+                                                                                               Mon Feb 27 00:43:48 2017
 
 Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250102
      1                           	processor	16F1827
@@ -1772,7 +1772,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   1756  03D4                     __ptext5:	
   1757 ;; *************** function _LCD_Put *****************
   1758 ;; Defined at:
-  1759 ;;		line 47 in file "LCD.c"
+  1759 ;;		line 54 in file "LCD.c"
   1760 ;; Parameters:    Size  Location     Type
   1761 ;;  word            1    3[COMMON] char 
   1762 ;; Auto vars:     Size  Location     Type
@@ -1805,14 +1805,14 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   1789                           ;psect for function _LCD_Put
   1790  03D4                     _LCD_Put:	
   1791                           
-  1792                           ;LCD.c: 49: RA4 = 1;
+  1792                           ;LCD.c: 56: RA4 = 1;
   1793                           
   1794                           ;incstack = 0
   1795                           ; Regs used in _LCD_Put: [wreg+status,2+status,0+pclath+cstack]
   1796  03D4  0020               	movlb	0	; select bank0
   1797  03D5  160C               	bsf	12,4	;volatile
   1798                           
-  1799                           ;LCD.c: 50: LCD_WriteData(word);
+  1799                           ;LCD.c: 57: LCD_WriteData(word);
   1800  03D6  0873               	movf	LCD_Put@word,w
   1801  03D7  3184  2497         	fcall	_LCD_WriteData
   1802  03D9  0008               	return
@@ -2137,7 +2137,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2121  0565                     __ptext9:	
   2122 ;; *************** function _LCD_Init *****************
   2123 ;; Defined at:
-  2124 ;;		line 22 in file "LCD.c"
+  2124 ;;		line 28 in file "LCD.c"
   2125 ;; Parameters:    Size  Location     Type
   2126 ;;		None
   2127 ;; Auto vars:     Size  Location     Type
@@ -2170,17 +2170,17 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2154                           ;psect for function _LCD_Init
   2155  0565                     _LCD_Init:	
   2156                           
-  2157                           ;LCD.c: 24: RA4 = 0;
+  2157                           ;LCD.c: 30: RA4 = 0;
   2158                           
   2159                           ;incstack = 0
   2160                           ; Regs used in _LCD_Init: [wreg+status,2+status,0+pclath+cstack]
   2161  0565  0020               	movlb	0	; select bank0
   2162  0566  120C               	bcf	12,4	;volatile
   2163                           
-  2164                           ;LCD.c: 25: RA3 = 0;
+  2164                           ;LCD.c: 31: RA3 = 0;
   2165  0567  118C               	bcf	12,3	;volatile
   2166                           
-  2167                           ;LCD.c: 27: _delay((unsigned long)((30)*(32000000/4000.0)));
+  2167                           ;LCD.c: 33: _delay((unsigned long)((30)*(32000000/4000.0)));
   2168  0568  3002               	movlw	2
   2169  0569  00F5               	movwf	??_LCD_Init+1
   2170  056A  3038               	movlw	56
@@ -2195,12 +2195,12 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2179  0572  2D6D               	goto	u1537
   2180  0573  0000               	nop
   2181                           
-  2182                           ;LCD.c: 28: PORTB = ( ((0x03&0x0C)<<1)|(0x03&0x03) );
+  2182                           ;LCD.c: 34: PORTB = ( ((0x03&0x0C)<<1)|(0x03&0x03) );
   2183  0574  3003               	movlw	3
   2184  0575  0020               	movlb	0	; select bank0
   2185  0576  008D               	movwf	13	;volatile
   2186                           
-  2187                           ;LCD.c: 29: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay
+  2187                           ;LCD.c: 35: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay
       +                          ((unsigned long)((1)*(32000000/4000000.0)));};
   2188  0577  158C               	bsf	12,3	;volatile
   2189  0578  3200               	nop2	;2 cycle nop
@@ -2214,7 +2214,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2197  0580  3200               	nop2	;2 cycle nop
   2198  0581  3200               	nop2	;2 cycle nop
   2199                           
-  2200                           ;LCD.c: 30: _delay((unsigned long)((5)*(32000000/4000.0)));
+  2200                           ;LCD.c: 36: _delay((unsigned long)((5)*(32000000/4000.0)));
   2201  0582  3034               	movlw	52
   2202  0583  00F4               	movwf	??_LCD_Init
   2203  0584  30F2               	movlw	242
@@ -2224,7 +2224,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2207  0587  0BF4               	decfsz	??_LCD_Init,f
   2208  0588  2D85               	goto	u1547
   2209                           
-  2210                           ;LCD.c: 31: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay
+  2210                           ;LCD.c: 37: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay
       +                          ((unsigned long)((1)*(32000000/4000000.0)));};
   2211  0589  0020               	movlb	0	; select bank0
   2212  058A  158C               	bsf	12,3	;volatile
@@ -2239,7 +2239,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2221  0593  3200               	nop2	;2 cycle nop
   2222  0594  3200               	nop2	;2 cycle nop
   2223                           
-  2224                           ;LCD.c: 32: _delay((unsigned long)((400)*(32000000/4000000.0)));
+  2224                           ;LCD.c: 38: _delay((unsigned long)((400)*(32000000/4000000.0)));
   2225  0595  3005               	movlw	5
   2226  0596  00F4               	movwf	??_LCD_Init
   2227  0597  3026               	movlw	38
@@ -2250,7 +2250,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2232  059B  2D98               	goto	u1557
   2233  059C  3200               	nop2
   2234                           
-  2235                           ;LCD.c: 33: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay
+  2235                           ;LCD.c: 39: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay
       +                          ((unsigned long)((1)*(32000000/4000000.0)));};
   2236  059D  0020               	movlb	0	; select bank0
   2237  059E  158C               	bsf	12,3	;volatile
@@ -2265,7 +2265,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2246  05A7  3200               	nop2	;2 cycle nop
   2247  05A8  3200               	nop2	;2 cycle nop
   2248                           
-  2249                           ;LCD.c: 34: _delay((unsigned long)((400)*(32000000/4000000.0)));
+  2249                           ;LCD.c: 40: _delay((unsigned long)((400)*(32000000/4000000.0)));
   2250  05A9  3005               	movlw	5
   2251  05AA  00F4               	movwf	??_LCD_Init
   2252  05AB  3026               	movlw	38
@@ -2276,12 +2276,12 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2257  05AF  2DAC               	goto	u1567
   2258  05B0  3200               	nop2
   2259                           
-  2260                           ;LCD.c: 35: PORTB = ( ((0x02&0x0C)<<1)|(0x02&0x03) );
+  2260                           ;LCD.c: 41: PORTB = ( ((0x02&0x0C)<<1)|(0x02&0x03) );
   2261  05B1  3002               	movlw	2
   2262  05B2  0020               	movlb	0	; select bank0
   2263  05B3  008D               	movwf	13	;volatile
   2264                           
-  2265                           ;LCD.c: 36: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay
+  2265                           ;LCD.c: 42: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay
       +                          ((unsigned long)((1)*(32000000/4000000.0)));};
   2266  05B4  158C               	bsf	12,3	;volatile
   2267  05B5  3200               	nop2	;2 cycle nop
@@ -2295,18 +2295,18 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2275  05BD  3200               	nop2	;2 cycle nop
   2276  05BE  3200               	nop2	;2 cycle nop
   2277                           
-  2278                           ;LCD.c: 38: LCD_WriteData(0x28);
+  2278                           ;LCD.c: 44: LCD_WriteData(0x28);
   2279  05BF  3028               	movlw	40
   2280  05C0  3184  2497  3185   	fcall	_LCD_WriteData
   2281                           
-  2282                           ;LCD.c: 39: LCD_WriteData(0x0c);
+  2282                           ;LCD.c: 45: LCD_WriteData(0x0c);
   2283  05C3  300C               	movlw	12
   2284  05C4  3184  2497  3185   	fcall	_LCD_WriteData
   2285                           
-  2286                           ;LCD.c: 40: LCD_DisplayClear();
+  2286                           ;LCD.c: 46: LCD_DisplayClear();
   2287  05C7  3183  23DA  3185   	fcall	_LCD_DisplayClear
   2288                           
-  2289                           ;LCD.c: 41: LCD_WriteData(0x06);
+  2289                           ;LCD.c: 47: LCD_WriteData(0x06);
   2290  05CA  3006               	movlw	6
   2291  05CB  3184  2497         	fcall	_LCD_WriteData
   2292  05CD  0008               	return
@@ -2316,7 +2316,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2296  03DA                     __ptext10:	
   2297 ;; *************** function _LCD_DisplayClear *****************
   2298 ;; Defined at:
-  2299 ;;		line 55 in file "LCD.c"
+  2299 ;;		line 64 in file "LCD.c"
   2300 ;; Parameters:    Size  Location     Type
   2301 ;;		None
   2302 ;; Auto vars:     Size  Location     Type
@@ -2348,18 +2348,18 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2328                           ;psect for function _LCD_DisplayClear
   2329  03DA                     _LCD_DisplayClear:	
   2330                           
-  2331                           ;LCD.c: 57: RA4 = 0;
+  2331                           ;LCD.c: 66: RA4 = 0;
   2332                           
   2333                           ;incstack = 0
   2334                           ; Regs used in _LCD_DisplayClear: [wreg+status,2+status,0+pclath+cstack]
   2335  03DA  0020               	movlb	0	; select bank0
   2336  03DB  120C               	bcf	12,4	;volatile
   2337                           
-  2338                           ;LCD.c: 58: LCD_WriteData(0x01);
+  2338                           ;LCD.c: 67: LCD_WriteData(0x01);
   2339  03DC  3001               	movlw	1
   2340  03DD  3184  2497  3183   	fcall	_LCD_WriteData
   2341                           
-  2342                           ;LCD.c: 59: _delay((unsigned long)((2)*(32000000/4000.0)));
+  2342                           ;LCD.c: 68: _delay((unsigned long)((2)*(32000000/4000.0)));
   2343  03E0  3015               	movlw	21
   2344  03E1  00F3               	movwf	??_LCD_DisplayClear
   2345  03E2  30C6               	movlw	198
@@ -2376,7 +2376,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2356  0421                     __ptext11:	
   2357 ;; *************** function _LCD_CursorPosition *****************
   2358 ;; Defined at:
-  2359 ;;		line 73 in file "LCD.c"
+  2359 ;;		line 86 in file "LCD.c"
   2360 ;; Parameters:    Size  Location     Type
   2361 ;;  tx              1    wreg     unsigned char 
   2362 ;;  ty              1    3[COMMON] unsigned char 
@@ -2414,11 +2414,11 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2394                           ;LCD_CursorPosition@tx stored from wreg
   2395  0421  00F5               	movwf	LCD_CursorPosition@tx
   2396                           
-  2397                           ;LCD.c: 75: RA4 = 0;
+  2397                           ;LCD.c: 88: RA4 = 0;
   2398  0422  0020               	movlb	0	; select bank0
   2399  0423  120C               	bcf	12,4	;volatile
   2400                           
-  2401                           ;LCD.c: 76: LCD_WriteData(0x80|tx|(0x40*ty));
+  2401                           ;LCD.c: 89: LCD_WriteData(0x80|tx|(0x40*ty));
   2402  0424  0873               	movf	LCD_CursorPosition@ty,w
   2403  0425  00F4               	movwf	??_LCD_CursorPosition
   2404  0426  3005               	movlw	5
@@ -2432,7 +2432,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2412  042D  3880               	iorlw	-128
   2413  042E  3184  2497  3184   	fcall	_LCD_WriteData
   2414                           
-  2415                           ;LCD.c: 77: _delay((unsigned long)((40)*(32000000/4000000.0)));
+  2415                           ;LCD.c: 90: _delay((unsigned long)((40)*(32000000/4000000.0)));
   2416  0431  306A               	movlw	106
   2417  0432                     u1587:	
   2418  0432  0B89               	decfsz	9,f
@@ -2445,7 +2445,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2425  0497                     __ptext12:	
   2426 ;; *************** function _LCD_WriteData *****************
   2427 ;; Defined at:
-  2428 ;;		line 11 in file "LCD.c"
+  2428 ;;		line 15 in file "LCD.c"
   2429 ;; Parameters:    Size  Location     Type
   2430 ;;  point           1    wreg     char 
   2431 ;; Auto vars:     Size  Location     Type
@@ -2487,14 +2487,14 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2467                           ;LCD_WriteData@point stored from wreg
   2468  0497  00F2               	movwf	LCD_WriteData@point
   2469                           
-  2470                           ;LCD.c: 13: _delay((unsigned long)((80)*(32000000/4000000.0)));
+  2470                           ;LCD.c: 17: _delay((unsigned long)((80)*(32000000/4000000.0)));
   2471  0498  30D5               	movlw	213
   2472  0499                     u1597:	
   2473  0499  0B89               	decfsz	9,f
   2474  049A  2C99               	goto	u1597
   2475  049B  0000               	nop
   2476                           
-  2477                           ;LCD.c: 14: PORTB = ( (((point>>4)&0x0F&0x0C)<<1)|((point>>4)&0x0F&0x03) );
+  2477                           ;LCD.c: 18: PORTB = ( (((point>>4)&0x0F&0x0C)<<1)|((point>>4)&0x0F&0x03) );
   2478  049C  0872               	movf	LCD_WriteData@point,w
   2479  049D  00F0               	movwf	??_LCD_WriteData
   2480  049E  3004               	movlw	4
@@ -2518,7 +2518,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2498  04AF  0020               	movlb	0	; select bank0
   2499  04B0  008D               	movwf	13	;volatile
   2500                           
-  2501                           ;LCD.c: 15: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay
+  2501                           ;LCD.c: 19: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay
       +                          ((unsigned long)((1)*(32000000/4000000.0)));};
   2502  04B1  158C               	bsf	12,3	;volatile
   2503  04B2  3200               	nop2	;2 cycle nop
@@ -2532,7 +2532,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2511  04BA  3200               	nop2	;2 cycle nop
   2512  04BB  3200               	nop2	;2 cycle nop
   2513                           
-  2514                           ;LCD.c: 16: PORTB = ( ((point&0x0F&0x0C)<<1)|(point&0x0F&0x03) );
+  2514                           ;LCD.c: 20: PORTB = ( ((point&0x0F&0x0C)<<1)|(point&0x0F&0x03) );
   2515  04BC  3003               	movlw	3
   2516  04BD  0572               	andwf	LCD_WriteData@point,w
   2517  04BE  00F0               	movwf	??_LCD_WriteData
@@ -2543,7 +2543,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2522  04C3  0020               	movlb	0	; select bank0
   2523  04C4  008D               	movwf	13	;volatile
   2524                           
-  2525                           ;LCD.c: 17: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay
+  2525                           ;LCD.c: 21: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay
       +                          ((unsigned long)((1)*(32000000/4000000.0)));};
   2526  04C5  158C               	bsf	12,3	;volatile
   2527  04C6  3200               	nop2	;2 cycle nop
@@ -2904,7 +2904,7 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.41 build -162212810 
-Symbol Table                                                                                   Sun Feb 26 05:10:11 2017
+Symbol Table                                                                                   Mon Feb 27 00:43:48 2017
 
                 __CFG_CP$OFF 0000          ___wmul@multiplicand 0072                          l120 064A  
                         l105 05CE                          l161 079C                          l138 06E5  

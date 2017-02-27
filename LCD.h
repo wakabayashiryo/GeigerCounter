@@ -17,11 +17,13 @@ extern "C" {
 #include "main.h"
     
 #define BUS_PORT        PORTB           //define bus port
+                                        //Bus Bit control
 #define	LCD_BUS(data) 	BUS_PORT = (       \
                         ((data&0x0C)<<1)|(data&0x03)\
                         )      
 #define LCD_E           RA3             // Cotrol bit Enable			
 #define LCD_RS          RA4             // Cotrol bit Resisiter Select 	
+                                        //MCU make LCD reading data or command.
 #define LCD_STROBO()    {LCD_E = 1;        \
                         __delay_us(1);   \
                         LCD_E = 0;         \

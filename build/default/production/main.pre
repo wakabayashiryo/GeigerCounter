@@ -3883,7 +3883,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 30 "LCD.h"
+# 32 "LCD.h"
 void LCD_Init(void);
 void LCD_Put(int8_t word);
 void LCD_DisplayClear(void);

@@ -2,14 +2,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "48 main.h
 [v _Basic_Init `(c ~T0 @X0 0 ef ]
-"30 LCD.h
+"32 LCD.h
 [v _LCD_Init `(v ~T0 @X0 0 ef ]
 [v F2940 `(v ~T0 @X0 0 tf1`uc ]
 "17 xprintf.h
 [v _xfunc_out `*F2940 ~T0 @X0 0 e ]
-"31 LCD.h
+"33 LCD.h
 [v _LCD_Put `(v ~T0 @X0 0 ef1`c ]
-"34
+"36
 [v _LCD_CursorPosition `(v ~T0 @X0 0 ef2`uc`uc ]
 "21 xprintf.h
 [v _xprintf `(v ~T0 @X0 0 ev`*Cuc ]
@@ -2864,13 +2864,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;LCD.h: 30: void LCD_Init(void);
-[; ;LCD.h: 31: void LCD_Put(int8_t word);
-[; ;LCD.h: 32: void LCD_DisplayClear(void);
-[; ;LCD.h: 33: void LCD_CursorHome(void);
-[; ;LCD.h: 34: void LCD_CursorPosition(uint8_t tx ,uint8_t ty);
-[; ;LCD.h: 35: void LCD_CursorShift(uint8_t shift,uint8_t RL);
-[; ;LCD.h: 36: void LCD_DispShift(uint8_t shift,uint8_t RL);
+[; ;LCD.h: 32: void LCD_Init(void);
+[; ;LCD.h: 33: void LCD_Put(int8_t word);
+[; ;LCD.h: 34: void LCD_DisplayClear(void);
+[; ;LCD.h: 35: void LCD_CursorHome(void);
+[; ;LCD.h: 36: void LCD_CursorPosition(uint8_t tx ,uint8_t ty);
+[; ;LCD.h: 37: void LCD_CursorShift(uint8_t shift,uint8_t RL);
+[; ;LCD.h: 38: void LCD_DispShift(uint8_t shift,uint8_t RL);
 [; ;xprintf.h: 17: extern void (*xfunc_out)(unsigned char);
 [; ;xprintf.h: 18: void xputc (char c);
 [; ;xprintf.h: 19: void xputs (const char* str);

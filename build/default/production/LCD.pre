@@ -3922,7 +3922,7 @@ int xatoi (char** str, long* res);
 # 48
 int8_t Basic_Init(void);
 
-# 30 "LCD.h"
+# 32 "LCD.h"
 void LCD_Init(void);
 void LCD_Put(int8_t word);
 void LCD_DisplayClear(void);
@@ -3931,7 +3931,7 @@ void LCD_CursorPosition(uint8_t tx ,uint8_t ty);
 void LCD_CursorShift(uint8_t shift,uint8_t RL);
 void LCD_DispShift(uint8_t shift,uint8_t RL);
 
-# 11 "LCD.c"
+# 15 "LCD.c"
 static void LCD_WriteData(int8_t point)
 {
 _delay((unsigned long)((80)*(32000000/4000000.0)));
@@ -3941,7 +3941,7 @@ PORTB = ( ((point&0x0F&0x0C)<<1)|(point&0x0F&0x03) );
 {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
 }
 
-# 22
+# 28
 void LCD_Init(void)
 {
 RA4 = 0;
@@ -3962,17 +3962,16 @@ LCD_WriteData(0x28);
 LCD_WriteData(0x0c);
 LCD_DisplayClear();
 LCD_WriteData(0x06);
-
 }
 
-# 47
+# 54
 void LCD_Put(int8_t word)
 {
 RA4 = 1;
 LCD_WriteData(word);
 }
 
-# 55
+# 64
 void LCD_DisplayClear(void)
 {
 RA4 = 0;
@@ -3980,7 +3979,7 @@ LCD_WriteData(0x01);
 _delay((unsigned long)((2)*(32000000/4000.0)));
 }
 
-# 64
+# 75
 void LCD_CursorHome(void)
 {
 RA4 = 0;
@@ -3988,7 +3987,7 @@ LCD_WriteData(0x02);
 _delay((unsigned long)((2)*(32000000/4000.0)));
 }
 
-# 73
+# 86
 void LCD_CursorPosition(uint8_t tx ,uint8_t ty)
 {
 RA4 = 0;
@@ -3996,7 +3995,7 @@ LCD_WriteData(0x80|tx|(0x40*ty));
 _delay((unsigned long)((40)*(32000000/4000000.0)));
 }
 
-# 82
+# 97
 void LCD_CursorShift(uint8_t shift,uint8_t RL)
 {
 uint8_t i;
@@ -4010,7 +4009,7 @@ _delay((unsigned long)((40)*(32000000/4000000.0)));
 }
 }
 
-# 97
+# 114
 void LCD_DispShift(uint8_t shift,uint8_t RL)
 {
 uint8_t i;
