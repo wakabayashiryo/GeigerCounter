@@ -10,6 +10,7 @@
 
 #include <stdlib.h>
 #include <stdint.h>
+#include "Timer1.h"
 
 #ifdef	__cplusplus
 extern "C" {

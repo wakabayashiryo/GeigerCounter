@@ -18,26 +18,22 @@ void Timer1_Init(void)
     TMR1IF = 0;
     PEIE = 1;
     GIE = 1;
+}
+
+uint16_t Timer1_DiffCounter(void)
+{
+    uint16_t counternow;
     
-}
-
-void Timer1_Clear(void)
-{
-    TMR1_STOP();
-    TMR1 = 0x0000;
-    TMR1_START();
-}
-
-uint16_t Timer1_Read(void)
-{
-    return TMR1;
+    counternow = Timer1_Read();
+    Timer1_Clear();
+    
+    return counternow;
 }
 
 void Timer1_Handler(void)
 {
     if(TMR1IF&&TMR1IE)
     {
-     ;   
+        TMR1IF = 0;   
     }
-    TMR1IF = 0;
 }

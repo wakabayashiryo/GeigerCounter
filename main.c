@@ -11,11 +11,15 @@
 
 int8_t main(void)
 {
+    uint32_t countsum=0;
+    
     Basic_Init();
-
+    Timer1_Init();
+    Timer1_Start();
+    
     while(1)
     {
-        
+        Timer1_DiffCounter();
     }
     return EXIT_SUCCESS;
 }
@@ -43,5 +47,5 @@ int8_t Basic_Init(void)
 
 void interrupt Handler(void)
 {
-    
+    Timer1_Handler();
 }

@@ -3883,8 +3883,13 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
+# 28 "Timer1.h"
+void Timer1_Init(void);
+uint16_t Timer1_DiffCounter(void);
+void Timer1_Handler(void);
 
-# 23 "main.h"
+
+# 24 "main.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = ON
 #pragma config PWRTE = ON
@@ -3903,17 +3908,21 @@ typedef uint16_t uintptr_t;
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 46
+# 47
 int8_t Basic_Init(void);
 
 # 12 "main.c"
 int8_t main(void)
 {
+uint32_t countsum=0;
+
 Basic_Init();
+Timer1_Init();
+TMR1ON = 1;;
 
 while(1)
 {
-
+Timer1_DiffCounter();
 }
 return 0;
 }
@@ -3941,5 +3950,5 @@ return 0;
 
 void interrupt Handler(void)
 {
-
+Timer1_Handler();
 }

@@ -13,10 +13,16 @@
 [v _memcpyee memcpyee `(v  1 e 1 0 ]
 "12 /home/evaota/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
-"23
+"27
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
-"44
+"48
 [v _Handler Handler `II(v  1 e 1 0 ]
+"3 /home/evaota/GeigerCounter.X/Timer1.c
+[v _Timer1_Init Timer1_Init `(v  1 e 1 0 ]
+"23
+[v _Timer1_DiffCounter Timer1_DiffCounter `(ui  1 e 2 0 ]
+"33
+[v _Timer1_Handler Timer1_Handler `(v  1 e 1 0 ]
 "412 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [v _PORTA PORTA `VEuc  1 e 1 @12 ]
 "473
@@ -54,15 +60,34 @@
 "12 /home/evaota/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
 {
+"14
+[v main@countsum countsum `ul  1 a 4 3 ]
+"25
+} 0
+"3 /home/evaota/GeigerCounter.X/Timer1.c
+[v _Timer1_Init Timer1_Init `(v  1 e 1 0 ]
+{
 "21
 } 0
 "23
+[v _Timer1_DiffCounter Timer1_DiffCounter `(ui  1 e 2 0 ]
+{
+"25
+[v Timer1_DiffCounter@counternow counternow `ui  1 a 2 1 ]
+"31
+} 0
+"27 /home/evaota/GeigerCounter.X/main.c
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
 {
-"42
+"46
 } 0
-"44
+"48
 [v _Handler Handler `II(v  1 e 1 0 ]
 {
-"47
+"51
+} 0
+"33 /home/evaota/GeigerCounter.X/Timer1.c
+[v _Timer1_Handler Timer1_Handler `(v  1 e 1 0 ]
+{
+"39
 } 0

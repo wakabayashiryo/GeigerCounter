@@ -15,10 +15,19 @@ extern "C" {
 #include <xc.h>
 #include "main.h"
     
-#define TMR1_START() TMR1ON = 1;
-#define TMR1_STOP() TMR1ON = 0;
+#define Timer1_Start()  TMR1ON = 1;
+#define Timer1_Stop()   TMR1ON = 0;
 
-
+#define Timer1_Read()   TMR1;
+#define Timer1_Write(x)  {Timer1_Stop();\
+                        TMR1 = (uint16_t)x;\
+                        Timer1_Start();\
+                        }   
+#define Timer1_Clear()  Timer1_Write(0x0000)
+    
+void Timer1_Init(void);
+uint16_t Timer1_DiffCounter(void);
+void Timer1_Handler(void);
 
 #ifdef	__cplusplus
 }

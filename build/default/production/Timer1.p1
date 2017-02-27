@@ -2852,37 +2852,40 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-"23 main.h
+"24 main.h
 [p x FOSC=INTOSC ]
-"24
-[p x WDTE=ON ]
 "25
-[p x PWRTE=ON ]
+[p x WDTE=ON ]
 "26
-[p x MCLRE=ON ]
+[p x PWRTE=ON ]
 "27
-[p x CP=OFF ]
+[p x MCLRE=ON ]
 "28
-[p x CPD=OFF ]
+[p x CP=OFF ]
 "29
-[p x BOREN=ON ]
+[p x CPD=OFF ]
 "30
-[p x CLKOUTEN=OFF ]
+[p x BOREN=ON ]
 "31
-[p x IESO=OFF ]
+[p x CLKOUTEN=OFF ]
 "32
+[p x IESO=OFF ]
+"33
 [p x FCMEN=OFF ]
-"35
-[p x WRT=OFF ]
 "36
-[p x PLLEN=ON ]
+[p x WRT=OFF ]
 "37
-[p x STVREN=OFF ]
+[p x PLLEN=ON ]
 "38
-[p x BORV=LO ]
+[p x STVREN=OFF ]
 "39
+[p x BORV=LO ]
+"40
 [p x LVP=OFF ]
-[; ;main.h: 46: int8_t Basic_Init(void);
+[; ;main.h: 47: int8_t Basic_Init(void);
+[; ;Timer1.h: 28: void Timer1_Init(void);
+[; ;Timer1.h: 29: uint16_t Timer1_DiffCounter(void);
+[; ;Timer1.h: 30: void Timer1_Handler(void);
 "3 Timer1.c
 [v _Timer1_Init `(v ~T0 @X0 1 ef ]
 "4
@@ -2927,70 +2930,61 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.c: 20: GIE = 1;
 "20
 [e = _GIE -> -> 1 `i `b ]
-[; ;Timer1.c: 22: }
-"22
+[; ;Timer1.c: 21: }
+"21
 [e :UE 353 ]
 }
+"23
+[v _Timer1_DiffCounter `(ui ~T0 @X0 1 ef ]
 "24
-[v _Timer1_Clear `(v ~T0 @X0 1 ef ]
-"25
 {
-[; ;Timer1.c: 24: void Timer1_Clear(void)
-[; ;Timer1.c: 25: {
-[e :U _Timer1_Clear ]
+[; ;Timer1.c: 23: uint16_t Timer1_DiffCounter(void)
+[; ;Timer1.c: 24: {
+[e :U _Timer1_DiffCounter ]
 [f ]
-[; ;Timer1.c: 26: TMR1ON = 0;;
-"26
-[e = _TMR1ON -> -> 0 `i `b ]
-[; ;Timer1.c: 27: TMR1 = 0x0000;
+"25
+[v _counternow `ui ~T0 @X0 1 a ]
+[; ;Timer1.c: 25: uint16_t counternow;
+[; ;Timer1.c: 27: counternow = TMR1;;
 "27
-[e = _TMR1 -> -> 0 `i `us ]
-[; ;Timer1.c: 28: TMR1ON = 1;;
+[e = _counternow -> _TMR1 `ui ]
+[; ;Timer1.c: 28: {TMR1ON = 0;; TMR1 = (uint16_t)0x0000; TMR1ON = 1;; };
 "28
+{
+[e = _TMR1ON -> -> 0 `i `b ]
+[e = _TMR1 -> -> -> 0 `i `ui `us ]
 [e = _TMR1ON -> -> 1 `i `b ]
-[; ;Timer1.c: 29: }
-"29
+}
+[; ;Timer1.c: 30: return counternow;
+"30
+[e ) _counternow ]
+[e $UE 354  ]
+[; ;Timer1.c: 31: }
+"31
 [e :UE 354 ]
 }
-"31
-[v _Timer1_Read `(ui ~T0 @X0 1 ef ]
-"32
-{
-[; ;Timer1.c: 31: uint16_t Timer1_Read(void)
-[; ;Timer1.c: 32: {
-[e :U _Timer1_Read ]
-[f ]
-[; ;Timer1.c: 33: return TMR1;
 "33
-[e ) -> _TMR1 `ui ]
-[e $UE 355  ]
-[; ;Timer1.c: 34: }
-"34
-[e :UE 355 ]
-}
-"36
 [v _Timer1_Handler `(v ~T0 @X0 1 ef ]
-"37
+"34
 {
-[; ;Timer1.c: 36: void Timer1_Handler(void)
-[; ;Timer1.c: 37: {
+[; ;Timer1.c: 33: void Timer1_Handler(void)
+[; ;Timer1.c: 34: {
 [e :U _Timer1_Handler ]
 [f ]
-[; ;Timer1.c: 38: if(TMR1IF&&TMR1IE)
-"38
-[e $ ! && _TMR1IF _TMR1IE 357  ]
-[; ;Timer1.c: 39: {
-"39
+[; ;Timer1.c: 35: if(TMR1IF&&TMR1IE)
+"35
+[e $ ! && _TMR1IF _TMR1IE 356  ]
+[; ;Timer1.c: 36: {
+"36
 {
-[; ;Timer1.c: 40: ;
-"41
-}
-[e :U 357 ]
-[; ;Timer1.c: 41: }
-[; ;Timer1.c: 42: TMR1IF = 0;
-"42
+[; ;Timer1.c: 37: TMR1IF = 0;
+"37
 [e = _TMR1IF -> -> 0 `i `b ]
-[; ;Timer1.c: 43: }
-"43
-[e :UE 356 ]
+"38
+}
+[e :U 356 ]
+[; ;Timer1.c: 38: }
+[; ;Timer1.c: 39: }
+"39
+[e :UE 355 ]
 }
