@@ -14,9 +14,15 @@ int8_t main(void)
 {
     Basic_Init();
 
+    uint8_t sample[10]={
+        0,1,2,3,4,5,6,7,8,9
+    };
+    uint8_t readdat[10];
+    
     while(1)
     {
-        
+        EEPROM_MultiWrite(sample,10,0);
+        EEPROM_MultiRead(readdat,10,0);
     }
     return EXIT_SUCCESS;
 }

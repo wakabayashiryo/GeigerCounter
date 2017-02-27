@@ -11,9 +11,17 @@
 [v _eecpymem eecpymem `(v  1 e 1 0 ]
 "39
 [v _memcpyee memcpyee `(v  1 e 1 0 ]
-"13 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+"6 /opt/microchip/xc8/v1.41/sources/pic/eeread.c
+[v _eeprom_read eeprom_read `(uc  1 e 1 0 ]
+"6 /opt/microchip/xc8/v1.41/sources/pic/eewrite.c
+[v _eeprom_write eeprom_write `(v  1 e 1 0 ]
+"12 /home/evaota/GeigerCounter.X/eeprom.c
+[v _EEPROM_MultiWrite EEPROM_MultiWrite `(c  1 e 1 0 ]
+"30
+[v _EEPROM_MultiRead EEPROM_MultiRead `(c  1 e 1 0 ]
+"13 /home/evaota/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
-"24
+"30
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
 "412 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [v _PORTA PORTA `VEuc  1 e 1 @12 ]
@@ -33,13 +41,83 @@
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
 "2846
 [v _ANSELB ANSELB `VEuc  1 e 1 @397 ]
-"13 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+"2910
+[v _EEADR EEADR `VEus  1 e 2 @401 ]
+"2965
+[v _EEDATA EEDATA `VEuc  1 e 1 @403 ]
+"3016
+[v _EECON1 EECON1 `VEuc  1 e 1 @405 ]
+"3077
+[v _EECON2 EECON2 `VEuc  1 e 1 @406 ]
+"6780
+[v _CARRY CARRY `VEb  1 e 0 @24 ]
+"6960
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"7248
+[v _RD RD `VEb  1 e 0 @3240 ]
+"7544
+[v _WR WR `VEb  1 e 0 @3241 ]
+"7546
+[v _WREN WREN `VEb  1 e 0 @3242 ]
+"13 /home/evaota/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
 {
-"22
+"20
+[v main@readdat readdat `[10]uc  1 a 10 10 ]
+"17
+[v main@sample sample `[10]uc  1 a 10 0 ]
+"15
+[v main@F2935 F2935 `[10]uc  1 s 10 F2935 ]
+"28
 } 0
+"12 /home/evaota/GeigerCounter.X/eeprom.c
+[v _EEPROM_MultiWrite EEPROM_MultiWrite `(c  1 e 1 0 ]
+{
+[v EEPROM_MultiWrite@pData pData `*.4uc  1 a 1 wreg ]
+"14
+[v EEPROM_MultiWrite@i i `uc  1 a 1 10 ]
+"12
+[v EEPROM_MultiWrite@pData pData `*.4uc  1 a 1 wreg ]
+[v EEPROM_MultiWrite@size size `uc  1 p 1 4 ]
+[v EEPROM_MultiWrite@addr addr `uc  1 p 1 5 ]
+"14
+[v EEPROM_MultiWrite@pData pData `*.4uc  1 a 1 9 ]
 "24
+} 0
+"6 /opt/microchip/xc8/v1.41/sources/pic/eewrite.c
+[v _eeprom_write eeprom_write `(v  1 e 1 0 ]
+{
+[v eeprom_write@addr addr `uc  1 a 1 wreg ]
+[v eeprom_write@addr addr `uc  1 a 1 wreg ]
+[v eeprom_write@value value `uc  1 p 1 0 ]
+[v eeprom_write@addr addr `uc  1 a 1 3 ]
+"9
+} 0
+"30 /home/evaota/GeigerCounter.X/eeprom.c
+[v _EEPROM_MultiRead EEPROM_MultiRead `(c  1 e 1 0 ]
+{
+[v EEPROM_MultiRead@pData pData `*.4uc  1 a 1 wreg ]
+"32
+[v EEPROM_MultiRead@i i `uc  1 a 1 10 ]
+"30
+[v EEPROM_MultiRead@pData pData `*.4uc  1 a 1 wreg ]
+[v EEPROM_MultiRead@size size `uc  1 p 1 4 ]
+[v EEPROM_MultiRead@addr addr `uc  1 p 1 5 ]
+"32
+[v EEPROM_MultiRead@pData pData `*.4uc  1 a 1 9 ]
+"42
+} 0
+"6 /opt/microchip/xc8/v1.41/sources/pic/eeread.c
+[v _eeprom_read eeprom_read `(uc  1 e 1 0 ]
+{
+[v eeprom_read@addr addr `uc  1 a 1 wreg ]
+[v eeprom_read@addr addr `uc  1 a 1 wreg ]
+"9
+[v eeprom_read@addr addr `uc  1 a 1 3 ]
+"12
+} 0
+"30 /home/evaota/GeigerCounter.X/main.c
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
 {
-"43
+"49
 } 0

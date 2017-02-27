@@ -2,6 +2,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "47 main.h
 [v _Basic_Init `(c ~T0 @X0 0 ef ]
+"18 eeprom.h
+[v _EEPROM_MultiWrite `(c ~T0 @X0 0 ef3`*uc`uc`uc ]
+"19
+[v _EEPROM_MultiRead `(c ~T0 @X0 0 ef3`*uc`uc`uc ]
 "1662 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [v _OSCCON `Vuc ~T0 @X0 0 e@153 ]
 "1118
@@ -2897,67 +2901,100 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 15: Basic_Init();
 "15
 [e ( _Basic_Init ..  ]
-[; ;main.c: 17: while(1)
-"17
-[e :U 355 ]
-[; ;main.c: 18: {
+[v F2935 `uc ~T0 @X0 -> 10 `i s ]
+[i F2935
+:U ..
 "18
-{
+-> -> 0 `i `uc
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 3 `i `uc
+-> -> 4 `i `uc
+-> -> 5 `i `uc
+-> -> 6 `i `uc
+-> -> 7 `i `uc
+-> -> 8 `i `uc
+"19
+-> -> 9 `i `uc
+..
+]
+"17
+[v _sample `uc ~T0 @X0 -> 10 `i a ]
+[; ;main.c: 17: uint8_t sample[10]={
+[; ;main.c: 18: 0,1,2,3,4,5,6,7,8,9
+[; ;main.c: 19: };
+"19
+[e = _sample F2935 ]
 "20
+[v _readdat `uc ~T0 @X0 -> 10 `i a ]
+[; ;main.c: 20: uint8_t readdat[10];
+[; ;main.c: 22: while(1)
+"22
+[e :U 355 ]
+[; ;main.c: 23: {
+"23
+{
+[; ;main.c: 24: EEPROM_MultiWrite(sample,10,0);
+"24
+[e ( _EEPROM_MultiWrite (3 , , &U _sample -> -> 10 `i `uc -> -> 0 `i `uc ]
+[; ;main.c: 25: EEPROM_MultiRead(readdat,10,0);
+"25
+[e ( _EEPROM_MultiRead (3 , , &U _readdat -> -> 10 `i `uc -> -> 0 `i `uc ]
+"26
 }
 [e :U 354 ]
-"17
+"22
 [e $U 355  ]
 [e :U 356 ]
-[; ;main.c: 20: }
-[; ;main.c: 21: return 0;
-"21
+[; ;main.c: 26: }
+[; ;main.c: 27: return 0;
+"27
 [e ) -> -> 0 `i `c ]
 [e $UE 353  ]
-[; ;main.c: 22: }
-"22
+[; ;main.c: 28: }
+"28
 [e :UE 353 ]
 }
-"24
+"30
 [v _Basic_Init `(c ~T0 @X0 1 ef ]
-"25
+"31
 {
-[; ;main.c: 24: int8_t Basic_Init(void)
-[; ;main.c: 25: {
+[; ;main.c: 30: int8_t Basic_Init(void)
+[; ;main.c: 31: {
 [e :U _Basic_Init ]
 [f ]
-[; ;main.c: 26: OSCCON = 0xF3;
-"26
+[; ;main.c: 32: OSCCON = 0xF3;
+"32
 [e = _OSCCON -> -> 243 `i `uc ]
-[; ;main.c: 30: TRISA = 0x07;
-"30
-[e = _TRISA -> -> 7 `i `uc ]
-[; ;main.c: 31: ANSELA = 0x07;
-"31
-[e = _ANSELA -> -> 7 `i `uc ]
-[; ;main.c: 33: TRISB = 0x40;
-"33
-[e = _TRISB -> -> 64 `i `uc ]
-[; ;main.c: 34: ANSELB = 0x00;
-"34
-[e = _ANSELB -> -> 0 `i `uc ]
-[; ;main.c: 36: APFCON0 = 0x08;
+[; ;main.c: 36: TRISA = 0x07;
 "36
-[e = _APFCON0 -> -> 8 `i `uc ]
-[; ;main.c: 37: APFCON1 = 0x00;
+[e = _TRISA -> -> 7 `i `uc ]
+[; ;main.c: 37: ANSELA = 0x07;
 "37
-[e = _APFCON1 -> -> 0 `i `uc ]
-[; ;main.c: 39: PORTA = 0x00;
+[e = _ANSELA -> -> 7 `i `uc ]
+[; ;main.c: 39: TRISB = 0x40;
 "39
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 40: PORTB = 0x00;
+[e = _TRISB -> -> 64 `i `uc ]
+[; ;main.c: 40: ANSELB = 0x00;
 "40
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 42: return 0;
+[e = _ANSELB -> -> 0 `i `uc ]
+[; ;main.c: 42: APFCON0 = 0x08;
 "42
+[e = _APFCON0 -> -> 8 `i `uc ]
+[; ;main.c: 43: APFCON1 = 0x00;
+"43
+[e = _APFCON1 -> -> 0 `i `uc ]
+[; ;main.c: 45: PORTA = 0x00;
+"45
+[e = _PORTA -> -> 0 `i `uc ]
+[; ;main.c: 46: PORTB = 0x00;
+"46
+[e = _PORTB -> -> 0 `i `uc ]
+[; ;main.c: 48: return 0;
+"48
 [e ) -> -> 0 `i `c ]
 [e $UE 357  ]
-[; ;main.c: 43: }
-"43
+[; ;main.c: 49: }
+"49
 [e :UE 357 ]
 }
