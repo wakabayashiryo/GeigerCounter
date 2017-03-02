@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"49 main.h
+"48 main.h
 [v _Basic_Init `(c ~T0 @X0 0 ef ]
 "32 LCD.h
 [v _LCD_Init `(v ~T0 @X0 0 ef ]
@@ -11,8 +11,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LCD_Put `(v ~T0 @X0 0 ef1`c ]
 "36
 [v _LCD_CursorPosition `(v ~T0 @X0 0 ef2`uc`uc ]
-"19 eeprom.h
-[v _EEPROM_MultiRead `(c ~T0 @X0 0 ef3`*uc`uc`uc ]
 "21 xprintf.h
 [v _xprintf `(v ~T0 @X0 0 ev`*Cuc ]
 "1662 /opt/microchip/xc8/v1.41/include/pic16f1827.h
@@ -2885,165 +2883,111 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;xprintf.h: 33: int xgets (char* buff, int len);
 [; ;xprintf.h: 34: int xfgets (unsigned char (*func)(void), char* buff, int len);
 [; ;xprintf.h: 35: int xatoi (char** str, long* res);
-"26 main.h
+"25 main.h
 [p x FOSC=INTOSC ]
-"27
+"26
 [p x WDTE=ON ]
-"28
+"27
 [p x PWRTE=ON ]
-"29
+"28
 [p x MCLRE=ON ]
-"30
+"29
 [p x CP=OFF ]
-"31
+"30
 [p x CPD=OFF ]
-"32
+"31
 [p x BOREN=ON ]
-"33
+"32
 [p x CLKOUTEN=OFF ]
-"34
+"33
 [p x IESO=OFF ]
-"35
+"34
 [p x FCMEN=OFF ]
-"38
+"37
 [p x WRT=OFF ]
-"39
+"38
 [p x PLLEN=ON ]
-"40
+"39
 [p x STVREN=OFF ]
-"41
+"40
 [p x BORV=LO ]
-"42
+"41
 [p x LVP=OFF ]
-[; ;main.h: 49: int8_t Basic_Init(void);
-[; ;eeprom.h: 18: int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
-[; ;eeprom.h: 19: int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
-"13 main.c
+[; ;main.h: 48: int8_t Basic_Init(void);
+"12 main.c
 [v _main `(c ~T0 @X0 1 ef ]
-"14
+"13
 {
-[; ;main.c: 13: int8_t main(void)
-[; ;main.c: 14: {
+[; ;main.c: 12: int8_t main(void)
+[; ;main.c: 13: {
 [e :U _main ]
 [f ]
-[; ;main.c: 15: Basic_Init();
-"15
+[; ;main.c: 14: Basic_Init();
+"14
 [e ( _Basic_Init ..  ]
-[v F2994 `uc ~T0 @X0 -> 5 `i s ]
-[i F2994
-:U ..
-"17
--> -> 19 `i `uc
--> -> 98 `i `uc
--> -> 10 `i `uc
--> -> 5 `i `uc
-"18
--> -> 6 `i `uc
-..
-]
-"16
-[v _sample `uc ~T0 @X0 -> 5 `i a ]
-[; ;main.c: 16: uint8_t sample[5]={
-[; ;main.c: 17: 19,98,10,5,6
-[; ;main.c: 18: };
-"18
-[e = _sample F2994 ]
-"19
-[v _readdat `uc ~T0 @X0 -> 5 `i a ]
-[; ;main.c: 19: uint8_t readdat[5];
-[; ;main.c: 20: LCD_Init();
-"20
+[; ;main.c: 15: LCD_Init();
+"15
 [e ( _LCD_Init ..  ]
-[; ;main.c: 21: xfunc_out = (void(*)(unsigned char))(LCD_Put);
-[v F2996 `(v ~T0 @X0 0 tf1`uc ]
-"21
-[e = _xfunc_out -> &U _LCD_Put `*F2996 ]
-[; ;main.c: 23: while(1)
-"23
-[e :U 355 ]
-[; ;main.c: 24: {
-"24
-{
-[; ;main.c: 26: LCD_CursorPosition(0,0);
-"26
+[; ;main.c: 16: xfunc_out = (void(*)(unsigned char))(LCD_Put);
+[v F2985 `(v ~T0 @X0 0 tf1`uc ]
+"16
+[e = _xfunc_out -> &U _LCD_Put `*F2985 ]
+[; ;main.c: 18: LCD_CursorPosition(0,0);
+"18
 [e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 27: EEPROM_MultiRead(readdat,5,0);
-"27
-[e ( _EEPROM_MultiRead (3 , , &U _readdat -> -> 5 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 28: for(uint8_t i = 0;i<5;i++)
-"28
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 5 `i 357  ]
-[e $U 358  ]
-"29
-[e :U 357 ]
-[; ;main.c: 29: xprintf("%d ",readdat[i]);
-[e ( _xprintf , (. :s 1C -> *U + &U _readdat * -> _i `ux -> -> # *U &U _readdat `ui `ux `i ]
-"28
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 5 `i 357  ]
-[e :U 358 ]
-"29
-}
-"30
-}
-[e :U 354 ]
-"23
-[e $U 355  ]
-[e :U 356 ]
-[; ;main.c: 30: }
-[; ;main.c: 32: return 0;
-"32
+[; ;main.c: 19: xprintf("Hellow World");
+"19
+[e ( _xprintf :s 1C ]
+[; ;main.c: 21: return 0;
+"21
 [e ) -> -> 0 `i `c ]
 [e $UE 353  ]
-[; ;main.c: 33: }
-"33
+[; ;main.c: 22: }
+"22
 [e :UE 353 ]
 }
-"35
+"24
 [v _Basic_Init `(c ~T0 @X0 1 ef ]
-"36
+"25
 {
-[; ;main.c: 35: int8_t Basic_Init(void)
-[; ;main.c: 36: {
+[; ;main.c: 24: int8_t Basic_Init(void)
+[; ;main.c: 25: {
 [e :U _Basic_Init ]
 [f ]
-[; ;main.c: 37: OSCCON = 0xF3;
-"37
+[; ;main.c: 26: OSCCON = 0xF3;
+"26
 [e = _OSCCON -> -> 243 `i `uc ]
-[; ;main.c: 41: TRISA = 0x07;
-"41
+[; ;main.c: 30: TRISA = 0x07;
+"30
 [e = _TRISA -> -> 7 `i `uc ]
-[; ;main.c: 42: ANSELA = 0x07;
-"42
+[; ;main.c: 31: ANSELA = 0x07;
+"31
 [e = _ANSELA -> -> 7 `i `uc ]
-[; ;main.c: 44: TRISB = 0x40;
-"44
+[; ;main.c: 33: TRISB = 0x40;
+"33
 [e = _TRISB -> -> 64 `i `uc ]
-[; ;main.c: 45: ANSELB = 0x00;
-"45
+[; ;main.c: 34: ANSELB = 0x00;
+"34
 [e = _ANSELB -> -> 0 `i `uc ]
-[; ;main.c: 47: APFCON0 = 0x08;
-"47
+[; ;main.c: 36: APFCON0 = 0x08;
+"36
 [e = _APFCON0 -> -> 8 `i `uc ]
-[; ;main.c: 48: APFCON1 = 0x00;
-"48
+[; ;main.c: 37: APFCON1 = 0x00;
+"37
 [e = _APFCON1 -> -> 0 `i `uc ]
-[; ;main.c: 50: PORTA = 0x00;
-"50
+[; ;main.c: 39: PORTA = 0x00;
+"39
 [e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 51: PORTB = 0x00;
-"51
+[; ;main.c: 40: PORTB = 0x00;
+"40
 [e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 53: return 0;
-"53
+[; ;main.c: 42: return 0;
+"42
 [e ) -> -> 0 `i `c ]
-[e $UE 360  ]
-[; ;main.c: 54: }
-"54
-[e :UE 360 ]
+[e $UE 354  ]
+[; ;main.c: 43: }
+"43
+[e :UE 354 ]
 }
-[a 1C 37 100 32 0 ]
+[a 1C 72 101 108 108 111 119 32 87 111 114 108 100 0 ]
 

@@ -3909,7 +3909,7 @@ int xfgets (unsigned char (*func)(void), char* buff, int len);
 int xatoi (char** str, long* res);
 
 
-# 26 "main.h"
+# 25 "main.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = ON
 #pragma config PWRTE = ON
@@ -3928,32 +3928,18 @@ int xatoi (char** str, long* res);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 49
+# 48
 int8_t Basic_Init(void);
 
-# 18 "eeprom.h"
-int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
-int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
-
-# 13 "main.c"
+# 12 "main.c"
 int8_t main(void)
 {
 Basic_Init();
-uint8_t sample[5]={
-19,98,10,5,6
-};
-uint8_t readdat[5];
 LCD_Init();
 xfunc_out = (void(*)(unsigned char))(LCD_Put);
 
-while(1)
-{
-
 LCD_CursorPosition(0,0);
-EEPROM_MultiRead(readdat,5,0);
-for(uint8_t i = 0;i<5;i++)
-xprintf("%d ",readdat[i]);
-}
+xprintf("Hellow World");
 
 return 0;
 }

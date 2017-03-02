@@ -2836,37 +2836,56 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-"24 main.h
+[; ;LCD.h: 32: void LCD_Init(void);
+[; ;LCD.h: 33: void LCD_Put(int8_t word);
+[; ;LCD.h: 34: void LCD_DisplayClear(void);
+[; ;LCD.h: 35: void LCD_CursorHome(void);
+[; ;LCD.h: 36: void LCD_CursorPosition(uint8_t tx ,uint8_t ty);
+[; ;LCD.h: 37: void LCD_CursorShift(uint8_t shift,uint8_t RL);
+[; ;LCD.h: 38: void LCD_DispShift(uint8_t shift,uint8_t RL);
+[; ;xprintf.h: 17: extern void (*xfunc_out)(unsigned char);
+[; ;xprintf.h: 18: void xputc (char c);
+[; ;xprintf.h: 19: void xputs (const char* str);
+[; ;xprintf.h: 20: void xfputs (void (*func)(unsigned char), const char* str);
+[; ;xprintf.h: 21: void xprintf (const char* fmt, ...);
+[; ;xprintf.h: 22: void xsprintf (char* buff, const char* fmt, ...);
+[; ;xprintf.h: 23: void xfprintf (void (*func)(unsigned char), const char* fmt, ...);
+[; ;xprintf.h: 24: void put_dump (const void* buff, unsigned long addr, int len, int width);
+[; ;xprintf.h: 32: extern unsigned char (*xfunc_in)(void);
+[; ;xprintf.h: 33: int xgets (char* buff, int len);
+[; ;xprintf.h: 34: int xfgets (unsigned char (*func)(void), char* buff, int len);
+[; ;xprintf.h: 35: int xatoi (char** str, long* res);
+"26 main.h
 [p x FOSC=INTOSC ]
-"25
-[p x WDTE=ON ]
-"26
-[p x PWRTE=ON ]
 "27
-[p x MCLRE=ON ]
+[p x WDTE=ON ]
 "28
-[p x CP=OFF ]
+[p x PWRTE=ON ]
 "29
-[p x CPD=OFF ]
+[p x MCLRE=ON ]
 "30
-[p x BOREN=ON ]
+[p x CP=OFF ]
 "31
-[p x CLKOUTEN=OFF ]
+[p x CPD=OFF ]
 "32
-[p x IESO=OFF ]
+[p x BOREN=ON ]
 "33
+[p x CLKOUTEN=OFF ]
+"34
+[p x IESO=OFF ]
+"35
 [p x FCMEN=OFF ]
-"36
-[p x WRT=OFF ]
-"37
-[p x PLLEN=ON ]
 "38
-[p x STVREN=OFF ]
+[p x WRT=OFF ]
 "39
-[p x BORV=LO ]
+[p x PLLEN=ON ]
 "40
+[p x STVREN=OFF ]
+"41
+[p x BORV=LO ]
+"42
 [p x LVP=OFF ]
-[; ;main.h: 47: int8_t Basic_Init(void);
+[; ;main.h: 49: int8_t Basic_Init(void);
 [; ;eeprom.h: 18: int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
 [; ;eeprom.h: 19: int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
 "12 eeprom.c

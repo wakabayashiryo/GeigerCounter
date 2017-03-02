@@ -13,17 +13,22 @@
 int8_t main(void)
 {
     Basic_Init();
-
-    uint8_t sample[10]={
-        0,1,2,3,4,5,6,7,8,9
+    uint8_t sample[5]={
+        19,98,10,5,6
     };
-    uint8_t readdat[10];
+    uint8_t readdat[5];
+    LCD_Init();
+    xdev_out(LCD_Put);
     
     while(1)
     {
-        EEPROM_MultiWrite(sample,10,0);
-        EEPROM_MultiRead(readdat,10,0);
+//        EEPROM_MultiWrite(sample,5,0);
+        LCD_CursorPosition(0,0);
+        EEPROM_MultiRead(readdat,5,0);
+        for(uint8_t i = 0;i<5;i++)
+            xprintf("%d ",readdat[i]);
     }
+    
     return EXIT_SUCCESS;
 }
 

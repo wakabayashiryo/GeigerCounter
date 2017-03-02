@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "LCD.c"
 
 # 26 "/opt/microchip/xc8/v1.41/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -3883,15 +3883,6 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 32 "LCD.h"
-void LCD_Init(void);
-void LCD_Put(int8_t word);
-void LCD_DisplayClear(void);
-void LCD_CursorHome(void);
-void LCD_CursorPosition(uint8_t tx ,uint8_t ty);
-void LCD_CursorShift(uint8_t shift,uint8_t RL);
-void LCD_DispShift(uint8_t shift,uint8_t RL);
-
 # 17 "xprintf.h"
 extern void (*xfunc_out)(unsigned char);
 void xputc (char c);
@@ -3931,50 +3922,102 @@ int xatoi (char** str, long* res);
 # 49
 int8_t Basic_Init(void);
 
-# 18 "eeprom.h"
-int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
-int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
+# 32 "LCD.h"
+void LCD_Init(void);
+void LCD_Put(int8_t word);
+void LCD_DisplayClear(void);
+void LCD_CursorHome(void);
+void LCD_CursorPosition(uint8_t tx ,uint8_t ty);
+void LCD_CursorShift(uint8_t shift,uint8_t RL);
+void LCD_DispShift(uint8_t shift,uint8_t RL);
 
-# 13 "main.c"
-int8_t main(void)
+# 15 "LCD.c"
+static void LCD_WriteData(int8_t point)
 {
-Basic_Init();
-uint8_t sample[5]={
-19,98,10,5,6
-};
-uint8_t readdat[5];
-LCD_Init();
-xfunc_out = (void(*)(unsigned char))(LCD_Put);
-
-while(1)
-{
-
-LCD_CursorPosition(0,0);
-EEPROM_MultiRead(readdat,5,0);
-for(uint8_t i = 0;i<5;i++)
-xprintf("%d ",readdat[i]);
+_delay((unsigned long)((80)*(32000000/4000000.0)));
+PORTB = ( (((point>>4)&0x0F&0x0C)<<1)|((point>>4)&0x0F&0x03) );
+{RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
+PORTB = ( ((point&0x0F&0x0C)<<1)|(point&0x0F&0x03) );
+{RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
 }
 
-return 0;
+# 28
+void LCD_Init(void)
+{
+RA4 = 0;
+RA3 = 0;
+
+_delay((unsigned long)((30)*(32000000/4000.0)));
+PORTB = ( ((0x03&0x0C)<<1)|(0x03&0x03) );
+{RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
+_delay((unsigned long)((5)*(32000000/4000.0)));
+{RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
+_delay((unsigned long)((400)*(32000000/4000000.0)));
+{RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
+_delay((unsigned long)((400)*(32000000/4000000.0)));
+PORTB = ( ((0x02&0x0C)<<1)|(0x02&0x03) );
+{RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
+
+LCD_WriteData(0x28);
+LCD_WriteData(0x0c);
+LCD_DisplayClear();
+LCD_WriteData(0x06);
 }
 
-int8_t Basic_Init(void)
+# 54
+void LCD_Put(int8_t word)
 {
-OSCCON = 0xF3;
+RA4 = 1;
+LCD_WriteData(word);
+}
 
+# 64
+void LCD_DisplayClear(void)
+{
+RA4 = 0;
+LCD_WriteData(0x01);
+_delay((unsigned long)((2)*(32000000/4000.0)));
+}
 
+# 75
+void LCD_CursorHome(void)
+{
+RA4 = 0;
+LCD_WriteData(0x02);
+_delay((unsigned long)((2)*(32000000/4000.0)));
+}
 
-TRISA = 0x07;
-ANSELA = 0x07;
+# 86
+void LCD_CursorPosition(uint8_t tx ,uint8_t ty)
+{
+RA4 = 0;
+LCD_WriteData(0x80|tx|(0x40*ty));
+_delay((unsigned long)((40)*(32000000/4000000.0)));
+}
 
-TRISB = 0x40;
-ANSELB = 0x00;
+# 97
+void LCD_CursorShift(uint8_t shift,uint8_t RL)
+{
+uint8_t i;
 
-APFCON0 = 0x08;
-APFCON1 = 0x00;
+RA4 = 0;
 
-PORTA = 0x00;
-PORTB = 0x00;
+for(i=0;i<shift;i++)
+{
+LCD_WriteData(0x10|((RL&0x01)<<2));
+_delay((unsigned long)((40)*(32000000/4000000.0)));
+}
+}
 
-return 0;
+# 114
+void LCD_DispShift(uint8_t shift,uint8_t RL)
+{
+uint8_t i;
+
+RA4 = 0;
+for(i=0;i<shift;i++)
+{
+LCD_WriteData(0x18|((RL&0x01)<<2));
+_delay((unsigned long)((40)*(32000000/4000000.0)));
+}
 }
