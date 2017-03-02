@@ -1,15 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-<<<<<<< HEAD
-"47 main.h
-[v _Basic_Init `(c ~T0 @X0 0 ef ]
-"28 Timer1.h
-[v _Timer1_Init `(v ~T0 @X0 0 ef ]
-"7434 /opt/microchip/xc8/v1.41/include/pic16f1827.h
-[v _TMR1ON `Vb ~T0 @X0 0 e@192 ]
-"29 Timer1.h
-[v _Timer1_DiffCounter `(ui ~T0 @X0 0 ef ]
-=======
 "48 main.h
 [v _Basic_Init `(c ~T0 @X0 0 ef ]
 "32 LCD.h
@@ -23,7 +13,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LCD_CursorPosition `(v ~T0 @X0 0 ef2`uc`uc ]
 "21 xprintf.h
 [v _xprintf `(v ~T0 @X0 0 ev`*Cuc ]
->>>>>>> master
 "1662 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [v _OSCCON `Vuc ~T0 @X0 0 e@153 ]
 "1118
@@ -42,8 +31,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PORTA `Vuc ~T0 @X0 0 e@12 ]
 "473
 [v _PORTB `Vuc ~T0 @X0 0 e@13 ]
-"30 Timer1.h
-[v _Timer1_Handler `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2877,42 +2864,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-<<<<<<< HEAD
-[; ;Timer1.h: 28: void Timer1_Init(void);
-[; ;Timer1.h: 29: uint16_t Timer1_DiffCounter(void);
-[; ;Timer1.h: 30: void Timer1_Handler(void);
-"24 main.h
-[p x FOSC=INTOSC ]
-"25
-[p x WDTE=ON ]
-"26
-[p x PWRTE=ON ]
-"27
-[p x MCLRE=ON ]
-"28
-[p x CP=OFF ]
-"29
-[p x CPD=OFF ]
-"30
-[p x BOREN=ON ]
-"31
-[p x CLKOUTEN=OFF ]
-"32
-[p x IESO=OFF ]
-"33
-[p x FCMEN=OFF ]
-"36
-[p x WRT=OFF ]
-"37
-[p x PLLEN=ON ]
-"38
-[p x STVREN=OFF ]
-"39
-[p x BORV=LO ]
-"40
-[p x LVP=OFF ]
-[; ;main.h: 47: int8_t Basic_Init(void);
-=======
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void LCD_DisplayClear(void);
@@ -2963,7 +2914,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 "41
 [p x LVP=OFF ]
 [; ;main.h: 48: int8_t Basic_Init(void);
->>>>>>> master
 "12 main.c
 [v _main `(c ~T0 @X0 1 ef ]
 "13
@@ -2972,92 +2922,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 13: {
 [e :U _main ]
 [f ]
+[; ;main.c: 14: Basic_Init();
 "14
-<<<<<<< HEAD
-[v _countsum `ul ~T0 @X0 1 a ]
-[; ;main.c: 14: uint32_t countsum=0;
-[e = _countsum -> -> -> 0 `i `l `ul ]
-[; ;main.c: 16: Basic_Init();
-=======
 [e ( _Basic_Init ..  ]
-<<<<<<< HEAD
-[; ;main.c: 16: while(1)
->>>>>>> master
-"16
-[e ( _Basic_Init ..  ]
-[; ;main.c: 17: Timer1_Init();
-"17
-[e ( _Timer1_Init ..  ]
-[; ;main.c: 18: TMR1ON = 1;;
-"18
-[e = _TMR1ON -> -> 1 `i `b ]
-[; ;main.c: 20: while(1)
-"20
-[e :U 355 ]
-[; ;main.c: 21: {
-"21
-{
-[; ;main.c: 22: Timer1_DiffCounter();
-"22
-[e ( _Timer1_DiffCounter ..  ]
-"23
-}
-[e :U 354 ]
-"20
-[e $U 355  ]
-[e :U 356 ]
-[; ;main.c: 23: }
-[; ;main.c: 24: return 0;
-"24
-[e ) -> -> 0 `i `c ]
-[e $UE 353  ]
-[; ;main.c: 25: }
-"25
-[e :UE 353 ]
-}
-"27
-[v _Basic_Init `(c ~T0 @X0 1 ef ]
-"28
-{
-[; ;main.c: 27: int8_t Basic_Init(void)
-[; ;main.c: 28: {
-[e :U _Basic_Init ]
-[f ]
-[; ;main.c: 29: OSCCON = 0xF3;
-"29
-[e = _OSCCON -> -> 243 `i `uc ]
-[; ;main.c: 33: TRISA = 0x07;
-"33
-[e = _TRISA -> -> 7 `i `uc ]
-[; ;main.c: 34: ANSELA = 0x07;
-"34
-[e = _ANSELA -> -> 7 `i `uc ]
-[; ;main.c: 36: TRISB = 0x40;
-"36
-[e = _TRISB -> -> 64 `i `uc ]
-[; ;main.c: 37: ANSELB = 0x00;
-"37
-[e = _ANSELB -> -> 0 `i `uc ]
-[; ;main.c: 39: APFCON0 = 0x08;
-"39
-[e = _APFCON0 -> -> 8 `i `uc ]
-[; ;main.c: 40: APFCON1 = 0x00;
-"40
-[e = _APFCON1 -> -> 0 `i `uc ]
-[; ;main.c: 42: PORTA = 0x00;
-"42
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 43: PORTB = 0x00;
-"43
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 45: return 0;
-"45
-[e ) -> -> 0 `i `c ]
-[e $UE 357  ]
-[; ;main.c: 46: }
-"46
-[e :UE 357 ]
-=======
 [; ;main.c: 15: LCD_Init();
 "15
 [e ( _LCD_Init ..  ]
@@ -3121,26 +2988,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 43: }
 "43
 [e :UE 354 ]
->>>>>>> LCD
 }
-<<<<<<< HEAD
-[v F2936 `(v ~T0 @X0 1 tf ]
-"48
-[v _Handler `IF2936 ~T0 @X0 1 e ]
-"49
-{
-[; ;main.c: 48: void interrupt Handler(void)
-[; ;main.c: 49: {
-[e :U _Handler ]
-[f ]
-[; ;main.c: 50: Timer1_Handler();
-"50
-[e ( _Timer1_Handler ..  ]
-[; ;main.c: 51: }
-"51
-[e :UE 358 ]
-}
-=======
 [a 1C 72 101 108 108 111 119 32 87 111 114 108 100 0 ]
 
->>>>>>> master

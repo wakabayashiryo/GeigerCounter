@@ -1,12 +1,7 @@
 
 Memory Summary:
-<<<<<<< HEAD
-    Program space        used    64h (   100) of  1000h words   (  2.4%)
-    Data space           used     9h (     9) of   180h bytes   (  2.3%)
-=======
     Program space        used   457h (  1111) of  1000h words   ( 27.1%)
     Data space           used    4Dh (    77) of   180h bytes   ( 20.1%)
->>>>>>> master
     EEPROM space         used     0h (     0) of   100h bytes   (  0.0%)
     Data stack space     used     0h (     0) of   133h bytes   (  0.0%)
     Configuration bits   used     2h (     2) of     2h words   (100.0%)

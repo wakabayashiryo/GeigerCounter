@@ -14,13 +14,26 @@ int8_t main(void)
     uint32_t countsum=0;
     
     Basic_Init();
+<<<<<<< HEAD
     Timer1_Init();
     Timer1_Start();
     
+=======
+<<<<<<< HEAD
+
+>>>>>>> master
     while(1)
     {
         Timer1_DiffCounter();
     }
+=======
+    LCD_Init();
+    xdev_out(LCD_Put);
+    
+    LCD_CursorPosition(0,0);
+    xprintf("Hellow World");
+    
+>>>>>>> LCD
     return EXIT_SUCCESS;
 }
 

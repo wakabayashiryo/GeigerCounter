@@ -3883,15 +3883,6 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-<<<<<<< HEAD
-# 28 "Timer1.h"
-void Timer1_Init(void);
-uint16_t Timer1_DiffCounter(void);
-void Timer1_Handler(void);
-
-
-# 24 "main.h"
-=======
 # 32 "LCD.h"
 void LCD_Init(void);
 void LCD_Put(int8_t word);
@@ -3919,7 +3910,6 @@ int xatoi (char** str, long* res);
 
 
 # 25 "main.h"
->>>>>>> master
 #pragma config FOSC = INTOSC
 #pragma config WDTE = ON
 #pragma config PWRTE = ON
@@ -3938,34 +3928,19 @@ int xatoi (char** str, long* res);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-<<<<<<< HEAD
-# 47
-=======
 # 48
->>>>>>> master
 int8_t Basic_Init(void);
 
 # 12 "main.c"
 int8_t main(void)
 {
-uint32_t countsum=0;
-
 Basic_Init();
-<<<<<<< HEAD
-Timer1_Init();
-TMR1ON = 1;;
-=======
 LCD_Init();
 xfunc_out = (void(*)(unsigned char))(LCD_Put);
 
 LCD_CursorPosition(0,0);
 xprintf("Hellow World");
->>>>>>> master
 
-while(1)
-{
-Timer1_DiffCounter();
-}
 return 0;
 }
 
@@ -3988,9 +3963,4 @@ PORTA = 0x00;
 PORTB = 0x00;
 
 return 0;
-}
-
-void interrupt Handler(void)
-{
-Timer1_Handler();
 }
