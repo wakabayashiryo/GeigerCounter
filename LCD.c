@@ -18,7 +18,7 @@ static void LCD_WriteData(int8_t point)
     LCD_BUS((point>>4)&0x0F);   //Higher 4Bit
     LCD_STROBO();
     LCD_BUS(point&0x0F);        //Lower 4Bit
-    LCD_STROBO();    
+    LCD_STROBO();     
 }
 
 /*----------------------------------------------------------

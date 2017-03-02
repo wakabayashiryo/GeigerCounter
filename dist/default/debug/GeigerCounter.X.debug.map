@@ -3,10 +3,10 @@ Microchip MPLAB XC8 Compiler V1.41 ()
 Linker command line:
 
 -W-3 --edf=/opt/microchip/xc8/v1.41/dat/en_msgs.txt -cs \
-  -h+dist/default/production/GeigerCounter.X.production.sym \
-  --cmf=dist/default/production/GeigerCounter.X.production.cmf -z -Q16F1827 \
-  -o/tmp/xcX40Yaly -Mdist/default/production/GeigerCounter.X.production.map \
-  -E1 -ver=XC8 -ASTACK=0203Dh-0216fh -pstack=STACK -ACODE=00h-07FFhx2 \
+  -h+dist/default/debug/GeigerCounter.X.debug.sym \
+  --cmf=dist/default/debug/GeigerCounter.X.debug.cmf -z -Q16F1827 \
+  -o/tmp/xcXv9Lun6 -Mdist/default/debug/GeigerCounter.X.debug.map -E1 \
+  -ver=XC8 -ASTACK=0203Dh-0216fh -pstack=STACK -ACODE=00h-07FFhx2 \
   -ASTRCODE=00h-0FFFh -ASTRING=00h-0FFhx16 -ACONST=00h-0FFhx16 \
   -AENTRY=00h-0FFhx16 -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
   -ABANK1=0A0h-0EFh -ABANK2=0120h-016Fh -ABANK3=01A0h-01EFh \
@@ -27,8 +27,8 @@ Linker command line:
   -pcinit=CODE -pfunctab=CODE -ACONFIG=08007h-08008h -pconfig=CONFIG \
   -DCONFIG=2 -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 \
   -AEEDATA=00h-0FFh/0F000h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
-  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/xcX6H20oC.obj \
-  dist/default/production/GeigerCounter.X.production.obj 
+  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/xcXby8xoF.obj \
+  dist/default/debug/GeigerCounter.X.debug.obj 
 
 Object code version is 3.11
 
@@ -37,11 +37,11 @@ Machine type is 16F1827
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcX6H20oC.obj
+/tmp/xcXby8xoF.obj
                 end_init                              2        2        2        0       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        2    1000E       0
-dist/default/production/GeigerCounter.X.production.obj
+dist/default/debug/GeigerCounter.X.debug.obj
                 cinit                               7F8      7F8        8      FF0       0
                 text13                              40C      40C       15      818       0
                 text12                              497      497       3A      92E       0
@@ -850,7 +850,7 @@ Total ram usage:        2 bytes
 
  *************** function _LCD_Put *****************
  Defined at:
-		line 54 in file "LCD.c"
+		line 55 in file "LCD.c"
  Parameters:    Size  Location     Type
   word            1    3[COMMON] char 
  Auto vars:     Size  Location     Type
@@ -972,7 +972,7 @@ Total ram usage:       14 bytes
 
  *************** function _LCD_Init *****************
  Defined at:
-		line 28 in file "LCD.c"
+		line 29 in file "LCD.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1003,7 +1003,7 @@ Total ram usage:        2 bytes
 
  *************** function _LCD_DisplayClear *****************
  Defined at:
-		line 64 in file "LCD.c"
+		line 65 in file "LCD.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1033,7 +1033,7 @@ Total ram usage:        1 bytes
 
  *************** function _LCD_CursorPosition *****************
  Defined at:
-		line 86 in file "LCD.c"
+		line 87 in file "LCD.c"
  Parameters:    Size  Location     Type
   tx              1    wreg     unsigned char 
   ty              1    3[COMMON] unsigned char 
