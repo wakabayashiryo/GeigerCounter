@@ -3937,10 +3937,12 @@ int8_t main(void)
 Basic_Init();
 LCD_Init();
 xfunc_out = (void(*)(unsigned char))(LCD_Put);
-
+uint16_t i = 0;
+while(1)
+{
 LCD_CursorPosition(0,0);
-xprintf("Hellow World");
-
+xprintf("Hellow World %d",i++);
+}
 return 0;
 }
 
