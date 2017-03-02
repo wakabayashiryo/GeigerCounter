@@ -10,12 +10,9 @@
 
 #include <stdlib.h>
 #include <stdint.h>
-<<<<<<< HEAD
 #include "Timer1.h"
-=======
 #include "LCD.h"
 #include "xprintf.h"
->>>>>>> master
 
 #ifdef	__cplusplus
 extern "C" {

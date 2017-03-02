@@ -18,7 +18,7 @@ extern "C" {
 #define Timer1_Start()  TMR1ON = 1;
 #define Timer1_Stop()   TMR1ON = 0;
 
-#define Timer1_Read()   TMR1;
+#define Timer1_Read()   (uint16_t)TMR1
 #define Timer1_Write(x)  {Timer1_Stop();\
                         TMR1 = (uint16_t)x;\
                         Timer1_Start();\
