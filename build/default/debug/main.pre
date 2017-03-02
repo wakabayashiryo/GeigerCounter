@@ -3941,10 +3941,6 @@ xfunc_out = (void(*)(unsigned char))(LCD_Put);
 LCD_CursorPosition(0,0);
 xprintf("Hellow World");
 
-while(1)
-{
-
-}
 return 0;
 }
 

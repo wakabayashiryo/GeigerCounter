@@ -10,6 +10,8 @@
 
 #include <stdlib.h>
 #include <stdint.h>
+#include "LCD.h"
+#include "xprintf.h"
 
 #ifdef	__cplusplus
 extern "C" {

@@ -5,7 +5,7 @@
   1052h - 1000Dh
   10012h - 1003Fh
   
- dist/default/production/GeigerCounter.X.production.hex ranges:
+ dist/default/debug/GeigerCounter.X.debug.hex ranges:
   0h - 7h
   7A8h - 1051h
   1000Eh - 10011h
@@ -21,7 +21,7 @@
   T = Trailing code
   & = Find & replace opcode
   X = Find & delete opcode
-  1 = dist/default/production/GeigerCounter.X.production.hex
+  1 = dist/default/debug/GeigerCounter.X.debug.hex
 00000000: 11111111--------------------------------------------------------
 00000780: ----------------------------------------111111111111111111111111
 000007C0: 1111111111111111111111111111111111111111111111111111111111111111

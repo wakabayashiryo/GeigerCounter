@@ -2925,71 +2925,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 14: Basic_Init();
 "14
 [e ( _Basic_Init ..  ]
-<<<<<<< HEAD
-[; ;main.c: 16: while(1)
-"16
-[e :U 355 ]
-[; ;main.c: 17: {
-"17
-{
-"19
-}
-[e :U 354 ]
-"16
-[e $U 355  ]
-[e :U 356 ]
-[; ;main.c: 19: }
-[; ;main.c: 20: return 0;
-"20
-[e ) -> -> 0 `i `c ]
-[e $UE 353  ]
-[; ;main.c: 21: }
-"21
-[e :UE 353 ]
-}
-"23
-[v _Basic_Init `(c ~T0 @X0 1 ef ]
-"24
-{
-[; ;main.c: 23: int8_t Basic_Init(void)
-[; ;main.c: 24: {
-[e :U _Basic_Init ]
-[f ]
-[; ;main.c: 25: OSCCON = 0xF3;
-"25
-[e = _OSCCON -> -> 243 `i `uc ]
-[; ;main.c: 29: TRISA = 0x07;
-"29
-[e = _TRISA -> -> 7 `i `uc ]
-[; ;main.c: 30: ANSELA = 0x07;
-"30
-[e = _ANSELA -> -> 7 `i `uc ]
-[; ;main.c: 32: TRISB = 0x40;
-"32
-[e = _TRISB -> -> 64 `i `uc ]
-[; ;main.c: 33: ANSELB = 0x00;
-"33
-[e = _ANSELB -> -> 0 `i `uc ]
-[; ;main.c: 35: APFCON0 = 0x08;
-"35
-[e = _APFCON0 -> -> 8 `i `uc ]
-[; ;main.c: 36: APFCON1 = 0x00;
-"36
-[e = _APFCON1 -> -> 0 `i `uc ]
-[; ;main.c: 38: PORTA = 0x00;
-"38
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 39: PORTB = 0x00;
-"39
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 41: return 0;
-"41
-[e ) -> -> 0 `i `c ]
-[e $UE 357  ]
-[; ;main.c: 42: }
-"42
-[e :UE 357 ]
-=======
 [; ;main.c: 15: LCD_Init();
 "15
 [e ( _LCD_Init ..  ]
@@ -3053,7 +2988,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 43: }
 "43
 [e :UE 354 ]
->>>>>>> LCD
 }
 [a 1C 72 101 108 108 111 119 32 87 111 114 108 100 0 ]
 
