@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.41 build -162212810 
-                                                                                               Thu Mar  2 14:04:58 2017
+                                                                                               Fri Mar  3 08:08:58 2017
 
 Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250102
      1                           	processor	16F1827
@@ -1058,7 +1058,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   1044  0504  2CE9               	goto	L1
   1045  0505                     __end_of_main:	
   1046                           ;main.c: 30: }
-  1047                           ;main.c: 32: return 0;
+  1047                           ;main.c: 31: return 0;
   1048                           ;	Return value of _main is never used
   1049                           
   1050                           
@@ -3024,7 +3024,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   3002  038F                     __ptext15:	
   3003 ;; *************** function _Basic_Init *****************
   3004 ;; Defined at:
-  3005 ;;		line 35 in file "main.c"
+  3005 ;;		line 34 in file "main.c"
   3006 ;; Parameters:    Size  Location     Type
   3007 ;;		None
   3008 ;; Auto vars:     Size  Location     Type
@@ -3055,7 +3055,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   3033                           ;psect for function _Basic_Init
   3034  038F                     _Basic_Init:	
   3035                           
-  3036                           ;main.c: 37: OSCCON = 0xF3;
+  3036                           ;main.c: 36: OSCCON = 0xF3;
   3037                           
   3038                           ;incstack = 0
   3039                           ; Regs used in _Basic_Init: [wreg+status,2]
@@ -3063,41 +3063,41 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   3041  0390  0021               	movlb	1	; select bank1
   3042  0391  0099               	movwf	25	;volatile
   3043                           
-  3044                           ;main.c: 41: TRISA = 0x07;
+  3044                           ;main.c: 40: TRISA = 0x07;
   3045  0392  3007               	movlw	7
   3046  0393  008C               	movwf	12	;volatile
   3047                           
-  3048                           ;main.c: 42: ANSELA = 0x07;
+  3048                           ;main.c: 41: ANSELA = 0x07;
   3049  0394  3007               	movlw	7
   3050  0395  0023               	movlb	3	; select bank3
   3051  0396  008C               	movwf	12	;volatile
   3052                           
-  3053                           ;main.c: 44: TRISB = 0x40;
+  3053                           ;main.c: 43: TRISB = 0x40;
   3054  0397  3040               	movlw	64
   3055  0398  0021               	movlb	1	; select bank1
   3056  0399  008D               	movwf	13	;volatile
   3057                           
-  3058                           ;main.c: 45: ANSELB = 0x00;
+  3058                           ;main.c: 44: ANSELB = 0x00;
   3059  039A  0023               	movlb	3	; select bank3
   3060  039B  018D               	clrf	13	;volatile
   3061                           
-  3062                           ;main.c: 47: APFCON0 = 0x08;
+  3062                           ;main.c: 46: APFCON0 = 0x08;
   3063  039C  3008               	movlw	8
   3064  039D  0022               	movlb	2	; select bank2
   3065  039E  009D               	movwf	29	;volatile
   3066                           
-  3067                           ;main.c: 48: APFCON1 = 0x00;
+  3067                           ;main.c: 47: APFCON1 = 0x00;
   3068  039F  019E               	clrf	30	;volatile
   3069                           
-  3070                           ;main.c: 50: PORTA = 0x00;
+  3070                           ;main.c: 49: PORTA = 0x00;
   3071  03A0  0020               	movlb	0	; select bank0
   3072  03A1  018C               	clrf	12	;volatile
   3073                           
-  3074                           ;main.c: 51: PORTB = 0x00;
+  3074                           ;main.c: 50: PORTB = 0x00;
   3075  03A2  018D               	clrf	13	;volatile
   3076  03A3  0008               	return
   3077  03A4                     __end_of_Basic_Init:	
-  3078                           ;main.c: 53: return 0;
+  3078                           ;main.c: 52: return 0;
   3079                           ;	Return value of _Basic_Init is never used
   3080                           
   3081  007E                     btemp	set	126	;btemp
@@ -3380,7 +3380,7 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.41 build -162212810 
-Symbol Table                                                                                   Thu Mar  2 14:04:58 2017
+Symbol Table                                                                                   Fri Mar  3 08:08:58 2017
 
                 __CFG_CP$OFF 0000                           _RD 0CA8                           _WR 0CA9  
         ___wmul@multiplicand 0072                          l132 05C0                          l410 03D9  
@@ -3406,23 +3406,23 @@ Symbol Table                                                                    
                        l1586 0657                         l1578 0649                         l1756 03EE  
                        l1684 07D5                         l1676 07B1                         l1596 0676  
                        l1686 07D9         EEPROM_MultiRead@addr 0075                         STR_1 081A  
-               __CFG_WDTE$ON 0000                         STR_2 081E                         STR_3 0800  
-                       STR_4 080E                         STR_5 0814                         STR_6 0807  
-                       u1025 0518                         u1115 04A0                         u1045 0524  
-                       u1125 04AB                         u1055 0538                         u1065 0544  
-                       u1405 07C1                         u1095 0487                         u1425 07E7  
-                       u1530 04CC                         u1435 03AA                         u1275 0686  
-                       u1445 0400                         u1285 069A                         u1707 059E  
-                       u1717 0366                         u1727 03B5                         u1737 0444  
-                       u1677 055F                         u1687 0577                         u1697 058A  
-       EEPROM_MultiRead@size 0074                  main@readdat 005F                 __CFG_WRT$OFF 0000  
-                       _main 04BE                         fsr0h 0005                         fsr1h 0007  
-                       indf0 0000                         fsr0l 0004                         indf1 0001  
-                       fsr1l 0006                         btemp 007E                __CFG_BOREN$ON 0000  
-                       start 0002                __CFG_IESO$OFF 0000                _LCD_WriteData 0442  
-              __CFG_MCLRE$ON 0000     __end_of_LCD_DisplayClear 036C             __end_of_LCD_Init 05C0  
-              __CFG_PLLEN$ON 0000                  LCD_Put@word 0073                        ?_main 0070  
-                      _EEADR 0191        EEPROM_MultiRead@pData 0079              __end_of___lldiv 0557  
+                       STR_2 081E                         STR_3 0800                         STR_4 080E  
+                       STR_5 0814                         STR_6 0807                         u1025 0518  
+                       u1115 04A0                         u1045 0524                         u1125 04AB  
+                       u1055 0538                         u1065 0544                         u1405 07C1  
+                       u1095 0487                         u1425 07E7                         u1530 04CC  
+                       u1435 03AA                         u1275 0686                         u1445 0400  
+                       u1285 069A                         u1707 059E                         u1717 0366  
+                       u1727 03B5                         u1737 0444                         u1677 055F  
+                       u1687 0577                         u1697 058A         EEPROM_MultiRead@size 0074  
+                main@readdat 005F                 __CFG_WRT$OFF 0000                         _main 04BE  
+                       fsr0h 0005                         fsr1h 0007                         indf0 0000  
+                       fsr0l 0004                         indf1 0001                         fsr1l 0006  
+                       btemp 007E                __CFG_BOREN$ON 0000                         start 0002  
+              __CFG_IESO$OFF 0000                _LCD_WriteData 0442                __CFG_MCLRE$ON 0000  
+   __end_of_LCD_DisplayClear 036C             __end_of_LCD_Init 05C0                __CFG_PLLEN$ON 0000  
+                LCD_Put@word 0073                        ?_main 0070                        _EEADR 0191  
+              __CFG_WDTE$OFF 0000        EEPROM_MultiRead@pData 0079              __end_of___lldiv 0557  
             __end_of___llmod 04BE                        _PORTA 000C                        _PORTB 000D  
                       _TRISA 008C                        _TRISB 008D                __CFG_PWRTE$ON 0000  
              __CFG_FCMEN$OFF 0000                        main@i 0064                        _xputc 0415  

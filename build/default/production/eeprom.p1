@@ -2858,7 +2858,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "26 main.h
 [p x FOSC=INTOSC ]
 "27
-[p x WDTE=ON ]
+[p x WDTE=OFF ]
 "28
 [p x PWRTE=ON ]
 "29

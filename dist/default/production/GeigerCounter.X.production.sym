@@ -208,7 +208,6 @@ __ptext9 557 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
 __size_of_LCD_WriteData 0 0 ABS 0
-__CFG_WDTE$ON 0 0 ABS 0
 __end_of_LCD_DisplayClear 36C 0 CODE 0
 main@sample 5A 0 BANK0 1
 __end_of__initialization 7FD 0 CODE 0
@@ -323,6 +322,7 @@ _xvprintf$188 3D 0 BANK0 1
 __size_of_LCD_CursorPosition 0 0 ABS 0
 EEPROM_MultiRead@i 7A 0 COMMON 1
 intlevel0 0 0 CODE 0
+__CFG_WDTE$OFF 0 0 ABS 0
 __size_of_xvprintf 0 0 ABS 0
 intlevel1 0 0 CODE 0
 __size_of_EEPROM_MultiRead 0 0 ABS 0
@@ -385,7 +385,7 @@ text5 6AE 6B9 CODE 6AE 0
 idataBANK0 6A4 6AD CODE 6A4 0
 %locals
 dist/default/production/GeigerCounter.X.production.obj
-/tmp/xcXluVwof
+/tmp/xcXs2t3RN
 1135 7EA 0 CODE 0
 1138 7EA 0 CODE 0
 1164 7EA 0 CODE 0
@@ -578,13 +578,13 @@ eeprom.c
 10 3BB 0 CODE 0
 11 3BE 0 CODE 0
 main.c
-35 38F 0 CODE 0
-37 38F 0 CODE 0
-41 392 0 CODE 0
-42 394 0 CODE 0
-44 397 0 CODE 0
-45 39A 0 CODE 0
-47 39C 0 CODE 0
-48 39F 0 CODE 0
-50 3A0 0 CODE 0
-51 3A2 0 CODE 0
+34 38F 0 CODE 0
+36 38F 0 CODE 0
+40 392 0 CODE 0
+41 394 0 CODE 0
+43 397 0 CODE 0
+44 39A 0 CODE 0
+46 39C 0 CODE 0
+47 39F 0 CODE 0
+49 3A0 0 CODE 0
+50 3A2 0 CODE 0

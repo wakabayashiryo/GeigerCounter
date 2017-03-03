@@ -3902,7 +3902,7 @@ int xatoi (char** str, long* res);
 
 # 26 "main.h"
 #pragma config FOSC = INTOSC
-#pragma config WDTE = ON
+#pragma config WDTE = OFF
 #pragma config PWRTE = ON
 #pragma config MCLRE = ON
 #pragma config CP = OFF

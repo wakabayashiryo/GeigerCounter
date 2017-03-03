@@ -28,7 +28,6 @@ int8_t main(void)
         for(uint8_t i = 0;i<5;i++)
             xprintf("%d ",readdat[i]);
     }
-    
     return EXIT_SUCCESS;
 }
 

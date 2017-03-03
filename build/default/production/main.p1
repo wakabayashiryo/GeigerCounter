@@ -2888,7 +2888,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "26 main.h
 [p x FOSC=INTOSC ]
 "27
-[p x WDTE=ON ]
+[p x WDTE=OFF ]
 "28
 [p x PWRTE=ON ]
 "29
@@ -2994,55 +2994,55 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 355  ]
 [e :U 356 ]
 [; ;main.c: 30: }
-[; ;main.c: 32: return 0;
-"32
+[; ;main.c: 31: return 0;
+"31
 [e ) -> -> 0 `i `c ]
 [e $UE 353  ]
-[; ;main.c: 33: }
-"33
+[; ;main.c: 32: }
+"32
 [e :UE 353 ]
 }
-"35
+"34
 [v _Basic_Init `(c ~T0 @X0 1 ef ]
-"36
+"35
 {
-[; ;main.c: 35: int8_t Basic_Init(void)
-[; ;main.c: 36: {
+[; ;main.c: 34: int8_t Basic_Init(void)
+[; ;main.c: 35: {
 [e :U _Basic_Init ]
 [f ]
-[; ;main.c: 37: OSCCON = 0xF3;
-"37
+[; ;main.c: 36: OSCCON = 0xF3;
+"36
 [e = _OSCCON -> -> 243 `i `uc ]
-[; ;main.c: 41: TRISA = 0x07;
-"41
+[; ;main.c: 40: TRISA = 0x07;
+"40
 [e = _TRISA -> -> 7 `i `uc ]
-[; ;main.c: 42: ANSELA = 0x07;
-"42
+[; ;main.c: 41: ANSELA = 0x07;
+"41
 [e = _ANSELA -> -> 7 `i `uc ]
-[; ;main.c: 44: TRISB = 0x40;
-"44
+[; ;main.c: 43: TRISB = 0x40;
+"43
 [e = _TRISB -> -> 64 `i `uc ]
-[; ;main.c: 45: ANSELB = 0x00;
-"45
+[; ;main.c: 44: ANSELB = 0x00;
+"44
 [e = _ANSELB -> -> 0 `i `uc ]
-[; ;main.c: 47: APFCON0 = 0x08;
-"47
+[; ;main.c: 46: APFCON0 = 0x08;
+"46
 [e = _APFCON0 -> -> 8 `i `uc ]
-[; ;main.c: 48: APFCON1 = 0x00;
-"48
+[; ;main.c: 47: APFCON1 = 0x00;
+"47
 [e = _APFCON1 -> -> 0 `i `uc ]
-[; ;main.c: 50: PORTA = 0x00;
-"50
+[; ;main.c: 49: PORTA = 0x00;
+"49
 [e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 51: PORTB = 0x00;
-"51
+[; ;main.c: 50: PORTB = 0x00;
+"50
 [e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 53: return 0;
-"53
+[; ;main.c: 52: return 0;
+"52
 [e ) -> -> 0 `i `c ]
 [e $UE 360  ]
-[; ;main.c: 54: }
-"54
+[; ;main.c: 53: }
+"53
 [e :UE 360 ]
 }
 [a 1C 37 100 32 0 ]
