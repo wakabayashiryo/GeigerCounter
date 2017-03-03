@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.41 build -162212810 
-                                                                                               Thu Mar  2 15:43:15 2017
+                                                                                               Fri Mar  3 04:43:35 2017
 
 Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250102
      1                           	processor	16F1827
@@ -2930,7 +2930,7 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.41 build -162212810 
-Symbol Table                                                                                   Thu Mar  2 15:43:15 2017
+Symbol Table                                                                                   Fri Mar  3 04:43:35 2017
 
                 __CFG_CP$OFF 0000          ___wmul@multiplicand 0072                          l123 064A  
                         l108 05CE                          l141 06E5                          l164 079C  
@@ -2955,20 +2955,20 @@ Symbol Table                                                                    
                        l1477 0665                         l1469 0657                         l1575 07E3  
                        l1567 07BF                         l1495 069A                         l1487 0684  
                        l1577 07E7                         l1497 06AF                         l1499 06BC  
-                       l1687 0453                         STR_1 0800                 __CFG_WDTE$ON 0000  
-                       STR_2 082A                         STR_3 0810                         STR_4 081E  
-                       STR_5 0824                         STR_6 0817                         u1015 04DC  
-                       u1035 04F5                         u1045 0500                         u1315 07CF  
-                       u1335 07F5                         u1345 041C                         u1185 0694  
-                       u1195 06A8                         u1537 056D                         u1547 0585  
-                       u1557 0598                         u1567 05AC                         u1577 03D8  
-                       u1587 0427                         u1597 0499                 __CFG_WRT$OFF 0000  
-                       _main 0446                         fsr0h 0005                         fsr1h 0007  
-                       indf0 0000                         fsr0l 0004                         indf1 0001  
-                       fsr1l 0006                         btemp 007E                __CFG_BOREN$ON 0000  
-                       start 0002                __CFG_IESO$OFF 0000                _LCD_WriteData 0497  
-              __CFG_MCLRE$ON 0000     __end_of_LCD_DisplayClear 03DE             __end_of_LCD_Init 05CE  
-              __CFG_PLLEN$ON 0000                  LCD_Put@word 0073                        ?_main 0070  
+                       l1687 0453                         STR_1 0800                         STR_2 082A  
+                       STR_3 0810                         STR_4 081E                         STR_5 0824  
+                       STR_6 0817                         u1015 04DC                         u1035 04F5  
+                       u1045 0500                         u1315 07CF                         u1335 07F5  
+                       u1345 041C                         u1185 0694                         u1195 06A8  
+                       u1537 056D                         u1547 0585                         u1557 0598  
+                       u1567 05AC                         u1577 03D8                         u1587 0427  
+                       u1597 0499                 __CFG_WRT$OFF 0000                         _main 0446  
+                       fsr0h 0005                         fsr1h 0007                         indf0 0000  
+                       fsr0l 0004                         indf1 0001                         fsr1l 0006  
+                       btemp 007E                __CFG_BOREN$ON 0000                         start 0002  
+              __CFG_IESO$OFF 0000                _LCD_WriteData 0497                __CFG_MCLRE$ON 0000  
+   __end_of_LCD_DisplayClear 03DE             __end_of_LCD_Init 05CE                __CFG_PLLEN$ON 0000  
+                LCD_Put@word 0073                        ?_main 0070                __CFG_WDTE$OFF 0000  
             __end_of___lldiv 0565              __end_of___llmod 0513                        _PORTA 000C  
                       _PORTB 000D                        _TRISA 008C                        _TRISB 008D  
               __CFG_PWRTE$ON 0000               __CFG_FCMEN$OFF 0000                        main@i 0058  
