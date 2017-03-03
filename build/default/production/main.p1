@@ -2892,13 +2892,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;xprintf.h: 35: int xatoi (char** str, long* res);
 "26 main.h
 [p x FOSC=INTOSC ]
-<<<<<<< HEAD
-=======
-"26
-[p x WDTE=OFF ]
->>>>>>> master
 "27
-[p x WDTE=ON ]
+[p x WDTE=OFF ]
 "28
 [p x PWRTE=ON ]
 "29
@@ -2966,7 +2961,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 15: Basic_Init();
 "15
 [e ( _Basic_Init ..  ]
-<<<<<<< HEAD
 [; ;main.c: 17: Timer1_Init();
 "17
 [e ( _Timer1_Init ..  ]
@@ -3097,84 +3091,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 71: }
 "71
 [e :UE 362 ]
-=======
-[; ;main.c: 15: LCD_Init();
-"15
-[e ( _LCD_Init ..  ]
-[; ;main.c: 16: xfunc_out = (void(*)(unsigned char))(LCD_Put);
-[v F2985 `(v ~T0 @X0 0 tf1`uc ]
-"16
-[e = _xfunc_out -> &U _LCD_Put `*F2985 ]
-[; ;main.c: 18: while(1)
-"18
-[e :U 355 ]
-[; ;main.c: 19: {
-"19
-{
-[; ;main.c: 20: LCD_CursorPosition(0,0);
-"20
-[e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 21: xprintf("Hellow World");
-"21
-[e ( _xprintf :s 1C ]
-"22
-}
-[e :U 354 ]
-"18
-[e $U 355  ]
-[e :U 356 ]
-[; ;main.c: 22: }
-[; ;main.c: 23: return 0;
-"23
-[e ) -> -> 0 `i `c ]
-[e $UE 353  ]
-[; ;main.c: 24: }
-"24
-[e :UE 353 ]
-}
-"26
-[v _Basic_Init `(c ~T0 @X0 1 ef ]
-"27
-{
-[; ;main.c: 26: int8_t Basic_Init(void)
-[; ;main.c: 27: {
-[e :U _Basic_Init ]
-[f ]
-[; ;main.c: 28: OSCCON = 0xF3;
-"28
-[e = _OSCCON -> -> 243 `i `uc ]
-[; ;main.c: 32: TRISA = 0x07;
-"32
-[e = _TRISA -> -> 7 `i `uc ]
-[; ;main.c: 33: ANSELA = 0x07;
-"33
-[e = _ANSELA -> -> 7 `i `uc ]
-[; ;main.c: 35: TRISB = 0x40;
-"35
-[e = _TRISB -> -> 64 `i `uc ]
-[; ;main.c: 36: ANSELB = 0x00;
-"36
-[e = _ANSELB -> -> 0 `i `uc ]
-[; ;main.c: 38: APFCON0 = 0x08;
-"38
-[e = _APFCON0 -> -> 8 `i `uc ]
-[; ;main.c: 39: APFCON1 = 0x00;
-"39
-[e = _APFCON1 -> -> 0 `i `uc ]
-[; ;main.c: 41: PORTA = 0x00;
-"41
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 42: PORTB = 0x00;
-"42
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 44: return 0;
-"44
-[e ) -> -> 0 `i `c ]
-[e $UE 357  ]
-[; ;main.c: 45: }
-"45
-[e :UE 357 ]
->>>>>>> master
 }
 [p f _sprintf 8388736 ]
 [a 1C 37 100 32 37 100 0 ]

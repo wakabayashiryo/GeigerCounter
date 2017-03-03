@@ -4007,7 +4007,6 @@ Timer1_Init();
 LCD_Init();
 xfunc_out = (void(*)(unsigned char))(LCD_Put);
 
-<<<<<<< HEAD
 uint16_t j = 0;
 uint16_t i=500;
 
@@ -4023,12 +4022,6 @@ while(buff[p])
 {
 LCD_Put(buff[p]);
 p++;
-=======
-while(1)
-{
-LCD_CursorPosition(0,0);
-xprintf("Hellow World");
->>>>>>> master
 }
 }
 

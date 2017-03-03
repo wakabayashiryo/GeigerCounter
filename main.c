@@ -13,7 +13,6 @@
 int8_t main(void)
 {
     Basic_Init();
-<<<<<<< HEAD
 
     Timer1_Init();
 //    Timer1_Start();
@@ -42,16 +41,6 @@ int8_t main(void)
         }
     }
     
-=======
-    LCD_Init();
-    xdev_out(LCD_Put);
-  
-    while(1)
-    {  
-        LCD_CursorPosition(0,0);
-        xprintf("Hellow World");
-    }    
->>>>>>> master
     return EXIT_SUCCESS;
 }
 
