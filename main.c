@@ -15,30 +15,15 @@ int8_t main(void)
     Basic_Init();
 
     Timer1_Init();
-//    Timer1_Start();
+    Timer1_Start();
 
     LCD_Init();
     xdev_out(LCD_Put);
 
-    uint16_t j = 0;
-    uint16_t i=500;
-
-    uint8_t buff[10];
     while(1)
     {
-        uint16_t p = 0;
-//        Timer1_Write(i);
-//        LCD_CursorPosition(0,0);
-//        xprintf("TMR1H,TMR1L,i");
-//        LCD_CursorPosition(0,1);
-//        xprintf("%3U %3U ,%d %d",TMR1H,TMR1L,i++,j++);
-        LCD_CursorPosition(0,1);
-        sprintf(buff,"%d %d",i++,j++);
-        while(buff[p])
-        {
-            LCD_Put(buff[p]);
-            p++;
-        }
+        LCD_CursorPosition(0,0);
+        xprintf("%U ",Timer1_Read());
     }
     
     return EXIT_SUCCESS;
