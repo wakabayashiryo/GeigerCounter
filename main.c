@@ -5,20 +5,17 @@
  * Created on 2017/02/25, 21:19
  */
 
-
-#include <xc.h>
 #include "main.h"
 
 int8_t main(void)
 {
     Basic_Init();
-    LCD_Init();
-    xdev_out(LCD_Put);
-  
+    Buzer_Sound();    
+    Buzer_Init();
+      
     while(1)
     {  
-        LCD_CursorPosition(0,0);
-        xprintf("Hellow World");
+        
     }    
     return EXIT_SUCCESS;
 }

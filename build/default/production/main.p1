@@ -2,17 +2,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "48 main.h
 [v _Basic_Init `(c ~T0 @X0 0 ef ]
-"32 LCD.h
-[v _LCD_Init `(v ~T0 @X0 0 ef ]
-[v F2940 `(v ~T0 @X0 0 tf1`uc ]
-"17 xprintf.h
-[v _xfunc_out `*F2940 ~T0 @X0 0 e ]
-"33 LCD.h
-[v _LCD_Put `(v ~T0 @X0 0 ef1`c ]
-"36
-[v _LCD_CursorPosition `(v ~T0 @X0 0 ef2`uc`uc ]
-"21 xprintf.h
-[v _xprintf `(v ~T0 @X0 0 ev`*Cuc ]
+"42 Buzer.h
+[v _Buzer_SetDuty `(v ~T0 @X0 0 ef1`ui ]
+"41
+[v _Buzer_Init `(v ~T0 @X0 0 ef ]
 "1662 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [v _OSCCON `Vuc ~T0 @X0 0 e@153 ]
 "1118
@@ -31,9 +24,88 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PORTA `Vuc ~T0 @X0 0 e@12 ]
 "473
 [v _PORTB `Vuc ~T0 @X0 0 e@13 ]
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stdlib.h: 7: typedef unsigned short wchar_t;
+[; ;stdlib.h: 15: typedef struct {
+[; ;stdlib.h: 16: int rem;
+[; ;stdlib.h: 17: int quot;
+[; ;stdlib.h: 18: } div_t;
+[; ;stdlib.h: 19: typedef struct {
+[; ;stdlib.h: 20: unsigned rem;
+[; ;stdlib.h: 21: unsigned quot;
+[; ;stdlib.h: 22: } udiv_t;
+[; ;stdlib.h: 23: typedef struct {
+[; ;stdlib.h: 24: long quot;
+[; ;stdlib.h: 25: long rem;
+[; ;stdlib.h: 26: } ldiv_t;
+[; ;stdlib.h: 27: typedef struct {
+[; ;stdlib.h: 28: unsigned long quot;
+[; ;stdlib.h: 29: unsigned long rem;
+[; ;stdlib.h: 30: } uldiv_t;
+[; ;stdlib.h: 53: extern double atof(const char *);
+[; ;stdlib.h: 54: extern double strtod(const char *, const char **);
+[; ;stdlib.h: 55: extern int atoi(const char *);
+[; ;stdlib.h: 56: extern unsigned xtoi(const char *);
+[; ;stdlib.h: 57: extern long atol(const char *);
+[; ;stdlib.h: 58: extern long strtol(const char *, char **, int);
+[; ;stdlib.h: 60: extern int rand(void);
+[; ;stdlib.h: 61: extern void srand(unsigned int);
+[; ;stdlib.h: 62: extern void * calloc(size_t, size_t);
+[; ;stdlib.h: 63: extern div_t div(int numer, int denom);
+[; ;stdlib.h: 64: extern udiv_t udiv(unsigned numer, unsigned denom);
+[; ;stdlib.h: 65: extern ldiv_t ldiv(long numer, long denom);
+[; ;stdlib.h: 66: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+[; ;stdlib.h: 67: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 68: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 69: extern unsigned int _rotl(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 70: extern unsigned int _rotr(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 75: extern void * malloc(size_t);
+[; ;stdlib.h: 76: extern void free(void *);
+[; ;stdlib.h: 77: extern void * realloc(void *, size_t);
+[; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
+[; ;stdlib.h: 86: extern int atexit(void (*)(void));
+[; ;stdlib.h: 87: extern char * getenv(const char *);
+[; ;stdlib.h: 88: extern char ** environ;
+[; ;stdlib.h: 89: extern int system(char *);
+[; ;stdlib.h: 90: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+[; ;stdlib.h: 91: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+[; ;stdlib.h: 92: extern int abs(int);
+[; ;stdlib.h: 93: extern long labs(long);
+[; ;stdlib.h: 95: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 96: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 101: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 102: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 104: extern char * ftoa(float f, int * status);
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
-[; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f1827.h: 49: extern volatile unsigned char INDF0 @ 0x000;
 "51 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [; ;pic16f1827.h: 51: asm("INDF0 equ 00h");
@@ -2785,104 +2857,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 192: extern unsigned char __resetbits;
 [; ;pic.h: 193: extern __bit __powerdown;
 [; ;pic.h: 194: extern __bit __timeout;
-[; ;__size_t.h: 4: typedef unsigned size_t;
-[; ;stdlib.h: 7: typedef unsigned short wchar_t;
-[; ;stdlib.h: 15: typedef struct {
-[; ;stdlib.h: 16: int rem;
-[; ;stdlib.h: 17: int quot;
-[; ;stdlib.h: 18: } div_t;
-[; ;stdlib.h: 19: typedef struct {
-[; ;stdlib.h: 20: unsigned rem;
-[; ;stdlib.h: 21: unsigned quot;
-[; ;stdlib.h: 22: } udiv_t;
-[; ;stdlib.h: 23: typedef struct {
-[; ;stdlib.h: 24: long quot;
-[; ;stdlib.h: 25: long rem;
-[; ;stdlib.h: 26: } ldiv_t;
-[; ;stdlib.h: 27: typedef struct {
-[; ;stdlib.h: 28: unsigned long quot;
-[; ;stdlib.h: 29: unsigned long rem;
-[; ;stdlib.h: 30: } uldiv_t;
-[; ;stdlib.h: 53: extern double atof(const char *);
-[; ;stdlib.h: 54: extern double strtod(const char *, const char **);
-[; ;stdlib.h: 55: extern int atoi(const char *);
-[; ;stdlib.h: 56: extern unsigned xtoi(const char *);
-[; ;stdlib.h: 57: extern long atol(const char *);
-[; ;stdlib.h: 58: extern long strtol(const char *, char **, int);
-[; ;stdlib.h: 60: extern int rand(void);
-[; ;stdlib.h: 61: extern void srand(unsigned int);
-[; ;stdlib.h: 62: extern void * calloc(size_t, size_t);
-[; ;stdlib.h: 63: extern div_t div(int numer, int denom);
-[; ;stdlib.h: 64: extern udiv_t udiv(unsigned numer, unsigned denom);
-[; ;stdlib.h: 65: extern ldiv_t ldiv(long numer, long denom);
-[; ;stdlib.h: 66: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
-[; ;stdlib.h: 67: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
-[; ;stdlib.h: 68: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
-[; ;stdlib.h: 69: extern unsigned int _rotl(unsigned int value, unsigned int shift);
-[; ;stdlib.h: 70: extern unsigned int _rotr(unsigned int value, unsigned int shift);
-[; ;stdlib.h: 75: extern void * malloc(size_t);
-[; ;stdlib.h: 76: extern void free(void *);
-[; ;stdlib.h: 77: extern void * realloc(void *, size_t);
-[; ;stdlib.h: 86: extern int atexit(void (*)(void));
-[; ;stdlib.h: 87: extern char * getenv(const char *);
-[; ;stdlib.h: 88: extern char ** environ;
-[; ;stdlib.h: 89: extern int system(char *);
-[; ;stdlib.h: 90: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
-[; ;stdlib.h: 91: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
-[; ;stdlib.h: 92: extern int abs(int);
-[; ;stdlib.h: 93: extern long labs(long);
-[; ;stdlib.h: 95: extern char * itoa(char * buf, int val, int base);
-[; ;stdlib.h: 96: extern char * utoa(char * buf, unsigned val, int base);
-[; ;stdlib.h: 101: extern char * ltoa(char * buf, long val, int base);
-[; ;stdlib.h: 102: extern char * ultoa(char * buf, unsigned long val, int base);
-[; ;stdlib.h: 104: extern char * ftoa(float f, int * status);
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;LCD.h: 32: void LCD_Init(void);
-[; ;LCD.h: 33: void LCD_Put(int8_t word);
-[; ;LCD.h: 34: void LCD_DisplayClear(void);
-[; ;LCD.h: 35: void LCD_CursorHome(void);
-[; ;LCD.h: 36: void LCD_CursorPosition(uint8_t tx ,uint8_t ty);
-[; ;LCD.h: 37: void LCD_CursorShift(uint8_t shift,uint8_t RL);
-[; ;LCD.h: 38: void LCD_DispShift(uint8_t shift,uint8_t RL);
-[; ;xprintf.h: 17: extern void (*xfunc_out)(unsigned char);
-[; ;xprintf.h: 18: void xputc (char c);
-[; ;xprintf.h: 19: void xputs (const char* str);
-[; ;xprintf.h: 20: void xfputs (void (*func)(unsigned char), const char* str);
-[; ;xprintf.h: 21: void xprintf (const char* fmt, ...);
-[; ;xprintf.h: 22: void xsprintf (char* buff, const char* fmt, ...);
-[; ;xprintf.h: 23: void xfprintf (void (*func)(unsigned char), const char* fmt, ...);
-[; ;xprintf.h: 24: void put_dump (const void* buff, unsigned long addr, int len, int width);
-[; ;xprintf.h: 32: extern unsigned char (*xfunc_in)(void);
-[; ;xprintf.h: 33: int xgets (char* buff, int len);
-[; ;xprintf.h: 34: int xfgets (unsigned char (*func)(void), char* buff, int len);
-[; ;xprintf.h: 35: int xatoi (char** str, long* res);
+[; ;Buzer.h: 41: void Buzer_Init(void);
+[; ;Buzer.h: 42: void Buzer_SetDuty(uint16_t duty);
 "25 main.h
 [p x FOSC=INTOSC ]
 "26
@@ -2914,93 +2890,84 @@ Version 3.2 HI-TECH Software Intermediate Code
 "41
 [p x LVP=OFF ]
 [; ;main.h: 48: int8_t Basic_Init(void);
-"12 main.c
+"10 main.c
 [v _main `(c ~T0 @X0 1 ef ]
-"13
+"11
 {
-[; ;main.c: 12: int8_t main(void)
-[; ;main.c: 13: {
+[; ;main.c: 10: int8_t main(void)
+[; ;main.c: 11: {
 [e :U _main ]
 [f ]
-[; ;main.c: 14: Basic_Init();
-"14
+[; ;main.c: 12: Basic_Init();
+"12
 [e ( _Basic_Init ..  ]
-[; ;main.c: 15: LCD_Init();
-"15
-[e ( _LCD_Init ..  ]
-[; ;main.c: 16: xfunc_out = (void(*)(unsigned char))(LCD_Put);
-[v F2985 `(v ~T0 @X0 0 tf1`uc ]
+[; ;main.c: 13: Buzer_SetDuty(0x01FF);
+"13
+[e ( _Buzer_SetDuty (1 -> -> 511 `i `ui ]
+[; ;main.c: 14: Buzer_Init();
+"14
+[e ( _Buzer_Init ..  ]
+[; ;main.c: 16: while(1)
 "16
-[e = _xfunc_out -> &U _LCD_Put `*F2985 ]
-[; ;main.c: 18: while(1)
-"18
 [e :U 355 ]
-[; ;main.c: 19: {
-"19
+[; ;main.c: 17: {
+"17
 {
-[; ;main.c: 20: LCD_CursorPosition(0,0);
-"20
-[e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 21: xprintf("Hellow World");
-"21
-[e ( _xprintf :s 1C ]
-"22
+"19
 }
 [e :U 354 ]
-"18
+"16
 [e $U 355  ]
 [e :U 356 ]
-[; ;main.c: 22: }
-[; ;main.c: 23: return 0;
-"23
+[; ;main.c: 19: }
+[; ;main.c: 20: return 0;
+"20
 [e ) -> -> 0 `i `c ]
 [e $UE 353  ]
-[; ;main.c: 24: }
-"24
+[; ;main.c: 21: }
+"21
 [e :UE 353 ]
 }
-"26
+"23
 [v _Basic_Init `(c ~T0 @X0 1 ef ]
-"27
+"24
 {
-[; ;main.c: 26: int8_t Basic_Init(void)
-[; ;main.c: 27: {
+[; ;main.c: 23: int8_t Basic_Init(void)
+[; ;main.c: 24: {
 [e :U _Basic_Init ]
 [f ]
-[; ;main.c: 28: OSCCON = 0xF3;
-"28
+[; ;main.c: 25: OSCCON = 0xF3;
+"25
 [e = _OSCCON -> -> 243 `i `uc ]
-[; ;main.c: 32: TRISA = 0x07;
-"32
+[; ;main.c: 29: TRISA = 0x07;
+"29
 [e = _TRISA -> -> 7 `i `uc ]
-[; ;main.c: 33: ANSELA = 0x07;
-"33
+[; ;main.c: 30: ANSELA = 0x07;
+"30
 [e = _ANSELA -> -> 7 `i `uc ]
-[; ;main.c: 35: TRISB = 0x40;
-"35
+[; ;main.c: 32: TRISB = 0x40;
+"32
 [e = _TRISB -> -> 64 `i `uc ]
-[; ;main.c: 36: ANSELB = 0x00;
-"36
+[; ;main.c: 33: ANSELB = 0x00;
+"33
 [e = _ANSELB -> -> 0 `i `uc ]
-[; ;main.c: 38: APFCON0 = 0x08;
-"38
+[; ;main.c: 35: APFCON0 = 0x08;
+"35
 [e = _APFCON0 -> -> 8 `i `uc ]
-[; ;main.c: 39: APFCON1 = 0x00;
-"39
+[; ;main.c: 36: APFCON1 = 0x00;
+"36
 [e = _APFCON1 -> -> 0 `i `uc ]
-[; ;main.c: 41: PORTA = 0x00;
-"41
+[; ;main.c: 38: PORTA = 0x00;
+"38
 [e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 42: PORTB = 0x00;
-"42
+[; ;main.c: 39: PORTB = 0x00;
+"39
 [e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 44: return 0;
-"44
+[; ;main.c: 41: return 0;
+"41
 [e ) -> -> 0 `i `c ]
 [e $UE 357  ]
-[; ;main.c: 45: }
-"45
+[; ;main.c: 42: }
+"42
 [e :UE 357 ]
 }
-[a 1C 72 101 108 108 111 119 32 87 111 114 108 100 0 ]
-

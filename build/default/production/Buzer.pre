@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "Buzer.c"
 
 # 4 "/opt/microchip/xc8/v1.41/include/__size_t.h"
 typedef unsigned size_t;
@@ -3883,10 +3883,6 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 41 "Buzer.h"
-void Buzer_Init(void);
-void Buzer_SetDuty(uint16_t duty);
-
 
 # 25 "main.h"
 #pragma config FOSC = INTOSC
@@ -3910,37 +3906,34 @@ void Buzer_SetDuty(uint16_t duty);
 # 48
 int8_t Basic_Init(void);
 
-# 10 "main.c"
-int8_t main(void)
-{
-Basic_Init();
-Buzer_SetDuty(0x01FF);
-Buzer_Init();
+# 41 "Buzer.h"
+void Buzer_Init(void);
+void Buzer_SetDuty(uint16_t duty);
 
-while(1)
+# 9 "Buzer.c"
+void Buzer_Init(void)
 {
+TRISA &= ~(0x01<<7);
+ANSELA &= ~(0x01<<7);
+APFCON0 |= (0x01<<3);
 
+T2CON |= (0x00<<3);
+T2CON |= (0x01<<0);
+T2CON |= (0x01<<2);
+
+TMR2 = 0x00;
+PR2 = 0xFF;
+
+CCP2CON &= ~(0x03<<6);
+CCP2CON |= (0x0C<<0);
+CCPTMRS &= ~(0x03<<2);
+
+CCPR2L = 0x00;
 }
-return 0;
-}
 
-int8_t Basic_Init(void)
+void Buzer_SetDuty(uint16_t duty)
 {
-OSCCON = 0xF3;
-
-
-
-TRISA = 0x07;
-ANSELA = 0x07;
-
-TRISB = 0x40;
-ANSELB = 0x00;
-
-APFCON0 = 0x08;
-APFCON1 = 0x00;
-
-PORTA = 0x00;
-PORTB = 0x00;
-
-return 0;
+uint8_t CCP2CON_Pre = CCP2CON;
+CCPR2L = (duty>>2);
+CCP2CON = CCP2CON_Pre | ((duty&0x03)<<4);
 }

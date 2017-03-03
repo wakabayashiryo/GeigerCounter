@@ -1,19 +1,104 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[v F2764 `(v ~T0 @X0 1 tf1`ul ]
-"152 /opt/microchip/xc8/v1.41/include/pic.h
-[v __delay `JF2764 ~T0 @X0 0 e ]
-[p i __delay ]
-"473 /opt/microchip/xc8/v1.41/include/pic16f1827.h
-[v _PORTB `Vuc ~T0 @X0 0 e@13 ]
-"7216
-[v _RA3 `Vb ~T0 @X0 0 e@99 ]
-"7218
-[v _RA4 `Vb ~T0 @X0 0 e@100 ]
-"34 LCD.h
-[v _LCD_DisplayClear `(v ~T0 @X0 0 ef ]
+"1118 /opt/microchip/xc8/v1.41/include/pic16f1827.h
+[v _TRISA `Vuc ~T0 @X0 0 e@140 ]
+"2795
+[v _ANSELA `Vuc ~T0 @X0 0 e@396 ]
+"2715
+[v _APFCON0 `Vuc ~T0 @X0 0 e@285 ]
+"950
+[v _T2CON `Vuc ~T0 @X0 0 e@28 ]
+"912
+[v _TMR2 `Vuc ~T0 @X0 0 e@26 ]
+"931
+[v _PR2 `Vuc ~T0 @X0 0 e@27 ]
+"4928
+[v _CCP2CON `Vuc ~T0 @X0 0 e@666 ]
+"5282
+[v _CCPTMRS `Vuc ~T0 @X0 0 e@670 ]
+"4890
+[v _CCPR2L `Vuc ~T0 @X0 0 e@664 ]
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stdlib.h: 7: typedef unsigned short wchar_t;
+[; ;stdlib.h: 15: typedef struct {
+[; ;stdlib.h: 16: int rem;
+[; ;stdlib.h: 17: int quot;
+[; ;stdlib.h: 18: } div_t;
+[; ;stdlib.h: 19: typedef struct {
+[; ;stdlib.h: 20: unsigned rem;
+[; ;stdlib.h: 21: unsigned quot;
+[; ;stdlib.h: 22: } udiv_t;
+[; ;stdlib.h: 23: typedef struct {
+[; ;stdlib.h: 24: long quot;
+[; ;stdlib.h: 25: long rem;
+[; ;stdlib.h: 26: } ldiv_t;
+[; ;stdlib.h: 27: typedef struct {
+[; ;stdlib.h: 28: unsigned long quot;
+[; ;stdlib.h: 29: unsigned long rem;
+[; ;stdlib.h: 30: } uldiv_t;
+[; ;stdlib.h: 53: extern double atof(const char *);
+[; ;stdlib.h: 54: extern double strtod(const char *, const char **);
+[; ;stdlib.h: 55: extern int atoi(const char *);
+[; ;stdlib.h: 56: extern unsigned xtoi(const char *);
+[; ;stdlib.h: 57: extern long atol(const char *);
+[; ;stdlib.h: 58: extern long strtol(const char *, char **, int);
+[; ;stdlib.h: 60: extern int rand(void);
+[; ;stdlib.h: 61: extern void srand(unsigned int);
+[; ;stdlib.h: 62: extern void * calloc(size_t, size_t);
+[; ;stdlib.h: 63: extern div_t div(int numer, int denom);
+[; ;stdlib.h: 64: extern udiv_t udiv(unsigned numer, unsigned denom);
+[; ;stdlib.h: 65: extern ldiv_t ldiv(long numer, long denom);
+[; ;stdlib.h: 66: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+[; ;stdlib.h: 67: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 68: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 69: extern unsigned int _rotl(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 70: extern unsigned int _rotr(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 75: extern void * malloc(size_t);
+[; ;stdlib.h: 76: extern void free(void *);
+[; ;stdlib.h: 77: extern void * realloc(void *, size_t);
+[; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
+[; ;stdlib.h: 86: extern int atexit(void (*)(void));
+[; ;stdlib.h: 87: extern char * getenv(const char *);
+[; ;stdlib.h: 88: extern char ** environ;
+[; ;stdlib.h: 89: extern int system(char *);
+[; ;stdlib.h: 90: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+[; ;stdlib.h: 91: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+[; ;stdlib.h: 92: extern int abs(int);
+[; ;stdlib.h: 93: extern long labs(long);
+[; ;stdlib.h: 95: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 96: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 101: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 102: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 104: extern char * ftoa(float f, int * status);
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
-[; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f1827.h: 49: extern volatile unsigned char INDF0 @ 0x000;
 "51 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [; ;pic16f1827.h: 51: asm("INDF0 equ 00h");
@@ -2765,87 +2850,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 192: extern unsigned char __resetbits;
 [; ;pic.h: 193: extern __bit __powerdown;
 [; ;pic.h: 194: extern __bit __timeout;
-[; ;__size_t.h: 4: typedef unsigned size_t;
-[; ;stdlib.h: 7: typedef unsigned short wchar_t;
-[; ;stdlib.h: 15: typedef struct {
-[; ;stdlib.h: 16: int rem;
-[; ;stdlib.h: 17: int quot;
-[; ;stdlib.h: 18: } div_t;
-[; ;stdlib.h: 19: typedef struct {
-[; ;stdlib.h: 20: unsigned rem;
-[; ;stdlib.h: 21: unsigned quot;
-[; ;stdlib.h: 22: } udiv_t;
-[; ;stdlib.h: 23: typedef struct {
-[; ;stdlib.h: 24: long quot;
-[; ;stdlib.h: 25: long rem;
-[; ;stdlib.h: 26: } ldiv_t;
-[; ;stdlib.h: 27: typedef struct {
-[; ;stdlib.h: 28: unsigned long quot;
-[; ;stdlib.h: 29: unsigned long rem;
-[; ;stdlib.h: 30: } uldiv_t;
-[; ;stdlib.h: 53: extern double atof(const char *);
-[; ;stdlib.h: 54: extern double strtod(const char *, const char **);
-[; ;stdlib.h: 55: extern int atoi(const char *);
-[; ;stdlib.h: 56: extern unsigned xtoi(const char *);
-[; ;stdlib.h: 57: extern long atol(const char *);
-[; ;stdlib.h: 58: extern long strtol(const char *, char **, int);
-[; ;stdlib.h: 60: extern int rand(void);
-[; ;stdlib.h: 61: extern void srand(unsigned int);
-[; ;stdlib.h: 62: extern void * calloc(size_t, size_t);
-[; ;stdlib.h: 63: extern div_t div(int numer, int denom);
-[; ;stdlib.h: 64: extern udiv_t udiv(unsigned numer, unsigned denom);
-[; ;stdlib.h: 65: extern ldiv_t ldiv(long numer, long denom);
-[; ;stdlib.h: 66: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
-[; ;stdlib.h: 67: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
-[; ;stdlib.h: 68: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
-[; ;stdlib.h: 69: extern unsigned int _rotl(unsigned int value, unsigned int shift);
-[; ;stdlib.h: 70: extern unsigned int _rotr(unsigned int value, unsigned int shift);
-[; ;stdlib.h: 75: extern void * malloc(size_t);
-[; ;stdlib.h: 76: extern void free(void *);
-[; ;stdlib.h: 77: extern void * realloc(void *, size_t);
-[; ;stdlib.h: 86: extern int atexit(void (*)(void));
-[; ;stdlib.h: 87: extern char * getenv(const char *);
-[; ;stdlib.h: 88: extern char ** environ;
-[; ;stdlib.h: 89: extern int system(char *);
-[; ;stdlib.h: 90: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
-[; ;stdlib.h: 91: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
-[; ;stdlib.h: 92: extern int abs(int);
-[; ;stdlib.h: 93: extern long labs(long);
-[; ;stdlib.h: 95: extern char * itoa(char * buf, int val, int base);
-[; ;stdlib.h: 96: extern char * utoa(char * buf, unsigned val, int base);
-[; ;stdlib.h: 101: extern char * ltoa(char * buf, long val, int base);
-[; ;stdlib.h: 102: extern char * ultoa(char * buf, unsigned long val, int base);
-[; ;stdlib.h: 104: extern char * ftoa(float f, int * status);
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;Buzer.h: 41: void Buzer_Init(void);
-[; ;Buzer.h: 42: void Buzer_SetDuty(uint16_t duty);
 "25 main.h
 [p x FOSC=INTOSC ]
 "26
@@ -2877,312 +2881,78 @@ Version 3.2 HI-TECH Software Intermediate Code
 "41
 [p x LVP=OFF ]
 [; ;main.h: 48: int8_t Basic_Init(void);
-[; ;LCD.h: 32: void LCD_Init(void);
-[; ;LCD.h: 33: void LCD_Put(int8_t word);
-[; ;LCD.h: 34: void LCD_DisplayClear(void);
-[; ;LCD.h: 35: void LCD_CursorHome(void);
-[; ;LCD.h: 36: void LCD_CursorPosition(uint8_t tx ,uint8_t ty);
-[; ;LCD.h: 37: void LCD_CursorShift(uint8_t shift,uint8_t RL);
-[; ;LCD.h: 38: void LCD_DispShift(uint8_t shift,uint8_t RL);
-"15 LCD.c
-[v _LCD_WriteData `(v ~T0 @X0 1 sf1`c ]
-"16
+[; ;Buzer.h: 41: void Buzer_Init(void);
+[; ;Buzer.h: 42: void Buzer_SetDuty(uint16_t duty);
+"9 Buzer.c
+[v _Buzer_Init `(v ~T0 @X0 1 ef ]
+"10
 {
-[; ;LCD.c: 15: static void LCD_WriteData(int8_t point)
-[; ;LCD.c: 16: {
-[e :U _LCD_WriteData ]
-"15
-[v _point `c ~T0 @X0 1 r1 ]
-"16
+[; ;Buzer.c: 9: void Buzer_Init(void)
+[; ;Buzer.c: 10: {
+[e :U _Buzer_Init ]
 [f ]
-[; ;LCD.c: 17: _delay((unsigned long)((80)*(32000000/4000000.0)));
+[; ;Buzer.c: 11: TRISA &= ~(0x01<<7);
+"11
+[e =& _TRISA -> ~ << -> 1 `i -> 7 `i `uc ]
+[; ;Buzer.c: 12: ANSELA &= ~(0x01<<7);
+"12
+[e =& _ANSELA -> ~ << -> 1 `i -> 7 `i `uc ]
+[; ;Buzer.c: 13: APFCON0 |= (0x01<<3);
+"13
+[e =| _APFCON0 -> << -> 1 `i -> 3 `i `uc ]
+[; ;Buzer.c: 15: T2CON |= (0x00<<3);
+"15
+[e =| _T2CON -> << -> 0 `i -> 3 `i `uc ]
+[; ;Buzer.c: 16: T2CON |= (0x01<<0);
+"16
+[e =| _T2CON -> << -> 1 `i -> 0 `i `uc ]
+[; ;Buzer.c: 17: T2CON |= (0x01<<2);
 "17
-[e ( __delay (1 -> * -> -> 80 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-[; ;LCD.c: 18: PORTB = ( (((point>>4)&0x0F&0x0C)<<1)|((point>>4)&0x0F&0x03) );
-"18
-[e = _PORTB -> | << & & >> -> _point `i -> 4 `i -> 15 `i -> 12 `i -> 1 `i & & >> -> _point `i -> 4 `i -> 15 `i -> 3 `i `uc ]
-[; ;LCD.c: 19: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
+[e =| _T2CON -> << -> 1 `i -> 2 `i `uc ]
+[; ;Buzer.c: 19: TMR2 = 0x00;
 "19
-{
-[e = _RA3 -> -> 1 `i `b ]
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-[e = _RA3 -> -> 0 `i `b ]
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-}
-[; ;LCD.c: 20: PORTB = ( ((point&0x0F&0x0C)<<1)|(point&0x0F&0x03) );
+[e = _TMR2 -> -> 0 `i `uc ]
+[; ;Buzer.c: 20: PR2 = 0xFF;
 "20
-[e = _PORTB -> | << & & -> _point `i -> 15 `i -> 12 `i -> 1 `i & & -> _point `i -> 15 `i -> 3 `i `uc ]
-[; ;LCD.c: 21: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
-"21
-{
-[e = _RA3 -> -> 1 `i `b ]
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-[e = _RA3 -> -> 0 `i `b ]
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-}
-[; ;LCD.c: 22: }
+[e = _PR2 -> -> 255 `i `uc ]
+[; ;Buzer.c: 22: CCP2CON &= ~(0x03<<6);
 "22
+[e =& _CCP2CON -> ~ << -> 3 `i -> 6 `i `uc ]
+[; ;Buzer.c: 23: CCP2CON |= (0x0C<<0);
+"23
+[e =| _CCP2CON -> << -> 12 `i -> 0 `i `uc ]
+[; ;Buzer.c: 24: CCPTMRS &= ~(0x03<<2);
+"24
+[e =& _CCPTMRS -> ~ << -> 3 `i -> 2 `i `uc ]
+[; ;Buzer.c: 26: CCPR2L = 0x00;
+"26
+[e = _CCPR2L -> -> 0 `i `uc ]
+[; ;Buzer.c: 27: }
+"27
 [e :UE 353 ]
 }
-"28
-[v _LCD_Init `(v ~T0 @X0 1 ef ]
 "29
-{
-[; ;LCD.c: 28: void LCD_Init(void)
-[; ;LCD.c: 29: {
-[e :U _LCD_Init ]
-[f ]
-[; ;LCD.c: 30: RA4 = 0;
+[v _Buzer_SetDuty `(v ~T0 @X0 1 ef1`ui ]
 "30
-[e = _RA4 -> -> 0 `i `b ]
-[; ;LCD.c: 31: RA3 = 0;
+{
+[; ;Buzer.c: 29: void Buzer_SetDuty(uint16_t duty)
+[; ;Buzer.c: 30: {
+[e :U _Buzer_SetDuty ]
+"29
+[v _duty `ui ~T0 @X0 1 r1 ]
+"30
+[f ]
 "31
-[e = _RA3 -> -> 0 `i `b ]
-[; ;LCD.c: 33: _delay((unsigned long)((30)*(32000000/4000.0)));
+[v _CCP2CON_Pre `uc ~T0 @X0 1 a ]
+[; ;Buzer.c: 31: uint8_t CCP2CON_Pre = CCP2CON;
+[e = _CCP2CON_Pre _CCP2CON ]
+[; ;Buzer.c: 32: CCPR2L = (duty>>2);
+"32
+[e = _CCPR2L -> >> _duty -> 2 `i `uc ]
+[; ;Buzer.c: 33: CCP2CON = CCP2CON_Pre | ((duty&0x03)<<4);
 "33
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
-[; ;LCD.c: 34: PORTB = ( ((0x03&0x0C)<<1)|(0x03&0x03) );
+[e = _CCP2CON -> | -> _CCP2CON_Pre `ui << & _duty -> -> 3 `i `ui -> 4 `i `uc ]
+[; ;Buzer.c: 34: }
 "34
-[e = _PORTB -> | << & -> 3 `i -> 12 `i -> 1 `i & -> 3 `i -> 3 `i `uc ]
-[; ;LCD.c: 35: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
-"35
-{
-[e = _RA3 -> -> 1 `i `b ]
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-[e = _RA3 -> -> 0 `i `b ]
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-}
-[; ;LCD.c: 36: _delay((unsigned long)((5)*(32000000/4000.0)));
-"36
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
-[; ;LCD.c: 37: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
-"37
-{
-[e = _RA3 -> -> 1 `i `b ]
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-[e = _RA3 -> -> 0 `i `b ]
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-}
-[; ;LCD.c: 38: _delay((unsigned long)((400)*(32000000/4000000.0)));
-"38
-[e ( __delay (1 -> * -> -> 400 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-[; ;LCD.c: 39: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
-"39
-{
-[e = _RA3 -> -> 1 `i `b ]
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-[e = _RA3 -> -> 0 `i `b ]
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-}
-[; ;LCD.c: 40: _delay((unsigned long)((400)*(32000000/4000000.0)));
-"40
-[e ( __delay (1 -> * -> -> 400 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-[; ;LCD.c: 41: PORTB = ( ((0x02&0x0C)<<1)|(0x02&0x03) );
-"41
-[e = _PORTB -> | << & -> 2 `i -> 12 `i -> 1 `i & -> 2 `i -> 3 `i `uc ]
-[; ;LCD.c: 42: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
-"42
-{
-[e = _RA3 -> -> 1 `i `b ]
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-[e = _RA3 -> -> 0 `i `b ]
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-}
-[; ;LCD.c: 44: LCD_WriteData(0x28);
-"44
-[e ( _LCD_WriteData (1 -> -> 40 `i `c ]
-[; ;LCD.c: 45: LCD_WriteData(0x0c);
-"45
-[e ( _LCD_WriteData (1 -> -> 12 `i `c ]
-[; ;LCD.c: 46: LCD_DisplayClear();
-"46
-[e ( _LCD_DisplayClear ..  ]
-[; ;LCD.c: 47: LCD_WriteData(0x06);
-"47
-[e ( _LCD_WriteData (1 -> -> 6 `i `c ]
-[; ;LCD.c: 48: }
-"48
 [e :UE 354 ]
-}
-"54
-[v _LCD_Put `(v ~T0 @X0 1 ef1`c ]
-"55
-{
-[; ;LCD.c: 54: void LCD_Put(int8_t word)
-[; ;LCD.c: 55: {
-[e :U _LCD_Put ]
-"54
-[v _word `c ~T0 @X0 1 r1 ]
-"55
-[f ]
-[; ;LCD.c: 56: RA4 = 1;
-"56
-[e = _RA4 -> -> 1 `i `b ]
-[; ;LCD.c: 57: LCD_WriteData(word);
-"57
-[e ( _LCD_WriteData (1 _word ]
-[; ;LCD.c: 58: }
-"58
-[e :UE 355 ]
-}
-"64
-[v _LCD_DisplayClear `(v ~T0 @X0 1 ef ]
-"65
-{
-[; ;LCD.c: 64: void LCD_DisplayClear(void)
-[; ;LCD.c: 65: {
-[e :U _LCD_DisplayClear ]
-[f ]
-[; ;LCD.c: 66: RA4 = 0;
-"66
-[e = _RA4 -> -> 0 `i `b ]
-[; ;LCD.c: 67: LCD_WriteData(0x01);
-"67
-[e ( _LCD_WriteData (1 -> -> 1 `i `c ]
-[; ;LCD.c: 68: _delay((unsigned long)((2)*(32000000/4000.0)));
-"68
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
-[; ;LCD.c: 69: }
-"69
-[e :UE 356 ]
-}
-"75
-[v _LCD_CursorHome `(v ~T0 @X0 1 ef ]
-"76
-{
-[; ;LCD.c: 75: void LCD_CursorHome(void)
-[; ;LCD.c: 76: {
-[e :U _LCD_CursorHome ]
-[f ]
-[; ;LCD.c: 77: RA4 = 0;
-"77
-[e = _RA4 -> -> 0 `i `b ]
-[; ;LCD.c: 78: LCD_WriteData(0x02);
-"78
-[e ( _LCD_WriteData (1 -> -> 2 `i `c ]
-[; ;LCD.c: 79: _delay((unsigned long)((2)*(32000000/4000.0)));
-"79
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
-[; ;LCD.c: 80: }
-"80
-[e :UE 357 ]
-}
-"86
-[v _LCD_CursorPosition `(v ~T0 @X0 1 ef2`uc`uc ]
-"87
-{
-[; ;LCD.c: 86: void LCD_CursorPosition(uint8_t tx ,uint8_t ty)
-[; ;LCD.c: 87: {
-[e :U _LCD_CursorPosition ]
-"86
-[v _tx `uc ~T0 @X0 1 r1 ]
-[v _ty `uc ~T0 @X0 1 r2 ]
-"87
-[f ]
-[; ;LCD.c: 88: RA4 = 0;
-"88
-[e = _RA4 -> -> 0 `i `b ]
-[; ;LCD.c: 89: LCD_WriteData(0x80|tx|(0x40*ty));
-"89
-[e ( _LCD_WriteData (1 -> | | -> 128 `i -> _tx `i * -> 64 `i -> _ty `i `c ]
-[; ;LCD.c: 90: _delay((unsigned long)((40)*(32000000/4000000.0)));
-"90
-[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-[; ;LCD.c: 91: }
-"91
-[e :UE 358 ]
-}
-"97
-[v _LCD_CursorShift `(v ~T0 @X0 1 ef2`uc`uc ]
-"98
-{
-[; ;LCD.c: 97: void LCD_CursorShift(uint8_t shift,uint8_t RL)
-[; ;LCD.c: 98: {
-[e :U _LCD_CursorShift ]
-"97
-[v _shift `uc ~T0 @X0 1 r1 ]
-[v _RL `uc ~T0 @X0 1 r2 ]
-"98
-[f ]
-"99
-[v _i `uc ~T0 @X0 1 a ]
-[; ;LCD.c: 99: uint8_t i;
-[; ;LCD.c: 101: RA4 = 0;
-"101
-[e = _RA4 -> -> 0 `i `b ]
-[; ;LCD.c: 103: for(i=0;i<shift;i++)
-"103
-{
-[e = _i -> -> 0 `i `uc ]
-[e $U 363  ]
-"104
-[e :U 360 ]
-[; ;LCD.c: 104: {
-{
-[; ;LCD.c: 105: LCD_WriteData(0x10|((RL&0x01)<<2));
-"105
-[e ( _LCD_WriteData (1 -> | -> 16 `i << & -> _RL `i -> 1 `i -> 2 `i `c ]
-[; ;LCD.c: 106: _delay((unsigned long)((40)*(32000000/4000000.0)));
-"106
-[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-"107
-}
-"103
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 363 ]
-[e $ < -> _i `i -> _shift `i 360  ]
-[e :U 361 ]
-"107
-}
-[; ;LCD.c: 107: }
-[; ;LCD.c: 108: }
-"108
-[e :UE 359 ]
-}
-"114
-[v _LCD_DispShift `(v ~T0 @X0 1 ef2`uc`uc ]
-"115
-{
-[; ;LCD.c: 114: void LCD_DispShift(uint8_t shift,uint8_t RL)
-[; ;LCD.c: 115: {
-[e :U _LCD_DispShift ]
-"114
-[v _shift `uc ~T0 @X0 1 r1 ]
-[v _RL `uc ~T0 @X0 1 r2 ]
-"115
-[f ]
-"116
-[v _i `uc ~T0 @X0 1 a ]
-[; ;LCD.c: 116: uint8_t i;
-[; ;LCD.c: 118: RA4 = 0;
-"118
-[e = _RA4 -> -> 0 `i `b ]
-[; ;LCD.c: 119: for(i=0;i<shift;i++)
-"119
-{
-[e = _i -> -> 0 `i `uc ]
-[e $U 368  ]
-"120
-[e :U 365 ]
-[; ;LCD.c: 120: {
-{
-[; ;LCD.c: 121: LCD_WriteData(0x18|((RL&0x01)<<2));
-"121
-[e ( _LCD_WriteData (1 -> | -> 24 `i << & -> _RL `i -> 1 `i -> 2 `i `c ]
-[; ;LCD.c: 122: _delay((unsigned long)((40)*(32000000/4000000.0)));
-"122
-[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
-"123
-}
-"119
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 368 ]
-[e $ < -> _i `i -> _shift `i 365  ]
-[e :U 366 ]
-"123
-}
-[; ;LCD.c: 123: }
-[; ;LCD.c: 124: }
-"124
-[e :UE 364 ]
 }
