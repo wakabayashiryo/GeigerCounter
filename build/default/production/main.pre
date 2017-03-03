@@ -3916,7 +3916,7 @@ int xatoi (char** str, long* res);
 
 # 26 "main.h"
 #pragma config FOSC = INTOSC
-#pragma config WDTE = ON
+#pragma config WDTE = OFF
 #pragma config PWRTE = ON
 #pragma config MCLRE = ON
 #pragma config CP = OFF
@@ -4007,6 +4007,7 @@ Timer1_Init();
 LCD_Init();
 xfunc_out = (void(*)(unsigned char))(LCD_Put);
 
+<<<<<<< HEAD
 uint16_t j = 0;
 uint16_t i=500;
 
@@ -4022,6 +4023,12 @@ while(buff[p])
 {
 LCD_Put(buff[p]);
 p++;
+=======
+while(1)
+{
+LCD_CursorPosition(0,0);
+xprintf("Hellow World");
+>>>>>>> master
 }
 }
 

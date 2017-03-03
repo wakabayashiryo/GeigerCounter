@@ -2861,6 +2861,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;xprintf.h: 35: int xatoi (char** str, long* res);
 "26 main.h
 [p x FOSC=INTOSC ]
+<<<<<<< HEAD
+=======
+"26
+[p x WDTE=OFF ]
+>>>>>>> master
 "27
 [p x WDTE=ON ]
 "28
