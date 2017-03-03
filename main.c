@@ -12,6 +12,9 @@ int8_t main(void)
     Basic_Init();
     Buzer_Sound();    
     Buzer_Init();
+
+    LCD_Init();
+    xdev_out(LCD_Put);
       
     while(1)
     {  

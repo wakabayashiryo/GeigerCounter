@@ -17,7 +17,11 @@
 [v _Buzer_SetDuty Buzer_SetDuty `(v  1 e 1 0 ]
 "10 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
+<<<<<<< HEAD
 "23
+=======
+"26
+>>>>>>> LCD
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
 "412 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [v _PORTA PORTA `VEuc  1 e 1 @12 ]
@@ -52,7 +56,13 @@
 "10 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
 {
+<<<<<<< HEAD
 "21
+=======
+"17
+[v main@i i `ui  1 a 2 56 ]
+"24
+>>>>>>> LCD
 } 0
 "29 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Buzer.c
 [v _Buzer_SetDuty Buzer_SetDuty `(v  1 e 1 0 ]
@@ -68,8 +78,15 @@
 {
 "27
 } 0
+<<<<<<< HEAD
 "23 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
 {
 "42
+=======
+"26 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+[v _Basic_Init Basic_Init `(c  1 e 1 0 ]
+{
+"45
+>>>>>>> LCD
 } 0

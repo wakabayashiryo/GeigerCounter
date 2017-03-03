@@ -3917,6 +3917,9 @@ Basic_Init();
 Buzer_SetDuty(0x01FF);
 Buzer_Init();
 
+LCD_Init();
+xdev_out(LCD_Put);
+
 while(1)
 {
 
