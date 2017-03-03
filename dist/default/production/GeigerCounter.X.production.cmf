@@ -11,6 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
+<<<<<<< HEAD
 $/tmp/xcXR1gMzI.obj
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 2 2 2 2
@@ -27,26 +28,67 @@ maintext CODE 0 703 703 15 2
 cstackCOMMON COMMON 1 70 70 6 1
 stringtext STRCODE 0 800 800 1C 2
 bssCOMMON COMMON 1 76 76 5 1
+=======
+$dist/default/production/GeigerCounter.X.production.obj
+cinit CODE 0 7F8 7F8 8 2
+text1 CODE 0 3E9 3E9 10 2
+text2 CODE 0 5CE 5CE 22A 2
+text3 CODE 0 3F9 3F9 13 2
+text4 CODE 0 46A 46A 2D 2
+text5 CODE 0 3D4 3D4 6 2
+text6 CODE 0 44F 44F 1B 2
+text7 CODE 0 4D1 4D1 42 2
+text8 CODE 0 513 513 52 2
+text9 CODE 0 565 565 69 2
+text10 CODE 0 3DA 3DA F 2
+text11 CODE 0 421 421 15 2
+text12 CODE 0 497 497 3A 2
+text13 CODE 0 40C 40C 15 2
+maintext CODE 0 436 436 19 2
+cstackCOMMON COMMON 1 70 70 E 1
+cstackBANK0 BANK0 1 20 20 38 1
+bssBANK0 BANK0 1 58 58 5 1
+stringtext STRCODE 0 800 800 29 2
+$/tmp/xcXQhcRou.obj
+reset_vec CODE 0 0 0 2 2
+end_init CODE 0 2 2 2 2
+config CONFIG 0 8007 8007 2 2
+>>>>>>> master
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
+<<<<<<< HEAD
 RAM 20-6F 1
+=======
+RAM 5D-6F 1
+>>>>>>> master
 RAM A0-EF 1
 RAM 120-16F 1
 RAM 1A0-1EF 1
 RAM 220-24F 1
+<<<<<<< HEAD
 BANK0 20-6F 1
+=======
+BANK0 5D-6F 1
+>>>>>>> master
 BANK1 A0-EF 1
 BANK2 120-16F 1
 BANK3 1A0-1EF 1
 BANK4 220-24F 1
+<<<<<<< HEAD
 CONST 4-6DE 2
 CONST 81C-FFF 2
 ENTRY 4-6DE 2
 ENTRY 81C-FFF 2
+=======
+CONST 4-3D3 2
+CONST 829-FFF 2
+ENTRY 4-3D3 2
+ENTRY 829-FFF 2
+>>>>>>> master
 IDLOC 8000-8003 2
 SFR10 500-56F 1
 SFR11 580-5EF 1
@@ -70,9 +112,15 @@ SFR28 E00-E6F 1
 SFR29 E80-EEF 1
 SFR30 F00-F6F 1
 SFR31 F80-FEF 1
+<<<<<<< HEAD
 STACK 2000-216F 1
 CODE 4-6DE 2
 CODE 81C-FFF 2
+=======
+STACK 203D-216F 1
+CODE 4-3D3 2
+CODE 829-FFF 2
+>>>>>>> master
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-11F 1
@@ -86,10 +134,17 @@ SFR9 480-4EF 1
 BIGRAM 2000-216F 1
 COMMON 7B-7D 1
 EEDATA F000-F0FF 2
+<<<<<<< HEAD
 STRCODE 4-6DE 2
 STRCODE 81C-FFF 2
 STRING 4-6DE 2
 STRING 81C-FFF 2
+=======
+STRCODE 4-3D3 2
+STRCODE 829-FFF 2
+STRING 4-3D3 2
+STRING 829-FFF 2
+>>>>>>> master
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -104,6 +159,7 @@ STRING 81C-FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production/GeigerCounter.X.production.obj
+<<<<<<< HEAD
 7F8 cinit CODE >1108:/tmp/xcXGJizAg
 7F8 cinit CODE >1111:/tmp/xcXGJizAg
 7F8 cinit CODE >1129:/tmp/xcXGJizAg
@@ -180,6 +236,172 @@ $dist/default/production/GeigerCounter.X.production.obj
 710 maintext CODE >16:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 713 maintext CODE >17:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 717 maintext CODE >19:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+=======
+7F8 cinit CODE >803:/tmp/xcXuh1Uy0
+7F8 cinit CODE >806:/tmp/xcXuh1Uy0
+7F8 cinit CODE >824:/tmp/xcXuh1Uy0
+7F9 cinit CODE >825:/tmp/xcXuh1Uy0
+7FA cinit CODE >826:/tmp/xcXuh1Uy0
+7FB cinit CODE >827:/tmp/xcXuh1Uy0
+7FC cinit CODE >828:/tmp/xcXuh1Uy0
+7FD cinit CODE >834:/tmp/xcXuh1Uy0
+7FD cinit CODE >836:/tmp/xcXuh1Uy0
+7FE cinit CODE >837:/tmp/xcXuh1Uy0
+40C text13 CODE >26:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+40C text13 CODE >28:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+40F text13 CODE >32:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+411 text13 CODE >33:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+414 text13 CODE >35:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+417 text13 CODE >36:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+419 text13 CODE >38:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+41C text13 CODE >39:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+41D text13 CODE >41:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+41F text13 CODE >42:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+497 text12 CODE >15:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+498 text12 CODE >17:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+49C text12 CODE >18:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+4B1 text12 CODE >19:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+4BC text12 CODE >20:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+4C5 text12 CODE >21:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+4D0 text12 CODE >22:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+421 text11 CODE >86:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+422 text11 CODE >88:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+424 text11 CODE >89:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+431 text11 CODE >90:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+435 text11 CODE >91:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+3DA text10 CODE >64:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+3DA text10 CODE >66:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+3DC text10 CODE >67:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+3E0 text10 CODE >68:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+3E8 text10 CODE >69:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+565 text9 CODE >28:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+565 text9 CODE >30:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+567 text9 CODE >31:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+568 text9 CODE >33:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+574 text9 CODE >34:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+577 text9 CODE >35:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+582 text9 CODE >36:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+589 text9 CODE >37:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+595 text9 CODE >38:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+59D text9 CODE >39:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+5A9 text9 CODE >40:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+5B1 text9 CODE >41:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+5B4 text9 CODE >42:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+5BF text9 CODE >44:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+5C3 text9 CODE >45:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+5C7 text9 CODE >46:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+5CA text9 CODE >47:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+5CD text9 CODE >48:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+513 text8 CODE >6:/opt/microchip/xc8/v1.41/sources/common/lldiv.c
+513 text8 CODE >14:/opt/microchip/xc8/v1.41/sources/common/lldiv.c
+51B text8 CODE >15:/opt/microchip/xc8/v1.41/sources/common/lldiv.c
+521 text8 CODE >16:/opt/microchip/xc8/v1.41/sources/common/lldiv.c
+523 text8 CODE >17:/opt/microchip/xc8/v1.41/sources/common/lldiv.c
+525 text8 CODE >18:/opt/microchip/xc8/v1.41/sources/common/lldiv.c
+52C text8 CODE >19:/opt/microchip/xc8/v1.41/sources/common/lldiv.c
+530 text8 CODE >17:/opt/microchip/xc8/v1.41/sources/common/lldiv.c
+531 text8 CODE >22:/opt/microchip/xc8/v1.41/sources/common/lldiv.c
+538 text8 CODE >23:/opt/microchip/xc8/v1.41/sources/common/lldiv.c
+548 text8 CODE >24:/opt/microchip/xc8/v1.41/sources/common/lldiv.c
+550 text8 CODE >25:/opt/microchip/xc8/v1.41/sources/common/lldiv.c
+551 text8 CODE >27:/opt/microchip/xc8/v1.41/sources/common/lldiv.c
+558 text8 CODE >28:/opt/microchip/xc8/v1.41/sources/common/lldiv.c
+55C text8 CODE >30:/opt/microchip/xc8/v1.41/sources/common/lldiv.c
+4D1 text7 CODE >6:/opt/microchip/xc8/v1.41/sources/common/llmod.c
+4D1 text7 CODE >13:/opt/microchip/xc8/v1.41/sources/common/llmod.c
+4D7 text7 CODE >14:/opt/microchip/xc8/v1.41/sources/common/llmod.c
+4D9 text7 CODE >15:/opt/microchip/xc8/v1.41/sources/common/llmod.c
+4DB text7 CODE >16:/opt/microchip/xc8/v1.41/sources/common/llmod.c
+4E2 text7 CODE >17:/opt/microchip/xc8/v1.41/sources/common/llmod.c
+4E6 text7 CODE >15:/opt/microchip/xc8/v1.41/sources/common/llmod.c
+4E7 text7 CODE >20:/opt/microchip/xc8/v1.41/sources/common/llmod.c
+4F7 text7 CODE >21:/opt/microchip/xc8/v1.41/sources/common/llmod.c
+4FF text7 CODE >22:/opt/microchip/xc8/v1.41/sources/common/llmod.c
+506 text7 CODE >23:/opt/microchip/xc8/v1.41/sources/common/llmod.c
+50A text7 CODE >25:/opt/microchip/xc8/v1.41/sources/common/llmod.c
+44F text6 CODE >15:/opt/microchip/xc8/v1.41/sources/common/Umul16.c
+44F text6 CODE >43:/opt/microchip/xc8/v1.41/sources/common/Umul16.c
+451 text6 CODE >45:/opt/microchip/xc8/v1.41/sources/common/Umul16.c
+453 text6 CODE >46:/opt/microchip/xc8/v1.41/sources/common/Umul16.c
+457 text6 CODE >47:/opt/microchip/xc8/v1.41/sources/common/Umul16.c
+45C text6 CODE >48:/opt/microchip/xc8/v1.41/sources/common/Umul16.c
+461 text6 CODE >49:/opt/microchip/xc8/v1.41/sources/common/Umul16.c
+465 text6 CODE >52:/opt/microchip/xc8/v1.41/sources/common/Umul16.c
+3D4 text5 CODE >54:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+3D4 text5 CODE >56:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+3D6 text5 CODE >57:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+3D9 text5 CODE >58:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+46A text4 CODE >26:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+46B text4 CODE >28:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+479 text4 CODE >30:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+47D text4 CODE >31:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+488 text4 CODE >32:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+489 text4 CODE >35:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+3F9 text3 CODE >44:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+3F9 text3 CODE >45:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+3FA text3 CODE >48:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+400 text3 CODE >49:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+40B text3 CODE >48:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+5CE text2 CODE >88:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+5CE text2 CODE >98:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+5CE text2 CODE >99:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+5DB text2 CODE >100:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+5DE text2 CODE >101:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+5E2 text2 CODE >102:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+5E7 text2 CODE >104:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+5EA text2 CODE >105:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+5F6 text2 CODE >106:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+5FA text2 CODE >107:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+5FC text2 CODE >109:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+600 text2 CODE >110:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+610 text2 CODE >113:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+613 text2 CODE >114:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+62E text2 CODE >113:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+642 text2 CODE >115:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+64A text2 CODE >116:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+657 text2 CODE >118:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+65A text2 CODE >119:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+65E text2 CODE >120:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+664 text2 CODE >121:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+665 text2 CODE >123:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+670 text2 CODE >124:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+680 text2 CODE >125:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+696 text2 CODE >126:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+69A text2 CODE >127:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+6AF text2 CODE >130:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+6BC text2 CODE >132:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+6BF text2 CODE >134:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+6C1 text2 CODE >137:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+6C3 text2 CODE >139:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+6C8 text2 CODE >141:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+6CD text2 CODE >121:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+6E5 text2 CODE >142:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+6E5 text2 CODE >145:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+72D text2 CODE >146:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+732 text2 CODE >147:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+73D text2 CODE >148:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+73E text2 CODE >150:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+740 text2 CODE >152:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+770 text2 CODE >153:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+782 text2 CODE >154:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+78F text2 CODE >155:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+79C text2 CODE >156:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+7AA text2 CODE >157:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+7BA text2 CODE >158:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+7D1 text2 CODE >159:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+7E3 text2 CODE >160:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+3E9 text1 CODE >165:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+3E9 text1 CODE >173:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+3EE text1 CODE >174:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+3F8 text1 CODE >176:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+436 maintext CODE >12:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+436 maintext CODE >14:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+439 maintext CODE >15:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+43C maintext CODE >16:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+441 maintext CODE >20:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+446 maintext CODE >21:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+44E maintext CODE >18:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+>>>>>>> master
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -193,6 +415,12 @@ $dist/default/production/GeigerCounter.X.production.obj
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 1 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
+<<<<<<< HEAD
+=======
+_xvprintf$154 37 0 BANK0 1 cstackBANK0 dist/default/production/GeigerCounter.X.production.obj
+_xvprintf$155 3B 0 BANK0 1 cstackBANK0 dist/default/production/GeigerCounter.X.production.obj
+_xvprintf$156 3D 0 BANK0 1 cstackBANK0 dist/default/production/GeigerCounter.X.production.obj
+>>>>>>> master
 __Hspace_0 8009 0 ABS 0 - -
 __Hspace_1 7B 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
@@ -202,6 +430,7 @@ __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 __Lstringtext 0 0 ABS 0 stringtext -
 __Hstrings 0 0 ABS 0 strings -
+<<<<<<< HEAD
 _TMR2 1A 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 ___sp 0 0 STACK 2 stack /tmp/xcXR1gMzI.obj
 _main E06 0 CODE 0 maintext dist/default/production/GeigerCounter.X.production.obj
@@ -221,23 +450,75 @@ intlevel3 0 0 CODE 0 functab /tmp/xcXR1gMzI.obj
 intlevel4 0 0 CODE 0 functab /tmp/xcXR1gMzI.obj
 intlevel5 0 0 CODE 0 functab /tmp/xcXR1gMzI.obj
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
+=======
+___sp 0 0 STACK 2 stack /tmp/xcXQhcRou.obj
+_main 86C 0 CODE 0 maintext dist/default/production/GeigerCounter.X.production.obj
+btemp 7E 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
+start 4 0 CODE 0 init /tmp/xcXQhcRou.obj
+__end_of_LCD_WriteData 9A2 0 CODE 0 text12 dist/default/production/GeigerCounter.X.production.obj
+__size_of_main 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
+__size_of___lldiv 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
+__size_of___llmod 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
+?___wmul 70 0 COMMON 1 cstackCOMMON dist/default/production/GeigerCounter.X.production.obj
+__size_of_LCD_Put 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
+__end_of_LCD_CursorPosition 86C 0 CODE 0 text11 dist/default/production/GeigerCounter.X.production.obj
+_LCD_Init ACA 0 CODE 0 text9 dist/default/production/GeigerCounter.X.production.obj
+__Hpowerup 0 0 CODE 0 powerup -
+__end_of_LCD_DisplayClear 7D2 0 CODE 0 text10 dist/default/production/GeigerCounter.X.production.obj
+__end_of_LCD_Init B9C 0 CODE 0 text9 dist/default/production/GeigerCounter.X.production.obj
+intlevel0 0 0 CODE 0 functab /tmp/xcXQhcRou.obj
+intlevel1 0 0 CODE 0 functab /tmp/xcXQhcRou.obj
+intlevel2 0 0 CODE 0 functab /tmp/xcXQhcRou.obj
+intlevel3 0 0 CODE 0 functab /tmp/xcXQhcRou.obj
+intlevel4 0 0 CODE 0 functab /tmp/xcXQhcRou.obj
+intlevel5 0 0 CODE 0 functab /tmp/xcXQhcRou.obj
+xprintf@arp 57 0 BANK0 1 cstackBANK0 dist/default/production/GeigerCounter.X.production.obj
+xprintf@fmt 50 0 BANK0 1 cstackBANK0 dist/default/production/GeigerCounter.X.production.obj
+>>>>>>> master
 wtemp0 7E 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 __size_of_LCD_DisplayClear 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 __Hfunctab 0 0 CODE 0 functab -
 __size_of_Buzer_Init 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 __Hclrtext 0 0 ABS 0 clrtext -
+<<<<<<< HEAD
 Buzer_SetDuty@duty 70 0 COMMON 1 cstackCOMMON dist/default/production/GeigerCounter.X.production.obj
 _ANSELA 18C 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 _ANSELB 18D 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 _CCPR2L 298 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 _Basic_Init DDC 0 CODE 0 text6 dist/default/production/GeigerCounter.X.production.obj
 __Lmaintext 0 0 ABS 0 maintext -
+=======
+LCD_Put@word 73 0 COMMON 1 cstackCOMMON dist/default/production/GeigerCounter.X.production.obj
+_LCD_CursorPosition 842 0 CODE 0 text11 dist/default/production/GeigerCounter.X.production.obj
+xputs@str 77 0 COMMON 1 cstackCOMMON dist/default/production/GeigerCounter.X.production.obj
+___wmul@multiplicand 72 0 COMMON 1 cstackCOMMON dist/default/production/GeigerCounter.X.production.obj
+_ANSELA 18C 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
+_ANSELB 18D 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
+__end_of___wmul 8D4 0 CODE 0 text6 dist/default/production/GeigerCounter.X.production.obj
+_Basic_Init 818 0 CODE 0 text13 dist/default/production/GeigerCounter.X.production.obj
+__Lmaintext 0 0 ABS 0 maintext -
+__end_of___lldiv ACA 0 CODE 0 text8 dist/default/production/GeigerCounter.X.production.obj
+__end_of___llmod A26 0 CODE 0 text7 dist/default/production/GeigerCounter.X.production.obj
+LCD_CursorPosition@tx 75 0 COMMON 1 cstackCOMMON dist/default/production/GeigerCounter.X.production.obj
+LCD_CursorPosition@ty 73 0 COMMON 1 cstackCOMMON dist/default/production/GeigerCounter.X.production.obj
+__end_of_LCD_Put 7B4 0 CODE 0 text5 dist/default/production/GeigerCounter.X.production.obj
+_xprintf 7D2 0 CODE 0 text1 dist/default/production/GeigerCounter.X.production.obj
+__size_of_xputc 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
+__size_of_xputs 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
+___lldiv@counter 7D 0 COMMON 1 cstackCOMMON dist/default/production/GeigerCounter.X.production.obj
+>>>>>>> master
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 start_initialization FF0 0 CODE 0 cinit dist/default/production/GeigerCounter.X.production.obj
 _OSCCON 99 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 __CFG_STVREN$OFF 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
+<<<<<<< HEAD
 __end_of_Basic_Init E06 0 CODE 0 text6 dist/default/production/GeigerCounter.X.production.obj
 ___int_sp 0 0 STACK 2 stack /tmp/xcXR1gMzI.obj
+=======
+__end_of_Basic_Init 842 0 CODE 0 text13 dist/default/production/GeigerCounter.X.production.obj
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production/GeigerCounter.X.production.obj
+___int_sp 0 0 STACK 2 stack /tmp/xcXQhcRou.obj
+>>>>>>> master
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -365,7 +646,14 @@ __Lsfr7 0 0 ABS 0 sfr7 -
 __Lsfr8 0 0 ABS 0 sfr8 -
 __Lsfr9 0 0 ABS 0 sfr9 -
 __Ltext 0 0 ABS 0 text -
+<<<<<<< HEAD
 _Buzer_SetDuty E30 0 CODE 0 text4 dist/default/production/GeigerCounter.X.production.obj
+=======
+xvprintf@arp 22 0 BANK0 1 cstackBANK0 dist/default/production/GeigerCounter.X.production.obj
+xvprintf@fmt 20 0 BANK0 1 cstackBANK0 dist/default/production/GeigerCounter.X.production.obj
+___wmul 89E 0 CODE 0 text6 dist/default/production/GeigerCounter.X.production.obj
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 -
+>>>>>>> master
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 _PR2 1B 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 _RA3 63 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
@@ -377,7 +665,20 @@ __S3 0 0 ABS 0 - -
 __CFG_PLLEN$ON 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 __Lintentry 4 0 CODE 0 intentry -
+<<<<<<< HEAD
 reset_vec 0 0 CODE 0 reset_vec /tmp/xcXR1gMzI.obj
+=======
+___lldiv@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production/GeigerCounter.X.production.obj
+reset_vec 0 0 CODE 0 reset_vec /tmp/xcXQhcRou.obj
+__size_of___wmul 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
+__LbssBANK0 0 0 ABS 0 bssBANK0 -
+__ptext10 7B4 0 CODE 0 text10 dist/default/production/GeigerCounter.X.production.obj
+__ptext11 842 0 CODE 0 text11 dist/default/production/GeigerCounter.X.production.obj
+__ptext12 92E 0 CODE 0 text12 dist/default/production/GeigerCounter.X.production.obj
+__ptext13 818 0 CODE 0 text13 dist/default/production/GeigerCounter.X.production.obj
+___lldiv A26 0 CODE 0 text8 dist/default/production/GeigerCounter.X.production.obj
+___llmod 9A2 0 CODE 0 text7 dist/default/production/GeigerCounter.X.production.obj
+>>>>>>> master
 __Lbank10 0 0 BANK10 1 bank10 -
 __Lbank11 0 0 BANK11 1 bank11 -
 __Lbank12 0 0 BANK12 1 bank12 -
@@ -400,14 +701,22 @@ __Lbank28 0 0 BANK28 1 bank28 -
 __Lbank29 0 0 BANK29 1 bank29 -
 __Lbank30 0 0 BANK30 1 bank30 -
 __Lbank31 0 0 BANK31 1 bank31 -
+<<<<<<< HEAD
 __pmaintext E06 0 CODE 0 maintext dist/default/production/GeigerCounter.X.production.obj
 __Lbigram 0 0 ABS 0 bigram -
 __CFG_BORV$LO 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 _outptr 7A 0 COMMON 1 bssCOMMON dist/default/production/GeigerCounter.X.production.obj
+=======
+__pmaintext 86C 0 CODE 0 maintext dist/default/production/GeigerCounter.X.production.obj
+__Lbigram 0 0 ABS 0 bigram -
+__CFG_BORV$LO 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
+_outptr 5C 0 BANK0 1 bssBANK0 dist/default/production/GeigerCounter.X.production.obj
+>>>>>>> master
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 1000E 0 CONFIG 0 config -
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
+<<<<<<< HEAD
 _LCD_Put 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 _xfunc_out 78 0 COMMON 1 bssCOMMON dist/default/production/GeigerCounter.X.production.obj
 __size_of_Basic_Init 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
@@ -415,6 +724,15 @@ __size_of_Buzer_SetDuty 0 0 ABS 0 - dist/default/production/GeigerCounter.X.prod
 stackhi 216F 0 ABS 0 - /tmp/xcXR1gMzI.obj
 stacklo 2000 0 ABS 0 - /tmp/xcXR1gMzI.obj
 _xfunc_in 76 0 COMMON 1 bssCOMMON dist/default/production/GeigerCounter.X.production.obj
+=======
+_LCD_Put 7A8 0 CODE 0 text5 dist/default/production/GeigerCounter.X.production.obj
+___wmul@multiplier 70 0 COMMON 1 cstackCOMMON dist/default/production/GeigerCounter.X.production.obj
+_xfunc_out 5A 0 BANK0 1 bssBANK0 dist/default/production/GeigerCounter.X.production.obj
+__size_of_Basic_Init 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
+stackhi 216F 0 ABS 0 - /tmp/xcXQhcRou.obj
+stacklo 203D 0 ABS 0 - /tmp/xcXQhcRou.obj
+_xfunc_in 58 0 BANK0 1 bssBANK0 dist/default/production/GeigerCounter.X.production.obj
+>>>>>>> master
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
@@ -429,6 +747,7 @@ __Hintentry 4 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
 __end_of_Buzer_SetDuty E66 0 CODE 0 text4 dist/default/production/GeigerCounter.X.production.obj
 __Hreset_vec 4 0 CODE 0 reset_vec -
+<<<<<<< HEAD
 __ptext1 F1E 0 CODE 0 text1 dist/default/production/GeigerCounter.X.production.obj
 __ptext2 DBE 0 CODE 0 text2 dist/default/production/GeigerCounter.X.production.obj
 __ptext3 EAA 0 CODE 0 text3 dist/default/production/GeigerCounter.X.production.obj
@@ -436,6 +755,19 @@ __ptext4 E30 0 CODE 0 text4 dist/default/production/GeigerCounter.X.production.o
 __ptext5 E66 0 CODE 0 text5 dist/default/production/GeigerCounter.X.production.obj
 __ptext6 DDC 0 CODE 0 text6 dist/default/production/GeigerCounter.X.production.obj
 _LCD_WriteData EAA 0 CODE 0 text3 dist/default/production/GeigerCounter.X.production.obj
+=======
+__HbssBANK0 0 0 ABS 0 bssBANK0 -
+__ptext1 7D2 0 CODE 0 text1 dist/default/production/GeigerCounter.X.production.obj
+__ptext2 B9C 0 CODE 0 text2 dist/default/production/GeigerCounter.X.production.obj
+__ptext3 7F2 0 CODE 0 text3 dist/default/production/GeigerCounter.X.production.obj
+__ptext4 8D4 0 CODE 0 text4 dist/default/production/GeigerCounter.X.production.obj
+__ptext5 7A8 0 CODE 0 text5 dist/default/production/GeigerCounter.X.production.obj
+__ptext6 89E 0 CODE 0 text6 dist/default/production/GeigerCounter.X.production.obj
+__ptext7 9A2 0 CODE 0 text7 dist/default/production/GeigerCounter.X.production.obj
+__ptext8 A26 0 CODE 0 text8 dist/default/production/GeigerCounter.X.production.obj
+__ptext9 ACA 0 CODE 0 text9 dist/default/production/GeigerCounter.X.production.obj
+_LCD_WriteData 92E 0 CODE 0 text12 dist/default/production/GeigerCounter.X.production.obj
+>>>>>>> master
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __pstringtext 1000 0 STRCODE 0 stringtext dist/default/production/GeigerCounter.X.production.obj
@@ -450,12 +782,19 @@ __CFG_PWRTE$ON 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.ob
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production/GeigerCounter.X.production.obj
 Buzer_SetDuty@CCP2CON_Pre 74 0 COMMON 1 cstackCOMMON dist/default/production/GeigerCounter.X.production.obj
 __Hend_init 8 0 CODE 0 end_init -
+<<<<<<< HEAD
 __end_of_main E30 0 CODE 0 maintext dist/default/production/GeigerCounter.X.production.obj
+=======
+___llmod@dividend 74 0 COMMON 1 cstackCOMMON dist/default/production/GeigerCounter.X.production.obj
+___llmod@counter 79 0 COMMON 1 cstackCOMMON dist/default/production/GeigerCounter.X.production.obj
+__end_of_main 89E 0 CODE 0 maintext dist/default/production/GeigerCounter.X.production.obj
+>>>>>>> master
 _PORTA C 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 _PORTB D 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 _T2CON 1C 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 _TRISA 8C 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 _TRISB 8D 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
+<<<<<<< HEAD
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
@@ -463,6 +802,19 @@ _CCP2CON 29A 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 _CCPTMRS 29E 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 _LCD_DisplayClear DBE 0 CODE 0 text2 dist/default/production/GeigerCounter.X.production.obj
 __initialization FF0 0 CODE 0 cinit dist/default/production/GeigerCounter.X.production.obj
+=======
+__end_of_xputc 92E 0 CODE 0 text4 dist/default/production/GeigerCounter.X.production.obj
+__end_of_xputs 818 0 CODE 0 text3 dist/default/production/GeigerCounter.X.production.obj
+__Hram 0 0 ABS 0 ram -
+__Lram 0 0 ABS 0 ram -
+__CFG_CPD$OFF 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
+__end_of_xprintf 7F2 0 CODE 0 text1 dist/default/production/GeigerCounter.X.production.obj
+_xputc 8D4 0 CODE 0 text4 dist/default/production/GeigerCounter.X.production.obj
+_xputs 7F2 0 CODE 0 text3 dist/default/production/GeigerCounter.X.production.obj
+_LCD_DisplayClear 7B4 0 CODE 0 text10 dist/default/production/GeigerCounter.X.production.obj
+__initialization FF0 0 CODE 0 cinit dist/default/production/GeigerCounter.X.production.obj
+__pbssBANK0 58 0 BANK0 1 bssBANK0 dist/default/production/GeigerCounter.X.production.obj
+>>>>>>> master
 __Hstringtext 0 0 ABS 0 stringtext -
 __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 __size_of_LCD_Init 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
@@ -493,6 +845,7 @@ __size_of_LCD_WriteData 0 0 ABS 0 - dist/default/production/GeigerCounter.X.prod
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 7F8 FF0 8 2
+<<<<<<< HEAD
 text1 0 78F F1E 69 2
 text2 0 6DF DBE F 2
 text3 0 755 EAA 3A 2
@@ -503,4 +856,24 @@ maintext 0 703 E06 15 2
 cstackCOMMON 1 70 70 B 1
 reset_vec 0 0 0 4 2
 stringtext 0 800 1000 1C 2
+=======
+text1 0 3E9 7D2 10 2
+text2 0 5CE B9C 22A 2
+text3 0 3F9 7F2 13 2
+text4 0 46A 8D4 2D 2
+text5 0 3D4 7A8 6 2
+text6 0 44F 89E 1B 2
+text7 0 4D1 9A2 42 2
+text8 0 513 A26 52 2
+text9 0 565 ACA 69 2
+text10 0 3DA 7B4 F 2
+text11 0 421 842 15 2
+text12 0 497 92E 3A 2
+text13 0 40C 818 15 2
+maintext 0 436 86C 19 2
+cstackCOMMON 1 70 70 E 1
+cstackBANK0 1 20 20 3D 1
+reset_vec 0 0 0 4 2
+stringtext 0 800 1000 29 2
+>>>>>>> master
 config 0 8007 1000E 2 2

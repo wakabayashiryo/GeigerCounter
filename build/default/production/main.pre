@@ -3944,7 +3944,6 @@ Buzer_Init();
 
 LCD_Init();
 xfunc_out = (void(*)(unsigned char))(LCD_Put);
-
 while(1)
 {
 

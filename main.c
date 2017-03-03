@@ -15,7 +15,6 @@ int8_t main(void)
 
     LCD_Init();
     xdev_out(LCD_Put);
-      
     while(1)
     {  
         

@@ -2940,67 +2940,67 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v F2989 `(v ~T0 @X0 0 tf1`uc ]
 "17
 [e = _xfunc_out -> &U _LCD_Put `*F2989 ]
-[; ;main.c: 19: while(1)
-"19
+[; ;main.c: 18: while(1)
+"18
 [e :U 355 ]
-[; ;main.c: 20: {
-"20
+[; ;main.c: 19: {
+"19
 {
-"22
+"21
 }
 [e :U 354 ]
-"19
+"18
 [e $U 355  ]
 [e :U 356 ]
-[; ;main.c: 22: }
-[; ;main.c: 23: return 0;
-"23
+[; ;main.c: 21: }
+[; ;main.c: 22: return 0;
+"22
 [e ) -> -> 0 `i `c ]
 [e $UE 353  ]
-[; ;main.c: 24: }
-"24
+[; ;main.c: 23: }
+"23
 [e :UE 353 ]
 }
-"26
+"25
 [v _Basic_Init `(c ~T0 @X0 1 ef ]
-"27
+"26
 {
-[; ;main.c: 26: int8_t Basic_Init(void)
-[; ;main.c: 27: {
+[; ;main.c: 25: int8_t Basic_Init(void)
+[; ;main.c: 26: {
 [e :U _Basic_Init ]
 [f ]
-[; ;main.c: 28: OSCCON = 0xF3;
-"28
+[; ;main.c: 27: OSCCON = 0xF3;
+"27
 [e = _OSCCON -> -> 243 `i `uc ]
-[; ;main.c: 32: TRISA = 0x07;
-"32
+[; ;main.c: 31: TRISA = 0x07;
+"31
 [e = _TRISA -> -> 7 `i `uc ]
-[; ;main.c: 33: ANSELA = 0x07;
-"33
+[; ;main.c: 32: ANSELA = 0x07;
+"32
 [e = _ANSELA -> -> 7 `i `uc ]
-[; ;main.c: 35: TRISB = 0x40;
-"35
+[; ;main.c: 34: TRISB = 0x40;
+"34
 [e = _TRISB -> -> 64 `i `uc ]
-[; ;main.c: 36: ANSELB = 0x00;
-"36
+[; ;main.c: 35: ANSELB = 0x00;
+"35
 [e = _ANSELB -> -> 0 `i `uc ]
-[; ;main.c: 38: APFCON0 = 0x08;
-"38
+[; ;main.c: 37: APFCON0 = 0x08;
+"37
 [e = _APFCON0 -> -> 8 `i `uc ]
-[; ;main.c: 39: APFCON1 = 0x00;
-"39
+[; ;main.c: 38: APFCON1 = 0x00;
+"38
 [e = _APFCON1 -> -> 0 `i `uc ]
-[; ;main.c: 41: PORTA = 0x00;
-"41
+[; ;main.c: 40: PORTA = 0x00;
+"40
 [e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 42: PORTB = 0x00;
-"42
+[; ;main.c: 41: PORTB = 0x00;
+"41
 [e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 44: return 0;
-"44
+[; ;main.c: 43: return 0;
+"43
 [e ) -> -> 0 `i `c ]
 [e $UE 357  ]
-[; ;main.c: 45: }
-"45
+[; ;main.c: 44: }
+"44
 [e :UE 357 ]
 }
