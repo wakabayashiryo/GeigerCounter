@@ -3902,11 +3902,7 @@ int xatoi (char** str, long* res);
 
 # 25 "main.h"
 #pragma config FOSC = INTOSC
-<<<<<<< HEAD
 #pragma config WDTE = OFF
-=======
-#pragma config WDTE = OFF
->>>>>>> LCD
 #pragma config PWRTE = ON
 #pragma config MCLRE = ON
 #pragma config CP = OFF
@@ -3923,7 +3919,7 @@ int xatoi (char** str, long* res);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 52
+# 48
 int8_t Basic_Init(void);
 
 # 32 "LCD.h"

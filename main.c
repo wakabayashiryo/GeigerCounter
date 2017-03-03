@@ -14,21 +14,12 @@ int8_t main(void)
     Basic_Init();
     LCD_Init();
     xdev_out(LCD_Put);
-<<<<<<< HEAD
   
     while(1)
     {  
         LCD_CursorPosition(0,0);
         xprintf("Hellow World");
     }    
-=======
-    uint16_t i = 0;
-    while(1)
-    {
-        LCD_CursorPosition(0,0);
-        xprintf("Hellow World %d",i++);
-    }
->>>>>>> LCD
     return EXIT_SUCCESS;
 }
 
