@@ -5,8 +5,12 @@
         <group>
             <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c</file>
             <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.h</file>
+            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.h</file>
             <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c</file>
             <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c</file>
+            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.h</file>
+            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/nbproject/Makefile-default.mk</file>
+            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/nbproject/Makefile-impl.mk</file>
         </group>
     </open-files>
 </project-private>

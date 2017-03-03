@@ -3939,8 +3939,8 @@ int8_t Basic_Init(void);
 int8_t main(void)
 {
 Basic_Init();
-Buzer_SetDuty(0x01FF);
 Buzer_Init();
+Buzer_SetDuty(0x01FF);
 
 LCD_Init();
 xfunc_out = (void(*)(unsigned char))(LCD_Put);

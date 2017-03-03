@@ -2,10 +2,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "50 main.h
 [v _Basic_Init `(c ~T0 @X0 0 ef ]
-"42 Buzer.h
-[v _Buzer_SetDuty `(v ~T0 @X0 0 ef1`ui ]
-"41
+"41 Buzer.h
 [v _Buzer_Init `(v ~T0 @X0 0 ef ]
+"42
+[v _Buzer_SetDuty `(v ~T0 @X0 0 ef1`ui ]
 "32 LCD.h
 [v _LCD_Init `(v ~T0 @X0 0 ef ]
 [v F2944 `(v ~T0 @X0 0 tf1`uc ]
@@ -2927,12 +2927,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 12: Basic_Init();
 "12
 [e ( _Basic_Init ..  ]
-[; ;main.c: 13: Buzer_SetDuty(0x01FF);
+[; ;main.c: 13: Buzer_Init();
 "13
-[e ( _Buzer_SetDuty (1 -> -> 511 `i `ui ]
-[; ;main.c: 14: Buzer_Init();
-"14
 [e ( _Buzer_Init ..  ]
+[; ;main.c: 14: Buzer_SetDuty(0x01FF);
+"14
+[e ( _Buzer_SetDuty (1 -> -> 511 `i `ui ]
 [; ;main.c: 16: LCD_Init();
 "16
 [e ( _LCD_Init ..  ]
