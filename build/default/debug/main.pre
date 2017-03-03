@@ -3911,7 +3911,7 @@ int xatoi (char** str, long* res);
 
 # 25 "main.h"
 #pragma config FOSC = INTOSC
-#pragma config WDTE = OFF
+#pragma config WDTE = ON
 #pragma config PWRTE = ON
 #pragma config MCLRE = ON
 #pragma config CP = OFF
@@ -3938,11 +3938,9 @@ Basic_Init();
 LCD_Init();
 xfunc_out = (void(*)(unsigned char))(LCD_Put);
 
-while(1)
-{
 LCD_CursorPosition(0,0);
 xprintf("Hellow World");
-}
+
 return 0;
 }
 

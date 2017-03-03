@@ -2886,7 +2886,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "25 main.h
 [p x FOSC=INTOSC ]
 "26
-[p x WDTE=OFF ]
+[p x WDTE=ON ]
 "27
 [p x PWRTE=ON ]
 "28
@@ -2932,75 +2932,62 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v F2985 `(v ~T0 @X0 0 tf1`uc ]
 "16
 [e = _xfunc_out -> &U _LCD_Put `*F2985 ]
-[; ;main.c: 18: while(1)
+[; ;main.c: 18: LCD_CursorPosition(0,0);
 "18
-[e :U 355 ]
-[; ;main.c: 19: {
-"19
-{
-[; ;main.c: 20: LCD_CursorPosition(0,0);
-"20
 [e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 21: xprintf("Hellow World");
-"21
+[; ;main.c: 19: xprintf("Hellow World");
+"19
 [e ( _xprintf :s 1C ]
-"22
-}
-[e :U 354 ]
-"18
-[e $U 355  ]
-[e :U 356 ]
-[; ;main.c: 22: }
-[; ;main.c: 23: return 0;
-"23
+[; ;main.c: 21: return 0;
+"21
 [e ) -> -> 0 `i `c ]
 [e $UE 353  ]
-[; ;main.c: 24: }
-"24
+[; ;main.c: 22: }
+"22
 [e :UE 353 ]
 }
-"26
+"24
 [v _Basic_Init `(c ~T0 @X0 1 ef ]
-"27
+"25
 {
-[; ;main.c: 26: int8_t Basic_Init(void)
-[; ;main.c: 27: {
+[; ;main.c: 24: int8_t Basic_Init(void)
+[; ;main.c: 25: {
 [e :U _Basic_Init ]
 [f ]
-[; ;main.c: 28: OSCCON = 0xF3;
-"28
+[; ;main.c: 26: OSCCON = 0xF3;
+"26
 [e = _OSCCON -> -> 243 `i `uc ]
-[; ;main.c: 32: TRISA = 0x07;
-"32
+[; ;main.c: 30: TRISA = 0x07;
+"30
 [e = _TRISA -> -> 7 `i `uc ]
-[; ;main.c: 33: ANSELA = 0x07;
-"33
+[; ;main.c: 31: ANSELA = 0x07;
+"31
 [e = _ANSELA -> -> 7 `i `uc ]
-[; ;main.c: 35: TRISB = 0x40;
-"35
+[; ;main.c: 33: TRISB = 0x40;
+"33
 [e = _TRISB -> -> 64 `i `uc ]
-[; ;main.c: 36: ANSELB = 0x00;
-"36
+[; ;main.c: 34: ANSELB = 0x00;
+"34
 [e = _ANSELB -> -> 0 `i `uc ]
-[; ;main.c: 38: APFCON0 = 0x08;
-"38
+[; ;main.c: 36: APFCON0 = 0x08;
+"36
 [e = _APFCON0 -> -> 8 `i `uc ]
-[; ;main.c: 39: APFCON1 = 0x00;
-"39
+[; ;main.c: 37: APFCON1 = 0x00;
+"37
 [e = _APFCON1 -> -> 0 `i `uc ]
-[; ;main.c: 41: PORTA = 0x00;
-"41
+[; ;main.c: 39: PORTA = 0x00;
+"39
 [e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 42: PORTB = 0x00;
-"42
+[; ;main.c: 40: PORTB = 0x00;
+"40
 [e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 44: return 0;
-"44
+[; ;main.c: 42: return 0;
+"42
 [e ) -> -> 0 `i `c ]
-[e $UE 357  ]
-[; ;main.c: 45: }
-"45
-[e :UE 357 ]
+[e $UE 354  ]
+[; ;main.c: 43: }
+"43
+[e :UE 354 ]
 }
 [a 1C 72 101 108 108 111 119 32 87 111 114 108 100 0 ]
 
