@@ -14,7 +14,7 @@ int8_t main(void)
 {
     Basic_Init();
     uint8_t sample[5]={
-        19,98,10,5,6
+        20,17,3,3,20
     };
     uint8_t readdat[5];
     LCD_Init();
