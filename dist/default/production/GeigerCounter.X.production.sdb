@@ -7,6 +7,14 @@
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 /opt/microchip/xc8/v1.41/sources/common/ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
+"6 /opt/microchip/xc8/v1.41/sources/common/lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"6 /opt/microchip/xc8/v1.41/sources/common/llmod.c
+[v ___llmod __llmod `(ul  1 e 4 0 ]
+"15 /opt/microchip/xc8/v1.41/sources/common/Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"15 /opt/microchip/xc8/v1.41/sources/common/Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
 "6 /opt/microchip/xc8/v1.41/sources/pic/eeprom.c
 [v _eecpymem eecpymem `(v  1 e 1 0 ]
 "39
@@ -15,14 +23,28 @@
 [v _Buzer_Init Buzer_Init `(v  1 e 1 0 ]
 "29
 [v _Buzer_SetDuty Buzer_SetDuty `(v  1 e 1 0 ]
+"15 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+[v _LCD_WriteData LCD_WriteData `(v  1 s 1 LCD_WriteData ]
+"28
+[v _LCD_Init LCD_Init `(v  1 e 1 0 ]
+"54
+[v _LCD_Put LCD_Put `(v  1 e 1 0 ]
+"64
+[v _LCD_DisplayClear LCD_DisplayClear `(v  1 e 1 0 ]
 "10 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
-<<<<<<< HEAD
-"23
-=======
 "26
->>>>>>> LCD
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
+"26 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+[v _xputc xputc `(v  1 e 1 0 ]
+"44
+[v _xputs xputs `(v  1 e 1 0 ]
+"88
+[v _xvprintf xvprintf `(v  1 s 1 xvprintf ]
+"165
+[v _xprintf xprintf `(v  1 e 1 0 ]
+"277
+[v _xgets xgets `(i  1 e 2 0 ]
 "412 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [v _PORTA PORTA `VEuc  1 e 1 @12 ]
 "473
@@ -53,16 +75,39 @@
 [v _CCP2CON CCP2CON `VEuc  1 e 1 @666 ]
 "5282
 [v _CCPTMRS CCPTMRS `VEuc  1 e 1 @670 ]
+"7216
+[v _RA3 RA3 `VEb  1 e 0 @99 ]
+"7218
+[v _RA4 RA4 `VEb  1 e 0 @100 ]
+"19 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
+[v _xfunc_out xfunc_out `*.37(v  1 e 2 0 ]
+"20
+[v _outptr outptr `*.1uc  1 s 1 outptr ]
+"271
+[v _xfunc_in xfunc_in `*.37(uc  1 e 2 0 ]
 "10 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
 {
-<<<<<<< HEAD
-"21
-=======
-"17
-[v main@i i `ui  1 a 2 56 ]
 "24
->>>>>>> LCD
+} 0
+"28 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+[v _LCD_Init LCD_Init `(v  1 e 1 0 ]
+{
+"48
+} 0
+"64
+[v _LCD_DisplayClear LCD_DisplayClear `(v  1 e 1 0 ]
+{
+"69
+} 0
+"15
+[v _LCD_WriteData LCD_WriteData `(v  1 s 1 LCD_WriteData ]
+{
+[v LCD_WriteData@point point `c  1 a 1 wreg ]
+[v LCD_WriteData@point point `c  1 a 1 wreg ]
+"17
+[v LCD_WriteData@point point `c  1 a 1 2 ]
+"22
 } 0
 "29 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Buzer.c
 [v _Buzer_SetDuty Buzer_SetDuty `(v  1 e 1 0 ]
@@ -78,15 +123,8 @@
 {
 "27
 } 0
-<<<<<<< HEAD
-"23 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
-[v _Basic_Init Basic_Init `(c  1 e 1 0 ]
-{
-"42
-=======
 "26 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
 {
 "45
->>>>>>> LCD
 } 0

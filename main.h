@@ -12,6 +12,8 @@
 #include <stdint.h>
 #include <xc.h>
 #include "Buzer.h"
+#include "LCD.h"
+#include "xprintf.h"
 
 #ifdef	__cplusplus
 extern "C" {

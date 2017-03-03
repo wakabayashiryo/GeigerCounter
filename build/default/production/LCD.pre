@@ -3887,8 +3887,24 @@ typedef uint16_t uintptr_t;
 void Buzer_Init(void);
 void Buzer_SetDuty(uint16_t duty);
 
+# 17 "xprintf.h"
+extern void (*xfunc_out)(unsigned char);
+void xputc (char c);
+void xputs (const char* str);
+void xfputs (void (*func)(unsigned char), const char* str);
+void xprintf (const char* fmt, ...);
+void xsprintf (char* buff, const char* fmt, ...);
+void xfprintf (void (*func)(unsigned char), const char* fmt, ...);
+void put_dump (const void* buff, unsigned long addr, int len, int width);
 
-# 25 "main.h"
+# 32
+extern unsigned char (*xfunc_in)(void);
+int xgets (char* buff, int len);
+int xfgets (unsigned char (*func)(void), char* buff, int len);
+int xatoi (char** str, long* res);
+
+
+# 27 "main.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = ON
@@ -3907,7 +3923,7 @@ void Buzer_SetDuty(uint16_t duty);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 48
+# 50
 int8_t Basic_Init(void);
 
 # 32 "LCD.h"

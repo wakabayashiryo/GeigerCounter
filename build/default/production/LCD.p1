@@ -2846,37 +2846,49 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;Buzer.h: 41: void Buzer_Init(void);
 [; ;Buzer.h: 42: void Buzer_SetDuty(uint16_t duty);
-"25 main.h
+[; ;xprintf.h: 17: extern void (*xfunc_out)(unsigned char);
+[; ;xprintf.h: 18: void xputc (char c);
+[; ;xprintf.h: 19: void xputs (const char* str);
+[; ;xprintf.h: 20: void xfputs (void (*func)(unsigned char), const char* str);
+[; ;xprintf.h: 21: void xprintf (const char* fmt, ...);
+[; ;xprintf.h: 22: void xsprintf (char* buff, const char* fmt, ...);
+[; ;xprintf.h: 23: void xfprintf (void (*func)(unsigned char), const char* fmt, ...);
+[; ;xprintf.h: 24: void put_dump (const void* buff, unsigned long addr, int len, int width);
+[; ;xprintf.h: 32: extern unsigned char (*xfunc_in)(void);
+[; ;xprintf.h: 33: int xgets (char* buff, int len);
+[; ;xprintf.h: 34: int xfgets (unsigned char (*func)(void), char* buff, int len);
+[; ;xprintf.h: 35: int xatoi (char** str, long* res);
+"27 main.h
 [p x FOSC=INTOSC ]
-"26
-[p x WDTE=OFF ]
-"27
-[p x PWRTE=ON ]
 "28
-[p x MCLRE=ON ]
+[p x WDTE=OFF ]
 "29
-[p x CP=OFF ]
+[p x PWRTE=ON ]
 "30
-[p x CPD=OFF ]
+[p x MCLRE=ON ]
 "31
-[p x BOREN=ON ]
+[p x CP=OFF ]
 "32
-[p x CLKOUTEN=OFF ]
+[p x CPD=OFF ]
 "33
-[p x IESO=OFF ]
+[p x BOREN=ON ]
 "34
+[p x CLKOUTEN=OFF ]
+"35
+[p x IESO=OFF ]
+"36
 [p x FCMEN=OFF ]
-"37
-[p x WRT=OFF ]
-"38
-[p x PLLEN=ON ]
 "39
-[p x STVREN=OFF ]
+[p x WRT=OFF ]
 "40
-[p x BORV=LO ]
+[p x PLLEN=ON ]
 "41
+[p x STVREN=OFF ]
+"42
+[p x BORV=LO ]
+"43
 [p x LVP=OFF ]
-[; ;main.h: 48: int8_t Basic_Init(void);
+[; ;main.h: 50: int8_t Basic_Init(void);
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void LCD_DisplayClear(void);
