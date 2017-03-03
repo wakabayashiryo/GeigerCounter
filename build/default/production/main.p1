@@ -2932,6 +2932,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v F2985 `(v ~T0 @X0 0 tf1`uc ]
 "16
 [e = _xfunc_out -> &U _LCD_Put `*F2985 ]
+<<<<<<< HEAD
+=======
+"17
+[v _i `ui ~T0 @X0 1 a ]
+[; ;main.c: 17: uint16_t i = 0;
+[e = _i -> -> 0 `i `ui ]
+>>>>>>> LCD
 [; ;main.c: 18: while(1)
 "18
 [e :U 355 ]
@@ -2941,9 +2948,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 20: LCD_CursorPosition(0,0);
 "20
 [e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+<<<<<<< HEAD
 [; ;main.c: 21: xprintf("Hellow World");
 "21
 [e ( _xprintf :s 1C ]
+=======
+[; ;main.c: 21: xprintf("Hellow World %d",i++);
+"21
+[e ( _xprintf , (. :s 1C ++ _i -> -> 1 `i `ui ]
+>>>>>>> LCD
 "22
 }
 [e :U 354 ]
@@ -3002,5 +3015,5 @@ Version 3.2 HI-TECH Software Intermediate Code
 "45
 [e :UE 357 ]
 }
-[a 1C 72 101 108 108 111 119 32 87 111 114 108 100 0 ]
+[a 1C 72 101 108 108 111 119 32 87 111 114 108 100 32 37 100 0 ]
 

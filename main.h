@@ -23,7 +23,11 @@ extern "C" {
 
 // CONFIG1
 #pragma config FOSC = INTOSC    // Oscillator Selection (INTOSC oscillator: I/O function on CLKIN pin)
+<<<<<<< HEAD
 #pragma config WDTE = OFF        // Watchdog Timer Disable (WDT disabled)
+=======
+#pragma config WDTE = OFF        // Watchdog Timer dsable (WDT disabled)
+>>>>>>> LCD
 #pragma config PWRTE = ON       // Power-up Timer Enable (PWRT enabled)
 #pragma config MCLRE = ON       // MCLR Pin Function Select (MCLR/VPP pin function is MCLR)
 #pragma config CP = OFF         // Flash Program Memory Code Protection (Program memory code protection is disabled)

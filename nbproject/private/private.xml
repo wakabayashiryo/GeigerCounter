@@ -5,6 +5,8 @@
         <group>
             <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c</file>
             <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.h</file>
+            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c</file>
+            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c</file>
         </group>
     </open-files>
 </project-private>

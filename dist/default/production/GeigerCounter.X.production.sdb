@@ -74,6 +74,11 @@
 "12 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
 {
+<<<<<<< HEAD
+=======
+"17
+[v main@i i `ui  1 a 2 56 ]
+>>>>>>> LCD
 "24
 } 0
 "165 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
