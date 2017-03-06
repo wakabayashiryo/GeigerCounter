@@ -5,12 +5,9 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>main.h</itemPath>
-<<<<<<< HEAD
       <itemPath>MCP4726.h</itemPath>
-=======
       <itemPath>LCD.h</itemPath>
       <itemPath>xprintf.h</itemPath>
->>>>>>> master
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -20,12 +17,9 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>main.c</itemPath>
-<<<<<<< HEAD
       <itemPath>MCP4726.c</itemPath>
-=======
       <itemPath>LCD.c</itemPath>
       <itemPath>xprintf.c</itemPath>
->>>>>>> master
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
