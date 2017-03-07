@@ -13,7 +13,7 @@ void Buzer_Init(void)
     APFCON0 |= (0x01<<3);   //Alternate of CCP2 is RA7
     
     T2CON |= (0x00<<3);     //output prescalor is 1
-    T2CON |= (0x01<<0);     //input clock which of prescalor is 1
+    T2CON |= (0x02<<0);     //input clock which of prescalor is 1
     T2CON |= (0x01<<2);     //Timer2 is enabled
     
     TMR2 = 0x00;
