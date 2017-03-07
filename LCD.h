@@ -5,8 +5,8 @@
  * Created on 2017/02/25, 23:07
  */
 
-#ifndef LCD2_H
-#define	LCD2_H
+#ifndef LCD_H
+#define	LCD_H
 
 #ifdef	__cplusplus
 extern "C" {
