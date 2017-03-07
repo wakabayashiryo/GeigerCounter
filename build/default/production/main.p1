@@ -2969,9 +2969,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 26: {
 [e :U _Basic_Init ]
 [f ]
-[; ;main.c: 27: OSCCON = 0xF3;
+[; ;main.c: 27: OSCCON = 0xF0;
 "27
-[e = _OSCCON -> -> 243 `i `uc ]
+[e = _OSCCON -> -> 240 `i `uc ]
 [; ;main.c: 31: TRISA = 0x07;
 "31
 [e = _TRISA -> -> 7 `i `uc ]

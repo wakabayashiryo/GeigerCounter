@@ -24,7 +24,7 @@ int8_t main(void)
 
 int8_t Basic_Init(void)
 {
-    OSCCON = 0xF3;      //PLL ON: 
+    OSCCON = 0xF0;      //PLL ON: 
                         //internal Oscilltor is 32MHz
                         //clock source is internal one.
     

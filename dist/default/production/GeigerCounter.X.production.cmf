@@ -11,10 +11,6 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/xcXIeQvHz.obj
-reset_vec CODE 0 0 0 2 2
-end_init CODE 0 2 2 2 2
-config CONFIG 0 8007 8007 2 2
 $dist/default/production/GeigerCounter.X.production.obj
 cinit CODE 0 7F8 7F8 8 2
 text1 CODE 0 78F 78F 69 2
@@ -27,6 +23,10 @@ maintext CODE 0 703 703 15 2
 cstackCOMMON COMMON 1 70 70 6 1
 stringtext STRCODE 0 800 800 1C 2
 bssCOMMON COMMON 1 76 76 5 1
+$/tmp/xcXGXe7KV.obj
+reset_vec CODE 0 0 0 2 2
+end_init CODE 0 2 2 2 2
+config CONFIG 0 8007 8007 2 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -104,16 +104,16 @@ STRING 81C-FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production/GeigerCounter.X.production.obj
-7F8 cinit CODE >1108:/tmp/xcXCCKJNm
-7F8 cinit CODE >1111:/tmp/xcXCCKJNm
-7F8 cinit CODE >1129:/tmp/xcXCCKJNm
-7F9 cinit CODE >1130:/tmp/xcXCCKJNm
-7FA cinit CODE >1131:/tmp/xcXCCKJNm
-7FB cinit CODE >1132:/tmp/xcXCCKJNm
-7FC cinit CODE >1133:/tmp/xcXCCKJNm
-7FD cinit CODE >1139:/tmp/xcXCCKJNm
-7FD cinit CODE >1141:/tmp/xcXCCKJNm
-7FE cinit CODE >1142:/tmp/xcXCCKJNm
+7F8 cinit CODE >1108:/tmp/xcX26MjLt
+7F8 cinit CODE >1111:/tmp/xcX26MjLt
+7F8 cinit CODE >1129:/tmp/xcX26MjLt
+7F9 cinit CODE >1130:/tmp/xcX26MjLt
+7FA cinit CODE >1131:/tmp/xcX26MjLt
+7FB cinit CODE >1132:/tmp/xcX26MjLt
+7FC cinit CODE >1133:/tmp/xcX26MjLt
+7FD cinit CODE >1139:/tmp/xcX26MjLt
+7FD cinit CODE >1141:/tmp/xcX26MjLt
+7FE cinit CODE >1142:/tmp/xcX26MjLt
 6EE text6 CODE >25:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 6EE text6 CODE >27:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 6F1 text6 CODE >31:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
@@ -203,10 +203,10 @@ __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.ob
 __Lstringtext 0 0 ABS 0 stringtext -
 __Hstrings 0 0 ABS 0 strings -
 _TMR2 1A 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
-___sp 0 0 STACK 2 stack /tmp/xcXIeQvHz.obj
+___sp 0 0 STACK 2 stack /tmp/xcXGXe7KV.obj
 _main E06 0 CODE 0 maintext dist/default/production/GeigerCounter.X.production.obj
 btemp 7E 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
-start 4 0 CODE 0 init /tmp/xcXIeQvHz.obj
+start 4 0 CODE 0 init /tmp/xcXGXe7KV.obj
 __end_of_LCD_WriteData F1E 0 CODE 0 text3 dist/default/production/GeigerCounter.X.production.obj
 __size_of_main 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
@@ -214,12 +214,12 @@ _LCD_Init F1E 0 CODE 0 text1 dist/default/production/GeigerCounter.X.production.
 __Hpowerup 0 0 CODE 0 powerup -
 __end_of_LCD_DisplayClear DDC 0 CODE 0 text2 dist/default/production/GeigerCounter.X.production.obj
 __end_of_LCD_Init FF0 0 CODE 0 text1 dist/default/production/GeigerCounter.X.production.obj
-intlevel0 0 0 CODE 0 functab /tmp/xcXIeQvHz.obj
-intlevel1 0 0 CODE 0 functab /tmp/xcXIeQvHz.obj
-intlevel2 0 0 CODE 0 functab /tmp/xcXIeQvHz.obj
-intlevel3 0 0 CODE 0 functab /tmp/xcXIeQvHz.obj
-intlevel4 0 0 CODE 0 functab /tmp/xcXIeQvHz.obj
-intlevel5 0 0 CODE 0 functab /tmp/xcXIeQvHz.obj
+intlevel0 0 0 CODE 0 functab /tmp/xcXGXe7KV.obj
+intlevel1 0 0 CODE 0 functab /tmp/xcXGXe7KV.obj
+intlevel2 0 0 CODE 0 functab /tmp/xcXGXe7KV.obj
+intlevel3 0 0 CODE 0 functab /tmp/xcXGXe7KV.obj
+intlevel4 0 0 CODE 0 functab /tmp/xcXGXe7KV.obj
+intlevel5 0 0 CODE 0 functab /tmp/xcXGXe7KV.obj
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 __size_of_LCD_DisplayClear 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
@@ -237,7 +237,7 @@ start_initialization FF0 0 CODE 0 cinit dist/default/production/GeigerCounter.X.
 _OSCCON 99 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 __CFG_STVREN$OFF 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 __end_of_Basic_Init E06 0 CODE 0 text6 dist/default/production/GeigerCounter.X.production.obj
-___int_sp 0 0 STACK 2 stack /tmp/xcXIeQvHz.obj
+___int_sp 0 0 STACK 2 stack /tmp/xcXGXe7KV.obj
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -377,7 +377,7 @@ __S3 0 0 ABS 0 - -
 __CFG_PLLEN$ON 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 __Lintentry 4 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcXIeQvHz.obj
+reset_vec 0 0 CODE 0 reset_vec /tmp/xcXGXe7KV.obj
 __Lbank10 0 0 BANK10 1 bank10 -
 __Lbank11 0 0 BANK11 1 bank11 -
 __Lbank12 0 0 BANK12 1 bank12 -
@@ -412,8 +412,8 @@ _LCD_Put 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 _xfunc_out 78 0 COMMON 1 bssCOMMON dist/default/production/GeigerCounter.X.production.obj
 __size_of_Basic_Init 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 __size_of_Buzer_SetDuty 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
-stackhi 216F 0 ABS 0 - /tmp/xcXIeQvHz.obj
-stacklo 2000 0 ABS 0 - /tmp/xcXIeQvHz.obj
+stackhi 216F 0 ABS 0 - /tmp/xcXGXe7KV.obj
+stacklo 2000 0 ABS 0 - /tmp/xcXGXe7KV.obj
 _xfunc_in 76 0 COMMON 1 bssCOMMON dist/default/production/GeigerCounter.X.production.obj
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production/GeigerCounter.X.production.obj
 __Lspace_0 0 0 ABS 0 - -
