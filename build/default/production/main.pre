@@ -3959,7 +3959,7 @@ return 0;
 
 int8_t Basic_Init(void)
 {
-OSCCON = 0xF3;
+OSCCON = 0xF0;
 
 
 
