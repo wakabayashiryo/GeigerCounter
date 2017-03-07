@@ -7,10 +7,7 @@
       <itemPath>main.h</itemPath>
       <itemPath>LCD.h</itemPath>
       <itemPath>xprintf.h</itemPath>
-<<<<<<< HEAD
       <itemPath>eeprom.h</itemPath>
-=======
->>>>>>> master
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -22,10 +19,7 @@
       <itemPath>main.c</itemPath>
       <itemPath>LCD.c</itemPath>
       <itemPath>xprintf.c</itemPath>
-<<<<<<< HEAD
       <itemPath>eeprom.c</itemPath>
-=======
->>>>>>> master
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

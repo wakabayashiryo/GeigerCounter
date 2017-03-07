@@ -1,11 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.41 build -162212810 
-<<<<<<< HEAD
-                                                                                               Fri Mar  3 11:09:06 2017
-=======
-                                                                                               Tue Mar  7 12:38:40 2017
->>>>>>> master
+                                                                                               Tue Mar  7 12:40:51 2017
 
 Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250102
      1                           	processor	16F1827
@@ -2580,7 +2576,6 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2557                           
   2558                           ;LCD.c: 42: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay
       +                          ((unsigned long)((1)*(32000000/4000000.0)));};
-<<<<<<< HEAD
   2559  05A6  158C               	bsf	12,3	;volatile
   2560  05A7  3200               	nop2	;2 cycle nop
   2561  05A8  3200               	nop2	;2 cycle nop
@@ -2609,89 +2604,6 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2584  05BD  3184  2442         	fcall	_LCD_WriteData
   2585  05BF  0008               	return
   2586  05C0                     __end_of_LCD_Init:	
-=======
-  2507  04B1  158C               	bsf	12,3	;volatile
-  2508  04B2  3200               	nop2	;2 cycle nop
-  2509  04B3  3200               	nop2	;2 cycle nop
-  2510  04B4  3200               	nop2	;2 cycle nop
-  2511  04B5  3200               	nop2	;2 cycle nop
-  2512  04B6  0020               	movlb	0	; select bank0
-  2513  04B7  118C               	bcf	12,3	;volatile
-  2514  04B8  3200               	nop2	;2 cycle nop
-  2515  04B9  3200               	nop2	;2 cycle nop
-  2516  04BA  3200               	nop2	;2 cycle nop
-  2517  04BB  3200               	nop2	;2 cycle nop
-  2518                           
-  2519                           ;LCD.c: 20: PORTB = ( ((point&0x0F&0x0C)<<1)|(point&0x0F&0x03) );
-  2520  04BC  3003               	movlw	3
-  2521  04BD  0572               	andwf	LCD_WriteData@point,w
-  2522  04BE  00F0               	movwf	??_LCD_WriteData
-  2523  04BF  0872               	movf	LCD_WriteData@point,w
-  2524  04C0  390C               	andlw	12
-  2525  04C1  0709               	addwf	9,w
-  2526  04C2  0470               	iorwf	??_LCD_WriteData,w
-  2527  04C3  0020               	movlb	0	; select bank0
-  2528  04C4  008D               	movwf	13	;volatile
-  2529                           
-  2530                           ;LCD.c: 21: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay
-      +                          ((unsigned long)((1)*(32000000/4000000.0)));};
-  2531  04C5  158C               	bsf	12,3	;volatile
-  2532  04C6  3200               	nop2	;2 cycle nop
-  2533  04C7  3200               	nop2	;2 cycle nop
-  2534  04C8  3200               	nop2	;2 cycle nop
-  2535  04C9  3200               	nop2	;2 cycle nop
-  2536  04CA  0020               	movlb	0	; select bank0
-  2537  04CB  118C               	bcf	12,3	;volatile
-  2538  04CC  3200               	nop2	;2 cycle nop
-  2539  04CD  3200               	nop2	;2 cycle nop
-  2540  04CE  3200               	nop2	;2 cycle nop
-  2541  04CF  3200               	nop2	;2 cycle nop
-  2542  04D0  0008               	return
-  2543  04D1                     __end_of_LCD_WriteData:	
-  2544                           
-  2545                           	psect	text13
-  2546  040C                     __ptext13:	
-  2547 ;; *************** function _Basic_Init *****************
-  2548 ;; Defined at:
-  2549 ;;		line 26 in file "main.c"
-  2550 ;; Parameters:    Size  Location     Type
-  2551 ;;		None
-  2552 ;; Auto vars:     Size  Location     Type
-  2553 ;;		None
-  2554 ;; Return value:  Size  Location     Type
-  2555 ;;                  1    wreg      char 
-  2556 ;; Registers used:
-  2557 ;;		wreg, status,2
-  2558 ;; Tracked objects:
-  2559 ;;		On entry : 0/0
-  2560 ;;		On exit  : 0/0
-  2561 ;;		Unchanged: 0/0
-  2562 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4
-  2563 ;;      Params:         0       0       0       0       0       0
-  2564 ;;      Locals:         0       0       0       0       0       0
-  2565 ;;      Temps:          0       0       0       0       0       0
-  2566 ;;      Totals:         0       0       0       0       0       0
-  2567 ;;Total ram usage:        0 bytes
-  2568 ;; Hardware stack levels used:    1
-  2569 ;; This function calls:
-  2570 ;;		Nothing
-  2571 ;; This function is called by:
-  2572 ;;		_main
-  2573 ;; This function uses a non-reentrant model
-  2574 ;;
-  2575                           
-  2576                           
-  2577                           ;psect for function _Basic_Init
-  2578  040C                     _Basic_Init:	
-  2579                           
-  2580                           ;main.c: 28: OSCCON = 0xF0;
-  2581                           
-  2582                           ;incstack = 0
-  2583                           ; Regs used in _Basic_Init: [wreg+status,2]
-  2584  040C  30F0               	movlw	240
-  2585  040D  0021               	movlb	1	; select bank1
-  2586  040E  0099               	movwf	25	;volatile
->>>>>>> master
   2587                           
   2588                           	psect	text10
   2589  035D                     __ptext10:	
@@ -3143,11 +3055,11 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   3033                           ;psect for function _Basic_Init
   3034  038F                     _Basic_Init:	
   3035                           
-  3036                           ;main.c: 36: OSCCON = 0xF3;
+  3036                           ;main.c: 36: OSCCON = 0xF0;
   3037                           
   3038                           ;incstack = 0
   3039                           ; Regs used in _Basic_Init: [wreg+status,2]
-  3040  038F  30F3               	movlw	243
+  3040  038F  30F0               	movlw	240
   3041  0390  0021               	movlb	1	; select bank1
   3042  0391  0099               	movwf	25	;volatile
   3043                           
@@ -3468,11 +3380,7 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.41 build -162212810 
-<<<<<<< HEAD
-Symbol Table                                                                                   Fri Mar  3 11:09:06 2017
-=======
-Symbol Table                                                                                   Tue Mar  7 12:38:40 2017
->>>>>>> master
+Symbol Table                                                                                   Tue Mar  7 12:40:51 2017
 
                 __CFG_CP$OFF 0000                           _RD 0CA8                           _WR 0CA9  
         ___wmul@multiplicand 0072                          l114 05C0                          l129 063C  

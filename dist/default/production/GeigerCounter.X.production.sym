@@ -385,8 +385,7 @@ text5 6AE 6B9 CODE 6AE 0
 idataBANK0 6A4 6AD CODE 6A4 0
 %locals
 dist/default/production/GeigerCounter.X.production.obj
-<<<<<<< HEAD
-/tmp/xcXdphk7P
+/tmp/xcXygZjYk
 1135 7EA 0 CODE 0
 1138 7EA 0 CODE 0
 1164 7EA 0 CODE 0
@@ -411,19 +410,6 @@ dist/default/production/GeigerCounter.X.production.obj
 1192 7FD 0 CODE 0
 1194 7FD 0 CODE 0
 1195 7FE 0 CODE 0
-=======
-/tmp/xcXAcxcCi
-803 7F8 0 CODE 0
-806 7F8 0 CODE 0
-824 7F8 0 CODE 0
-825 7F9 0 CODE 0
-826 7FA 0 CODE 0
-827 7FB 0 CODE 0
-828 7FC 0 CODE 0
-834 7FD 0 CODE 0
-836 7FD 0 CODE 0
-837 7FE 0 CODE 0
->>>>>>> master
 main.c
 13 4BE 0 CODE 0
 15 4BE 0 CODE 0
