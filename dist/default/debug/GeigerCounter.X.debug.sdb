@@ -3,6 +3,45 @@
 [d edition pro ]
 [d chip 16F1827 ]
 [d frameptr 6 ]
+"15 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+[e E2990 . `uc
+I2C1_MODULE 0
+I2C2_MODULE 1
+]
+[e E2981 . `uc
+I2C_MODE_MASTER 0
+I2C_MODE_SLAVE 1
+]
+[e E2985 . `uc
+I2C_SPEED_STANDARD 0
+I2C_SPEED_HIGH 1
+I2C_SPEED_NONE 2
+]
+"3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C_Common.c
+[e E2983 . `uc
+I2C_MODE_MASTER 0
+I2C_MODE_SLAVE 1
+]
+"7
+[e E2992 . `uc
+I2C1_MODULE 0
+I2C2_MODULE 1
+]
+[e E2987 . `uc
+I2C_SPEED_STANDARD 0
+I2C_SPEED_HIGH 1
+I2C_SPEED_NONE 2
+]
+"16 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C2.c
+[e E2983 . `uc
+I2C_MODE_MASTER 0
+I2C_MODE_SLAVE 1
+]
+[e E2987 . `uc
+I2C_SPEED_STANDARD 0
+I2C_SPEED_HIGH 1
+I2C_SPEED_NONE 2
+]
 "62 /opt/microchip/xc8/v1.41/sources/common/float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 /opt/microchip/xc8/v1.41/sources/common/ftadd.c
@@ -19,20 +58,38 @@
 [v _eecpymem eecpymem `(v  1 e 1 0 ]
 "39
 [v _memcpyee memcpyee `(v  1 e 1 0 ]
+"9 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C2.c
+[v _I2C2_PinInit I2C2_PinInit `(v  1 s 1 I2C2_PinInit ]
+"15
+[v _I2C2_Setting I2C2_Setting `(v  1 e 1 0 ]
+"52
+[v _I2C2_Transmit I2C2_Transmit `(c  1 e 1 0 ]
+"103
+[v _I2C2_Receive I2C2_Receive `(c  1 e 1 0 ]
+"152
+[v _I2C2_Interrupt I2C2_Interrupt `(v  1 e 1 0 ]
+"6 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C_Common.c
+[v _I2C_Init I2C_Init `(v  1 e 1 0 ]
+"23
+[v _I2C_Transmit I2C_Transmit `(c  1 e 1 0 ]
+"58
+[v _I2C_CommonInterrupt I2C_CommonInterrupt `(v  1 e 1 0 ]
 "15 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
 [v _LCD_WriteData LCD_WriteData `(v  1 s 1 LCD_WriteData ]
-"29
+"28
 [v _LCD_Init LCD_Init `(v  1 e 1 0 ]
-"55
+"54
 [v _LCD_Put LCD_Put `(v  1 e 1 0 ]
-"65
+"64
 [v _LCD_DisplayClear LCD_DisplayClear `(v  1 e 1 0 ]
-"87
+"86
 [v _LCD_CursorPosition LCD_CursorPosition `(v  1 e 1 0 ]
 "12 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
-"24
+"34
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
+"56
+[v _hand hand `II(v  1 e 1 0 ]
 "26 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
 [v _xputc xputc `(v  1 e 1 0 ]
 "44
@@ -61,10 +118,73 @@
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
 "2846
 [v _ANSELB ANSELB `VEuc  1 e 1 @397 ]
+"4177
+[v _SSP2BUF SSP2BUF `VEuc  1 e 1 @537 ]
+"4196
+[v _SSP2ADD SSP2ADD `VEuc  1 e 1 @538 ]
+"4215
+[v _SSP2MSK SSP2MSK `VEuc  1 e 1 @539 ]
+"4234
+[v _SSP2STAT SSP2STAT `VEuc  1 e 1 @540 ]
+[s S402 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+"4251
+[u S411 . 1 `S402 1 . 1 0 ]
+[v _SSP2STATbits SSP2STATbits `VES411  1 e 1 @540 ]
+"4295
+[v _SSP2CON1 SSP2CON1 `VEuc  1 e 1 @541 ]
+[s S350 . 1 `uc 1 SSPM0 1 0 :1:0 
+`uc 1 SSPM1 1 0 :1:1 
+`uc 1 SSPM2 1 0 :1:2 
+`uc 1 SSPM3 1 0 :1:3 
+`uc 1 CKP 1 0 :1:4 
+`uc 1 SSPEN 1 0 :1:5 
+`uc 1 SSPOV 1 0 :1:6 
+`uc 1 WCOL 1 0 :1:7 
+]
+"4315
+[s S359 . 1 `uc 1 SSPM 1 0 :4:0 
+]
+[u S361 . 1 `S350 1 . 1 0 `S359 1 . 1 0 ]
+[v _SSP2CON1bits SSP2CON1bits `VES361  1 e 1 @541 ]
+[s S376 . 1 `uc 1 SEN 1 0 :1:0 
+`uc 1 RSEN 1 0 :1:1 
+`uc 1 PEN 1 0 :1:2 
+`uc 1 RCEN 1 0 :1:3 
+`uc 1 ACKEN 1 0 :1:4 
+`uc 1 ACKDT 1 0 :1:5 
+`uc 1 ACKSTAT 1 0 :1:6 
+`uc 1 GCEN 1 0 :1:7 
+]
+"4381
+[u S385 . 1 `S376 1 . 1 0 ]
+[v _SSP2CON2bits SSP2CON2bits `VES385  1 e 1 @542 ]
+"6684
+[v _BCL2IE BCL2IE `VEb  1 e 0 @1185 ]
+"6686
+[v _BCL2IF BCL2IF `VEb  1 e 0 @161 ]
+"6960
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"7182
+[v _PEIE PEIE `VEb  1 e 0 @94 ]
 "7216
 [v _RA3 RA3 `VEb  1 e 0 @99 ]
 "7218
 [v _RA4 RA4 `VEb  1 e 0 @100 ]
+"7312
+[v _SSP2IE SSP2IE `VEb  1 e 0 @1184 ]
+"7314
+[v _SSP2IF SSP2IF `VEb  1 e 0 @160 ]
+[s S261 . 35 `[16]uc 1 SlaveTransmitBuff 16 0 `[16]uc 1 SlaveReceiveBuff 16 16 `*.4uc 1 TransmitPoint 1 32 `*.4uc 1 ReceivePoint 1 33 `E2983 1 Mode 1 34 ]
+"4 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C_Common.c
+[v _I2C2_Config I2C2_Config `S261  1 e 35 0 ]
 "19 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
 [v _xfunc_out xfunc_out `*.37(v  1 e 2 0 ]
 "20
@@ -75,37 +195,43 @@
 [v _main main `(c  1 e 1 0 ]
 {
 "22
+[v main@resultdata resultdata `[4]uc  1 a 4 4 ]
+"19
+[v main@testdata testdata `[4]uc  1 a 4 0 ]
+"17
+[v main@F3055 F3055 `[4]uc  1 s 4 F3055 ]
+"32
 } 0
 "165 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
 [v _xprintf xprintf `(v  1 e 1 0 ]
 {
 "170
-[v xprintf@arp arp `[1]*.4v  1 a 1 55 ]
+[v xprintf@arp arp `[1]*.4v  1 a 1 64 ]
 "166
-[v xprintf@fmt fmt `*.25DCCuc  1 p 2 48 ]
+[v xprintf@fmt fmt `*.25DCCuc  1 p 2 53 ]
 "176
 } 0
 "88
 [v _xvprintf xvprintf `(v  1 s 1 xvprintf ]
 {
 "95
-[v xvprintf@s s `[16]uc  1 a 16 7 ]
+[v xvprintf@s s `[16]uc  1 a 16 12 ]
 "94
-[v xvprintf@v v `ul  1 a 4 38 ]
+[v xvprintf@v v `ul  1 a 4 43 ]
 "93
-[v xvprintf@i i `ui  1 a 2 44 ]
-[v xvprintf@f f `ui  1 a 2 42 ]
-[v xvprintf@j j `ui  1 a 2 36 ]
-[v xvprintf@w w `ui  1 a 2 34 ]
-[v xvprintf@r r `ui  1 a 2 32 ]
+[v xvprintf@i i `ui  1 a 2 49 ]
+[v xvprintf@f f `ui  1 a 2 47 ]
+[v xvprintf@j j `ui  1 a 2 41 ]
+[v xvprintf@w w `ui  1 a 2 39 ]
+[v xvprintf@r r `ui  1 a 2 37 ]
 "95
-[v xvprintf@c c `uc  1 a 1 47 ]
-[v xvprintf@d d `uc  1 a 1 46 ]
-[v xvprintf@p p `*.4uc  1 a 1 31 ]
+[v xvprintf@c c `uc  1 a 1 52 ]
+[v xvprintf@d d `uc  1 a 1 51 ]
+[v xvprintf@p p `*.4uc  1 a 1 36 ]
 "89
-[v xvprintf@fmt fmt `*.25DCCuc  1 p 2 0 ]
+[v xvprintf@fmt fmt `*.25DCCuc  1 p 2 5 ]
 "90
-[v xvprintf@arp arp `*.4*.4v  1 p 1 2 ]
+[v xvprintf@arp arp `*.4*.4v  1 p 1 7 ]
 "162
 } 0
 "44
@@ -115,7 +241,7 @@
 [v xputs@str str `*.4DCCuc  1 a 1 wreg ]
 [v xputs@str str `*.4DCCuc  1 a 1 wreg ]
 "44
-[v xputs@str str `*.4DCCuc  1 a 1 7 ]
+[v xputs@str str `*.4DCCuc  1 a 1 9 ]
 "50
 } 0
 "26
@@ -124,66 +250,66 @@
 [v xputc@c c `uc  1 a 1 wreg ]
 [v xputc@c c `uc  1 a 1 wreg ]
 "28
-[v xputc@c c `uc  1 a 1 5 ]
+[v xputc@c c `uc  1 a 1 7 ]
 "36
 } 0
-"55 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+"54 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
 [v _LCD_Put LCD_Put `(v  1 e 1 0 ]
 {
-[v LCD_Put@word word `c  1 p 1 3 ]
-"59
+[v LCD_Put@word word `c  1 p 1 5 ]
+"58
 } 0
 "15 /opt/microchip/xc8/v1.41/sources/common/Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 {
 "17
-[v ___wmul@product product `ui  1 a 2 4 ]
+[v ___wmul@product product `ui  1 a 2 6 ]
 "15
-[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+[v ___wmul@multiplier multiplier `ui  1 p 2 2 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 4 ]
 "53
 } 0
 "6 /opt/microchip/xc8/v1.41/sources/common/llmod.c
 [v ___llmod __llmod `(ul  1 e 4 0 ]
 {
 "11
-[v ___llmod@counter counter `uc  1 a 1 9 ]
+[v ___llmod@counter counter `uc  1 a 1 0 ]
 "6
-[v ___llmod@divisor divisor `ul  1 p 4 0 ]
-[v ___llmod@dividend dividend `ul  1 p 4 4 ]
+[v ___llmod@divisor divisor `ul  1 p 4 2 ]
+[v ___llmod@dividend dividend `ul  1 p 4 6 ]
 "26
 } 0
 "6 /opt/microchip/xc8/v1.41/sources/common/lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
 {
 "11
-[v ___lldiv@quotient quotient `ul  1 a 4 9 ]
+[v ___lldiv@quotient quotient `ul  1 a 4 0 ]
 "12
-[v ___lldiv@counter counter `uc  1 a 1 13 ]
+[v ___lldiv@counter counter `uc  1 a 1 4 ]
 "6
-[v ___lldiv@divisor divisor `ul  1 p 4 0 ]
-[v ___lldiv@dividend dividend `ul  1 p 4 4 ]
+[v ___lldiv@divisor divisor `ul  1 p 4 2 ]
+[v ___lldiv@dividend dividend `ul  1 p 4 6 ]
 "31
 } 0
-"29 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
+"28 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
 [v _LCD_Init LCD_Init `(v  1 e 1 0 ]
 {
-"49
+"48
 } 0
-"65
+"64
 [v _LCD_DisplayClear LCD_DisplayClear `(v  1 e 1 0 ]
 {
-"70
+"69
 } 0
-"87
+"86
 [v _LCD_CursorPosition LCD_CursorPosition `(v  1 e 1 0 ]
 {
 [v LCD_CursorPosition@tx tx `uc  1 a 1 wreg ]
 [v LCD_CursorPosition@tx tx `uc  1 a 1 wreg ]
-[v LCD_CursorPosition@ty ty `uc  1 p 1 3 ]
-"89
-[v LCD_CursorPosition@tx tx `uc  1 a 1 5 ]
-"92
+[v LCD_CursorPosition@ty ty `uc  1 p 1 5 ]
+"88
+[v LCD_CursorPosition@tx tx `uc  1 a 1 7 ]
+"91
 } 0
 "15
 [v _LCD_WriteData LCD_WriteData `(v  1 s 1 LCD_WriteData ]
@@ -191,11 +317,84 @@
 [v LCD_WriteData@point point `c  1 a 1 wreg ]
 [v LCD_WriteData@point point `c  1 a 1 wreg ]
 "17
-[v LCD_WriteData@point point `c  1 a 1 2 ]
-"23
+[v LCD_WriteData@point point `c  1 a 1 4 ]
+"22
 } 0
-"24 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+"23 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C_Common.c
+[v _I2C_Transmit I2C_Transmit `(c  1 e 1 0 ]
+{
+[v I2C_Transmit@I2Cx I2Cx `E2992  1 a 1 wreg ]
+"25
+[v I2C_Transmit@result result `c  1 a 1 7 ]
+"23
+[v I2C_Transmit@I2Cx I2Cx `E2992  1 a 1 wreg ]
+[v I2C_Transmit@address address `uc  1 p 1 0 ]
+[v I2C_Transmit@pData pData `*.4uc  1 p 1 1 ]
+[v I2C_Transmit@size size `uc  1 p 1 2 ]
+[v I2C_Transmit@I2Cx I2Cx `E2992  1 a 1 6 ]
+"38
+} 0
+"52 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C2.c
+[v _I2C2_Transmit I2C2_Transmit `(c  1 e 1 0 ]
+{
+[v I2C2_Transmit@address address `uc  1 a 1 wreg ]
+"91
+[v I2C2_Transmit@i_460 i `uc  1 a 1 8 ]
+"69
+[v I2C2_Transmit@i i `uc  1 a 1 7 ]
+"54
+[v I2C2_Transmit@result result `c  1 a 1 9 ]
+"52
+[v I2C2_Transmit@address address `uc  1 a 1 wreg ]
+[v I2C2_Transmit@pData pData `*.4uc  1 p 1 2 ]
+[v I2C2_Transmit@size size `uc  1 p 1 3 ]
+[v I2C2_Transmit@address address `uc  1 a 1 6 ]
+"101
+} 0
+"6 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C_Common.c
+[v _I2C_Init I2C_Init `(v  1 e 1 0 ]
+{
+[v I2C_Init@I2Cx I2Cx `E2992  1 a 1 wreg ]
+[v I2C_Init@I2Cx I2Cx `E2992  1 a 1 wreg ]
+[v I2C_Init@address address `uc  1 p 1 7 ]
+[v I2C_Init@mode mode `E2983  1 p 1 8 ]
+[v I2C_Init@Speed Speed `E2987  1 p 1 9 ]
+[v I2C_Init@I2Cx I2Cx `E2992  1 a 1 10 ]
+"21
+} 0
+"15 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C2.c
+[v _I2C2_Setting I2C2_Setting `(v  1 e 1 0 ]
+{
+[v I2C2_Setting@address address `uc  1 a 1 wreg ]
+[v I2C2_Setting@address address `uc  1 a 1 wreg ]
+[v I2C2_Setting@mode mode `E2983  1 p 1 3 ]
+[v I2C2_Setting@Speed Speed `E2987  1 p 1 4 ]
+"17
+[v I2C2_Setting@address address `uc  1 a 1 6 ]
+"50
+} 0
+"9
+[v _I2C2_PinInit I2C2_PinInit `(v  1 s 1 I2C2_PinInit ]
+{
+"13
+} 0
+"34 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
 {
-"43
+"53
+} 0
+"56
+[v _hand hand `II(v  1 e 1 0 ]
+{
+"59
+} 0
+"58 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C_Common.c
+[v _I2C_CommonInterrupt I2C_CommonInterrupt `(v  1 e 1 0 ]
+{
+"62
+} 0
+"152 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C2.c
+[v _I2C2_Interrupt I2C2_Interrupt `(v  1 e 1 0 ]
+{
+"198
 } 0

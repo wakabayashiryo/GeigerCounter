@@ -3899,10 +3899,54 @@ int xgets (char* buff, int len);
 int xfgets (unsigned char (*func)(void), char* buff, int len);
 int xatoi (char** str, long* res);
 
+# 23 "I2C.h"
+typedef enum
+{
+I2C_MODE_MASTER,
+I2C_MODE_SLAVE
+}I2Cx_Mode;
 
-# 25 "main.h"
+typedef enum
+{
+I2C_SPEED_STANDARD,
+I2C_SPEED_HIGH,
+I2C_SPEED_NONE
+}I2Cx_Speed;
+
+typedef enum
+{
+I2C1_MODULE,
+I2C2_MODULE
+}I2Cx_Module;
+
+typedef struct
+{
+uint8_t SlaveTransmitBuff[16];
+uint8_t SlaveReceiveBuff[16];
+uint8_t *TransmitPoint;
+uint8_t *ReceivePoint;
+I2Cx_Mode Mode;
+}I2Cx_Configuration;
+
+void I2C1_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
+void I2C1_Interrupt(void);
+int8_t I2C1_Transmit(uint8_t address,uint8_t *pData,uint8_t size);
+int8_t I2C1_Receive(uint8_t address,uint8_t *pData,uint8_t size);
+
+void I2C2_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
+void I2C2_Interrupt(void);
+int8_t I2C2_Transmit(uint8_t address,uint8_t *pData,uint8_t size);
+int8_t I2C2_Receive(uint8_t address,uint8_t *pData,uint8_t size);
+
+void I2C_Init(I2Cx_Module I2Cx,uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
+int8_t I2C_Transmit(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
+int8_t I2C_Receive(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
+void I2C_CommonInterrupt(void);
+
+
+# 26 "main.h"
 #pragma config FOSC = INTOSC
-#pragma config WDTE = ON
+#pragma config WDTE = OFF
 #pragma config PWRTE = ON
 #pragma config MCLRE = ON
 #pragma config CP = OFF
@@ -3919,7 +3963,7 @@ int xatoi (char** str, long* res);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 48
+# 49
 int8_t Basic_Init(void);
 
 # 32 "LCD.h"
@@ -3935,14 +3979,13 @@ void LCD_DispShift(uint8_t shift,uint8_t RL);
 static void LCD_WriteData(int8_t point)
 {
 _delay((unsigned long)((80)*(32000000/4000000.0)));
-PORTB = ( ((point&0x0F&0x0C)<<1)|(point&0x0F&0x03) );
-{RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
 PORTB = ( (((point>>4)&0x0F&0x0C)<<1)|((point>>4)&0x0F&0x03) );
 {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
-
+PORTB = ( ((point&0x0F&0x0C)<<1)|(point&0x0F&0x03) );
+{RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
 }
 
-# 29
+# 28
 void LCD_Init(void)
 {
 RA4 = 0;
@@ -3965,14 +4008,14 @@ LCD_DisplayClear();
 LCD_WriteData(0x06);
 }
 
-# 55
+# 54
 void LCD_Put(int8_t word)
 {
 RA4 = 1;
 LCD_WriteData(word);
 }
 
-# 65
+# 64
 void LCD_DisplayClear(void)
 {
 RA4 = 0;
@@ -3980,7 +4023,7 @@ LCD_WriteData(0x01);
 _delay((unsigned long)((2)*(32000000/4000.0)));
 }
 
-# 76
+# 75
 void LCD_CursorHome(void)
 {
 RA4 = 0;
@@ -3988,7 +4031,7 @@ LCD_WriteData(0x02);
 _delay((unsigned long)((2)*(32000000/4000.0)));
 }
 
-# 87
+# 86
 void LCD_CursorPosition(uint8_t tx ,uint8_t ty)
 {
 RA4 = 0;
@@ -3996,7 +4039,7 @@ LCD_WriteData(0x80|tx|(0x40*ty));
 _delay((unsigned long)((40)*(32000000/4000000.0)));
 }
 
-# 98
+# 97
 void LCD_CursorShift(uint8_t shift,uint8_t RL)
 {
 uint8_t i;
@@ -4010,7 +4053,7 @@ _delay((unsigned long)((40)*(32000000/4000000.0)));
 }
 }
 
-# 115
+# 114
 void LCD_DispShift(uint8_t shift,uint8_t RL)
 {
 uint8_t i;
