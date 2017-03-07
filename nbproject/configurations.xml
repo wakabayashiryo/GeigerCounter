@@ -7,7 +7,6 @@
       <itemPath>main.h</itemPath>
       <itemPath>LCD.h</itemPath>
       <itemPath>xprintf.h</itemPath>
-      <itemPath>eeprom.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -19,7 +18,6 @@
       <itemPath>main.c</itemPath>
       <itemPath>LCD.c</itemPath>
       <itemPath>xprintf.c</itemPath>
-      <itemPath>eeprom.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
