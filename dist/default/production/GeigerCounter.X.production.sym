@@ -41,7 +41,6 @@ __Lconfig 8007 0 CONFIG 0
 ?___llmod 71 0 COMMON 1
 xvprintf@p 44 0 BANK0 1
 __size_of_Basic_Init 0 0 ABS 0
-_xvprintf$180 3C 0 BANK0 1
 __Hbigram 0 0 ABS 0
 __Lbigram 0 0 ABS 0
 __Hram 0 0 ABS 0
@@ -91,7 +90,6 @@ __Hsfr4 0 0 ABS 0
 __Lsfr4 0 0 ABS 0
 __Hsfr5 0 0 ABS 0
 __Lsfr5 0 0 ABS 0
-_xvprintf$181 40 0 BANK0 1
 __Hsfr6 0 0 ABS 0
 __Lsfr6 0 0 ABS 0
 __Hsfr7 0 0 ABS 0
@@ -116,7 +114,6 @@ __Hinit 10 0 CODE 0
 __Linit 10 0 CODE 0
 ___wmul 3ED 0 CODE 0
 __end_of_main 3CD 0 CODE 0
-_xvprintf$182 42 0 BANK0 1
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 _outptr 7C 0 COMMON 1
@@ -222,6 +219,7 @@ __Lidloc 0 0 IDLOC 0
 __CFG_STVREN$OFF 0 0 ABS 0
 __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
+_xvprintf$166 3C 0 BANK0 1
 ___llmod 302 0 CODE 0
 __end_of___lldiv 302 0 CODE 0
 __Hspace_0 8009 0 ABS 0
@@ -244,6 +242,7 @@ __size_of_xputc 0 0 ABS 0
 __CFG_BORV$LO 0 0 ABS 0
 xprintf@arp 5B 0 BANK0 1
 __size_of_LCD_Init 0 0 ABS 0
+_xvprintf$167 40 0 BANK0 1
 __HbssBANK0 0 0 ABS 0
 __LbssBANK0 0 0 ABS 0
 __Hbank10 0 0 BANK10 1
@@ -306,6 +305,7 @@ __Lbank19 0 0 BANK19 1
 __Hbank29 0 0 BANK29 1
 __Lbank29 0 0 BANK29 1
 __ptext16 47D 0 CODE 0
+_xvprintf$168 42 0 BANK0 1
 ___llmod@divisor 71 0 COMMON 1
 __HbssCOMMON 0 0 ABS 0
 __LbssCOMMON 0 0 ABS 0
@@ -365,7 +365,7 @@ stringtext 79A 7D9 STRCODE 79A 0
 text6 7DA 917 CODE 7DA 0
 %locals
 dist/default/production/GeigerCounter.X.production.obj
-/tmp/xcXOjFxQY
+/tmp/xcXxtKgPr
 1131 12 0 CODE 0
 1134 12 0 CODE 0
 1155 12 0 CODE 0
