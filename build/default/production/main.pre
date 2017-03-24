@@ -3908,8 +3908,52 @@ int xgets (char* buff, int len);
 int xfgets (unsigned char (*func)(void), char* buff, int len);
 int xatoi (char** str, long* res);
 
+# 23 "I2C.h"
+typedef enum
+{
+I2C_MODE_MASTER,
+I2C_MODE_SLAVE
+}I2Cx_Mode;
 
-# 25 "main.h"
+typedef enum
+{
+I2C_SPEED_STANDARD,
+I2C_SPEED_HIGH,
+I2C_SPEED_NONE
+}I2Cx_Speed;
+
+typedef enum
+{
+I2C1_MODULE,
+I2C2_MODULE
+}I2Cx_Module;
+
+typedef struct
+{
+uint8_t SlaveTransmitBuff[8];
+uint8_t SlaveReceiveBuff[8];
+uint8_t *TransmitPoint;
+uint8_t *ReceivePoint;
+I2Cx_Mode Mode;
+}I2Cx_Configuration;
+
+void I2C1_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
+void I2C1_Interrupt(void);
+int8_t I2C1_Transmit(uint8_t address,uint8_t *pData,uint8_t size);
+int8_t I2C1_Receive(uint8_t address,uint8_t *pData,uint8_t size);
+
+void I2C2_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
+void I2C2_Interrupt(void);
+int8_t I2C2_Transmit(uint8_t address,uint8_t *pData,uint8_t size);
+int8_t I2C2_Receive(uint8_t address,uint8_t *pData,uint8_t size);
+
+void I2C_Init(I2Cx_Module I2Cx,uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
+int8_t I2C_Transmit(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
+int8_t I2C_Receive(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
+void I2C_CommonInterrupt(void);
+
+
+# 26 "main.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = ON
@@ -3928,20 +3972,28 @@ int xatoi (char** str, long* res);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 48
+# 49
 int8_t Basic_Init(void);
 
 # 12 "main.c"
 int8_t main(void)
 {
 Basic_Init();
+I2C_Init(I2C2_MODULE,0x56,I2C_MODE_SLAVE,I2C_SPEED_STANDARD);
 LCD_Init();
 xfunc_out = (void(*)(unsigned char))(LCD_Put);
 
+uint8_t testdata[4]={
+19,98,05,06
+};
+uint8_t resultdata[4];
+
 while(1)
 {
+resultdata[0] = I2C_Transmit(I2C2_MODULE,0x56,testdata,4);
+I2C_Receive(I2C2_MODULE,0x56,resultdata,4);
 LCD_CursorPosition(0,0);
-xprintf("Hellow World");
+xprintf("%d %d %d %d",resultdata[0],resultdata[1],resultdata[2],resultdata[3]);
 }
 return 0;
 }
@@ -3965,4 +4017,10 @@ PORTA = 0x00;
 PORTB = 0x00;
 
 return 0;
+}
+
+
+void interrupt hand(void)
+{
+I2C_CommonInterrupt();
 }

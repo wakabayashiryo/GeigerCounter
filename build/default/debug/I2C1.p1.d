@@ -1,0 +1,7 @@
+ build/default/debug/I2C1.d  \
+ build/default/debug/I2C1.p1:  \
+ I2C1.c  \
+I2C.h  \
+xprintf.h  \
+main.h  \
+LCD.h 

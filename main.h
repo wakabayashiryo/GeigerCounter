@@ -12,6 +12,7 @@
 #include <stdint.h>
 #include "LCD.h"
 #include "xprintf.h"
+#include "I2C.h"
 
 #ifdef	__cplusplus
 extern "C" {
