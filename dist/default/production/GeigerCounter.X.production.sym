@@ -365,6 +365,7 @@ stringtext 79A 7D9 STRCODE 79A 0
 text6 7DA 917 CODE 7DA 0
 %locals
 dist/default/production/GeigerCounter.X.production.obj
+<<<<<<< HEAD
 /tmp/xcXxtKgPr
 1131 12 0 CODE 0
 1134 12 0 CODE 0
@@ -378,6 +379,19 @@ dist/default/production/GeigerCounter.X.production.obj
 1171 18 0 CODE 0
 1172 19 0 CODE 0
 1173 1A 0 CODE 0
+=======
+/tmp/xcX82QdLQ
+803 7F8 0 CODE 0
+806 7F8 0 CODE 0
+824 7F8 0 CODE 0
+825 7F9 0 CODE 0
+826 7FA 0 CODE 0
+827 7FB 0 CODE 0
+828 7FC 0 CODE 0
+834 7FD 0 CODE 0
+836 7FD 0 CODE 0
+837 7FE 0 CODE 0
+>>>>>>> LCD
 main.c
 13 3AB 0 CODE 0
 15 3AB 0 CODE 0
