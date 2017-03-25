@@ -8,11 +8,16 @@
 
 #include <xc.h>
 #include "main.h"
+<<<<<<< HEAD
 #include <stdio.h>
+=======
+#include "eeprom.h"
+>>>>>>> eeprom
 
 int8_t main(void)
 {
     Basic_Init();
+<<<<<<< HEAD
 
     Timer1_Init();
     Timer1_Start();
@@ -26,6 +31,23 @@ int8_t main(void)
         xprintf("%U ",Timer1_Read());
     }
     
+=======
+    uint8_t sample[5]={
+        20,17,3,3,20
+    };
+    uint8_t readdat[5];
+    LCD_Init();
+    xdev_out(LCD_Put);
+    
+    while(1)
+    {
+//        EEPROM_MultiWrite(sample,5,0);
+        LCD_CursorPosition(0,0);
+        EEPROM_MultiRead(readdat,5,0);
+        for(uint8_t i = 0;i<5;i++)
+            xprintf("%d ",readdat[i]);
+    }
+>>>>>>> eeprom
     return EXIT_SUCCESS;
 }
 

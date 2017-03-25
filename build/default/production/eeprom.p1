@@ -1,46 +1,8 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[p mainexit ]
-"49 main.h
-[v _Basic_Init `(c ~T0 @X0 0 ef ]
-"28 Timer1.h
-[v _Timer1_Init `(v ~T0 @X0 0 ef ]
-"7434 /opt/microchip/xc8/v1.41/include/pic16f1827.h
-[v _TMR1ON `Vb ~T0 @X0 0 e@192 ]
-"32 LCD.h
-[v _LCD_Init `(v ~T0 @X0 0 ef ]
-[v F2946 `(v ~T0 @X0 0 tf1`uc ]
-"17 xprintf.h
-[v _xfunc_out `*F2946 ~T0 @X0 0 e ]
-"33 LCD.h
-[v _LCD_Put `(v ~T0 @X0 0 ef1`c ]
-"36
-[v _LCD_CursorPosition `(v ~T0 @X0 0 ef2`uc`uc ]
-"19 eeprom.h
-[v _EEPROM_MultiRead `(c ~T0 @X0 0 ef3`*uc`uc`uc ]
-"21 xprintf.h
-[v _xprintf `(v ~T0 @X0 0 ev`*Cuc ]
-"728 /opt/microchip/xc8/v1.41/include/pic16f1827.h
-[v _TMR1 `Vus ~T0 @X0 0 e@22 ]
-"1662
-[v _OSCCON `Vuc ~T0 @X0 0 e@153 ]
-"1118
-[v _TRISA `Vuc ~T0 @X0 0 e@140 ]
-"2795
-[v _ANSELA `Vuc ~T0 @X0 0 e@396 ]
-"1179
-[v _TRISB `Vuc ~T0 @X0 0 e@141 ]
-"2846
-[v _ANSELB `Vuc ~T0 @X0 0 e@397 ]
-"2715
-[v _APFCON0 `Vuc ~T0 @X0 0 e@285 ]
-"2776
-[v _APFCON1 `Vuc ~T0 @X0 0 e@286 ]
-"412
-[v _PORTA `Vuc ~T0 @X0 0 e@12 ]
-"473
-[v _PORTB `Vuc ~T0 @X0 0 e@13 ]
-"30 Timer1.h
-[v _Timer1_Handler `(v ~T0 @X0 0 ef ]
+"114 /opt/microchip/xc8/v1.41/include/eeprom_routines.h
+[v _eeprom_write `(v ~T0 @X0 0 ef2`uc`uc ]
+"115
+[v _eeprom_read `(uc ~T0 @X0 0 ef1`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2874,9 +2836,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;Timer1.h: 28: void Timer1_Init(void);
-[; ;Timer1.h: 29: uint16_t Timer1_DiffCounter(void);
-[; ;Timer1.h: 30: void Timer1_Handler(void);
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void LCD_DisplayClear(void);
@@ -2927,268 +2886,113 @@ Version 3.2 HI-TECH Software Intermediate Code
 "42
 [p x LVP=OFF ]
 [; ;main.h: 49: int8_t Basic_Init(void);
-<<<<<<< HEAD
-[; ;stdarg.h: 7: typedef void * va_list[1];
-[; ;stdarg.h: 10: extern void * __va_start(void);
-[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 43: struct __prbuf
-[; ;stdio.h: 44: {
-[; ;stdio.h: 45: char * ptr;
-[; ;stdio.h: 46: void (* func)(char);
-[; ;stdio.h: 47: };
-[; ;errno.h: 29: extern int errno;
-[; ;conio.h: 12: extern void init_uart(void);
-[; ;conio.h: 14: extern char getch(void);
-[; ;conio.h: 15: extern char getche(void);
-[; ;conio.h: 16: extern void putch(char);
-[; ;conio.h: 17: extern void ungetch(char);
-[; ;conio.h: 19: extern __bit kbhit(void);
-[; ;conio.h: 23: extern char * cgets(char *);
-[; ;conio.h: 24: extern void cputs(const char *);
-[; ;stdio.h: 88: extern int cprintf(char *, ...);
-[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 183: extern char * gets(char *);
-[; ;stdio.h: 184: extern int puts(const char *);
-[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 195: extern int printf(const char *, ...);
-=======
 [; ;eeprom.h: 18: int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
 [; ;eeprom.h: 19: int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
->>>>>>> eeprom
-"13 main.c
-[v _main `(c ~T0 @X0 1 ef ]
+"12 eeprom.c
+[v _EEPROM_MultiWrite `(c ~T0 @X0 1 ef3`*uc`uc`uc ]
+"13
+{
+[; ;eeprom.c: 12: int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr)
+[; ;eeprom.c: 13: {
+[e :U _EEPROM_MultiWrite ]
+"12
+[v _pData `*uc ~T0 @X0 1 r1 ]
+[v _size `uc ~T0 @X0 1 r2 ]
+[v _addr `uc ~T0 @X0 1 r3 ]
+"13
+[f ]
 "14
-{
-[; ;main.c: 13: int8_t main(void)
-[; ;main.c: 14: {
-[e :U _main ]
-[f ]
-[; ;main.c: 15: Basic_Init();
-"15
-[e ( _Basic_Init ..  ]
-<<<<<<< HEAD
-[; ;main.c: 17: Timer1_Init();
-"17
-[e ( _Timer1_Init ..  ]
-[; ;main.c: 18: TMR1ON = 1;;
-"18
-[e = _TMR1ON -> -> 1 `i `b ]
-=======
-[v F2994 `uc ~T0 @X0 -> 5 `i s ]
-[i F2994
-:U ..
-"17
--> -> 20 `i `uc
--> -> 17 `i `uc
--> -> 3 `i `uc
--> -> 3 `i `uc
-"18
--> -> 20 `i `uc
-..
-]
-"16
-[v _sample `uc ~T0 @X0 -> 5 `i a ]
-[; ;main.c: 16: uint8_t sample[5]={
-[; ;main.c: 17: 20,17,3,3,20
-[; ;main.c: 18: };
-"18
-[e = _sample F2994 ]
-"19
-[v _readdat `uc ~T0 @X0 -> 5 `i a ]
-[; ;main.c: 19: uint8_t readdat[5];
->>>>>>> eeprom
-[; ;main.c: 20: LCD_Init();
-"20
-[e ( _LCD_Init ..  ]
-[; ;main.c: 21: xfunc_out = (void(*)(unsigned char))(LCD_Put);
-<<<<<<< HEAD
-[v F3052 `(v ~T0 @X0 0 tf1`uc ]
-"21
-[e = _xfunc_out -> &U _LCD_Put `*F3052 ]
-[; ;main.c: 23: while(1)
-"23
-[e :U 356 ]
-[; ;main.c: 24: {
-"24
-{
-[; ;main.c: 25: LCD_CursorPosition(0,0);
-"25
-[e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 26: xprintf("%U ",(uint16_t)TMR1);
-"26
-[e ( _xprintf , (. :s 1C -> _TMR1 `ui ]
-"27
-}
-[e :U 355 ]
-"23
-[e $U 356  ]
-[e :U 357 ]
-[; ;main.c: 27: }
-[; ;main.c: 29: return 0;
-"29
-[e ) -> -> 0 `i `c ]
-[e $UE 354  ]
-[; ;main.c: 30: }
-"30
-[e :UE 354 ]
-}
-"32
-[v _Basic_Init `(c ~T0 @X0 1 ef ]
-"33
-{
-[; ;main.c: 32: int8_t Basic_Init(void)
-[; ;main.c: 33: {
-[e :U _Basic_Init ]
-[f ]
-[; ;main.c: 34: OSCCON = 0xF0;
-"34
-[e = _OSCCON -> -> 240 `i `uc ]
-[; ;main.c: 38: TRISA = 0x07;
-"38
-[e = _TRISA -> -> 7 `i `uc ]
-[; ;main.c: 39: ANSELA = 0x07;
-"39
-[e = _ANSELA -> -> 7 `i `uc ]
-[; ;main.c: 41: TRISB = 0x40;
-"41
-[e = _TRISB -> -> 64 `i `uc ]
-[; ;main.c: 42: ANSELB = 0x00;
-"42
-[e = _ANSELB -> -> 0 `i `uc ]
-[; ;main.c: 44: APFCON0 = 0x08;
-"44
-[e = _APFCON0 -> -> 8 `i `uc ]
-[; ;main.c: 45: APFCON1 = 0x00;
-"45
-[e = _APFCON1 -> -> 0 `i `uc ]
-[; ;main.c: 47: PORTA = 0x00;
-"47
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 48: PORTB = 0x00;
-"48
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 50: return 0;
-"50
-[e ) -> -> 0 `i `c ]
-[e $UE 358  ]
-[; ;main.c: 51: }
-"51
-[e :UE 358 ]
-}
-[v F3060 `(v ~T0 @X0 1 tf ]
-"53
-[v _Handler `IF3060 ~T0 @X0 1 e ]
-"54
-{
-[; ;main.c: 53: void interrupt Handler(void)
-[; ;main.c: 54: {
-[e :U _Handler ]
-[f ]
-[; ;main.c: 55: Timer1_Handler();
-"55
-[e ( _Timer1_Handler ..  ]
-[; ;main.c: 56: }
-"56
-[e :UE 359 ]
-}
-[a 1C 37 85 32 0 ]
-=======
-[v F2996 `(v ~T0 @X0 0 tf1`uc ]
-"21
-[e = _xfunc_out -> &U _LCD_Put `*F2996 ]
-[; ;main.c: 23: while(1)
-"23
-[e :U 355 ]
-[; ;main.c: 24: {
-"24
-{
-[; ;main.c: 26: LCD_CursorPosition(0,0);
-"26
-[e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 27: EEPROM_MultiRead(readdat,5,0);
-"27
-[e ( _EEPROM_MultiRead (3 , , &U _readdat -> -> 5 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 28: for(uint8_t i = 0;i<5;i++)
-"28
-{
 [v _i `uc ~T0 @X0 1 a ]
+[; ;eeprom.c: 14: uint8_t i = 0;
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 5 `i 357  ]
-[e $U 358  ]
-"29
-[e :U 357 ]
-[; ;main.c: 29: xprintf("%d ",readdat[i]);
-[e ( _xprintf , (. :s 1C -> *U + &U _readdat * -> _i `ux -> -> # *U &U _readdat `ui `ux `i ]
-"28
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 5 `i 357  ]
-[e :U 358 ]
-"29
-}
-"30
-}
+[; ;eeprom.c: 16: for(;i<size;i++)
+"16
+{
+[e $U 357  ]
+"17
 [e :U 354 ]
+[; ;eeprom.c: 17: {
+{
+[; ;eeprom.c: 18: if((addr+i)>256-1)
+"18
+[e $ ! > + -> _addr `i -> _i `i - -> 256 `i -> 1 `i 358  ]
+[; ;eeprom.c: 19: return 1;
+"19
+[e ) -> -> 1 `i `c ]
+[e $UE 353  ]
+[e :U 358 ]
+[; ;eeprom.c: 20: eeprom_write(addr+i,pData[i]);
+"20
+[e ( _eeprom_write (2 , -> + -> _addr `i -> _i `i `uc *U + _pData * -> _i `ux -> -> # *U _pData `ui `ux ]
+"21
+}
+"16
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 357 ]
+[e $ < -> _i `i -> _size `i 354  ]
+[e :U 355 ]
+"21
+}
+[; ;eeprom.c: 21: }
+[; ;eeprom.c: 23: return 0;
 "23
-[e $U 355  ]
-[e :U 356 ]
-[; ;main.c: 30: }
-[; ;main.c: 31: return 0;
-"31
 [e ) -> -> 0 `i `c ]
 [e $UE 353  ]
-[; ;main.c: 32: }
-"32
+[; ;eeprom.c: 24: }
+"24
 [e :UE 353 ]
 }
-"34
-[v _Basic_Init `(c ~T0 @X0 1 ef ]
-"35
+"30
+[v _EEPROM_MultiRead `(c ~T0 @X0 1 ef3`*uc`uc`uc ]
+"31
 {
-[; ;main.c: 34: int8_t Basic_Init(void)
-[; ;main.c: 35: {
-[e :U _Basic_Init ]
+[; ;eeprom.c: 30: int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr)
+[; ;eeprom.c: 31: {
+[e :U _EEPROM_MultiRead ]
+"30
+[v _pData `*uc ~T0 @X0 1 r1 ]
+[v _size `uc ~T0 @X0 1 r2 ]
+[v _addr `uc ~T0 @X0 1 r3 ]
+"31
 [f ]
-[; ;main.c: 36: OSCCON = 0xF0;
+"32
+[v _i `uc ~T0 @X0 1 a ]
+[; ;eeprom.c: 32: uint8_t i = 0;
+[e = _i -> -> 0 `i `uc ]
+[; ;eeprom.c: 34: for(;i<size;i++)
+"34
+{
+[e $U 363  ]
+"35
+[e :U 360 ]
+[; ;eeprom.c: 35: {
+{
+[; ;eeprom.c: 36: if((addr+i)>256-1)
 "36
-[e = _OSCCON -> -> 240 `i `uc ]
-[; ;main.c: 40: TRISA = 0x07;
-"40
-[e = _TRISA -> -> 7 `i `uc ]
-[; ;main.c: 41: ANSELA = 0x07;
-"41
-[e = _ANSELA -> -> 7 `i `uc ]
-[; ;main.c: 43: TRISB = 0x40;
-"43
-[e = _TRISB -> -> 64 `i `uc ]
-[; ;main.c: 44: ANSELB = 0x00;
-"44
-[e = _ANSELB -> -> 0 `i `uc ]
-[; ;main.c: 46: APFCON0 = 0x08;
-"46
-[e = _APFCON0 -> -> 8 `i `uc ]
-[; ;main.c: 47: APFCON1 = 0x00;
-"47
-[e = _APFCON1 -> -> 0 `i `uc ]
-[; ;main.c: 49: PORTA = 0x00;
-"49
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 50: PORTB = 0x00;
-"50
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 52: return 0;
-"52
-[e ) -> -> 0 `i `c ]
-[e $UE 360  ]
-[; ;main.c: 53: }
-"53
-[e :UE 360 ]
+[e $ ! > + -> _addr `i -> _i `i - -> 256 `i -> 1 `i 364  ]
+[; ;eeprom.c: 37: return 1;
+"37
+[e ) -> -> 1 `i `c ]
+[e $UE 359  ]
+[e :U 364 ]
+[; ;eeprom.c: 38: pData[i] = eeprom_read(addr+i);
+"38
+[e = *U + _pData * -> _i `ux -> -> # *U _pData `ui `ux ( _eeprom_read (1 -> + -> _addr `i -> _i `i `uc ]
+"39
 }
-[a 1C 37 100 32 0 ]
->>>>>>> eeprom
-
+"34
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 363 ]
+[e $ < -> _i `i -> _size `i 360  ]
+[e :U 361 ]
+"39
+}
+[; ;eeprom.c: 39: }
+[; ;eeprom.c: 41: return 0;
+"41
+[e ) -> -> 0 `i `c ]
+[e $UE 359  ]
+[; ;eeprom.c: 42: }
+"42
+[e :UE 359 ]
+}

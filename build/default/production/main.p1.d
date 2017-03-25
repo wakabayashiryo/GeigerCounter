@@ -4,4 +4,8 @@
 xprintf.h  \
 main.h  \
 LCD.h  \
+<<<<<<< HEAD
 Timer1.h 
+=======
+eeprom.h 
+>>>>>>> eeprom

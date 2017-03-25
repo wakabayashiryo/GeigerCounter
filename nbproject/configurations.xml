@@ -7,7 +7,11 @@
       <itemPath>main.h</itemPath>
       <itemPath>LCD.h</itemPath>
       <itemPath>xprintf.h</itemPath>
+<<<<<<< HEAD
       <itemPath>Timer1.h</itemPath>
+=======
+      <itemPath>eeprom.h</itemPath>
+>>>>>>> eeprom
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -19,7 +23,11 @@
       <itemPath>main.c</itemPath>
       <itemPath>LCD.c</itemPath>
       <itemPath>xprintf.c</itemPath>
+<<<<<<< HEAD
       <itemPath>Timer1.c</itemPath>
+=======
+      <itemPath>eeprom.c</itemPath>
+>>>>>>> eeprom
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
