@@ -19,12 +19,19 @@
 [v _eecpymem eecpymem `(v  1 e 1 0 ]
 "39
 [v _memcpyee memcpyee `(v  1 e 1 0 ]
+<<<<<<< HEAD
 "6 /opt/microchip/xc8/v1.41/sources/pic/eeread.c
 [v _eeprom_read eeprom_read `(uc  1 e 1 0 ]
 "6 /opt/microchip/xc8/v1.41/sources/pic/eewrite.c
 [v _eeprom_write eeprom_write `(v  1 e 1 0 ]
 "30 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/eeprom.c
 [v _EEPROM_MultiRead EEPROM_MultiRead `(c  1 e 1 0 ]
+=======
+"9 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Buzer.c
+[v _Buzer_Init Buzer_Init `(v  1 e 1 0 ]
+"29
+[v _Buzer_SetDuty Buzer_SetDuty `(v  1 e 1 0 ]
+>>>>>>> buzer
 "15 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
 [v _LCD_WriteData LCD_WriteData `(v  1 s 1 LCD_WriteData ]
 "28
@@ -33,6 +40,7 @@
 [v _LCD_Put LCD_Put `(v  1 e 1 0 ]
 "64
 [v _LCD_DisplayClear LCD_DisplayClear `(v  1 e 1 0 ]
+<<<<<<< HEAD
 "86
 [v _LCD_CursorPosition LCD_CursorPosition `(v  1 e 1 0 ]
 "13 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
@@ -42,6 +50,11 @@
 =======
 "34
 >>>>>>> eeprom
+=======
+"10 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+[v _main main `(c  1 e 1 0 ]
+"25
+>>>>>>> buzer
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
 "53
 [v _Handler Handler `II(v  1 e 1 0 ]
@@ -63,12 +76,21 @@
 [v _PORTA PORTA `VEuc  1 e 1 @12 ]
 "473
 [v _PORTB PORTB `VEuc  1 e 1 @13 ]
+<<<<<<< HEAD
 "728
 [v _TMR1 TMR1 `VEus  1 e 2 @22 ]
 "772
 [v _T1CON T1CON `VEuc  1 e 1 @24 ]
 "843
 [v _T1GCON T1GCON `VEuc  1 e 1 @25 ]
+=======
+"912
+[v _TMR2 TMR2 `VEuc  1 e 1 @26 ]
+"931
+[v _PR2 PR2 `VEuc  1 e 1 @27 ]
+"950
+[v _T2CON T2CON `VEuc  1 e 1 @28 ]
+>>>>>>> buzer
 "1118
 [v _TRISA TRISA `VEuc  1 e 1 @140 ]
 "1179
@@ -84,6 +106,7 @@
 "2846
 [v _ANSELB ANSELB `VEuc  1 e 1 @397 ]
 <<<<<<< HEAD
+<<<<<<< HEAD
 "6960
 [v _GIE GIE `VEb  1 e 0 @95 ]
 "7182
@@ -96,6 +119,14 @@
 "3016
 [v _EECON1 EECON1 `VEuc  1 e 1 @405 ]
 >>>>>>> eeprom
+=======
+"4890
+[v _CCPR2L CCPR2L `VEuc  1 e 1 @664 ]
+"4928
+[v _CCP2CON CCP2CON `VEuc  1 e 1 @666 ]
+"5282
+[v _CCPTMRS CCPTMRS `VEuc  1 e 1 @670 ]
+>>>>>>> buzer
 "7216
 [v _RA3 RA3 `VEb  1 e 0 @99 ]
 "7218
@@ -119,6 +150,7 @@
 [v _outptr outptr `*.1uc  1 s 1 outptr ]
 "271
 [v _xfunc_in xfunc_in `*.37(uc  1 e 2 0 ]
+<<<<<<< HEAD
 "13 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
 {
@@ -224,6 +256,12 @@
 [v ___lldiv@divisor divisor `ul  1 p 4 1 ]
 [v ___lldiv@dividend dividend `ul  1 p 4 5 ]
 "31
+=======
+"10 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+[v _main main `(c  1 e 1 0 ]
+{
+"23
+>>>>>>> buzer
 } 0
 "3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
 [v _Timer1_Init Timer1_Init `(v  1 e 1 0 ]
@@ -240,6 +278,7 @@
 {
 "69
 } 0
+<<<<<<< HEAD
 "86
 [v _LCD_CursorPosition LCD_CursorPosition `(v  1 e 1 0 ]
 {
@@ -250,6 +289,8 @@
 [v LCD_CursorPosition@tx tx `uc  1 a 1 6 ]
 "91
 } 0
+=======
+>>>>>>> buzer
 "15
 [v _LCD_WriteData LCD_WriteData `(v  1 s 1 LCD_WriteData ]
 {
@@ -259,6 +300,7 @@
 [v LCD_WriteData@point point `c  1 a 1 3 ]
 "22
 } 0
+<<<<<<< HEAD
 <<<<<<< HEAD
 "32 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
@@ -303,4 +345,24 @@
 {
 "53
 >>>>>>> eeprom
+=======
+"29 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Buzer.c
+[v _Buzer_SetDuty Buzer_SetDuty `(v  1 e 1 0 ]
+{
+"31
+[v Buzer_SetDuty@CCP2CON_Pre CCP2CON_Pre `uc  1 a 1 4 ]
+"29
+[v Buzer_SetDuty@duty duty `ui  1 p 2 0 ]
+"34
+} 0
+"9
+[v _Buzer_Init Buzer_Init `(v  1 e 1 0 ]
+{
+"27
+} 0
+"25 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+[v _Basic_Init Basic_Init `(c  1 e 1 0 ]
+{
+"44
+>>>>>>> buzer
 } 0

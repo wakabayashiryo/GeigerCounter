@@ -3883,10 +3883,16 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
+<<<<<<< HEAD
 # 28 "Timer1.h"
 void Timer1_Init(void);
 uint16_t Timer1_DiffCounter(void);
 void Timer1_Handler(void);
+=======
+# 41 "Buzer.h"
+void Buzer_Init(void);
+void Buzer_SetDuty(uint16_t duty);
+>>>>>>> buzer
 
 # 17 "xprintf.h"
 extern void (*xfunc_out)(unsigned char);
@@ -3905,7 +3911,11 @@ int xfgets (unsigned char (*func)(void), char* buff, int len);
 int xatoi (char** str, long* res);
 
 
+<<<<<<< HEAD
 # 26 "main.h"
+=======
+# 27 "main.h"
+>>>>>>> buzer
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = ON
@@ -3924,7 +3934,11 @@ int xatoi (char** str, long* res);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
+<<<<<<< HEAD
 # 49
+=======
+# 50
+>>>>>>> buzer
 int8_t Basic_Init(void);
 
 # 32 "LCD.h"

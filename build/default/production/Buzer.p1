@@ -1,4 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
+<<<<<<< HEAD:build/default/debug/main.p1
 [p mainexit ]
 "49 main.h
 [v _Basic_Init `(c ~T0 @X0 0 ef ]
@@ -18,15 +19,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 "1662 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [v _OSCCON `Vuc ~T0 @X0 0 e@153 ]
 "1118
+=======
+"1118 /opt/microchip/xc8/v1.41/include/pic16f1827.h
+>>>>>>> buzer:build/default/production/Buzer.p1
 [v _TRISA `Vuc ~T0 @X0 0 e@140 ]
 "2795
 [v _ANSELA `Vuc ~T0 @X0 0 e@396 ]
-"1179
-[v _TRISB `Vuc ~T0 @X0 0 e@141 ]
-"2846
-[v _ANSELB `Vuc ~T0 @X0 0 e@397 ]
 "2715
 [v _APFCON0 `Vuc ~T0 @X0 0 e@285 ]
+<<<<<<< HEAD:build/default/debug/main.p1
 "2776
 [v _APFCON1 `Vuc ~T0 @X0 0 e@286 ]
 "412
@@ -35,9 +36,102 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PORTB `Vuc ~T0 @X0 0 e@13 ]
 "30 Timer1.h
 [v _Timer1_Handler `(v ~T0 @X0 0 ef ]
+=======
+"950
+[v _T2CON `Vuc ~T0 @X0 0 e@28 ]
+"912
+[v _TMR2 `Vuc ~T0 @X0 0 e@26 ]
+"931
+[v _PR2 `Vuc ~T0 @X0 0 e@27 ]
+"4928
+[v _CCP2CON `Vuc ~T0 @X0 0 e@666 ]
+"5282
+[v _CCPTMRS `Vuc ~T0 @X0 0 e@670 ]
+"4890
+[v _CCPR2L `Vuc ~T0 @X0 0 e@664 ]
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stdlib.h: 7: typedef unsigned short wchar_t;
+[; ;stdlib.h: 15: typedef struct {
+[; ;stdlib.h: 16: int rem;
+[; ;stdlib.h: 17: int quot;
+[; ;stdlib.h: 18: } div_t;
+[; ;stdlib.h: 19: typedef struct {
+[; ;stdlib.h: 20: unsigned rem;
+[; ;stdlib.h: 21: unsigned quot;
+[; ;stdlib.h: 22: } udiv_t;
+[; ;stdlib.h: 23: typedef struct {
+[; ;stdlib.h: 24: long quot;
+[; ;stdlib.h: 25: long rem;
+[; ;stdlib.h: 26: } ldiv_t;
+[; ;stdlib.h: 27: typedef struct {
+[; ;stdlib.h: 28: unsigned long quot;
+[; ;stdlib.h: 29: unsigned long rem;
+[; ;stdlib.h: 30: } uldiv_t;
+[; ;stdlib.h: 53: extern double atof(const char *);
+[; ;stdlib.h: 54: extern double strtod(const char *, const char **);
+[; ;stdlib.h: 55: extern int atoi(const char *);
+[; ;stdlib.h: 56: extern unsigned xtoi(const char *);
+[; ;stdlib.h: 57: extern long atol(const char *);
+[; ;stdlib.h: 58: extern long strtol(const char *, char **, int);
+[; ;stdlib.h: 60: extern int rand(void);
+[; ;stdlib.h: 61: extern void srand(unsigned int);
+[; ;stdlib.h: 62: extern void * calloc(size_t, size_t);
+[; ;stdlib.h: 63: extern div_t div(int numer, int denom);
+[; ;stdlib.h: 64: extern udiv_t udiv(unsigned numer, unsigned denom);
+[; ;stdlib.h: 65: extern ldiv_t ldiv(long numer, long denom);
+[; ;stdlib.h: 66: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+[; ;stdlib.h: 67: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 68: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 69: extern unsigned int _rotl(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 70: extern unsigned int _rotr(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 75: extern void * malloc(size_t);
+[; ;stdlib.h: 76: extern void free(void *);
+[; ;stdlib.h: 77: extern void * realloc(void *, size_t);
+[; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
+[; ;stdlib.h: 86: extern int atexit(void (*)(void));
+[; ;stdlib.h: 87: extern char * getenv(const char *);
+[; ;stdlib.h: 88: extern char ** environ;
+[; ;stdlib.h: 89: extern int system(char *);
+[; ;stdlib.h: 90: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+[; ;stdlib.h: 91: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+[; ;stdlib.h: 92: extern int abs(int);
+[; ;stdlib.h: 93: extern long labs(long);
+[; ;stdlib.h: 95: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 96: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 101: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 102: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 104: extern char * ftoa(float f, int * status);
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+>>>>>>> buzer:build/default/production/Buzer.p1
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
-[; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f1827.h: 49: extern volatile unsigned char INDF0 @ 0x000;
 "51 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [; ;pic16f1827.h: 51: asm("INDF0 equ 00h");
@@ -2789,6 +2883,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 192: extern unsigned char __resetbits;
 [; ;pic.h: 193: extern __bit __powerdown;
 [; ;pic.h: 194: extern __bit __timeout;
+<<<<<<< HEAD:build/default/debug/main.p1
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdlib.h: 7: typedef unsigned short wchar_t;
 [; ;stdlib.h: 15: typedef struct {
@@ -2871,6 +2966,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.h: 28: void Timer1_Init(void);
 [; ;Timer1.h: 29: uint16_t Timer1_DiffCounter(void);
 [; ;Timer1.h: 30: void Timer1_Handler(void);
+=======
+>>>>>>> buzer:build/default/production/Buzer.p1
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void LCD_DisplayClear(void);
@@ -2890,6 +2987,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;xprintf.h: 33: int xgets (char* buff, int len);
 [; ;xprintf.h: 34: int xfgets (unsigned char (*func)(void), char* buff, int len);
 [; ;xprintf.h: 35: int xatoi (char** str, long* res);
+<<<<<<< HEAD:build/default/debug/main.p1
 "26 main.h
 [p x FOSC=INTOSC ]
 "27
@@ -3095,3 +3193,111 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p f _sprintf 8388736 ]
 [a 1C 37 100 32 37 100 0 ]
 
+=======
+"27 main.h
+[p x FOSC=INTOSC ]
+"28
+[p x WDTE=OFF ]
+"29
+[p x PWRTE=ON ]
+"30
+[p x MCLRE=ON ]
+"31
+[p x CP=OFF ]
+"32
+[p x CPD=OFF ]
+"33
+[p x BOREN=ON ]
+"34
+[p x CLKOUTEN=OFF ]
+"35
+[p x IESO=OFF ]
+"36
+[p x FCMEN=OFF ]
+"39
+[p x WRT=OFF ]
+"40
+[p x PLLEN=ON ]
+"41
+[p x STVREN=OFF ]
+"42
+[p x BORV=LO ]
+"43
+[p x LVP=OFF ]
+[; ;main.h: 50: int8_t Basic_Init(void);
+[; ;Buzer.h: 41: void Buzer_Init(void);
+[; ;Buzer.h: 42: void Buzer_SetDuty(uint16_t duty);
+"9 Buzer.c
+[v _Buzer_Init `(v ~T0 @X0 1 ef ]
+"10
+{
+[; ;Buzer.c: 9: void Buzer_Init(void)
+[; ;Buzer.c: 10: {
+[e :U _Buzer_Init ]
+[f ]
+[; ;Buzer.c: 11: TRISA &= ~(0x01<<7);
+"11
+[e =& _TRISA -> ~ << -> 1 `i -> 7 `i `uc ]
+[; ;Buzer.c: 12: ANSELA &= ~(0x01<<7);
+"12
+[e =& _ANSELA -> ~ << -> 1 `i -> 7 `i `uc ]
+[; ;Buzer.c: 13: APFCON0 |= (0x01<<3);
+"13
+[e =| _APFCON0 -> << -> 1 `i -> 3 `i `uc ]
+[; ;Buzer.c: 15: T2CON |= (0x00<<3);
+"15
+[e =| _T2CON -> << -> 0 `i -> 3 `i `uc ]
+[; ;Buzer.c: 16: T2CON |= (0x02<<0);
+"16
+[e =| _T2CON -> << -> 2 `i -> 0 `i `uc ]
+[; ;Buzer.c: 17: T2CON |= (0x01<<2);
+"17
+[e =| _T2CON -> << -> 1 `i -> 2 `i `uc ]
+[; ;Buzer.c: 19: TMR2 = 0x00;
+"19
+[e = _TMR2 -> -> 0 `i `uc ]
+[; ;Buzer.c: 20: PR2 = 0xFF;
+"20
+[e = _PR2 -> -> 255 `i `uc ]
+[; ;Buzer.c: 22: CCP2CON &= ~(0x03<<6);
+"22
+[e =& _CCP2CON -> ~ << -> 3 `i -> 6 `i `uc ]
+[; ;Buzer.c: 23: CCP2CON |= (0x0C<<0);
+"23
+[e =| _CCP2CON -> << -> 12 `i -> 0 `i `uc ]
+[; ;Buzer.c: 24: CCPTMRS &= ~(0x03<<2);
+"24
+[e =& _CCPTMRS -> ~ << -> 3 `i -> 2 `i `uc ]
+[; ;Buzer.c: 26: CCPR2L = 0x00;
+"26
+[e = _CCPR2L -> -> 0 `i `uc ]
+[; ;Buzer.c: 27: }
+"27
+[e :UE 353 ]
+}
+"29
+[v _Buzer_SetDuty `(v ~T0 @X0 1 ef1`ui ]
+"30
+{
+[; ;Buzer.c: 29: void Buzer_SetDuty(uint16_t duty)
+[; ;Buzer.c: 30: {
+[e :U _Buzer_SetDuty ]
+"29
+[v _duty `ui ~T0 @X0 1 r1 ]
+"30
+[f ]
+"31
+[v _CCP2CON_Pre `uc ~T0 @X0 1 a ]
+[; ;Buzer.c: 31: uint8_t CCP2CON_Pre = CCP2CON;
+[e = _CCP2CON_Pre _CCP2CON ]
+[; ;Buzer.c: 32: CCPR2L = (duty>>2);
+"32
+[e = _CCPR2L -> >> _duty -> 2 `i `uc ]
+[; ;Buzer.c: 33: CCP2CON = CCP2CON_Pre | ((duty&0x03)<<4);
+"33
+[e = _CCP2CON -> | -> _CCP2CON_Pre `ui << & _duty -> -> 3 `i `ui -> 4 `i `uc ]
+[; ;Buzer.c: 34: }
+"34
+[e :UE 354 ]
+}
+>>>>>>> buzer:build/default/production/Buzer.p1

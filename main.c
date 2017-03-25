@@ -5,8 +5,6 @@
  * Created on 2017/02/25, 21:19
  */
 
-
-#include <xc.h>
 #include "main.h"
 <<<<<<< HEAD
 #include <stdio.h>
@@ -16,6 +14,7 @@
 
 int8_t main(void)
 {
+<<<<<<< HEAD
     Basic_Init();
 <<<<<<< HEAD
 
@@ -48,6 +47,18 @@ int8_t main(void)
             xprintf("%d ",readdat[i]);
     }
 >>>>>>> eeprom
+=======
+    Basic_Init();    
+    Buzer_Init();
+    Buzer_Sound();
+
+    LCD_Init();
+    xdev_out(LCD_Put);
+    while(1)
+    {  
+        
+    }    
+>>>>>>> buzer
     return EXIT_SUCCESS;
 }
 

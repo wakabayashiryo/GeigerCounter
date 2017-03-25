@@ -3,5 +3,10 @@
  LCD.c  \
 xprintf.h  \
 main.h  \
+<<<<<<< HEAD
 LCD.h  \
 Timer1.h 
+=======
+Buzer.h  \
+LCD.h 
+>>>>>>> buzer

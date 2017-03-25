@@ -1,6 +1,7 @@
 
 Memory Summary:
 <<<<<<< HEAD
+<<<<<<< HEAD
     Program space        used   488h (  1160) of  1000h words   ( 28.3%)
     Data space           used    4Fh (    79) of   180h bytes   ( 20.6%)
     EEPROM space         used     0h (     0) of   100h bytes   (  0.0%)
@@ -11,6 +12,12 @@ Memory Summary:
     EEPROM space         used     0h (     0) of   100h bytes   (  0.0%)
     Data stack space     used     0h (     0) of   121h bytes   (  0.0%)
 >>>>>>> eeprom
+=======
+    Program space        used   13Fh (   319) of  1000h words   (  7.8%)
+    Data space           used     Dh (    13) of   180h bytes   (  3.4%)
+    EEPROM space         used     0h (     0) of   100h bytes   (  0.0%)
+    Data stack space     used     0h (     0) of   170h bytes   (  0.0%)
+>>>>>>> buzer
     Configuration bits   used     2h (     2) of     2h words   (100.0%)
     ID Location space    used     0h (     0) of     4h bytes   (  0.0%)
 
