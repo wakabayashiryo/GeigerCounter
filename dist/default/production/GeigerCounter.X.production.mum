@@ -1,30 +1,9 @@
 
 Memory Summary:
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    Program space        used   488h (  1160) of  1000h words   ( 28.3%)
-    Data space           used    4Fh (    79) of   180h bytes   ( 20.6%)
+    Program space        used   76Dh (  1901) of  1000h words   ( 46.4%)
+    Data space           used    7Bh (   123) of   180h bytes   ( 32.0%)
     EEPROM space         used     0h (     0) of   100h bytes   (  0.0%)
-    Data stack space     used     0h (     0) of   130h bytes   (  0.0%)
-=======
-    Program space        used   4D0h (  1232) of  1000h words   ( 30.1%)
-    Data space           used    5Fh (    95) of   180h bytes   ( 24.7%)
-    EEPROM space         used     0h (     0) of   100h bytes   (  0.0%)
-    Data stack space     used     0h (     0) of   121h bytes   (  0.0%)
->>>>>>> eeprom
-=======
-    Program space        used   13Fh (   319) of  1000h words   (  7.8%)
-    Data space           used     Dh (    13) of   180h bytes   (  3.4%)
-    EEPROM space         used     0h (     0) of   100h bytes   (  0.0%)
-    Data stack space     used     0h (     0) of   170h bytes   (  0.0%)
->>>>>>> buzer
-=======
-    Program space        used   42Eh (  1070) of  1000h words   ( 26.1%)
-    Data space           used    52h (    82) of   180h bytes   ( 21.4%)
-    EEPROM space         used     0h (     0) of   100h bytes   (  0.0%)
-    Data stack space     used     0h (     0) of   12Ch bytes   (  0.0%)
->>>>>>> ExternalDAC
+    Data stack space     used     0h (     0) of    FAh bytes   (  0.0%)
     Configuration bits   used     2h (     2) of     2h words   (100.0%)
     ID Location space    used     0h (     0) of     4h bytes   (  0.0%)
 

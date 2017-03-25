@@ -4,12 +4,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 "2846
 [v _ANSELB `Vuc ~T0 @X0 0 e@397 ]
 "16 I2C2.c
-[c E3027 0 1 .. ]
-[n E3027 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
-[c E3031 0 1 2 .. ]
-[n E3031 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
+[c E3045 0 1 .. ]
+[n E3045 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
+[c E3049 0 1 2 .. ]
+[n E3049 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
 "43 I2C.h
-[s S361 `uc -> 8 `i `uc -> 8 `i `*uc 1 `*uc 1 `E3027 1 ]
+[s S361 `uc -> 8 `i `uc -> 8 `i `*uc 1 `*uc 1 `E3045 1 ]
 [n S361 . SlaveTransmitBuff SlaveReceiveBuff TransmitPoint ReceivePoint Mode ]
 "7 I2C2.c
 [v _I2C2_Config `S361 ~T0 @X0 0 e ]
@@ -20,24 +20,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 "4196
 [v _SSP2ADD `Vuc ~T0 @X0 0 e@538 ]
 "4301
-[s S232 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S232 . SSPM0 SSPM1 SSPM2 SSPM3 CKP SSPEN SSPOV WCOL ]
+[s S228 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S228 . SSPM0 SSPM1 SSPM2 SSPM3 CKP SSPEN SSPOV WCOL ]
 "4311
-[s S233 :4 `uc 1 ]
-[n S233 . SSPM ]
+[s S229 :4 `uc 1 ]
+[n S229 . SSPM ]
 "4300
-[u S231 `S232 1 `S233 1 ]
-[n S231 . . . ]
+[u S227 `S228 1 `S229 1 ]
+[n S227 . . . ]
 "4315
-[v _SSP2CON1bits `VS231 ~T0 @X0 0 e@541 ]
+[v _SSP2CON1bits `VS227 ~T0 @X0 0 e@541 ]
 "4370
-[s S235 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S235 . SEN RSEN PEN RCEN ACKEN ACKDT ACKSTAT GCEN ]
+[s S231 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S231 . SEN RSEN PEN RCEN ACKEN ACKDT ACKSTAT GCEN ]
 "4369
-[u S234 `S235 1 ]
-[n S234 . . ]
+[u S230 `S231 1 ]
+[n S230 . . ]
 "4381
-[v _SSP2CON2bits `VS234 ~T0 @X0 0 e@542 ]
+[v _SSP2CON2bits `VS230 ~T0 @X0 0 e@542 ]
 "4215
 [v _SSP2MSK `Vuc ~T0 @X0 0 e@539 ]
 "7312
@@ -53,95 +53,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 "4177
 [v _SSP2BUF `Vuc ~T0 @X0 0 e@537 ]
 "4240
-[s S230 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S230 . BF UA R_nW S P D_nA CKE SMP ]
+[s S226 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S226 . BF UA R_nW S P D_nA CKE SMP ]
 "4239
-[u S229 `S230 1 ]
-[n S229 . . ]
+[u S225 `S226 1 ]
+[n S225 . . ]
 "4251
-[v _SSP2STATbits `VS229 ~T0 @X0 0 e@540 ]
-[; ;__size_t.h: 4: typedef unsigned size_t;
-[; ;stdlib.h: 7: typedef unsigned short wchar_t;
-[; ;stdlib.h: 15: typedef struct {
-[; ;stdlib.h: 16: int rem;
-[; ;stdlib.h: 17: int quot;
-[; ;stdlib.h: 18: } div_t;
-[; ;stdlib.h: 19: typedef struct {
-[; ;stdlib.h: 20: unsigned rem;
-[; ;stdlib.h: 21: unsigned quot;
-[; ;stdlib.h: 22: } udiv_t;
-[; ;stdlib.h: 23: typedef struct {
-[; ;stdlib.h: 24: long quot;
-[; ;stdlib.h: 25: long rem;
-[; ;stdlib.h: 26: } ldiv_t;
-[; ;stdlib.h: 27: typedef struct {
-[; ;stdlib.h: 28: unsigned long quot;
-[; ;stdlib.h: 29: unsigned long rem;
-[; ;stdlib.h: 30: } uldiv_t;
-[; ;stdlib.h: 53: extern double atof(const char *);
-[; ;stdlib.h: 54: extern double strtod(const char *, const char **);
-[; ;stdlib.h: 55: extern int atoi(const char *);
-[; ;stdlib.h: 56: extern unsigned xtoi(const char *);
-[; ;stdlib.h: 57: extern long atol(const char *);
-[; ;stdlib.h: 58: extern long strtol(const char *, char **, int);
-[; ;stdlib.h: 60: extern int rand(void);
-[; ;stdlib.h: 61: extern void srand(unsigned int);
-[; ;stdlib.h: 62: extern void * calloc(size_t, size_t);
-[; ;stdlib.h: 63: extern div_t div(int numer, int denom);
-[; ;stdlib.h: 64: extern udiv_t udiv(unsigned numer, unsigned denom);
-[; ;stdlib.h: 65: extern ldiv_t ldiv(long numer, long denom);
-[; ;stdlib.h: 66: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
-[; ;stdlib.h: 67: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
-[; ;stdlib.h: 68: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
-[; ;stdlib.h: 69: extern unsigned int _rotl(unsigned int value, unsigned int shift);
-[; ;stdlib.h: 70: extern unsigned int _rotr(unsigned int value, unsigned int shift);
-[; ;stdlib.h: 75: extern void * malloc(size_t);
-[; ;stdlib.h: 76: extern void free(void *);
-[; ;stdlib.h: 77: extern void * realloc(void *, size_t);
-[; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
-[; ;stdlib.h: 86: extern int atexit(void (*)(void));
-[; ;stdlib.h: 87: extern char * getenv(const char *);
-[; ;stdlib.h: 88: extern char ** environ;
-[; ;stdlib.h: 89: extern int system(char *);
-[; ;stdlib.h: 90: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
-[; ;stdlib.h: 91: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
-[; ;stdlib.h: 92: extern int abs(int);
-[; ;stdlib.h: 93: extern long labs(long);
-[; ;stdlib.h: 95: extern char * itoa(char * buf, int val, int base);
-[; ;stdlib.h: 96: extern char * utoa(char * buf, unsigned val, int base);
-[; ;stdlib.h: 101: extern char * ltoa(char * buf, long val, int base);
-[; ;stdlib.h: 102: extern char * ultoa(char * buf, unsigned long val, int base);
-[; ;stdlib.h: 104: extern char * ftoa(float f, int * status);
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[v _SSP2STATbits `VS225 ~T0 @X0 0 e@540 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
+[; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f1827.h: 49: extern volatile unsigned char INDF0 @ 0x000;
 "51 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [; ;pic16f1827.h: 51: asm("INDF0 equ 00h");
@@ -2893,6 +2814,90 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 192: extern unsigned char __resetbits;
 [; ;pic.h: 193: extern __bit __powerdown;
 [; ;pic.h: 194: extern __bit __timeout;
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stdlib.h: 7: typedef unsigned short wchar_t;
+[; ;stdlib.h: 15: typedef struct {
+[; ;stdlib.h: 16: int rem;
+[; ;stdlib.h: 17: int quot;
+[; ;stdlib.h: 18: } div_t;
+[; ;stdlib.h: 19: typedef struct {
+[; ;stdlib.h: 20: unsigned rem;
+[; ;stdlib.h: 21: unsigned quot;
+[; ;stdlib.h: 22: } udiv_t;
+[; ;stdlib.h: 23: typedef struct {
+[; ;stdlib.h: 24: long quot;
+[; ;stdlib.h: 25: long rem;
+[; ;stdlib.h: 26: } ldiv_t;
+[; ;stdlib.h: 27: typedef struct {
+[; ;stdlib.h: 28: unsigned long quot;
+[; ;stdlib.h: 29: unsigned long rem;
+[; ;stdlib.h: 30: } uldiv_t;
+[; ;stdlib.h: 53: extern double atof(const char *);
+[; ;stdlib.h: 54: extern double strtod(const char *, const char **);
+[; ;stdlib.h: 55: extern int atoi(const char *);
+[; ;stdlib.h: 56: extern unsigned xtoi(const char *);
+[; ;stdlib.h: 57: extern long atol(const char *);
+[; ;stdlib.h: 58: extern long strtol(const char *, char **, int);
+[; ;stdlib.h: 60: extern int rand(void);
+[; ;stdlib.h: 61: extern void srand(unsigned int);
+[; ;stdlib.h: 62: extern void * calloc(size_t, size_t);
+[; ;stdlib.h: 63: extern div_t div(int numer, int denom);
+[; ;stdlib.h: 64: extern udiv_t udiv(unsigned numer, unsigned denom);
+[; ;stdlib.h: 65: extern ldiv_t ldiv(long numer, long denom);
+[; ;stdlib.h: 66: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+[; ;stdlib.h: 67: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 68: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 69: extern unsigned int _rotl(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 70: extern unsigned int _rotr(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 75: extern void * malloc(size_t);
+[; ;stdlib.h: 76: extern void free(void *);
+[; ;stdlib.h: 77: extern void * realloc(void *, size_t);
+[; ;stdlib.h: 86: extern int atexit(void (*)(void));
+[; ;stdlib.h: 87: extern char * getenv(const char *);
+[; ;stdlib.h: 88: extern char ** environ;
+[; ;stdlib.h: 89: extern int system(char *);
+[; ;stdlib.h: 90: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+[; ;stdlib.h: 91: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+[; ;stdlib.h: 92: extern int abs(int);
+[; ;stdlib.h: 93: extern long labs(long);
+[; ;stdlib.h: 95: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 96: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 101: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 102: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 104: extern char * ftoa(float f, int * status);
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;Timer1.h: 28: void Timer1_Init(void);
+[; ;Timer1.h: 29: uint16_t Timer1_DiffCounter(void);
+[; ;Timer1.h: 30: void Timer1_Handler(void);
+[; ;Buzer.h: 41: void Buzer_Init(void);
+[; ;Buzer.h: 42: void Buzer_SetDuty(uint16_t duty);
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void LCD_DisplayClear(void);
@@ -2962,37 +2967,39 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MCP4726.h: 79: }Config_Reg;
 [; ;MCP4726.h: 81: void DAC_Initialize(void);
 [; ;MCP4726.h: 82: int8_t DAC_WriteVoltage(uint16_t volue);
-"27 main.h
+[; ;eeprom.h: 18: int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
+[; ;eeprom.h: 19: int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
+"31 main.h
 [p x FOSC=INTOSC ]
-"28
-[p x WDTE=OFF ]
-"29
-[p x PWRTE=ON ]
-"30
-[p x MCLRE=ON ]
-"31
-[p x CP=OFF ]
 "32
-[p x CPD=OFF ]
+[p x WDTE=OFF ]
 "33
-[p x BOREN=ON ]
+[p x PWRTE=ON ]
 "34
-[p x CLKOUTEN=OFF ]
+[p x MCLRE=ON ]
 "35
-[p x IESO=OFF ]
+[p x CP=OFF ]
 "36
-[p x FCMEN=OFF ]
+[p x CPD=OFF ]
+"37
+[p x BOREN=ON ]
+"38
+[p x CLKOUTEN=OFF ]
 "39
-[p x WRT=OFF ]
+[p x IESO=OFF ]
 "40
-[p x PLLEN=ON ]
-"41
-[p x STVREN=OFF ]
-"42
-[p x BORV=LO ]
+[p x FCMEN=OFF ]
 "43
+[p x WRT=OFF ]
+"44
+[p x PLLEN=ON ]
+"45
+[p x STVREN=OFF ]
+"46
+[p x BORV=LO ]
+"47
 [p x LVP=OFF ]
-[; ;main.h: 50: int8_t Basic_Init(void);
+[; ;main.h: 54: int8_t Basic_Init(void);
 [; ;I2C.h: 23: typedef enum
 [; ;I2C.h: 24: {
 [; ;I2C.h: 25: I2C_MODE_MASTER,
@@ -3049,7 +3056,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 362 ]
 }
 "15
-[v _I2C2_Setting `(v ~T0 @X0 1 ef3`uc`E3027`E3031 ]
+[v _I2C2_Setting `(v ~T0 @X0 1 ef3`uc`E3045`E3049 ]
 "16
 {
 [; ;I2C2.c: 15: void I2C2_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed)
@@ -3057,8 +3064,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _I2C2_Setting ]
 "15
 [v _address `uc ~T0 @X0 1 r1 ]
-[v _mode `E3027 ~T0 @X0 1 r2 ]
-[v _Speed `E3031 ~T0 @X0 1 r3 ]
+[v _mode `E3045 ~T0 @X0 1 r2 ]
+[v _Speed `E3049 ~T0 @X0 1 r3 ]
 "16
 [f ]
 [; ;I2C2.c: 17: I2C2_PinInit();
@@ -3081,7 +3088,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =| _SSP2CON1 -> << -> 8 `i -> 0 `i `uc ]
 [; ;I2C2.c: 24: if(Speed==I2C_SPEED_STANDARD)
 "24
-[e $ ! == -> _Speed `i -> . `E3031 0 `i 367  ]
+[e $ ! == -> _Speed `i -> . `E3049 0 `i 367  ]
 [; ;I2C2.c: 25: {
 "25
 {
@@ -3098,7 +3105,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "29
 [e :U 367 ]
 [; ;I2C2.c: 29: else if(Speed==I2C_SPEED_HIGH)
-[e $ ! == -> _Speed `i -> . `E3031 1 `i 369  ]
+[e $ ! == -> _Speed `i -> . `E3049 1 `i 369  ]
 [; ;I2C2.c: 30: {
 "30
 {
@@ -3149,8 +3156,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 364  ]
 "20
 [e :U 365 ]
-[e [\ _mode , $ . `E3027 0 366
- , $ . `E3027 1 370
+[e [\ _mode , $ . `E3045 0 366
+ , $ . `E3045 1 370
  364 ]
 "45
 [e :U 364 ]
@@ -3354,8 +3361,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 372  ]
 "56
 [e :U 373 ]
-[e [\ . _I2C2_Config 4 , $ . `E3027 0 374
- , $ . `E3027 1 399
+[e [\ . _I2C2_Config 4 , $ . `E3045 0 374
+ , $ . `E3045 1 399
  372 ]
 "98
 [e :U 372 ]
@@ -3551,8 +3558,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 407  ]
 "107
 [e :U 408 ]
-[e [\ . _I2C2_Config 4 , $ . `E3027 0 409
- , $ . `E3027 1 438
+[e [\ . _I2C2_Config 4 , $ . `E3045 0 409
+ , $ . `E3045 1 438
  407 ]
 "147
 [e :U 407 ]

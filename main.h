@@ -11,16 +11,13 @@
 #include <xc.h>
 #include <stdlib.h>
 #include <stdint.h>
-<<<<<<< HEAD
 #include "Timer1.h"
-=======
-#include <xc.h>
 #include "Buzer.h"
->>>>>>> buzer
 #include "LCD.h"
 #include "xprintf.h"
 #include "I2C.h"
 #include "MCP4726.h"
+#include "eeprom.h"
 
 #ifdef	__cplusplus
 extern "C" {

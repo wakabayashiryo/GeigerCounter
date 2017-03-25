@@ -2844,14 +2844,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-<<<<<<< HEAD
 [; ;Timer1.h: 28: void Timer1_Init(void);
 [; ;Timer1.h: 29: uint16_t Timer1_DiffCounter(void);
 [; ;Timer1.h: 30: void Timer1_Handler(void);
-=======
 [; ;Buzer.h: 41: void Buzer_Init(void);
 [; ;Buzer.h: 42: void Buzer_SetDuty(uint16_t duty);
->>>>>>> buzer
 [; ;xprintf.h: 17: extern void (*xfunc_out)(unsigned char);
 [; ;xprintf.h: 18: void xputc (char c);
 [; ;xprintf.h: 19: void xputs (const char* str);
@@ -2864,73 +2861,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;xprintf.h: 33: int xgets (char* buff, int len);
 [; ;xprintf.h: 34: int xfgets (unsigned char (*func)(void), char* buff, int len);
 [; ;xprintf.h: 35: int xatoi (char** str, long* res);
-<<<<<<< HEAD
-<<<<<<< HEAD
-"26 main.h
-[p x FOSC=INTOSC ]
-"27
-[p x WDTE=OFF ]
-"28
-[p x PWRTE=ON ]
-"29
-[p x MCLRE=ON ]
-"30
-[p x CP=OFF ]
-"31
-[p x CPD=OFF ]
-"32
-[p x BOREN=ON ]
-"33
-[p x CLKOUTEN=OFF ]
-"34
-[p x IESO=OFF ]
-"35
-[p x FCMEN=OFF ]
-"38
-[p x WRT=OFF ]
-"39
-[p x PLLEN=ON ]
-"40
-[p x STVREN=OFF ]
-"41
-[p x BORV=LO ]
-"42
-[p x LVP=OFF ]
-[; ;main.h: 49: int8_t Basic_Init(void);
-=======
-"27 main.h
-[p x FOSC=INTOSC ]
-"28
-[p x WDTE=OFF ]
-"29
-[p x PWRTE=ON ]
-"30
-[p x MCLRE=ON ]
-"31
-[p x CP=OFF ]
-"32
-[p x CPD=OFF ]
-"33
-[p x BOREN=ON ]
-"34
-[p x CLKOUTEN=OFF ]
-"35
-[p x IESO=OFF ]
-"36
-[p x FCMEN=OFF ]
-"39
-[p x WRT=OFF ]
-"40
-[p x PLLEN=ON ]
-"41
-[p x STVREN=OFF ]
-"42
-[p x BORV=LO ]
-"43
-[p x LVP=OFF ]
-[; ;main.h: 50: int8_t Basic_Init(void);
->>>>>>> buzer
-=======
 [; ;I2C.h: 23: typedef enum
 [; ;I2C.h: 24: {
 [; ;I2C.h: 25: I2C_MODE_MASTER,
@@ -3017,38 +2947,39 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MCP4726.h: 79: }Config_Reg;
 [; ;MCP4726.h: 81: void DAC_Initialize(void);
 [; ;MCP4726.h: 82: int8_t DAC_WriteVoltage(uint16_t volue);
-"27 main.h
+[; ;eeprom.h: 18: int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
+[; ;eeprom.h: 19: int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
+"31 main.h
 [p x FOSC=INTOSC ]
-"28
-[p x WDTE=OFF ]
-"29
-[p x PWRTE=ON ]
-"30
-[p x MCLRE=ON ]
-"31
-[p x CP=OFF ]
 "32
-[p x CPD=OFF ]
+[p x WDTE=OFF ]
 "33
-[p x BOREN=ON ]
+[p x PWRTE=ON ]
 "34
-[p x CLKOUTEN=OFF ]
+[p x MCLRE=ON ]
 "35
-[p x IESO=OFF ]
+[p x CP=OFF ]
 "36
-[p x FCMEN=OFF ]
+[p x CPD=OFF ]
+"37
+[p x BOREN=ON ]
+"38
+[p x CLKOUTEN=OFF ]
 "39
-[p x WRT=OFF ]
+[p x IESO=OFF ]
 "40
-[p x PLLEN=ON ]
-"41
-[p x STVREN=OFF ]
-"42
-[p x BORV=LO ]
+[p x FCMEN=OFF ]
 "43
+[p x WRT=OFF ]
+"44
+[p x PLLEN=ON ]
+"45
+[p x STVREN=OFF ]
+"46
+[p x BORV=LO ]
+"47
 [p x LVP=OFF ]
-[; ;main.h: 50: int8_t Basic_Init(void);
->>>>>>> ExternalDAC
+[; ;main.h: 54: int8_t Basic_Init(void);
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void LCD_DisplayClear(void);

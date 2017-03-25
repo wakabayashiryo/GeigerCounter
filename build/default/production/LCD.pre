@@ -3883,16 +3883,14 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-<<<<<<< HEAD
 # 28 "Timer1.h"
 void Timer1_Init(void);
 uint16_t Timer1_DiffCounter(void);
 void Timer1_Handler(void);
-=======
+
 # 41 "Buzer.h"
 void Buzer_Init(void);
 void Buzer_SetDuty(uint16_t duty);
->>>>>>> buzer
 
 # 17 "xprintf.h"
 extern void (*xfunc_out)(unsigned char);
@@ -4013,16 +4011,12 @@ uint8_t Command :3;
 void DAC_Initialize(void);
 int8_t DAC_WriteVoltage(uint16_t volue);
 
+# 18 "eeprom.h"
+int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
+int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-# 26 "main.h"
-=======
-# 27 "main.h"
->>>>>>> buzer
-=======
-# 27 "main.h"
->>>>>>> ExternalDAC
+
+# 31 "main.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = ON
@@ -4041,15 +4035,7 @@ int8_t DAC_WriteVoltage(uint16_t volue);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-# 49
-=======
-# 50
->>>>>>> buzer
-=======
-# 50
->>>>>>> ExternalDAC
+# 54
 int8_t Basic_Init(void);
 
 # 32 "LCD.h"

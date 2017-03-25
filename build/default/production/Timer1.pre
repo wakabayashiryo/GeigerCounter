@@ -3883,6 +3883,10 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
+# 41 "Buzer.h"
+void Buzer_Init(void);
+void Buzer_SetDuty(uint16_t duty);
+
 # 32 "LCD.h"
 void LCD_Init(void);
 void LCD_Put(int8_t word);
@@ -3908,8 +3912,115 @@ int xgets (char* buff, int len);
 int xfgets (unsigned char (*func)(void), char* buff, int len);
 int xatoi (char** str, long* res);
 
+# 23 "I2C.h"
+typedef enum
+{
+I2C_MODE_MASTER,
+I2C_MODE_SLAVE
+}I2Cx_Mode;
 
-# 26 "main.h"
+typedef enum
+{
+I2C_SPEED_STANDARD,
+I2C_SPEED_HIGH,
+I2C_SPEED_NONE
+}I2Cx_Speed;
+
+typedef enum
+{
+I2C1_MODULE,
+I2C2_MODULE
+}I2Cx_Module;
+
+typedef struct
+{
+uint8_t SlaveTransmitBuff[8];
+uint8_t SlaveReceiveBuff[8];
+uint8_t *TransmitPoint;
+uint8_t *ReceivePoint;
+I2Cx_Mode Mode;
+}I2Cx_Configuration;
+
+void I2C1_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
+void I2C1_Interrupt(void);
+int8_t I2C1_Transmit(uint8_t address,uint8_t *pData,uint8_t size);
+int8_t I2C1_Receive(uint8_t address,uint8_t *pData,uint8_t size);
+
+void I2C2_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
+void I2C2_Interrupt(void);
+int8_t I2C2_Transmit(uint8_t address,uint8_t *pData,uint8_t size);
+int8_t I2C2_Receive(uint8_t address,uint8_t *pData,uint8_t size);
+
+void I2C_Init(I2Cx_Module I2Cx,uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
+int8_t I2C_Transmit(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
+int8_t I2C_Receive(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
+void I2C_CommonInterrupt(void);
+
+# 26 "MCP4726.h"
+typedef union
+{
+uint8_t Voltage_Data[2];
+struct
+{
+uint8_t Voltage4bits:4;
+uint8_t PowerDown :2;
+uint8_t Command :2;
+uint8_t Voltage8bits:8;
+};
+
+}Voltage_Reg;
+
+typedef union
+{
+uint8_t Memory_Data[3];
+struct
+{
+uint8_t Command :3;
+uint8_t Voltage_Ref :2;
+uint8_t PowerDown :2;
+uint8_t Gain :1;
+uint8_t DataHigher :8;
+uint8_t DataLower :8;
+};
+
+}Memory_Reg;
+
+typedef union
+{
+uint8_t AllMemory_Data[3];
+struct
+{
+uint8_t Command :3;
+uint8_t Voltage_Ref :2;
+uint8_t PowerDown :2;
+uint8_t Gain :1;
+uint8_t DataHigher :8;
+uint8_t DataLower :8;
+};
+
+}AllMemory_Reg;
+
+typedef union
+{
+uint8_t Config_Data[1];
+struct
+{
+uint8_t Gain :1;
+uint8_t PowerDown :2;
+uint8_t Voltage_Ref :2;
+uint8_t Command :3;
+};
+}Config_Reg;
+
+void DAC_Initialize(void);
+int8_t DAC_WriteVoltage(uint16_t volue);
+
+# 18 "eeprom.h"
+int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
+int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
+
+
+# 31 "main.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = ON
@@ -3928,7 +4039,7 @@ int xatoi (char** str, long* res);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 49
+# 54
 int8_t Basic_Init(void);
 
 # 28 "Timer1.h"

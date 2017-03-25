@@ -4,44 +4,14 @@
     <memory name="program">
       <units>words</units>
       <length>4096</length>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <used>1160</used>
-      <free>2936</free>
-=======
-      <used>1232</used>
-      <free>2864</free>
->>>>>>> eeprom
-=======
-      <used>319</used>
-      <free>3777</free>
->>>>>>> buzer
-=======
-      <used>1070</used>
-      <free>3026</free>
->>>>>>> ExternalDAC
+      <used>1901</used>
+      <free>2195</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>384</length>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <used>79</used>
-      <free>305</free>
-=======
-      <used>95</used>
-      <free>289</free>
->>>>>>> eeprom
-=======
-      <used>13</used>
-      <free>371</free>
->>>>>>> buzer
-=======
-      <used>82</used>
-      <free>302</free>
->>>>>>> ExternalDAC
+      <used>123</used>
+      <free>261</free>
     </memory>
   </executable>
 </project>

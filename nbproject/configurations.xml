@@ -5,14 +5,9 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>main.h</itemPath>
-      <itemPath>Buzer.h</itemPath>
       <itemPath>LCD.h</itemPath>
       <itemPath>xprintf.h</itemPath>
-<<<<<<< HEAD
       <itemPath>Timer1.h</itemPath>
-=======
-      <itemPath>eeprom.h</itemPath>
->>>>>>> eeprom
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -22,14 +17,9 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>main.c</itemPath>
-      <itemPath>Buzer.c</itemPath>
       <itemPath>LCD.c</itemPath>
       <itemPath>xprintf.c</itemPath>
-<<<<<<< HEAD
       <itemPath>Timer1.c</itemPath>
-=======
-      <itemPath>eeprom.c</itemPath>
->>>>>>> eeprom
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -149,6 +139,7 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>

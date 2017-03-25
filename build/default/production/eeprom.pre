@@ -3883,6 +3883,15 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
+# 28 "Timer1.h"
+void Timer1_Init(void);
+uint16_t Timer1_DiffCounter(void);
+void Timer1_Handler(void);
+
+# 41 "Buzer.h"
+void Buzer_Init(void);
+void Buzer_SetDuty(uint16_t duty);
+
 # 32 "LCD.h"
 void LCD_Init(void);
 void LCD_Put(int8_t word);
@@ -4012,11 +4021,7 @@ void DAC_Initialize(void);
 int8_t DAC_WriteVoltage(uint16_t volue);
 
 
-<<<<<<< HEAD:build/default/production/eeprom.pre
-# 26 "main.h"
-=======
-# 27 "main.h"
->>>>>>> ExternalDAC:build/default/debug/main.pre
+# 31 "main.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = ON
@@ -4035,11 +4040,7 @@ int8_t DAC_WriteVoltage(uint16_t volue);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-<<<<<<< HEAD:build/default/production/eeprom.pre
-# 49
-=======
-# 50
->>>>>>> ExternalDAC:build/default/debug/main.pre
+# 54
 int8_t Basic_Init(void);
 
 # 18 "eeprom.h"
@@ -4049,7 +4050,6 @@ int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
 # 12 "eeprom.c"
 int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr)
 {
-<<<<<<< HEAD:build/default/production/eeprom.pre
 uint8_t i = 0;
 
 for(;i<size;i++)
@@ -4059,36 +4059,13 @@ return 1;
 eeprom_write(addr+i,pData[i]);
 }
 
-=======
-Basic_Init();
-LCD_Init();
-DAC_Initialize();
-xfunc_out = (void(*)(unsigned char))(LCD_Put);
-LATA7 = 1;
-
-while(1)
-{
-for(uint16_t voltage = 0;voltage<0x0FFF;voltage++)
-{
-if(!DAC_WriteVoltage(voltage))
-LATA7 = 0;
-_delay((unsigned long)((10)*(32000000/4000.0)));
-}
-}
->>>>>>> ExternalDAC:build/default/debug/main.pre
 return 0;
 }
 
 # 30
 int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr)
 {
-<<<<<<< HEAD:build/default/production/eeprom.pre
 uint8_t i = 0;
-=======
-OSCCON = 0xF0;
-
-
->>>>>>> ExternalDAC:build/default/debug/main.pre
 
 for(;i<size;i++)
 {
@@ -4098,10 +4075,4 @@ pData[i] = eeprom_read(addr+i);
 }
 
 return 0;
-}
-
-
-void interrupt hand(void)
-{
-I2C_CommonInterrupt();
 }

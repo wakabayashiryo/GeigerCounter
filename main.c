@@ -6,77 +6,23 @@
  */
 
 #include "main.h"
-<<<<<<< HEAD
-#include <stdio.h>
-=======
-#include "eeprom.h"
->>>>>>> eeprom
 
 int8_t main(void)
 {
-<<<<<<< HEAD
     Basic_Init();
-<<<<<<< HEAD
-
+    LCD_Init();
+    xdev_out(LCD_Put);
     Timer1_Init();
     Timer1_Start();
-
-    LCD_Init();
-    DAC_Initialize();
-    xdev_out(LCD_Put);
-<<<<<<< HEAD
-
-    while(1)
-    {
-        LCD_CursorPosition(0,0);
-        xprintf("%U ",Timer1_Read());
-    }
-    
-=======
-    uint8_t sample[5]={
-        20,17,3,3,20
-    };
-    uint8_t readdat[5];
-    LCD_Init();
-    xdev_out(LCD_Put);
-    
-    while(1)
-    {
-//        EEPROM_MultiWrite(sample,5,0);
-        LCD_CursorPosition(0,0);
-        EEPROM_MultiRead(readdat,5,0);
-        for(uint8_t i = 0;i<5;i++)
-            xprintf("%d ",readdat[i]);
-    }
->>>>>>> eeprom
-=======
-    Basic_Init();    
     Buzer_Init();
-    Buzer_Sound();
-
-    LCD_Init();
-    xdev_out(LCD_Put);
-    while(1)
-    {  
-        
-=======
-    LATA7 = 1;
+    DAC_Initialize();
 
     while(1)
-    {  
-        for(uint16_t voltage = 0;voltage<0x0FFF;voltage++)
-        {
-            DAC_WriteVoltage(voltage);
-            __delay_us(100);
-        }
-        for(uint16_t voltage = 0;voltage<0x0FFF;voltage++)
-        {
-            DAC_WriteVoltage(0x0FFF-voltage);
-            __delay_us(100);
-        }
->>>>>>> ExternalDAC
-    }    
->>>>>>> buzer
+    {
+        LCD_CursorPosition(0,0);
+        xprintf("Hellow World");
+    }
+    
     return EXIT_SUCCESS;
 }
 
@@ -101,14 +47,8 @@ int8_t Basic_Init(void)
     return EXIT_SUCCESS;
 }
 
-<<<<<<< HEAD
 void interrupt Handler(void)
 {
     Timer1_Handler();
-=======
-
-void interrupt hand(void)
-{
-    I2C_CommonInterrupt();
->>>>>>> ExternalDAC
+        I2C_CommonInterrupt();
 }
