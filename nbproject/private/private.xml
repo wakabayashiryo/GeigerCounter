@@ -4,6 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c</file>
             <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.h</file>
 <<<<<<< HEAD
@@ -40,6 +41,12 @@
 >>>>>>> eeprom
 =======
 >>>>>>> buzer
+=======
+            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c</file>
+            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/MCP4726.h</file>
+            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.h</file>
+            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/MCP4726.c</file>
+>>>>>>> ExternalDAC
         </group>
     </open-files>
 </project-private>

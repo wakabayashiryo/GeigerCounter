@@ -6,6 +6,7 @@
       <length>4096</length>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <used>1160</used>
       <free>2936</free>
 =======
@@ -16,10 +17,15 @@
       <used>319</used>
       <free>3777</free>
 >>>>>>> buzer
+=======
+      <used>1070</used>
+      <free>3026</free>
+>>>>>>> ExternalDAC
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>384</length>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       <used>79</used>
@@ -32,6 +38,10 @@
       <used>13</used>
       <free>371</free>
 >>>>>>> buzer
+=======
+      <used>82</used>
+      <free>302</free>
+>>>>>>> ExternalDAC
     </memory>
   </executable>
 </project>

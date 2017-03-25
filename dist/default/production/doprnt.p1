@@ -2,7 +2,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 "10 /opt/microchip/xc8/v1.41/include/stdarg.h
 [v ___va_start `(*v ~T0 @X0 0 ef ]
 [p i ___va_start ]
+<<<<<<< HEAD
 "13
+=======
+"16 /opt/microchip/xc8/v1.41/include/conio.h
+[v _putch `(v ~T0 @X0 0 ef1`uc ]
+"13 /opt/microchip/xc8/v1.41/include/stdarg.h
+>>>>>>> ExternalDAC
 [v ___va_arg `(*v ~T0 @X0 0 ev`*v ]
 [p i ___va_arg ]
 [; ;__size_t.h: 4: typedef unsigned size_t;
@@ -195,6 +201,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [; ;doprnt.c: 354: const static unsigned int dpowers[] = {1, 10, 100, 1000, 10000,
 [; ;doprnt.c: 359: };
+<<<<<<< HEAD
 "492
 [v _sprintf `(i ~T0 @X0 1 e1v`*uc`*Cuc ]
 "493
@@ -209,6 +216,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 "493
 [f ]
 "494
+=======
+"464
+[v _printf `(i ~T0 @X0 1 ev`*Cuc ]
+"465
+{
+[; ;doprnt.c: 455: int
+[; ;doprnt.c: 464: printf(const char * f, ...)
+[; ;doprnt.c: 465: {
+[e :U _printf ]
+"464
+[v _f `*Cuc ~T0 @X0 1 r0 ]
+"465
+[f ]
+"466
+>>>>>>> ExternalDAC
 [v _ap `*v ~T0 @X0 -> -> 1 `i `ux a ]
 "499
 [v _c `c ~T0 @X0 1 a ]
@@ -227,7 +249,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _len `ui ~T0 @X0 1 a ]
 "530
 [v _cp `*Cuc ~T0 @X0 1 a ]
+<<<<<<< HEAD
 [; ;doprnt.c: 494: va_list ap;
+=======
+[; ;doprnt.c: 466: va_list ap;
+>>>>>>> ExternalDAC
 [; ;doprnt.c: 499: signed char c;
 [; ;doprnt.c: 506: signed char prec;
 [; ;doprnt.c: 508: unsigned char flag;
@@ -252,9 +278,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;doprnt.c: 540: {
 "540
 {
+<<<<<<< HEAD
 [; ;doprnt.c: 541: ((*sp++ = (c)));
 "541
 [e = *U ++ _sp * -> -> 1 `i `x -> -> # *U _sp `i `x -> _c `uc ]
+=======
+[; ;doprnt.c: 541: (putch(c) );
+"541
+[e ( _putch (1 -> _c `uc ]
+>>>>>>> ExternalDAC
 [; ;doprnt.c: 542: continue;
 "542
 [e $U 8  ]
@@ -350,9 +382,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;doprnt.c: 1438: if(flag & 0x03)
 "1438
 [e $ ! != & -> _flag `i -> 3 `i -> 0 `i 24  ]
+<<<<<<< HEAD
 [; ;doprnt.c: 1439: ((*sp++ = ('-')));
 "1439
 [e = *U ++ _sp * -> -> 1 `i `x -> -> # *U _sp `i `x -> -> 45 `ui `uc ]
+=======
+[; ;doprnt.c: 1439: (putch('-') );
+"1439
+[e ( _putch (1 -> -> 45 `ui `uc ]
+>>>>>>> ExternalDAC
 [e :U 24 ]
 "1469
 }
@@ -374,9 +412,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 "1523
 }
 [; ;doprnt.c: 1523: }
+<<<<<<< HEAD
 [; ;doprnt.c: 1524: ((*sp++ = (c)));
 "1524
 [e = *U ++ _sp * -> -> 1 `i `x -> -> # *U _sp `i `x -> _c `uc ]
+=======
+[; ;doprnt.c: 1524: (putch(c) );
+"1524
+[e ( _putch (1 -> _c `uc ]
+>>>>>>> ExternalDAC
 "1525
 }
 [e :U 25 ]
@@ -394,9 +438,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;doprnt.c: 1535: alldone:
 "1535
 [e :U 15 ]
+<<<<<<< HEAD
 [; ;doprnt.c: 1538: *sp = 0;
 "1538
 [e = *U _sp -> -> 0 `i `uc ]
+=======
+>>>>>>> ExternalDAC
 [; ;doprnt.c: 1540: return 0;
 "1540
 [e ) -> 0 `i ]

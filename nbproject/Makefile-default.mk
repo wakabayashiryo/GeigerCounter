@@ -53,6 +53,7 @@ DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 # Source Files Quoted if spaced
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 SOURCEFILES_QUOTED_IF_SPACED=main.c LCD.c xprintf.c Timer1.c
 
 # Object Files Quoted if spaced
@@ -90,6 +91,19 @@ OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/Buzer.p1 ${OBJECTDIR}/LCD.p1 ${OBJ
 # Source Files
 SOURCEFILES=main.c Buzer.c LCD.c xprintf.c
 >>>>>>> buzer
+=======
+SOURCEFILES_QUOTED_IF_SPACED=main.c LCD.c xprintf.c I2C1.c I2C2.c I2C_Common.c MCP4726.c
+
+# Object Files Quoted if spaced
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/LCD.p1 ${OBJECTDIR}/xprintf.p1 ${OBJECTDIR}/I2C1.p1 ${OBJECTDIR}/I2C2.p1 ${OBJECTDIR}/I2C_Common.p1 ${OBJECTDIR}/MCP4726.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/LCD.p1.d ${OBJECTDIR}/xprintf.p1.d ${OBJECTDIR}/I2C1.p1.d ${OBJECTDIR}/I2C2.p1.d ${OBJECTDIR}/I2C_Common.p1.d ${OBJECTDIR}/MCP4726.p1.d
+
+# Object Files
+OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/LCD.p1 ${OBJECTDIR}/xprintf.p1 ${OBJECTDIR}/I2C1.p1 ${OBJECTDIR}/I2C2.p1 ${OBJECTDIR}/I2C_Common.p1 ${OBJECTDIR}/MCP4726.p1
+
+# Source Files
+SOURCEFILES=main.c LCD.c xprintf.c I2C1.c I2C2.c I2C_Common.c MCP4726.c
+>>>>>>> ExternalDAC
 
 
 CFLAGS=
@@ -148,6 +162,7 @@ ${OBJECTDIR}/xprintf.p1: xprintf.c  nbproject/Makefile-${CND_CONF}.mk
 	@${FIXDEPS} ${OBJECTDIR}/xprintf.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 ${OBJECTDIR}/Timer1.p1: Timer1.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Timer1.p1.d 
@@ -164,6 +179,39 @@ ${OBJECTDIR}/eeprom.p1: eeprom.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/eeprom.d ${OBJECTDIR}/eeprom.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/eeprom.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 >>>>>>> eeprom
+=======
+${OBJECTDIR}/I2C1.p1: I2C1.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/I2C1.p1.d 
+	@${RM} ${OBJECTDIR}/I2C1.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/I2C1.p1  I2C1.c 
+	@-${MV} ${OBJECTDIR}/I2C1.d ${OBJECTDIR}/I2C1.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/I2C1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/I2C2.p1: I2C2.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/I2C2.p1.d 
+	@${RM} ${OBJECTDIR}/I2C2.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/I2C2.p1  I2C2.c 
+	@-${MV} ${OBJECTDIR}/I2C2.d ${OBJECTDIR}/I2C2.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/I2C2.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/I2C_Common.p1: I2C_Common.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/I2C_Common.p1.d 
+	@${RM} ${OBJECTDIR}/I2C_Common.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/I2C_Common.p1  I2C_Common.c 
+	@-${MV} ${OBJECTDIR}/I2C_Common.d ${OBJECTDIR}/I2C_Common.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/I2C_Common.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/MCP4726.p1: MCP4726.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/MCP4726.p1.d 
+	@${RM} ${OBJECTDIR}/MCP4726.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/MCP4726.p1  MCP4726.c 
+	@-${MV} ${OBJECTDIR}/MCP4726.d ${OBJECTDIR}/MCP4726.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/MCP4726.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+>>>>>>> ExternalDAC
 	
 else
 ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
@@ -199,6 +247,7 @@ ${OBJECTDIR}/xprintf.p1: xprintf.c  nbproject/Makefile-${CND_CONF}.mk
 	@${FIXDEPS} ${OBJECTDIR}/xprintf.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 ${OBJECTDIR}/Timer1.p1: Timer1.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Timer1.p1.d 
@@ -215,6 +264,39 @@ ${OBJECTDIR}/eeprom.p1: eeprom.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/eeprom.d ${OBJECTDIR}/eeprom.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/eeprom.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 >>>>>>> eeprom
+=======
+${OBJECTDIR}/I2C1.p1: I2C1.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/I2C1.p1.d 
+	@${RM} ${OBJECTDIR}/I2C1.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/I2C1.p1  I2C1.c 
+	@-${MV} ${OBJECTDIR}/I2C1.d ${OBJECTDIR}/I2C1.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/I2C1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/I2C2.p1: I2C2.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/I2C2.p1.d 
+	@${RM} ${OBJECTDIR}/I2C2.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/I2C2.p1  I2C2.c 
+	@-${MV} ${OBJECTDIR}/I2C2.d ${OBJECTDIR}/I2C2.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/I2C2.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/I2C_Common.p1: I2C_Common.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/I2C_Common.p1.d 
+	@${RM} ${OBJECTDIR}/I2C_Common.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/I2C_Common.p1  I2C_Common.c 
+	@-${MV} ${OBJECTDIR}/I2C_Common.d ${OBJECTDIR}/I2C_Common.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/I2C_Common.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/MCP4726.p1: MCP4726.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/MCP4726.p1.d 
+	@${RM} ${OBJECTDIR}/MCP4726.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/MCP4726.p1  MCP4726.c 
+	@-${MV} ${OBJECTDIR}/MCP4726.d ${OBJECTDIR}/MCP4726.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/MCP4726.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+>>>>>>> ExternalDAC
 	
 endif
 

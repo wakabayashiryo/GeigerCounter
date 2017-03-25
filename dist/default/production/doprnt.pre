@@ -270,6 +270,7 @@ const static unsigned int dpowers[] = {1, 10, 100, 1000, 10000,
 # 455
 int
 
+<<<<<<< HEAD
 # 492
 sprintf(char * sp, const char * f, ...)
 {
@@ -278,6 +279,14 @@ va_list ap;
 
 
 
+=======
+# 464
+printf(const char * f, ...)
+{
+va_list ap;
+
+# 499
+>>>>>>> ExternalDAC
 signed char c;
 
 # 506
@@ -304,7 +313,11 @@ while(c = *f++) {
 if(c != '%')
 
 {
+<<<<<<< HEAD
 ((*sp++ = (c)));
+=======
+(putch(c) );
+>>>>>>> ExternalDAC
 continue;
 }
 
@@ -354,7 +367,11 @@ break;
 
 # 1438
 if(flag & 0x03)
+<<<<<<< HEAD
 ((*sp++ = ('-')));
+=======
+(putch('-') );
+>>>>>>> ExternalDAC
 
 # 1469
 }
@@ -372,7 +389,11 @@ c = (val / dpowers[prec]) % 10 + '0';
 
 # 1523
 }
+<<<<<<< HEAD
 ((*sp++ = (c)));
+=======
+(putch(c) );
+>>>>>>> ExternalDAC
 }
 
 # 1533
@@ -380,9 +401,13 @@ c = (val / dpowers[prec]) % 10 + '0';
 
 alldone:
 
+<<<<<<< HEAD
 
 *sp = 0;
 
+=======
+# 1540
+>>>>>>> ExternalDAC
 return 0;
 }
 

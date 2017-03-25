@@ -22,7 +22,9 @@ int8_t main(void)
     Timer1_Start();
 
     LCD_Init();
+    DAC_Initialize();
     xdev_out(LCD_Put);
+<<<<<<< HEAD
 
     while(1)
     {
@@ -57,6 +59,22 @@ int8_t main(void)
     while(1)
     {  
         
+=======
+    LATA7 = 1;
+
+    while(1)
+    {  
+        for(uint16_t voltage = 0;voltage<0x0FFF;voltage++)
+        {
+            DAC_WriteVoltage(voltage);
+            __delay_us(100);
+        }
+        for(uint16_t voltage = 0;voltage<0x0FFF;voltage++)
+        {
+            DAC_WriteVoltage(0x0FFF-voltage);
+            __delay_us(100);
+        }
+>>>>>>> ExternalDAC
     }    
 >>>>>>> buzer
     return EXIT_SUCCESS;
@@ -83,7 +101,14 @@ int8_t Basic_Init(void)
     return EXIT_SUCCESS;
 }
 
+<<<<<<< HEAD
 void interrupt Handler(void)
 {
     Timer1_Handler();
+=======
+
+void interrupt hand(void)
+{
+    I2C_CommonInterrupt();
+>>>>>>> ExternalDAC
 }
