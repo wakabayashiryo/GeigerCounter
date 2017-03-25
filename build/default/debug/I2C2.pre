@@ -3908,8 +3908,67 @@ int xgets (char* buff, int len);
 int xfgets (unsigned char (*func)(void), char* buff, int len);
 int xatoi (char** str, long* res);
 
+# 26 "MCP4726.h"
+typedef union
+{
+uint8_t Voltage_Data[2];
+struct
+{
+uint8_t Voltage4bits:4;
+uint8_t PowerDown :2;
+uint8_t Command :2;
+uint8_t Voltage8bits:8;
+};
 
-# 26 "main.h"
+}Voltage_Reg;
+
+typedef union
+{
+uint8_t Memory_Data[3];
+struct
+{
+uint8_t Command :3;
+uint8_t Voltage_Ref :2;
+uint8_t PowerDown :2;
+uint8_t Gain :1;
+uint8_t DataHigher :8;
+uint8_t DataLower :8;
+};
+
+}Memory_Reg;
+
+typedef union
+{
+uint8_t AllMemory_Data[3];
+struct
+{
+uint8_t Command :3;
+uint8_t Voltage_Ref :2;
+uint8_t PowerDown :2;
+uint8_t Gain :1;
+uint8_t DataHigher :8;
+uint8_t DataLower :8;
+};
+
+}AllMemory_Reg;
+
+typedef union
+{
+uint8_t Config_Data[1];
+struct
+{
+uint8_t Gain :1;
+uint8_t PowerDown :2;
+uint8_t Voltage_Ref :2;
+uint8_t Command :3;
+};
+}Config_Reg;
+
+void DAC_Initialize(void);
+int8_t DAC_WriteVoltage(uint16_t volue);
+
+
+# 27 "main.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = ON
@@ -3928,7 +3987,7 @@ int xatoi (char** str, long* res);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 49
+# 50
 int8_t Basic_Init(void);
 
 # 23 "I2C.h"
@@ -3953,8 +4012,8 @@ I2C2_MODULE
 
 typedef struct
 {
-uint8_t SlaveTransmitBuff[16];
-uint8_t SlaveReceiveBuff[16];
+uint8_t SlaveTransmitBuff[8];
+uint8_t SlaveReceiveBuff[8];
 uint8_t *TransmitPoint;
 uint8_t *ReceivePoint;
 I2Cx_Mode Mode;
@@ -4023,15 +4082,15 @@ BCL2IF = 0;
 
 int8_t I2C2_Transmit(uint8_t address,uint8_t *pData,uint8_t size)
 {
-int8_t result;
+int8_t result = 0;
 
 switch(I2C2_Config.Mode)
 {
 case I2C_MODE_MASTER:
-while(SSP2STATbits.R_nW|SSP2STATbits.BF);
+while((SSP2CON2&0x1F)|(SSP2STAT&0x05));
 SSP2CON2bits.SEN = 1;
 
-while(SSP2STATbits.R_nW|SSP2STATbits.BF);
+while((SSP2CON2&0x1F)|(SSP2STAT&0x05));
 SSP2BUF = address << 1;
 while(SSP2STATbits.R_nW);
 
@@ -4040,7 +4099,7 @@ if (!result)
 {
 for(uint8_t i=0;i<size;i++)
 {
-while(SSP2STATbits.R_nW|SSP2STATbits.BF);
+while((SSP2CON2&0x1F)|(SSP2STAT&0x05));
 SSP2BUF = *(pData+i);
 while(SSP2STATbits.R_nW);
 
@@ -4053,7 +4112,7 @@ break;
 }
 }
 
-while(SSP2STATbits.R_nW|SSP2STATbits.BF);
+while((SSP2CON2&0x1F)|(SSP2STAT&0x05));
 SSP2CON2bits.PEN = 1;
 break;
 
@@ -4079,10 +4138,10 @@ int8_t result;
 switch(I2C2_Config.Mode)
 {
 case I2C_MODE_MASTER:
-while(SSP2STATbits.R_nW|SSP2STATbits.BF);
+while((SSP2CON2&0x1F)|(SSP2STAT&0x05));
 SSP2CON2bits.SEN = 1;
 
-while(SSP2STATbits.R_nW|SSP2STATbits.BF);
+while((SSP2CON2&0x1F)|(SSP2STAT&0x05));
 SSP2BUF = ((address << 1)|0x01);
 while(SSP2STATbits.R_nW);
 
@@ -4091,11 +4150,11 @@ if (!result)
 {
 for (uint8_t i=0;i<size;i++)
 {
-while(SSP2STATbits.R_nW|SSP2STATbits.BF);
+while((SSP2CON2&0x1F)|(SSP2STAT&0x05));
 SSP2CON2bits.RCEN = 1;
 while(SSP2CON2bits.RCEN);
 *(pData+i) = SSP2BUF;
-while(SSP2STATbits.R_nW|SSP2STATbits.BF);
+while((SSP2CON2&0x1F)|(SSP2STAT&0x05));
 if (i == size-1)
 SSP2CON2bits.ACKDT = 1;
 else
@@ -4104,7 +4163,7 @@ SSP2CON2bits.ACKEN = 1;
 }
 }
 
-while(SSP2STATbits.R_nW|SSP2STATbits.BF);
+while((SSP2CON2&0x1F)|(SSP2STAT&0x05));
 SSP2CON2bits.PEN = 1;
 break;
 

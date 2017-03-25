@@ -12,21 +12,23 @@
 int8_t main(void)
 {
     Basic_Init();
-    I2C_Init(I2C2_MODULE,0x56,I2C_MODE_SLAVE,I2C_SPEED_STANDARD);
     LCD_Init();
+    DAC_Initialize();
     xdev_out(LCD_Put);
+    LATA7 = 1;
 
-    uint8_t testdata[4]={
-      19,98,05,06  
-    };
-    uint8_t resultdata[4];
-    
     while(1)
     {  
-        resultdata[0] = I2C_Transmit(I2C2_MODULE,0x56,testdata,4);
-        I2C_Receive(I2C2_MODULE,0x56,resultdata,4);
-        LCD_CursorPosition(0,0);
-        xprintf("%d %d %d %d",resultdata[0],resultdata[1],resultdata[2],resultdata[3]);   
+        for(uint16_t voltage = 0;voltage<0x0FFF;voltage++)
+        {
+            DAC_WriteVoltage(voltage);
+            __delay_us(100);
+        }
+        for(uint16_t voltage = 0;voltage<0x0FFF;voltage++)
+        {
+            DAC_WriteVoltage(0x0FFF-voltage);
+            __delay_us(100);
+        }
     }    
     return EXIT_SUCCESS;
 }

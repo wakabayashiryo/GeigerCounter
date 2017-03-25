@@ -2874,8 +2874,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;I2C.h: 40: }I2Cx_Module;
 [; ;I2C.h: 42: typedef struct
 [; ;I2C.h: 43: {
-[; ;I2C.h: 44: uint8_t SlaveTransmitBuff[16];
-[; ;I2C.h: 45: uint8_t SlaveReceiveBuff[16];
+[; ;I2C.h: 44: uint8_t SlaveTransmitBuff[8];
+[; ;I2C.h: 45: uint8_t SlaveReceiveBuff[8];
 [; ;I2C.h: 46: uint8_t *TransmitPoint;
 [; ;I2C.h: 47: uint8_t *ReceivePoint;
 [; ;I2C.h: 48: I2Cx_Mode Mode;
@@ -2892,37 +2892,87 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;I2C.h: 62: int8_t I2C_Transmit(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
 [; ;I2C.h: 63: int8_t I2C_Receive(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
 [; ;I2C.h: 64: void I2C_CommonInterrupt(void);
-"26 main.h
+[; ;MCP4726.h: 26: typedef union
+[; ;MCP4726.h: 27: {
+[; ;MCP4726.h: 28: uint8_t Voltage_Data[2];
+[; ;MCP4726.h: 29: struct
+[; ;MCP4726.h: 30: {
+[; ;MCP4726.h: 31: uint8_t Voltage4bits:4;
+[; ;MCP4726.h: 32: uint8_t PowerDown :2;
+[; ;MCP4726.h: 33: uint8_t Command :2;
+[; ;MCP4726.h: 34: uint8_t Voltage8bits:8;
+[; ;MCP4726.h: 35: };
+[; ;MCP4726.h: 37: }Voltage_Reg;
+[; ;MCP4726.h: 39: typedef union
+[; ;MCP4726.h: 40: {
+[; ;MCP4726.h: 41: uint8_t Memory_Data[3];
+[; ;MCP4726.h: 42: struct
+[; ;MCP4726.h: 43: {
+[; ;MCP4726.h: 44: uint8_t Command :3;
+[; ;MCP4726.h: 45: uint8_t Voltage_Ref :2;
+[; ;MCP4726.h: 46: uint8_t PowerDown :2;
+[; ;MCP4726.h: 47: uint8_t Gain :1;
+[; ;MCP4726.h: 48: uint8_t DataHigher :8;
+[; ;MCP4726.h: 49: uint8_t DataLower :8;
+[; ;MCP4726.h: 50: };
+[; ;MCP4726.h: 52: }Memory_Reg;
+[; ;MCP4726.h: 54: typedef union
+[; ;MCP4726.h: 55: {
+[; ;MCP4726.h: 56: uint8_t AllMemory_Data[3];
+[; ;MCP4726.h: 57: struct
+[; ;MCP4726.h: 58: {
+[; ;MCP4726.h: 59: uint8_t Command :3;
+[; ;MCP4726.h: 60: uint8_t Voltage_Ref :2;
+[; ;MCP4726.h: 61: uint8_t PowerDown :2;
+[; ;MCP4726.h: 62: uint8_t Gain :1;
+[; ;MCP4726.h: 63: uint8_t DataHigher :8;
+[; ;MCP4726.h: 64: uint8_t DataLower :8;
+[; ;MCP4726.h: 65: };
+[; ;MCP4726.h: 67: }AllMemory_Reg;
+[; ;MCP4726.h: 69: typedef union
+[; ;MCP4726.h: 70: {
+[; ;MCP4726.h: 71: uint8_t Config_Data[1];
+[; ;MCP4726.h: 72: struct
+[; ;MCP4726.h: 73: {
+[; ;MCP4726.h: 74: uint8_t Gain :1;
+[; ;MCP4726.h: 75: uint8_t PowerDown :2;
+[; ;MCP4726.h: 76: uint8_t Voltage_Ref :2;
+[; ;MCP4726.h: 77: uint8_t Command :3;
+[; ;MCP4726.h: 78: };
+[; ;MCP4726.h: 79: }Config_Reg;
+[; ;MCP4726.h: 81: void DAC_Initialize(void);
+[; ;MCP4726.h: 82: int8_t DAC_WriteVoltage(uint16_t volue);
+"27 main.h
 [p x FOSC=INTOSC ]
-"27
-[p x WDTE=OFF ]
 "28
-[p x PWRTE=ON ]
+[p x WDTE=OFF ]
 "29
-[p x MCLRE=ON ]
+[p x PWRTE=ON ]
 "30
-[p x CP=OFF ]
+[p x MCLRE=ON ]
 "31
-[p x CPD=OFF ]
+[p x CP=OFF ]
 "32
-[p x BOREN=ON ]
+[p x CPD=OFF ]
 "33
-[p x CLKOUTEN=OFF ]
+[p x BOREN=ON ]
 "34
-[p x IESO=OFF ]
+[p x CLKOUTEN=OFF ]
 "35
+[p x IESO=OFF ]
+"36
 [p x FCMEN=OFF ]
-"38
-[p x WRT=OFF ]
 "39
-[p x PLLEN=ON ]
+[p x WRT=OFF ]
 "40
-[p x STVREN=OFF ]
+[p x PLLEN=ON ]
 "41
-[p x BORV=LO ]
+[p x STVREN=OFF ]
 "42
+[p x BORV=LO ]
+"43
 [p x LVP=OFF ]
-[; ;main.h: 49: int8_t Basic_Init(void);
+[; ;main.h: 50: int8_t Basic_Init(void);
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void LCD_DisplayClear(void);
@@ -2968,7 +3018,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [; ;LCD.c: 22: }
 "22
-[e :UE 354 ]
+[e :UE 362 ]
 }
 "28
 [v _LCD_Init `(v ~T0 @X0 1 ef ]
@@ -3048,7 +3098,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _LCD_WriteData (1 -> -> 6 `i `c ]
 [; ;LCD.c: 48: }
 "48
-[e :UE 355 ]
+[e :UE 363 ]
 }
 "54
 [v _LCD_Put `(v ~T0 @X0 1 ef1`c ]
@@ -3069,7 +3119,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _LCD_WriteData (1 _word ]
 [; ;LCD.c: 58: }
 "58
-[e :UE 356 ]
+[e :UE 364 ]
 }
 "64
 [v _LCD_DisplayClear `(v ~T0 @X0 1 ef ]
@@ -3090,7 +3140,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
 [; ;LCD.c: 69: }
 "69
-[e :UE 357 ]
+[e :UE 365 ]
 }
 "75
 [v _LCD_CursorHome `(v ~T0 @X0 1 ef ]
@@ -3111,7 +3161,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
 [; ;LCD.c: 80: }
 "80
-[e :UE 358 ]
+[e :UE 366 ]
 }
 "86
 [v _LCD_CursorPosition `(v ~T0 @X0 1 ef2`uc`uc ]
@@ -3136,7 +3186,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 40 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
 [; ;LCD.c: 91: }
 "91
-[e :UE 359 ]
+[e :UE 367 ]
 }
 "97
 [v _LCD_CursorShift `(v ~T0 @X0 1 ef2`uc`uc ]
@@ -3160,9 +3210,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "103
 {
 [e = _i -> -> 0 `i `uc ]
-[e $U 364  ]
+[e $U 372  ]
 "104
-[e :U 361 ]
+[e :U 369 ]
 [; ;LCD.c: 104: {
 {
 [; ;LCD.c: 105: LCD_WriteData(0x10|((RL&0x01)<<2));
@@ -3175,15 +3225,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "103
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 364 ]
-[e $ < -> _i `i -> _shift `i 361  ]
-[e :U 362 ]
+[e :U 372 ]
+[e $ < -> _i `i -> _shift `i 369  ]
+[e :U 370 ]
 "107
 }
 [; ;LCD.c: 107: }
 [; ;LCD.c: 108: }
 "108
-[e :UE 360 ]
+[e :UE 368 ]
 }
 "114
 [v _LCD_DispShift `(v ~T0 @X0 1 ef2`uc`uc ]
@@ -3207,9 +3257,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "119
 {
 [e = _i -> -> 0 `i `uc ]
-[e $U 369  ]
+[e $U 377  ]
 "120
-[e :U 366 ]
+[e :U 374 ]
 [; ;LCD.c: 120: {
 {
 [; ;LCD.c: 121: LCD_WriteData(0x18|((RL&0x01)<<2));
@@ -3222,13 +3272,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "119
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 369 ]
-[e $ < -> _i `i -> _shift `i 366  ]
-[e :U 367 ]
+[e :U 377 ]
+[e $ < -> _i `i -> _shift `i 374  ]
+[e :U 375 ]
 "123
 }
 [; ;LCD.c: 123: }
 [; ;LCD.c: 124: }
 "124
-[e :UE 365 ]
+[e :UE 373 ]
 }

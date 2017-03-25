@@ -3908,8 +3908,67 @@ int xgets (char* buff, int len);
 int xfgets (unsigned char (*func)(void), char* buff, int len);
 int xatoi (char** str, long* res);
 
+# 26 "MCP4726.h"
+typedef union
+{
+uint8_t Voltage_Data[2];
+struct
+{
+uint8_t Voltage4bits:4;
+uint8_t PowerDown :2;
+uint8_t Command :2;
+uint8_t Voltage8bits:8;
+};
 
-# 26 "main.h"
+}Voltage_Reg;
+
+typedef union
+{
+uint8_t Memory_Data[3];
+struct
+{
+uint8_t Command :3;
+uint8_t Voltage_Ref :2;
+uint8_t PowerDown :2;
+uint8_t Gain :1;
+uint8_t DataHigher :8;
+uint8_t DataLower :8;
+};
+
+}Memory_Reg;
+
+typedef union
+{
+uint8_t AllMemory_Data[3];
+struct
+{
+uint8_t Command :3;
+uint8_t Voltage_Ref :2;
+uint8_t PowerDown :2;
+uint8_t Gain :1;
+uint8_t DataHigher :8;
+uint8_t DataLower :8;
+};
+
+}AllMemory_Reg;
+
+typedef union
+{
+uint8_t Config_Data[1];
+struct
+{
+uint8_t Gain :1;
+uint8_t PowerDown :2;
+uint8_t Voltage_Ref :2;
+uint8_t Command :3;
+};
+}Config_Reg;
+
+void DAC_Initialize(void);
+int8_t DAC_WriteVoltage(uint16_t volue);
+
+
+# 27 "main.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = ON
@@ -3928,7 +3987,7 @@ int xatoi (char** str, long* res);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 49
+# 50
 int8_t Basic_Init(void);
 
 # 23 "I2C.h"
@@ -3953,8 +4012,8 @@ I2C2_MODULE
 
 typedef struct
 {
-uint8_t SlaveTransmitBuff[16];
-uint8_t SlaveReceiveBuff[16];
+uint8_t SlaveTransmitBuff[8];
+uint8_t SlaveReceiveBuff[8];
 uint8_t *TransmitPoint;
 uint8_t *ReceivePoint;
 I2Cx_Mode Mode;
@@ -3984,7 +4043,7 @@ void I2C_Init(I2Cx_Module I2Cx,uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed)
 switch(I2Cx)
 {
 case I2C1_MODULE:
-
+I2C1_Setting(address,mode,Speed);
 break;
 
 case I2C2_MODULE:
@@ -4003,7 +4062,7 @@ int8_t result;
 switch(I2Cx)
 {
 case I2C1_MODULE:
-
+result = I2C1_Transmit(address,pData,size);
 break;
 
 case I2C2_MODULE:
@@ -4020,7 +4079,7 @@ int8_t result;
 switch(I2Cx)
 {
 case I2C1_MODULE:
-
+result = I2C1_Receive(address,pData,size);
 break;
 
 case I2C2_MODULE:
@@ -4033,6 +4092,6 @@ return result;
 
 void I2C_CommonInterrupt(void)
 {
-
+I2C1_Interrupt();
 I2C2_Interrupt();
 }

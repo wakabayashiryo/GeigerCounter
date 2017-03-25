@@ -15,12 +15,12 @@ extern "C" {
     
 #include "main.h"
     
-#define DAC_ADDRESS 0xC0
+#define DAC_ADDRESS 0x60
     
-#define VOLTAGE_COMMAND     ((uint8_t)(0x0<<6))    
-#define MEMORY_COMMAND      ((uint8_t)(0x2<<5))    
-#define ALLMEMORY_COMMAND   ((uint8_t)(0x3<<5))    
-#define CONFIG_COMMAND      ((uint8_t)(0x4<<5))    
+#define VOLTAGE_COMMAND     (uint8_t)(0x0)    
+#define MEMORY_COMMAND      (uint8_t)(0x2)    
+#define ALLMEMORY_COMMAND   (uint8_t)(0x3)    
+#define CONFIG_COMMAND      (uint8_t)(0x4)    
 
     
 typedef union
@@ -28,9 +28,9 @@ typedef union
     uint8_t Voltage_Data[2];
     struct
     {
-        uint8_t Command     :2;
-        uint8_t PowerDown   :2;
         uint8_t Voltage4bits:4;
+        uint8_t PowerDown   :2;
+        uint8_t Command     :2;
         uint8_t Voltage8bits:8;
     };
     
@@ -71,10 +71,15 @@ typedef union
     uint8_t Config_Data[1];
     struct
     {
+        uint8_t Gain        :1;
+        uint8_t PowerDown   :2;
+        uint8_t Voltage_Ref :2;
         uint8_t Command     :3;
-        uint8_t Config      :5;
     };
 }Config_Reg;
+
+void DAC_Initialize(void);
+int8_t DAC_WriteVoltage(uint16_t volue);
 
 #ifdef	__cplusplus
 }

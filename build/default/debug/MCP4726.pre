@@ -4058,7 +4058,7 @@ int8_t result;
 
 VoltageReg.Command = (uint8_t)(0x0);
 VoltageReg.PowerDown = ConfigReg.PowerDown;
-VoltageReg.Voltage4bits = (uint8_t)((volue&0x0F00)>>8);
+VoltageReg.Voltage4bits = (uint8_t)(volue&0x0F00)>>8;
 VoltageReg.Voltage8bits = (uint8_t)(volue&0x00FF);
 
 result = I2C_Transmit(I2C2_MODULE,0x60,VoltageReg.Voltage_Data,2);

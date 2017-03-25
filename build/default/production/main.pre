@@ -3952,8 +3952,67 @@ int8_t I2C_Transmit(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size
 int8_t I2C_Receive(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
 void I2C_CommonInterrupt(void);
 
+# 26 "MCP4726.h"
+typedef union
+{
+uint8_t Voltage_Data[2];
+struct
+{
+uint8_t Voltage4bits:4;
+uint8_t PowerDown :2;
+uint8_t Command :2;
+uint8_t Voltage8bits:8;
+};
 
-# 26 "main.h"
+}Voltage_Reg;
+
+typedef union
+{
+uint8_t Memory_Data[3];
+struct
+{
+uint8_t Command :3;
+uint8_t Voltage_Ref :2;
+uint8_t PowerDown :2;
+uint8_t Gain :1;
+uint8_t DataHigher :8;
+uint8_t DataLower :8;
+};
+
+}Memory_Reg;
+
+typedef union
+{
+uint8_t AllMemory_Data[3];
+struct
+{
+uint8_t Command :3;
+uint8_t Voltage_Ref :2;
+uint8_t PowerDown :2;
+uint8_t Gain :1;
+uint8_t DataHigher :8;
+uint8_t DataLower :8;
+};
+
+}AllMemory_Reg;
+
+typedef union
+{
+uint8_t Config_Data[1];
+struct
+{
+uint8_t Gain :1;
+uint8_t PowerDown :2;
+uint8_t Voltage_Ref :2;
+uint8_t Command :3;
+};
+}Config_Reg;
+
+void DAC_Initialize(void);
+int8_t DAC_WriteVoltage(uint16_t volue);
+
+
+# 27 "main.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = ON
@@ -3972,28 +4031,30 @@ void I2C_CommonInterrupt(void);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 49
+# 50
 int8_t Basic_Init(void);
 
 # 12 "main.c"
 int8_t main(void)
 {
 Basic_Init();
-I2C_Init(I2C2_MODULE,0x56,I2C_MODE_SLAVE,I2C_SPEED_STANDARD);
 LCD_Init();
+DAC_Initialize();
 xfunc_out = (void(*)(unsigned char))(LCD_Put);
-
-uint8_t testdata[4]={
-19,98,05,06
-};
-uint8_t resultdata[4];
+LATA7 = 1;
 
 while(1)
 {
-resultdata[0] = I2C_Transmit(I2C2_MODULE,0x56,testdata,4);
-I2C_Receive(I2C2_MODULE,0x56,resultdata,4);
-LCD_CursorPosition(0,0);
-xprintf("%d %d %d %d",resultdata[0],resultdata[1],resultdata[2],resultdata[3]);
+for(uint16_t voltage = 0;voltage<0x0FFF;voltage++)
+{
+DAC_WriteVoltage(voltage);
+_delay((unsigned long)((100)*(32000000/4000000.0)));
+}
+for(uint16_t voltage = 0;voltage<0x0FFF;voltage++)
+{
+DAC_WriteVoltage(0x0FFF-voltage);
+_delay((unsigned long)((100)*(32000000/4000000.0)));
+}
 }
 return 0;
 }

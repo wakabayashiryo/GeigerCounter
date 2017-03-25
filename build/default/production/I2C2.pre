@@ -3908,8 +3908,67 @@ int xgets (char* buff, int len);
 int xfgets (unsigned char (*func)(void), char* buff, int len);
 int xatoi (char** str, long* res);
 
+# 26 "MCP4726.h"
+typedef union
+{
+uint8_t Voltage_Data[2];
+struct
+{
+uint8_t Voltage4bits:4;
+uint8_t PowerDown :2;
+uint8_t Command :2;
+uint8_t Voltage8bits:8;
+};
 
-# 26 "main.h"
+}Voltage_Reg;
+
+typedef union
+{
+uint8_t Memory_Data[3];
+struct
+{
+uint8_t Command :3;
+uint8_t Voltage_Ref :2;
+uint8_t PowerDown :2;
+uint8_t Gain :1;
+uint8_t DataHigher :8;
+uint8_t DataLower :8;
+};
+
+}Memory_Reg;
+
+typedef union
+{
+uint8_t AllMemory_Data[3];
+struct
+{
+uint8_t Command :3;
+uint8_t Voltage_Ref :2;
+uint8_t PowerDown :2;
+uint8_t Gain :1;
+uint8_t DataHigher :8;
+uint8_t DataLower :8;
+};
+
+}AllMemory_Reg;
+
+typedef union
+{
+uint8_t Config_Data[1];
+struct
+{
+uint8_t Gain :1;
+uint8_t PowerDown :2;
+uint8_t Voltage_Ref :2;
+uint8_t Command :3;
+};
+}Config_Reg;
+
+void DAC_Initialize(void);
+int8_t DAC_WriteVoltage(uint16_t volue);
+
+
+# 27 "main.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = ON
@@ -3928,7 +3987,7 @@ int xatoi (char** str, long* res);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 49
+# 50
 int8_t Basic_Init(void);
 
 # 23 "I2C.h"
@@ -4023,7 +4082,7 @@ BCL2IF = 0;
 
 int8_t I2C2_Transmit(uint8_t address,uint8_t *pData,uint8_t size)
 {
-int8_t result;
+int8_t result = 0;
 
 switch(I2C2_Config.Mode)
 {

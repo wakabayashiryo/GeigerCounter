@@ -13,6 +13,7 @@
 #include "LCD.h"
 #include "xprintf.h"
 #include "I2C.h"
+#include "MCP4726.h"
 
 #ifdef	__cplusplus
 extern "C" {

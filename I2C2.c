@@ -51,7 +51,7 @@ void I2C2_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed)
 
 int8_t I2C2_Transmit(uint8_t address,uint8_t *pData,uint8_t size)
 {
-    int8_t result;
+    int8_t result = 0;
 
     switch(I2C2_Config.Mode)
     {

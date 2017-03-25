@@ -1,19 +1,19 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "3 I2C_Common.c
-[c E2983 0 1 .. ]
-[n E2983 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
+[c E3027 0 1 .. ]
+[n E3027 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
 "43 I2C.h
-[s S353 `uc -> 8 `i `uc -> 8 `i `*uc 1 `*uc 1 `E2983 1 ]
-[n S353 . SlaveTransmitBuff SlaveReceiveBuff TransmitPoint ReceivePoint Mode ]
+[s S361 `uc -> 8 `i `uc -> 8 `i `*uc 1 `*uc 1 `E3027 1 ]
+[n S361 . SlaveTransmitBuff SlaveReceiveBuff TransmitPoint ReceivePoint Mode ]
 "7 I2C_Common.c
-[c E2992 0 1 .. ]
-[n E2992 . I2C1_MODULE I2C2_MODULE  ]
-[c E2987 0 1 2 .. ]
-[n E2987 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
+[c E3036 0 1 .. ]
+[n E3036 . I2C1_MODULE I2C2_MODULE  ]
+[c E3031 0 1 2 .. ]
+[n E3031 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
 "51 I2C.h
-[v _I2C1_Setting `(v ~T0 @X0 0 ef3`uc`E2983`E2987 ]
+[v _I2C1_Setting `(v ~T0 @X0 0 ef3`uc`E3027`E3031 ]
 "56
-[v _I2C2_Setting `(v ~T0 @X0 0 ef3`uc`E2983`E2987 ]
+[v _I2C2_Setting `(v ~T0 @X0 0 ef3`uc`E3027`E3031 ]
 "7182 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [v _PEIE `Vb ~T0 @X0 0 e@94 ]
 "6960
@@ -2882,37 +2882,87 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;xprintf.h: 33: int xgets (char* buff, int len);
 [; ;xprintf.h: 34: int xfgets (unsigned char (*func)(void), char* buff, int len);
 [; ;xprintf.h: 35: int xatoi (char** str, long* res);
-"26 main.h
+[; ;MCP4726.h: 26: typedef union
+[; ;MCP4726.h: 27: {
+[; ;MCP4726.h: 28: uint8_t Voltage_Data[2];
+[; ;MCP4726.h: 29: struct
+[; ;MCP4726.h: 30: {
+[; ;MCP4726.h: 31: uint8_t Voltage4bits:4;
+[; ;MCP4726.h: 32: uint8_t PowerDown :2;
+[; ;MCP4726.h: 33: uint8_t Command :2;
+[; ;MCP4726.h: 34: uint8_t Voltage8bits:8;
+[; ;MCP4726.h: 35: };
+[; ;MCP4726.h: 37: }Voltage_Reg;
+[; ;MCP4726.h: 39: typedef union
+[; ;MCP4726.h: 40: {
+[; ;MCP4726.h: 41: uint8_t Memory_Data[3];
+[; ;MCP4726.h: 42: struct
+[; ;MCP4726.h: 43: {
+[; ;MCP4726.h: 44: uint8_t Command :3;
+[; ;MCP4726.h: 45: uint8_t Voltage_Ref :2;
+[; ;MCP4726.h: 46: uint8_t PowerDown :2;
+[; ;MCP4726.h: 47: uint8_t Gain :1;
+[; ;MCP4726.h: 48: uint8_t DataHigher :8;
+[; ;MCP4726.h: 49: uint8_t DataLower :8;
+[; ;MCP4726.h: 50: };
+[; ;MCP4726.h: 52: }Memory_Reg;
+[; ;MCP4726.h: 54: typedef union
+[; ;MCP4726.h: 55: {
+[; ;MCP4726.h: 56: uint8_t AllMemory_Data[3];
+[; ;MCP4726.h: 57: struct
+[; ;MCP4726.h: 58: {
+[; ;MCP4726.h: 59: uint8_t Command :3;
+[; ;MCP4726.h: 60: uint8_t Voltage_Ref :2;
+[; ;MCP4726.h: 61: uint8_t PowerDown :2;
+[; ;MCP4726.h: 62: uint8_t Gain :1;
+[; ;MCP4726.h: 63: uint8_t DataHigher :8;
+[; ;MCP4726.h: 64: uint8_t DataLower :8;
+[; ;MCP4726.h: 65: };
+[; ;MCP4726.h: 67: }AllMemory_Reg;
+[; ;MCP4726.h: 69: typedef union
+[; ;MCP4726.h: 70: {
+[; ;MCP4726.h: 71: uint8_t Config_Data[1];
+[; ;MCP4726.h: 72: struct
+[; ;MCP4726.h: 73: {
+[; ;MCP4726.h: 74: uint8_t Gain :1;
+[; ;MCP4726.h: 75: uint8_t PowerDown :2;
+[; ;MCP4726.h: 76: uint8_t Voltage_Ref :2;
+[; ;MCP4726.h: 77: uint8_t Command :3;
+[; ;MCP4726.h: 78: };
+[; ;MCP4726.h: 79: }Config_Reg;
+[; ;MCP4726.h: 81: void DAC_Initialize(void);
+[; ;MCP4726.h: 82: int8_t DAC_WriteVoltage(uint16_t volue);
+"27 main.h
 [p x FOSC=INTOSC ]
-"27
-[p x WDTE=OFF ]
 "28
-[p x PWRTE=ON ]
+[p x WDTE=OFF ]
 "29
-[p x MCLRE=ON ]
+[p x PWRTE=ON ]
 "30
-[p x CP=OFF ]
+[p x MCLRE=ON ]
 "31
-[p x CPD=OFF ]
+[p x CP=OFF ]
 "32
-[p x BOREN=ON ]
+[p x CPD=OFF ]
 "33
-[p x CLKOUTEN=OFF ]
+[p x BOREN=ON ]
 "34
-[p x IESO=OFF ]
+[p x CLKOUTEN=OFF ]
 "35
+[p x IESO=OFF ]
+"36
 [p x FCMEN=OFF ]
-"38
-[p x WRT=OFF ]
 "39
-[p x PLLEN=ON ]
+[p x WRT=OFF ]
 "40
-[p x STVREN=OFF ]
+[p x PLLEN=ON ]
 "41
-[p x BORV=LO ]
+[p x STVREN=OFF ]
 "42
+[p x BORV=LO ]
+"43
 [p x LVP=OFF ]
-[; ;main.h: 49: int8_t Basic_Init(void);
+[; ;main.h: 50: int8_t Basic_Init(void);
 [; ;I2C.h: 23: typedef enum
 [; ;I2C.h: 24: {
 [; ;I2C.h: 25: I2C_MODE_MASTER,
@@ -2950,60 +3000,60 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;I2C.h: 63: int8_t I2C_Receive(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
 [; ;I2C.h: 64: void I2C_CommonInterrupt(void);
 "3 I2C_Common.c
-[v _I2C1_Config `S353 ~T0 @X0 1 e ]
+[v _I2C1_Config `S361 ~T0 @X0 1 e ]
 [; ;I2C_Common.c: 3: I2Cx_Configuration I2C1_Config;
 "4
-[v _I2C2_Config `S353 ~T0 @X0 1 e ]
+[v _I2C2_Config `S361 ~T0 @X0 1 e ]
 [; ;I2C_Common.c: 4: I2Cx_Configuration I2C2_Config;
 "6
-[v _I2C_Init `(v ~T0 @X0 1 ef4`E2992`uc`E2983`E2987 ]
+[v _I2C_Init `(v ~T0 @X0 1 ef4`E3036`uc`E3027`E3031 ]
 "7
 {
 [; ;I2C_Common.c: 6: void I2C_Init(I2Cx_Module I2Cx,uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed)
 [; ;I2C_Common.c: 7: {
 [e :U _I2C_Init ]
 "6
-[v _I2Cx `E2992 ~T0 @X0 1 r1 ]
+[v _I2Cx `E3036 ~T0 @X0 1 r1 ]
 [v _address `uc ~T0 @X0 1 r2 ]
-[v _mode `E2983 ~T0 @X0 1 r3 ]
-[v _Speed `E2987 ~T0 @X0 1 r4 ]
+[v _mode `E3027 ~T0 @X0 1 r3 ]
+[v _Speed `E3031 ~T0 @X0 1 r4 ]
 "7
 [f ]
 [; ;I2C_Common.c: 8: switch(I2Cx)
 "8
-[e $U 356  ]
+[e $U 364  ]
 [; ;I2C_Common.c: 9: {
 "9
 {
 [; ;I2C_Common.c: 10: case I2C1_MODULE:
 "10
-[e :U 357 ]
+[e :U 365 ]
 [; ;I2C_Common.c: 11: I2C1_Setting(address,mode,Speed);
 "11
 [e ( _I2C1_Setting (3 , , _address _mode _Speed ]
 [; ;I2C_Common.c: 12: break;
 "12
-[e $U 355  ]
+[e $U 363  ]
 [; ;I2C_Common.c: 14: case I2C2_MODULE:
 "14
-[e :U 358 ]
+[e :U 366 ]
 [; ;I2C_Common.c: 15: I2C2_Setting(address,mode,Speed);
 "15
 [e ( _I2C2_Setting (3 , , _address _mode _Speed ]
 [; ;I2C_Common.c: 16: break;
 "16
-[e $U 355  ]
+[e $U 363  ]
 "17
 }
 [; ;I2C_Common.c: 17: }
-[e $U 355  ]
+[e $U 363  ]
 "8
-[e :U 356 ]
-[e [\ _I2Cx , $ . `E2992 0 357
- , $ . `E2992 1 358
- 355 ]
+[e :U 364 ]
+[e [\ _I2Cx , $ . `E3036 0 365
+ , $ . `E3036 1 366
+ 363 ]
 "17
-[e :U 355 ]
+[e :U 363 ]
 [; ;I2C_Common.c: 19: PEIE = 1;
 "19
 [e = _PEIE -> -> 1 `i `b ]
@@ -3012,17 +3062,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _GIE -> -> 1 `i `b ]
 [; ;I2C_Common.c: 21: }
 "21
-[e :UE 354 ]
+[e :UE 362 ]
 }
 "23
-[v _I2C_Transmit `(c ~T0 @X0 1 ef4`E2992`uc`*uc`uc ]
+[v _I2C_Transmit `(c ~T0 @X0 1 ef4`E3036`uc`*uc`uc ]
 "24
 {
 [; ;I2C_Common.c: 23: int8_t I2C_Transmit(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size)
 [; ;I2C_Common.c: 24: {
 [e :U _I2C_Transmit ]
 "23
-[v _I2Cx `E2992 ~T0 @X0 1 r1 ]
+[v _I2Cx `E3036 ~T0 @X0 1 r1 ]
 [v _address `uc ~T0 @X0 1 r2 ]
 [v _pData `*uc ~T0 @X0 1 r3 ]
 [v _size `uc ~T0 @X0 1 r4 ]
@@ -3033,56 +3083,56 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;I2C_Common.c: 25: int8_t result;
 [; ;I2C_Common.c: 27: switch(I2Cx)
 "27
-[e $U 361  ]
+[e $U 369  ]
 [; ;I2C_Common.c: 28: {
 "28
 {
 [; ;I2C_Common.c: 29: case I2C1_MODULE:
 "29
-[e :U 362 ]
+[e :U 370 ]
 [; ;I2C_Common.c: 30: result = I2C1_Transmit(address,pData,size);
 "30
 [e = _result ( _I2C1_Transmit (3 , , _address _pData _size ]
 [; ;I2C_Common.c: 31: break;
 "31
-[e $U 360  ]
+[e $U 368  ]
 [; ;I2C_Common.c: 33: case I2C2_MODULE:
 "33
-[e :U 363 ]
+[e :U 371 ]
 [; ;I2C_Common.c: 34: result = I2C2_Transmit(address,pData,size);
 "34
 [e = _result ( _I2C2_Transmit (3 , , _address _pData _size ]
 [; ;I2C_Common.c: 35: break;
 "35
-[e $U 360  ]
+[e $U 368  ]
 "36
 }
 [; ;I2C_Common.c: 36: }
-[e $U 360  ]
+[e $U 368  ]
 "27
-[e :U 361 ]
-[e [\ _I2Cx , $ . `E2992 0 362
- , $ . `E2992 1 363
- 360 ]
+[e :U 369 ]
+[e [\ _I2Cx , $ . `E3036 0 370
+ , $ . `E3036 1 371
+ 368 ]
 "36
-[e :U 360 ]
+[e :U 368 ]
 [; ;I2C_Common.c: 37: return result;
 "37
 [e ) _result ]
-[e $UE 359  ]
+[e $UE 367  ]
 [; ;I2C_Common.c: 38: }
 "38
-[e :UE 359 ]
+[e :UE 367 ]
 }
 "40
-[v _I2C_Receive `(c ~T0 @X0 1 ef4`E2992`uc`*uc`uc ]
+[v _I2C_Receive `(c ~T0 @X0 1 ef4`E3036`uc`*uc`uc ]
 "41
 {
 [; ;I2C_Common.c: 40: int8_t I2C_Receive(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size)
 [; ;I2C_Common.c: 41: {
 [e :U _I2C_Receive ]
 "40
-[v _I2Cx `E2992 ~T0 @X0 1 r1 ]
+[v _I2Cx `E3036 ~T0 @X0 1 r1 ]
 [v _address `uc ~T0 @X0 1 r2 ]
 [v _pData `*uc ~T0 @X0 1 r3 ]
 [v _size `uc ~T0 @X0 1 r4 ]
@@ -3093,46 +3143,46 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;I2C_Common.c: 42: int8_t result;
 [; ;I2C_Common.c: 44: switch(I2Cx)
 "44
-[e $U 366  ]
+[e $U 374  ]
 [; ;I2C_Common.c: 45: {
 "45
 {
 [; ;I2C_Common.c: 46: case I2C1_MODULE:
 "46
-[e :U 367 ]
+[e :U 375 ]
 [; ;I2C_Common.c: 47: result = I2C1_Receive(address,pData,size);
 "47
 [e = _result ( _I2C1_Receive (3 , , _address _pData _size ]
 [; ;I2C_Common.c: 48: break;
 "48
-[e $U 365  ]
+[e $U 373  ]
 [; ;I2C_Common.c: 50: case I2C2_MODULE:
 "50
-[e :U 368 ]
+[e :U 376 ]
 [; ;I2C_Common.c: 51: result = I2C2_Receive(address,pData,size);
 "51
 [e = _result ( _I2C2_Receive (3 , , _address _pData _size ]
 [; ;I2C_Common.c: 52: break;
 "52
-[e $U 365  ]
+[e $U 373  ]
 "53
 }
 [; ;I2C_Common.c: 53: }
-[e $U 365  ]
+[e $U 373  ]
 "44
-[e :U 366 ]
-[e [\ _I2Cx , $ . `E2992 0 367
- , $ . `E2992 1 368
- 365 ]
+[e :U 374 ]
+[e [\ _I2Cx , $ . `E3036 0 375
+ , $ . `E3036 1 376
+ 373 ]
 "53
-[e :U 365 ]
+[e :U 373 ]
 [; ;I2C_Common.c: 55: return result;
 "55
 [e ) _result ]
-[e $UE 364  ]
+[e $UE 372  ]
 [; ;I2C_Common.c: 56: }
 "56
-[e :UE 364 ]
+[e :UE 372 ]
 }
 "58
 [v _I2C_CommonInterrupt `(v ~T0 @X0 1 ef ]
@@ -3150,5 +3200,5 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _I2C2_Interrupt ..  ]
 [; ;I2C_Common.c: 62: }
 "62
-[e :UE 369 ]
+[e :UE 377 ]
 }

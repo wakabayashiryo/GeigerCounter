@@ -3056,9 +3056,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MCP4726.c: 32: VoltageReg.PowerDown = ConfigReg.PowerDown;
 "32
 [e = . . _VoltageReg 1 1 . . _ConfigReg 1 1 ]
-[; ;MCP4726.c: 33: VoltageReg.Voltage4bits = (uint8_t)((volue&0x0F00)>>8);
+[; ;MCP4726.c: 33: VoltageReg.Voltage4bits = (uint8_t)(volue&0x0F00)>>8;
 "33
-[e = . . _VoltageReg 1 0 -> >> & _volue -> -> 3840 `i `ui -> 8 `i `uc ]
+[e = . . _VoltageReg 1 0 -> >> -> -> & _volue -> -> 3840 `i `ui `uc `i -> 8 `i `uc ]
 [; ;MCP4726.c: 34: VoltageReg.Voltage8bits = (uint8_t)(volue&0x00FF);
 "34
 [e = . . _VoltageReg 1 3 -> & _volue -> -> 255 `i `ui `uc ]
