@@ -3,50 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c</file>
-            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.h</file>
-<<<<<<< HEAD
-            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.h</file>
-=======
-            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/nbproject/Makefile-default.mk</file>
-            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/nbproject/Makefile-impl.mk</file>
->>>>>>> LCD
-=======
-<<<<<<< HEAD
-            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c</file>
-<<<<<<< HEAD
-=======
-            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.h</file>
-<<<<<<< HEAD
->>>>>>> master
-=======
-            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c</file>
-            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c</file>
->>>>>>> master
-=======
-            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.h</file>
-<<<<<<< HEAD
-            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.h</file>
-            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c</file>
-            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c</file>
-            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.h</file>
-            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/nbproject/Makefile-default.mk</file>
-            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/nbproject/Makefile-impl.mk</file>
-=======
-            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c</file>
->>>>>>> master
-<<<<<<< HEAD
->>>>>>> eeprom
-=======
->>>>>>> buzer
-=======
             <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c</file>
             <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/MCP4726.h</file>
             <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.h</file>
-            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/MCP4726.c</file>
->>>>>>> ExternalDAC
         </group>
     </open-files>
 </project-private>
