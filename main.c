@@ -10,15 +10,24 @@
 int8_t main(void)
 {
     Basic_Init();
+    
+    LATA6 = 1;      //Clear Bule LED    
+    
     LCD_Init();
     xdev_out(LCD_Put);
+    
     Timer1_Init();
     Timer1_Start();
+    
     Buzer_Init();
+    
     DAC_Initialize();
 
     while(1)
     {
+        LATA6 ^= 1;
+        __delay_ms(500);
+
         LCD_CursorPosition(0,0);
         xprintf("Hellow World");
     }
@@ -50,5 +59,5 @@ int8_t Basic_Init(void)
 void interrupt Handler(void)
 {
     Timer1_Handler();
-        I2C_CommonInterrupt();
+    I2C_CommonInterrupt();
 }

@@ -4051,15 +4051,24 @@ int8_t Basic_Init(void);
 int8_t main(void)
 {
 Basic_Init();
+
+LATA6 = 1;
+
 LCD_Init();
 xfunc_out = (void(*)(unsigned char))(LCD_Put);
+
 Timer1_Init();
 TMR1ON = 1;;
+
 Buzer_Init();
+
 DAC_Initialize();
 
 while(1)
 {
+LATA6 ^= 1;
+_delay((unsigned long)((500)*(32000000/4000.0)));
+
 LCD_CursorPosition(0,0);
 xprintf("Hellow World");
 }
