@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.41 build -162212810 
-                                                                                               Tue Mar  7 12:55:14 2017
+                                                                                               Fri Apr 14 11:48:29 2017
 
 Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250102
      1                           	processor	16F1827
@@ -388,8 +388,8 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
    374  0FEF                     	;# 
    375  000D                     _PORTB	set	13
    376  000C                     _PORTA	set	12
-   377  0064                     _RA4	set	100
-   378  0063                     _RA3	set	99
+   377  0063                     _RA3	set	99
+   378  0064                     _RA4	set	100
    379  008D                     _TRISB	set	141
    380  008C                     _TRISA	set	140
    381  0099                     _OSCCON	set	153
@@ -1810,12 +1810,12 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   1794                           ;psect for function _LCD_Put
   1795  03D4                     _LCD_Put:	
   1796                           
-  1797                           ;LCD.c: 56: RA4 = 1;
+  1797                           ;LCD.c: 56: RA3 = 1;
   1798                           
   1799                           ;incstack = 0
   1800                           ; Regs used in _LCD_Put: [wreg+status,2+status,0+pclath+cstack]
   1801  03D4  0020               	movlb	0	; select bank0
-  1802  03D5  160C               	bsf	12,4	;volatile
+  1802  03D5  158C               	bsf	12,3	;volatile
   1803                           
   1804                           ;LCD.c: 57: LCD_WriteData(word);
   1805  03D6  0873               	movf	LCD_Put@word,w
@@ -2175,15 +2175,15 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2159                           ;psect for function _LCD_Init
   2160  0565                     _LCD_Init:	
   2161                           
-  2162                           ;LCD.c: 30: RA4 = 0;
+  2162                           ;LCD.c: 30: RA3 = 0;
   2163                           
   2164                           ;incstack = 0
   2165                           ; Regs used in _LCD_Init: [wreg+status,2+status,0+pclath+cstack]
   2166  0565  0020               	movlb	0	; select bank0
-  2167  0566  120C               	bcf	12,4	;volatile
+  2167  0566  118C               	bcf	12,3	;volatile
   2168                           
-  2169                           ;LCD.c: 31: RA3 = 0;
-  2170  0567  118C               	bcf	12,3	;volatile
+  2169                           ;LCD.c: 31: RA4 = 0;
+  2170  0567  120C               	bcf	12,4	;volatile
   2171                           
   2172                           ;LCD.c: 33: _delay((unsigned long)((30)*(32000000/4000.0)));
   2173  0568  3002               	movlw	2
@@ -2205,15 +2205,15 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2189  0575  0020               	movlb	0	; select bank0
   2190  0576  008D               	movwf	13	;volatile
   2191                           
-  2192                           ;LCD.c: 35: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay
+  2192                           ;LCD.c: 35: {RA4 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA4 = 0; _delay
       +                          ((unsigned long)((1)*(32000000/4000000.0)));};
-  2193  0577  158C               	bsf	12,3	;volatile
+  2193  0577  160C               	bsf	12,4	;volatile
   2194  0578  3200               	nop2	;2 cycle nop
   2195  0579  3200               	nop2	;2 cycle nop
   2196  057A  3200               	nop2	;2 cycle nop
   2197  057B  3200               	nop2	;2 cycle nop
   2198  057C  0020               	movlb	0	; select bank0
-  2199  057D  118C               	bcf	12,3	;volatile
+  2199  057D  120C               	bcf	12,4	;volatile
   2200  057E  3200               	nop2	;2 cycle nop
   2201  057F  3200               	nop2	;2 cycle nop
   2202  0580  3200               	nop2	;2 cycle nop
@@ -2229,16 +2229,16 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2212  0587  0BF4               	decfsz	??_LCD_Init,f
   2213  0588  2D85               	goto	u1547
   2214                           
-  2215                           ;LCD.c: 37: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay
+  2215                           ;LCD.c: 37: {RA4 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA4 = 0; _delay
       +                          ((unsigned long)((1)*(32000000/4000000.0)));};
   2216  0589  0020               	movlb	0	; select bank0
-  2217  058A  158C               	bsf	12,3	;volatile
+  2217  058A  160C               	bsf	12,4	;volatile
   2218  058B  3200               	nop2	;2 cycle nop
   2219  058C  3200               	nop2	;2 cycle nop
   2220  058D  3200               	nop2	;2 cycle nop
   2221  058E  3200               	nop2	;2 cycle nop
   2222  058F  0020               	movlb	0	; select bank0
-  2223  0590  118C               	bcf	12,3	;volatile
+  2223  0590  120C               	bcf	12,4	;volatile
   2224  0591  3200               	nop2	;2 cycle nop
   2225  0592  3200               	nop2	;2 cycle nop
   2226  0593  3200               	nop2	;2 cycle nop
@@ -2255,16 +2255,16 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2237  059B  2D98               	goto	u1557
   2238  059C  3200               	nop2
   2239                           
-  2240                           ;LCD.c: 39: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay
+  2240                           ;LCD.c: 39: {RA4 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA4 = 0; _delay
       +                          ((unsigned long)((1)*(32000000/4000000.0)));};
   2241  059D  0020               	movlb	0	; select bank0
-  2242  059E  158C               	bsf	12,3	;volatile
+  2242  059E  160C               	bsf	12,4	;volatile
   2243  059F  3200               	nop2	;2 cycle nop
   2244  05A0  3200               	nop2	;2 cycle nop
   2245  05A1  3200               	nop2	;2 cycle nop
   2246  05A2  3200               	nop2	;2 cycle nop
   2247  05A3  0020               	movlb	0	; select bank0
-  2248  05A4  118C               	bcf	12,3	;volatile
+  2248  05A4  120C               	bcf	12,4	;volatile
   2249  05A5  3200               	nop2	;2 cycle nop
   2250  05A6  3200               	nop2	;2 cycle nop
   2251  05A7  3200               	nop2	;2 cycle nop
@@ -2286,15 +2286,15 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2267  05B2  0020               	movlb	0	; select bank0
   2268  05B3  008D               	movwf	13	;volatile
   2269                           
-  2270                           ;LCD.c: 42: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay
+  2270                           ;LCD.c: 42: {RA4 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA4 = 0; _delay
       +                          ((unsigned long)((1)*(32000000/4000000.0)));};
-  2271  05B4  158C               	bsf	12,3	;volatile
+  2271  05B4  160C               	bsf	12,4	;volatile
   2272  05B5  3200               	nop2	;2 cycle nop
   2273  05B6  3200               	nop2	;2 cycle nop
   2274  05B7  3200               	nop2	;2 cycle nop
   2275  05B8  3200               	nop2	;2 cycle nop
   2276  05B9  0020               	movlb	0	; select bank0
-  2277  05BA  118C               	bcf	12,3	;volatile
+  2277  05BA  120C               	bcf	12,4	;volatile
   2278  05BB  3200               	nop2	;2 cycle nop
   2279  05BC  3200               	nop2	;2 cycle nop
   2280  05BD  3200               	nop2	;2 cycle nop
@@ -2353,12 +2353,12 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2333                           ;psect for function _LCD_DisplayClear
   2334  03DA                     _LCD_DisplayClear:	
   2335                           
-  2336                           ;LCD.c: 66: RA4 = 0;
+  2336                           ;LCD.c: 66: RA3 = 0;
   2337                           
   2338                           ;incstack = 0
   2339                           ; Regs used in _LCD_DisplayClear: [wreg+status,2+status,0+pclath+cstack]
   2340  03DA  0020               	movlb	0	; select bank0
-  2341  03DB  120C               	bcf	12,4	;volatile
+  2341  03DB  118C               	bcf	12,3	;volatile
   2342                           
   2343                           ;LCD.c: 67: LCD_WriteData(0x01);
   2344  03DC  3001               	movlw	1
@@ -2419,9 +2419,9 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2399                           ;LCD_CursorPosition@tx stored from wreg
   2400  0421  00F5               	movwf	LCD_CursorPosition@tx
   2401                           
-  2402                           ;LCD.c: 88: RA4 = 0;
+  2402                           ;LCD.c: 88: RA3 = 0;
   2403  0422  0020               	movlb	0	; select bank0
-  2404  0423  120C               	bcf	12,4	;volatile
+  2404  0423  118C               	bcf	12,3	;volatile
   2405                           
   2406                           ;LCD.c: 89: LCD_WriteData(0x80|tx|(0x40*ty));
   2407  0424  0873               	movf	LCD_CursorPosition@ty,w
@@ -2523,15 +2523,15 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2503  04AF  0020               	movlb	0	; select bank0
   2504  04B0  008D               	movwf	13	;volatile
   2505                           
-  2506                           ;LCD.c: 19: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay
+  2506                           ;LCD.c: 19: {RA4 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA4 = 0; _delay
       +                          ((unsigned long)((1)*(32000000/4000000.0)));};
-  2507  04B1  158C               	bsf	12,3	;volatile
+  2507  04B1  160C               	bsf	12,4	;volatile
   2508  04B2  3200               	nop2	;2 cycle nop
   2509  04B3  3200               	nop2	;2 cycle nop
   2510  04B4  3200               	nop2	;2 cycle nop
   2511  04B5  3200               	nop2	;2 cycle nop
   2512  04B6  0020               	movlb	0	; select bank0
-  2513  04B7  118C               	bcf	12,3	;volatile
+  2513  04B7  120C               	bcf	12,4	;volatile
   2514  04B8  3200               	nop2	;2 cycle nop
   2515  04B9  3200               	nop2	;2 cycle nop
   2516  04BA  3200               	nop2	;2 cycle nop
@@ -2548,15 +2548,15 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2527  04C3  0020               	movlb	0	; select bank0
   2528  04C4  008D               	movwf	13	;volatile
   2529                           
-  2530                           ;LCD.c: 21: {RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay
+  2530                           ;LCD.c: 21: {RA4 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA4 = 0; _delay
       +                          ((unsigned long)((1)*(32000000/4000000.0)));};
-  2531  04C5  158C               	bsf	12,3	;volatile
+  2531  04C5  160C               	bsf	12,4	;volatile
   2532  04C6  3200               	nop2	;2 cycle nop
   2533  04C7  3200               	nop2	;2 cycle nop
   2534  04C8  3200               	nop2	;2 cycle nop
   2535  04C9  3200               	nop2	;2 cycle nop
   2536  04CA  0020               	movlb	0	; select bank0
-  2537  04CB  118C               	bcf	12,3	;volatile
+  2537  04CB  120C               	bcf	12,4	;volatile
   2538  04CC  3200               	nop2	;2 cycle nop
   2539  04CD  3200               	nop2	;2 cycle nop
   2540  04CE  3200               	nop2	;2 cycle nop
@@ -2909,7 +2909,7 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.41 build -162212810 
-Symbol Table                                                                                   Tue Mar  7 12:55:14 2017
+Symbol Table                                                                                   Fri Apr 14 11:48:29 2017
 
                 __CFG_CP$OFF 0000          ___wmul@multiplicand 0072                          l123 064A  
                         l108 05CE                          l141 06E5                          l164 079C  
