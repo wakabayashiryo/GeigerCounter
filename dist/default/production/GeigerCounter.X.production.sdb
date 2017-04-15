@@ -38,7 +38,7 @@
 "3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
 [v _Timer1_Init Timer1_Init `(v  1 e 1 0 ]
 "33
-[v _Timer1_Handler Timer1_Handler `(v  1 e 1 0 ]
+[v _Timer1_Handler Timer1_Handler `(uc  1 e 1 0 ]
 "26 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
 [v _xputc xputc `(v  1 e 1 0 ]
 "44
@@ -232,7 +232,7 @@
 "56
 } 0
 "33 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
-[v _Timer1_Handler Timer1_Handler `(v  1 e 1 0 ]
+[v _Timer1_Handler Timer1_Handler `(uc  1 e 1 0 ]
 {
-"39
+"41
 } 0

@@ -2846,7 +2846,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;Timer1.h: 28: void Timer1_Init(void);
 [; ;Timer1.h: 29: uint16_t Timer1_DiffCounter(void);
-[; ;Timer1.h: 30: void Timer1_Handler(void);
+[; ;Timer1.h: 30: uint8_t Timer1_Handler(void);
 [; ;xprintf.h: 17: extern void (*xfunc_out)(unsigned char);
 [; ;xprintf.h: 18: void xputc (char c);
 [; ;xprintf.h: 19: void xputs (const char* str);

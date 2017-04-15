@@ -30,10 +30,12 @@ uint16_t Timer1_DiffCounter(void)
     return counternow;
 }
 
-void Timer1_Handler(void)
+uint8_t Timer1_Handler(void)
 {
     if(TMR1IF&&TMR1IE)
     {
-        TMR1IF = 0;   
+        TMR1IF = 0;
+        return 1;
     }
+    return 0;
 }
