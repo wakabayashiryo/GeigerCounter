@@ -1,5 +1,5 @@
 
-# 1 "Timer1.c"
+# 1 "mTouch.c"
 
 # 26 "/opt/microchip/xc8/v1.41/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -3883,6 +3883,11 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
+# 28 "Timer1.h"
+void Timer1_Init(void);
+uint16_t Timer1_DiffCounter(void);
+void Timer1_Handler(void);
+
 # 41 "Buzer.h"
 void Buzer_Init(void);
 void Buzer_SetDuty(uint16_t duty);
@@ -4019,10 +4024,6 @@ int8_t DAC_WriteVoltage(uint16_t volue);
 int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
 int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
 
-# 21 "mTouch.h"
-void mTouch_Init(void);
-void CPSx_Read(void);
-
 # 17 "Timer4.h"
 void Timer4_Init(void);
 uint8_t Timer4_Handler(void);
@@ -4050,46 +4051,48 @@ uint8_t Timer4_Handler(void);
 # 60
 int8_t Basic_Init(void);
 
-# 28 "Timer1.h"
-void Timer1_Init(void);
-uint16_t Timer1_DiffCounter(void);
-void Timer1_Handler(void);
+# 21 "mTouch.h"
+void mTouch_Init(void);
+void CPSx_Read(void);
 
-# 3 "Timer1.c"
-void Timer1_Init(void)
+# 3 "mTouch.c"
+extern uint8_t CPS_Data[3];
+extern uint8_t CPS_PreData[3];
+
+static void mTouch_PortInit(void)
 {
-TRISB |= (1<<6);
-ANSELB &= ~(1<<6);
-
-T1CON |= (0x01<<2);
-T1CON &= ~(0x01<<3);
-T1CON |= (0x00<<4);
-T1CON |= (0x02<<6);
-
-T1GCON = 0x00;
-
-TMR1 = 0x0000;
-
-TMR1IE = 1;
-TMR1IF = 0;
-PEIE = 1;
-GIE = 1;
+TRISA |= (0x07);
+ANSELA |= (0x07);
 }
 
-uint16_t Timer1_DiffCounter(void)
+void mTouch_Init(void)
 {
-uint16_t counternow;
+mTouch_PortInit();
 
-counternow = (uint16_t)TMR1;
-{TMR1ON = 0;; TMR1 = (uint16_t)0x0000; TMR1ON = 1;; };
 
-return counternow;
+OPTION_REG |= (0x0<<0);
+OPTION_REG |= (0x1<<3);
+OPTION_REG |= (0x1<<5);
+TMR0 = 0x00;
+
+
+CPSCON0 |= (0x01<<0);
+CPSCON0 |= (0x03<<2);
+CPSCON0 &= ~(0x01<<7);;
+CPSCON1 = (uint8_t)0x00;
 }
 
-void Timer1_Handler(void)
+void CPSx_Read(void)
 {
-if(TMR1IF&&TMR1IE)
-{
-TMR1IF = 0;
-}
+static uint8_t channel=0;
+
+CPS_PreData[channel] = CPS_Data[channel];
+CPSCON0 &= ~(0x01<<7);;
+CPS_Data[channel] = TMR0;
+TMR0 = 0x00;
+CPSCON0 |= (0x01<<7);;
+
+if(channel++>2)channel = 0;
+CPSCON1 = (uint8_t)channel;
+
 }

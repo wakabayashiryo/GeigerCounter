@@ -4,12 +4,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 "2846
 [v _ANSELB `Vuc ~T0 @X0 0 e@397 ]
 "16 I2C1.c
-[c E3045 0 1 .. ]
-[n E3045 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
-[c E3049 0 1 2 .. ]
-[n E3049 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
+[c E3053 0 1 .. ]
+[n E3053 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
+[c E3057 0 1 2 .. ]
+[n E3057 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
 "43 I2C.h
-[s S361 `uc -> 8 `i `uc -> 8 `i `*uc 1 `*uc 1 `E3045 1 ]
+[s S361 `uc -> 8 `i `uc -> 8 `i `*uc 1 `*uc 1 `E3053 1 ]
 [n S361 . SlaveTransmitBuff SlaveReceiveBuff TransmitPoint ReceivePoint Mode ]
 "7 I2C1.c
 [v _I2C1_Config `S361 ~T0 @X0 0 e ]
@@ -2969,37 +2969,41 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MCP4726.h: 82: int8_t DAC_WriteVoltage(uint16_t volue);
 [; ;eeprom.h: 18: int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
 [; ;eeprom.h: 19: int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
-"31 main.h
+[; ;mTouch.h: 21: void mTouch_Init(void);
+[; ;mTouch.h: 22: void CPSx_Read(void);
+[; ;Timer4.h: 17: void Timer4_Init(void);
+[; ;Timer4.h: 18: uint8_t Timer4_Handler(void);
+"33 main.h
 [p x FOSC=INTOSC ]
-"32
-[p x WDTE=OFF ]
-"33
-[p x PWRTE=ON ]
 "34
-[p x MCLRE=ON ]
+[p x WDTE=OFF ]
 "35
-[p x CP=OFF ]
+[p x PWRTE=ON ]
 "36
-[p x CPD=OFF ]
+[p x MCLRE=ON ]
 "37
-[p x BOREN=ON ]
+[p x CP=OFF ]
 "38
-[p x CLKOUTEN=OFF ]
+[p x CPD=OFF ]
 "39
-[p x IESO=OFF ]
+[p x BOREN=ON ]
 "40
+[p x CLKOUTEN=OFF ]
+"41
+[p x IESO=OFF ]
+"42
 [p x FCMEN=OFF ]
-"43
-[p x WRT=OFF ]
-"44
-[p x PLLEN=ON ]
 "45
-[p x STVREN=OFF ]
+[p x WRT=OFF ]
 "46
-[p x BORV=LO ]
+[p x PLLEN=ON ]
 "47
+[p x STVREN=OFF ]
+"48
+[p x BORV=LO ]
+"49
 [p x LVP=OFF ]
-[; ;main.h: 54: int8_t Basic_Init(void);
+[; ;main.h: 60: int8_t Basic_Init(void);
 [; ;I2C.h: 23: typedef enum
 [; ;I2C.h: 24: {
 [; ;I2C.h: 25: I2C_MODE_MASTER,
@@ -3056,7 +3060,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 362 ]
 }
 "15
-[v _I2C1_Setting `(v ~T0 @X0 1 ef3`uc`E3045`E3049 ]
+[v _I2C1_Setting `(v ~T0 @X0 1 ef3`uc`E3053`E3057 ]
 "16
 {
 [; ;I2C1.c: 15: void I2C1_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed)
@@ -3064,8 +3068,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _I2C1_Setting ]
 "15
 [v _address `uc ~T0 @X0 1 r1 ]
-[v _mode `E3045 ~T0 @X0 1 r2 ]
-[v _Speed `E3049 ~T0 @X0 1 r3 ]
+[v _mode `E3053 ~T0 @X0 1 r2 ]
+[v _Speed `E3057 ~T0 @X0 1 r3 ]
 "16
 [f ]
 [; ;I2C1.c: 17: I2C1_PinInit();
@@ -3088,7 +3092,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =| _SSP1CON1 -> << -> 8 `i -> 0 `i `uc ]
 [; ;I2C1.c: 24: if(Speed==I2C_SPEED_STANDARD)
 "24
-[e $ ! == -> _Speed `i -> . `E3049 0 `i 367  ]
+[e $ ! == -> _Speed `i -> . `E3057 0 `i 367  ]
 [; ;I2C1.c: 25: {
 "25
 {
@@ -3105,7 +3109,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "29
 [e :U 367 ]
 [; ;I2C1.c: 29: else if(Speed==I2C_SPEED_HIGH)
-[e $ ! == -> _Speed `i -> . `E3049 1 `i 369  ]
+[e $ ! == -> _Speed `i -> . `E3057 1 `i 369  ]
 [; ;I2C1.c: 30: {
 "30
 {
@@ -3156,8 +3160,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 364  ]
 "20
 [e :U 365 ]
-[e [\ _mode , $ . `E3045 0 366
- , $ . `E3045 1 370
+[e [\ _mode , $ . `E3053 0 366
+ , $ . `E3053 1 370
  364 ]
 "45
 [e :U 364 ]
@@ -3360,8 +3364,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 372  ]
 "56
 [e :U 373 ]
-[e [\ . _I2C1_Config 4 , $ . `E3045 0 374
- , $ . `E3045 1 399
+[e [\ . _I2C1_Config 4 , $ . `E3053 0 374
+ , $ . `E3053 1 399
  372 ]
 "98
 [e :U 372 ]
@@ -3557,8 +3561,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 407  ]
 "107
 [e :U 408 ]
-[e [\ . _I2C1_Config 4 , $ . `E3045 0 409
- , $ . `E3045 1 438
+[e [\ . _I2C1_Config 4 , $ . `E3053 0 409
+ , $ . `E3053 1 438
  407 ]
 "147
 [e :U 407 ]

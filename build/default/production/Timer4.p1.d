@@ -1,6 +1,6 @@
- build/default/production/MCP4726.d  \
- build/default/production/MCP4726.p1:  \
- MCP4726.c  \
+ build/default/production/Timer4.d  \
+ build/default/production/Timer4.p1:  \
+ Timer4.c  \
 I2C.h  \
 xprintf.h  \
 main.h  \

@@ -4015,8 +4015,16 @@ int8_t DAC_WriteVoltage(uint16_t volue);
 int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
 int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
 
+# 21 "mTouch.h"
+void mTouch_Init(void);
+void CPSx_Read(void);
 
-# 31 "main.h"
+# 17 "Timer4.h"
+void Timer4_Init(void);
+uint8_t Timer4_Handler(void);
+
+
+# 33 "main.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = ON
@@ -4035,7 +4043,7 @@ int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 54
+# 60
 int8_t Basic_Init(void);
 
 # 32 "LCD.h"

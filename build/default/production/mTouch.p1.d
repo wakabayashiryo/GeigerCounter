@@ -1,6 +1,6 @@
- build/default/production/MCP4726.d  \
- build/default/production/MCP4726.p1:  \
- MCP4726.c  \
+ build/default/production/mTouch.d  \
+ build/default/production/mTouch.p1:  \
+ mTouch.c  \
 I2C.h  \
 xprintf.h  \
 main.h  \
