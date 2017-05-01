@@ -6,10 +6,10 @@
             <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c</file>
             <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.h</file>
             <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.h</file>
-            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C.h</file>
-            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C1.c</file>
             <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.h</file>
-            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C_Common.c</file>
+            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c</file>
+            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c</file>
+            <file>file:/home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c</file>
         </group>
     </open-files>
 </project-private>
