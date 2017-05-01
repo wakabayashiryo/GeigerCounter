@@ -3084,144 +3084,148 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 34: {
 "34
 {
-[; ;main.c: 35: LCD_CursorPosition(0,0);
-"35
-[e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 36: if((CPS_PreData[0]-CPS_Data[0])>150)
+[; ;main.c: 36: LCD_CursorPosition(0,0);
 "36
-[e $ ! > - -> *U + &U _CPS_PreData * -> -> -> 0 `i `ui `ux -> -> # *U &U _CPS_PreData `ui `ux `i -> *U + &U _CPS_Data * -> -> -> 0 `i `ui `ux -> -> # *U &U _CPS_Data `ui `ux `i -> 150 `i 366  ]
-[; ;main.c: 37: xprintf("CPS1");
+[e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;main.c: 37: if((CPS_PreData[0]-CPS_Data[0])>150)
 "37
-[e ( _xprintf :s 1C ]
-[e :U 366 ]
-[; ;main.c: 38: if((CPS_PreData[1]-CPS_Data[1])>150)
+[e $ ! > - -> *U + &U _CPS_PreData * -> -> -> 0 `i `ui `ux -> -> # *U &U _CPS_PreData `ui `ux `i -> *U + &U _CPS_Data * -> -> -> 0 `i `ui `ux -> -> # *U &U _CPS_Data `ui `ux `i -> 150 `i 366  ]
+[; ;main.c: 38: xprintf("CPS1");
 "38
-[e $ ! > - -> *U + &U _CPS_PreData * -> -> -> 1 `i `ui `ux -> -> # *U &U _CPS_PreData `ui `ux `i -> *U + &U _CPS_Data * -> -> -> 1 `i `ui `ux -> -> # *U &U _CPS_Data `ui `ux `i -> 150 `i 367  ]
-[; ;main.c: 39: xprintf("CPS2");
+[e ( _xprintf :s 1C ]
+[e $U 367  ]
 "39
-[e ( _xprintf :s 2C ]
-[e :U 367 ]
-[; ;main.c: 40: if((CPS_PreData[2]-CPS_Data[2])>150)
+[e :U 366 ]
+[; ;main.c: 39: else if((CPS_PreData[1]-CPS_Data[1])>150)
+[e $ ! > - -> *U + &U _CPS_PreData * -> -> -> 1 `i `ui `ux -> -> # *U &U _CPS_PreData `ui `ux `i -> *U + &U _CPS_Data * -> -> -> 1 `i `ui `ux -> -> # *U &U _CPS_Data `ui `ux `i -> 150 `i 368  ]
+[; ;main.c: 40: xprintf("CPS2");
 "40
-[e $ ! > - -> *U + &U _CPS_PreData * -> -> -> 2 `i `ui `ux -> -> # *U &U _CPS_PreData `ui `ux `i -> *U + &U _CPS_Data * -> -> -> 2 `i `ui `ux -> -> # *U &U _CPS_Data `ui `ux `i -> 150 `i 368  ]
-[; ;main.c: 41: xprintf("CPS3");
+[e ( _xprintf :s 2C ]
+[e $U 369  ]
 "41
-[e ( _xprintf :s 3C ]
 [e :U 368 ]
+[; ;main.c: 41: else if((CPS_PreData[2]-CPS_Data[2])>150)
+[e $ ! > - -> *U + &U _CPS_PreData * -> -> -> 2 `i `ui `ux -> -> # *U &U _CPS_PreData `ui `ux `i -> *U + &U _CPS_Data * -> -> -> 2 `i `ui `ux -> -> # *U &U _CPS_Data `ui `ux `i -> 150 `i 370  ]
+[; ;main.c: 42: xprintf("CPS3");
 "42
+[e ( _xprintf :s 3C ]
+[e :U 370 ]
+"43
+[e :U 369 ]
+[e :U 367 ]
 }
 [e :U 363 ]
 "33
 [e $U 364  ]
 [e :U 365 ]
-[; ;main.c: 42: }
-[; ;main.c: 44: return 0;
-"44
+[; ;main.c: 43: }
+[; ;main.c: 45: return 0;
+"45
 [e ) -> -> 0 `i `c ]
 [e $UE 362  ]
-[; ;main.c: 45: }
-"45
+[; ;main.c: 46: }
+"46
 [e :UE 362 ]
 }
-"47
-[v _Basic_Init `(c ~T0 @X0 1 ef ]
 "48
+[v _Basic_Init `(c ~T0 @X0 1 ef ]
+"49
 {
-[; ;main.c: 47: int8_t Basic_Init(void)
-[; ;main.c: 48: {
+[; ;main.c: 48: int8_t Basic_Init(void)
+[; ;main.c: 49: {
 [e :U _Basic_Init ]
 [f ]
-[; ;main.c: 49: OSCCON = 0xF0;
-"49
+[; ;main.c: 50: OSCCON = 0xF0;
+"50
 [e = _OSCCON -> -> 240 `i `uc ]
-[; ;main.c: 53: TRISA = 0x07;
-"53
-[e = _TRISA -> -> 7 `i `uc ]
-[; ;main.c: 54: ANSELA = 0x07;
+[; ;main.c: 54: TRISA = 0x07;
 "54
+[e = _TRISA -> -> 7 `i `uc ]
+[; ;main.c: 55: ANSELA = 0x07;
+"55
 [e = _ANSELA -> -> 7 `i `uc ]
-[; ;main.c: 56: TRISB = 0x40;
-"56
-[e = _TRISB -> -> 64 `i `uc ]
-[; ;main.c: 57: ANSELB = 0x00;
+[; ;main.c: 57: TRISB = 0x40;
 "57
+[e = _TRISB -> -> 64 `i `uc ]
+[; ;main.c: 58: ANSELB = 0x00;
+"58
 [e = _ANSELB -> -> 0 `i `uc ]
-[; ;main.c: 59: APFCON0 = 0x08;
-"59
-[e = _APFCON0 -> -> 8 `i `uc ]
-[; ;main.c: 60: APFCON1 = 0x00;
+[; ;main.c: 60: APFCON0 = 0x08;
 "60
+[e = _APFCON0 -> -> 8 `i `uc ]
+[; ;main.c: 61: APFCON1 = 0x00;
+"61
 [e = _APFCON1 -> -> 0 `i `uc ]
-[; ;main.c: 62: PORTA = 0x00;
-"62
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 63: PORTB = 0x00;
+[; ;main.c: 63: PORTA = 0x00;
 "63
+[e = _PORTA -> -> 0 `i `uc ]
+[; ;main.c: 64: PORTB = 0x00;
+"64
 [e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 65: return 0;
-"65
-[e ) -> -> 0 `i `c ]
-[e $UE 369  ]
-[; ;main.c: 66: }
+[; ;main.c: 66: return 0;
 "66
-[e :UE 369 ]
+[e ) -> -> 0 `i `c ]
+[e $UE 371  ]
+[; ;main.c: 67: }
+"67
+[e :UE 371 ]
 }
 [v F3129 `(v ~T0 @X0 1 tf ]
-"68
-[v _Handler `IF3129 ~T0 @X0 1 e ]
 "69
+[v _Handler `IF3129 ~T0 @X0 1 e ]
+"70
 {
-[; ;main.c: 68: void interrupt Handler(void)
-[; ;main.c: 69: {
+[; ;main.c: 69: void interrupt Handler(void)
+[; ;main.c: 70: {
 [e :U _Handler ]
 [f ]
-"70
+"71
 [v F3130 `ui ~T0 @X0 1 s count ]
 [i F3130
 -> -> 0 `i `ui
 ]
-[; ;main.c: 70: static uint16_t count = 0;
-[; ;main.c: 71: if(Timer4_Handler())
-"71
-[e $ ! != -> ( _Timer4_Handler ..  `i -> -> -> 0 `i `uc `i 371  ]
-[; ;main.c: 72: {
+[; ;main.c: 71: static uint16_t count = 0;
+[; ;main.c: 72: if(Timer4_Handler())
 "72
-{
-[; ;main.c: 73: CPSx_Read();
+[e $ ! != -> ( _Timer4_Handler ..  `i -> -> -> 0 `i `uc `i 373  ]
+[; ;main.c: 73: {
 "73
-[e ( _CPSx_Read ..  ]
-[; ;main.c: 74: count++;
-"74
-[e ++ F3130 -> -> 1 `i `ui ]
-[; ;main.c: 75: if(count>1000)
-"75
-[e $ ! > F3130 -> -> 1000 `i `ui 372  ]
-[; ;main.c: 76: {
-"76
 {
-[; ;main.c: 77: count = 0;
+[; ;main.c: 74: CPSx_Read();
+"74
+[e ( _CPSx_Read ..  ]
+[; ;main.c: 75: count++;
+"75
+[e ++ F3130 -> -> 1 `i `ui ]
+[; ;main.c: 76: if(count>1000)
+"76
+[e $ ! > F3130 -> -> 1000 `i `ui 374  ]
+[; ;main.c: 77: {
 "77
-[e = F3130 -> -> 0 `i `ui ]
-[; ;main.c: 78: LATA6 ^= 1;
+{
+[; ;main.c: 78: count = 0;
 "78
-[e =^ _LATA6 -> -> 1 `i `b ]
+[e = F3130 -> -> 0 `i `ui ]
+[; ;main.c: 79: LATA6 ^= 1;
 "79
-}
-[e :U 372 ]
+[e =^ _LATA6 -> -> 1 `i `b ]
 "80
 }
-[e :U 371 ]
-[; ;main.c: 79: }
+[e :U 374 ]
+"81
+}
+[e :U 373 ]
 [; ;main.c: 80: }
-[; ;main.c: 82: Timer1_Handler();
-"82
-[e ( _Timer1_Handler ..  ]
-[; ;main.c: 83: I2C_CommonInterrupt();
+[; ;main.c: 81: }
+[; ;main.c: 83: Timer1_Handler();
 "83
-[e ( _I2C_CommonInterrupt ..  ]
-[; ;main.c: 84: }
+[e ( _Timer1_Handler ..  ]
+[; ;main.c: 84: I2C_CommonInterrupt();
 "84
-[e :UE 370 ]
+[e ( _I2C_CommonInterrupt ..  ]
+[; ;main.c: 85: }
+"85
+[e :UE 372 ]
 }
 [a 3C 67 80 83 51 0 ]
 [a 2C 67 80 83 50 0 ]

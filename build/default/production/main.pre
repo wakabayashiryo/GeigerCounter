@@ -4081,12 +4081,13 @@ DAC_Initialize();
 
 while(1)
 {
+
 LCD_CursorPosition(0,0);
 if((CPS_PreData[0]-CPS_Data[0])>150)
 xprintf("CPS1");
-if((CPS_PreData[1]-CPS_Data[1])>150)
+else if((CPS_PreData[1]-CPS_Data[1])>150)
 xprintf("CPS2");
-if((CPS_PreData[2]-CPS_Data[2])>150)
+else if((CPS_PreData[2]-CPS_Data[2])>150)
 xprintf("CPS3");
 }
 
