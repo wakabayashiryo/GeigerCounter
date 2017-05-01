@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=/opt/microchip/xc8/v1.41/dat/en_msgs.txt -cs \
   -h+dist/default/production/GeigerCounter.X.production.sym \
   --cmf=dist/default/production/GeigerCounter.X.production.cmf -z -Q16F1827 \
-  -o/tmp/xcXf23sy4 -Mdist/default/production/GeigerCounter.X.production.map \
+  -o/tmp/xcX5MVy31 -Mdist/default/production/GeigerCounter.X.production.map \
   -E1 -ver=XC8 -ASTACK=02000h-0216fh -pstack=STACK -ACODE=00h-07FFhx2 \
   -ASTRCODE=00h-0FFFh -ASTRING=00h-0FFhx16 -ACONST=00h-0FFhx16 \
   -AENTRY=00h-0FFhx16 -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
@@ -27,7 +27,7 @@ Linker command line:
   -pcinit=CODE -pfunctab=CODE -ACONFIG=08007h-08008h -pconfig=CONFIG \
   -DCONFIG=2 -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 \
   -AEEDATA=00h-0FFh/0F000h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
-  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/xcXyiFTac.obj \
+  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/xcXkdiN4I.obj \
   dist/default/production/GeigerCounter.X.production.obj 
 
 Object code version is 3.11
@@ -37,21 +37,21 @@ Machine type is 16F1827
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcXyiFTac.obj
+/tmp/xcXkdiN4I.obj
                 end_init                              2        2        2        0       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        2    1000E       0
 dist/default/production/GeigerCounter.X.production.obj
-                cinit                               7F8      7F8        8      FF0       0
-                text6                               6EE      6EE       15      DDC       0
-                text5                               733      733       22      E66       0
-                text4                               718      718       1B      E30       0
-                text3                               755      755       3A      EAA       0
-                text2                               6DF      6DF        F      DBE       0
-                text1                               78F      78F       69      F1E       0
-                maintext                            703      703       15      E06       0
-                cstackCOMMON                         70       70        6       70       1
-                bssCOMMON                            76       76        5       70       1
+                cinit                               7F6      7F6        A      FEC       0
+                text6                               6EC      6EC       15      DD8       0
+                text5                               731      731       22      E62       0
+                text4                               716      716       1B      E2C       0
+                text3                               753      753       3A      EA6       0
+                text2                               6DD      6DD        F      DBA       0
+                text1                               78D      78D       69      F1A       0
+                maintext                            701      701       15      E02       0
+                cstackCOMMON                         77       77        6       70       1
+                bssCOMMON                            70       70        7       70       1
                 stringtext                          800      800       1C     1000       0
 
 TOTAL           Name                               Link     Load   Length     Space
@@ -59,15 +59,15 @@ TOTAL           Name                               Link     Load   Length     Sp
 
         CLASS   CODE           
                 end_init                              2        2        2         0
-                cinit                               7F8      7F8        8         0
+                cinit                               7F6      7F6        A         0
                 reset_vec                             0        0        2         0
-                text6                               6EE      6EE       15         0
-                text5                               733      733       22         0
-                text4                               718      718       1B         0
-                text3                               755      755       3A         0
-                text2                               6DF      6DF        F         0
-                text1                               78F      78F       69         0
-                maintext                            703      703       15         0
+                text6                               6EC      6EC       15         0
+                text5                               731      731       22         0
+                text4                               716      716       1B         0
+                text3                               753      753       3A         0
+                text2                               6DD      6DD        F         0
+                text1                               78D      78D       69         0
+                maintext                            701      701       15         0
 
         CLASS   STRCODE        
                 stringtext                          800      800       1C         0
@@ -79,8 +79,8 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   ENTRY          
 
         CLASS   COMMON         
-                cstackCOMMON                         70       70        6         1
-                bssCOMMON                            76       76        5         1
+                cstackCOMMON                         77       77        6         1
+                bssCOMMON                            70       70        7         1
 
         CLASS   BANK0          
 
@@ -229,15 +229,15 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000004  000004         0       0  CODE        2
-                cstackCOMMON                   000070  00000B  00007B        70       1  COMMON      1
-                text2                          0006DF  00000F  0006EE       DBE       0  CODE        2
-                text6                          0006EE  000015  000703       DDC       0  CODE        2
-                maintext                       000703  000015  000718       E06       0  CODE        2
-                text4                          000718  00001B  000733       E30       0  CODE        2
-                text5                          000733  000022  000755       E66       0  CODE        2
-                text3                          000755  00003A  00078F       EAA       0  CODE        2
-                text1                          00078F  000069  0007F8       F1E       0  CODE        2
-                cinit                          0007F8  000008  000800       FF0       0  CODE        2
+                bssCOMMON                      000070  00000D  00007D        70       1  COMMON      1
+                text2                          0006DD  00000F  0006EC       DBA       0  CODE        2
+                text6                          0006EC  000015  000701       DD8       0  CODE        2
+                maintext                       000701  000015  000716       E02       0  CODE        2
+                text4                          000716  00001B  000731       E2C       0  CODE        2
+                text5                          000731  000022  000753       E62       0  CODE        2
+                text3                          000753  00003A  00078D       EA6       0  CODE        2
+                text1                          00078D  000069  0007F6       F1A       0  CODE        2
+                cinit                          0007F6  00000A  000800       FEC       0  CODE        2
                 stringtext                     000800  00001C  00081C      1000       0  STRCODE     2
                 config                         008007  000002  008009     1000E       0  CONFIG      2
 
@@ -251,13 +251,13 @@ UNUSED ADDRESS RANGES
         BANK3            001A0-001EF              50           1
         BANK4            00220-0024F              30           1
         BIGRAM           02000-0216F             170           1
-        CODE             00004-006DE             6DB           2
+        CODE             00004-006DC             6D9           2
                          0081C-00FFF             7E4
-        COMMON           0007B-0007D               3           1
-        CONST            00004-006DE             100           2
+        COMMON           0007D-0007D               1           1
+        CONST            00004-006DC             100           2
                          0081C-00FFF             100
         EEDATA           0F000-0F0FF             100           2
-        ENTRY            00004-006DE             100           2
+        ENTRY            00004-006DC             100           2
                          0081C-00FFF             100
         IDLOC            08000-08003               4           2
         RAM              00020-0006F              50           1
@@ -298,30 +298,30 @@ UNUSED ADDRESS RANGES
         SFR8             00400-0046F              70           1
         SFR9             00480-004EF              70           1
         STACK            02000-0216F             170           1
-        STRCODE          00004-006DE             6DB           2
+        STRCODE          00004-006DC             6D9           2
                          0081C-00FFF             7E4
-        STRING           00004-006DE             100           2
+        STRING           00004-006DC             100           2
                          0081C-00FFF             100
 
                                   Symbol Table
 
-Buzer_SetDuty@CCP2CON_Pre  cstackCOMMON 00074
-Buzer_SetDuty@duty         cstackCOMMON 00070
-LCD_WriteData@point        cstackCOMMON 00072
+Buzzer_SetDuty@CCP2CON_Pre cstackCOMMON 0007B
+Buzzer_SetDuty@duty        cstackCOMMON 00077
+LCD_WriteData@point        cstackCOMMON 00079
 _ANSELA                    (abs)        0018C
 _ANSELB                    (abs)        0018D
 _APFCON0                   (abs)        0011D
 _APFCON1                   (abs)        0011E
-_Basic_Init                text6        006EE
-_Buzer_Init                text5        00733
-_Buzer_SetDuty             text4        00718
+_Basic_Init                text6        006EC
+_Buzzer_Init               text5        00731
+_Buzzer_SetDuty            text4        00716
 _CCP2CON                   (abs)        0029A
 _CCPR2L                    (abs)        00298
 _CCPTMRS                   (abs)        0029E
-_LCD_DisplayClear          text2        006DF
-_LCD_Init                  text1        0078F
+_LCD_DisplayClear          text2        006DD
+_LCD_Init                  text1        0078D
 _LCD_Put                   (abs)        00000
-_LCD_WriteData             text3        00755
+_LCD_WriteData             text3        00753
 _OSCCON                    (abs)        00099
 _PORTA                     (abs)        0000C
 _PORTB                     (abs)        0000D
@@ -431,7 +431,7 @@ __Hsfr7                    sfr7         00000
 __Hsfr8                    sfr8         00000
 __Hsfr9                    sfr9         00000
 __Hspace_0                 (abs)        08009
-__Hspace_1                 (abs)        0007B
+__Hspace_1                 (abs)        0007D
 __Hspace_2                 (abs)        00000
 __Hspace_3                 (abs)        00000
 __Hstack                   stack        00000
@@ -473,7 +473,7 @@ __Lbank8                   bank8        00000
 __Lbank9                   bank9        00000
 __Lbigram                  bigram       00000
 __LbssCOMMON               bssCOMMON    00000
-__Lcinit                   cinit        007F8
+__Lcinit                   cinit        007F6
 __Lclrtext                 clrtext      00000
 __Lcode                    code         00000
 __Lcommon                  common       00000
@@ -530,42 +530,43 @@ __Lstrings                 strings      00000
 __Lstringtext              stringtext   00000
 __Ltext                    text         00000
 __S0                       (abs)        08009
-__S1                       (abs)        0007B
+__S1                       (abs)        0007D
 __S2                       (abs)        00000
 __S3                       (abs)        00000
 ___int_sp                  stack        00000
 ___latbits                 (abs)        00001
 ___sp                      stack        00000
-__end_of_Basic_Init        text6        00703
-__end_of_Buzer_Init        text5        00755
-__end_of_Buzer_SetDuty     text4        00733
-__end_of_LCD_DisplayClear  text2        006EE
-__end_of_LCD_Init          text1        007F8
-__end_of_LCD_WriteData     text3        0078F
+__end_of_Basic_Init        text6        00701
+__end_of_Buzzer_Init       text5        00753
+__end_of_Buzzer_SetDuty    text4        00731
+__end_of_LCD_DisplayClear  text2        006EC
+__end_of_LCD_Init          text1        007F6
+__end_of_LCD_WriteData     text3        0078D
 __end_of__initialization   cinit        007FD
-__end_of_main              maintext     00718
-__initialization           cinit        007F8
-__pbssCOMMON               bssCOMMON    00076
-__pcstackCOMMON            cstackCOMMON 00070
-__pmaintext                maintext     00703
+__end_of_main              maintext     00716
+__initialization           cinit        007F6
+__pbssCOMMON               bssCOMMON    00070
+__pcstackCOMMON            cstackCOMMON 00077
+__pmaintext                maintext     00701
 __pstringtext              stringtext   00800
-__ptext1                   text1        0078F
-__ptext2                   text2        006DF
-__ptext3                   text3        00755
-__ptext4                   text4        00718
-__ptext5                   text5        00733
-__ptext6                   text6        006EE
+__ptext1                   text1        0078D
+__ptext2                   text2        006DD
+__ptext3                   text3        00753
+__ptext4                   text4        00716
+__ptext5                   text5        00731
+__ptext6                   text6        006EC
 __size_of_Basic_Init       (abs)        00000
-__size_of_Buzer_Init       (abs)        00000
-__size_of_Buzer_SetDuty    (abs)        00000
+__size_of_Buzzer_Init      (abs)        00000
+__size_of_Buzzer_SetDuty   (abs)        00000
 __size_of_LCD_DisplayClear (abs)        00000
 __size_of_LCD_Init         (abs)        00000
 __size_of_LCD_WriteData    (abs)        00000
 __size_of_main             (abs)        00000
-_main                      maintext     00703
-_outptr                    bssCOMMON    0007A
-_xfunc_in                  bssCOMMON    00076
-_xfunc_out                 bssCOMMON    00078
+_count                     bssCOMMON    00074
+_main                      maintext     00701
+_outptr                    bssCOMMON    00076
+_xfunc_in                  bssCOMMON    00070
+_xfunc_out                 bssCOMMON    00072
 btemp                      (abs)        0007E
 end_of_initialization      cinit        007FD
 intlevel0                  functab      00000
@@ -578,7 +579,7 @@ reset_vec                  reset_vec    00000
 stackhi                    (abs)        0216F
 stacklo                    (abs)        02000
 start                      init         00002
-start_initialization       cinit        007F8
+start_initialization       cinit        007F6
 wtemp0                     (abs)        0007E
 
 
@@ -608,8 +609,8 @@ Total ram usage:        0 bytes
  Hardware stack levels required when called:    3
  This function calls:
 		_Basic_Init
-		_Buzer_Init
-		_Buzer_SetDuty
+		_Buzzer_Init
+		_Buzzer_SetDuty
 		_LCD_Init
  This function is called by:
 		Startup code after reset
@@ -703,8 +704,8 @@ Total ram usage:        3 bytes
 		Nothing
  This function is called by:
 		_LCD_Init
-		_LCD_Put
 		_LCD_DisplayClear
+		_LCD_Put
 		_LCD_CursorHome
 		_LCD_CursorPosition
 		_LCD_CursorShift
@@ -712,9 +713,9 @@ Total ram usage:        3 bytes
  This function uses a non-reentrant model
 
 
- *************** function _Buzer_SetDuty *****************
+ *************** function _Buzzer_SetDuty *****************
  Defined at:
-		line 29 in file "Buzer.c"
+		line 31 in file "Buzzer.c"
  Parameters:    Size  Location     Type
   duty            2    0[COMMON] unsigned int 
  Auto vars:     Size  Location     Type
@@ -738,12 +739,13 @@ Total ram usage:        5 bytes
 		Nothing
  This function is called by:
 		_main
+		_Buzzer_Handler
  This function uses a non-reentrant model
 
 
- *************** function _Buzer_Init *****************
+ *************** function _Buzzer_Init *****************
  Defined at:
-		line 9 in file "Buzer.c"
+		line 11 in file "Buzzer.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -803,27 +805,27 @@ Total ram usage:        0 bytes
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
+Buzzer.c
+		_Buzzer_Init   		CODE           	0731	0000	35
+		_Buzzer_SetDuty		CODE           	0716	0000	28
+
+Buzzer.c estimated size: 63
+
 shared
-		__initialization		CODE           	07F8	0000	6
+		__initialization		CODE           	07F6	0000	8
 
-shared estimated size: 6
-
-Buzer.c
-		_Buzer_Init    		CODE           	0733	0000	35
-		_Buzer_SetDuty 		CODE           	0718	0000	28
-
-Buzer.c estimated size: 63
+shared estimated size: 8
 
 main.c
-		_main          		CODE           	0703	0000	22
-		_Basic_Init    		CODE           	06EE	0000	22
+		_main          		CODE           	0701	0000	22
+		_Basic_Init    		CODE           	06EC	0000	22
 
 main.c estimated size: 44
 
 LCD.c
-		_LCD_Init      		CODE           	078F	0000	106
-		_LCD_DisplayClear		CODE           	06DF	0000	16
-		_LCD_WriteData 		CODE           	0755	0000	59
+		_LCD_Init      		CODE           	078D	0000	106
+		_LCD_DisplayClear		CODE           	06DD	0000	16
+		_LCD_WriteData 		CODE           	0753	0000	59
 
 LCD.c estimated size: 181
 

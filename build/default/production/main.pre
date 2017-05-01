@@ -3883,9 +3883,11 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 41 "Buzer.h"
-void Buzer_Init(void);
-void Buzer_SetDuty(uint16_t duty);
+# 41 "Buzzer.h"
+void Buzzer_Init(void);
+void Buzzer_SetDuty(uint16_t duty);
+void Buzzer_MiliSecond(uint16_t time);
+void Buzzer_Handler(void);
 
 # 32 "LCD.h"
 void LCD_Init(void);
@@ -3939,8 +3941,8 @@ int8_t Basic_Init(void);
 int8_t main(void)
 {
 Basic_Init();
-Buzer_Init();
-Buzer_SetDuty(0x01FF);
+Buzzer_Init();
+Buzzer_SetDuty(0x01FF);
 
 LCD_Init();
 xfunc_out = (void(*)(unsigned char))(LCD_Put);

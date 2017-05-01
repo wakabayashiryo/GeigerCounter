@@ -19,10 +19,10 @@
 [v _eecpymem eecpymem `(v  1 e 1 0 ]
 "39
 [v _memcpyee memcpyee `(v  1 e 1 0 ]
-"9 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Buzer.c
-[v _Buzer_Init Buzer_Init `(v  1 e 1 0 ]
-"29
-[v _Buzer_SetDuty Buzer_SetDuty `(v  1 e 1 0 ]
+"11 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Buzzer.c
+[v _Buzzer_Init Buzzer_Init `(v  1 e 1 0 ]
+"31
+[v _Buzzer_SetDuty Buzzer_SetDuty `(v  1 e 1 0 ]
 "15 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
 [v _LCD_WriteData LCD_WriteData `(v  1 s 1 LCD_WriteData ]
 "28
@@ -79,6 +79,8 @@
 [v _RA3 RA3 `VEb  1 e 0 @99 ]
 "7218
 [v _RA4 RA4 `VEb  1 e 0 @100 ]
+"9 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Buzzer.c
+[v _count count `ui  1 s 2 count ]
 "19 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
 [v _xfunc_out xfunc_out `*.37(v  1 e 2 0 ]
 "20
@@ -109,19 +111,19 @@
 [v LCD_WriteData@point point `c  1 a 1 2 ]
 "22
 } 0
-"29 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Buzer.c
-[v _Buzer_SetDuty Buzer_SetDuty `(v  1 e 1 0 ]
+"31 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Buzzer.c
+[v _Buzzer_SetDuty Buzzer_SetDuty `(v  1 e 1 0 ]
 {
+"33
+[v Buzzer_SetDuty@CCP2CON_Pre CCP2CON_Pre `uc  1 a 1 4 ]
 "31
-[v Buzer_SetDuty@CCP2CON_Pre CCP2CON_Pre `uc  1 a 1 4 ]
-"29
-[v Buzer_SetDuty@duty duty `ui  1 p 2 0 ]
-"34
+[v Buzzer_SetDuty@duty duty `ui  1 p 2 0 ]
+"36
 } 0
-"9
-[v _Buzer_Init Buzer_Init `(v  1 e 1 0 ]
+"11
+[v _Buzzer_Init Buzzer_Init `(v  1 e 1 0 ]
 {
-"27
+"29
 } 0
 "25 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]

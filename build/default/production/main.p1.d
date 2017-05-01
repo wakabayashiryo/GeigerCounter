@@ -3,5 +3,5 @@
  main.c  \
 xprintf.h  \
 main.h  \
-Buzer.h  \
-LCD.h 
+LCD.h  \
+Buzzer.h 

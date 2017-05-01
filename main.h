@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <xc.h>
-#include "Buzer.h"
+#include "Buzzer.h"
 #include "LCD.h"
 #include "xprintf.h"
 
