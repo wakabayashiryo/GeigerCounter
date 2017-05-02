@@ -30,7 +30,7 @@ void Buzzer_Init(void)
 
 void Buzzer_SetDuty(uint16_t duty)
 {
-    uint8_t CCP2CON_Pre = CCP2CON;
+    uint8_t CCP2CON_Pre = CCP2CON & ~(0x03<<4);
     CCPR2L = (duty>>2);
     CCP2CON = CCP2CON_Pre | ((duty&0x03)<<4);
 }

@@ -11,13 +11,15 @@ int8_t main(void)
 {
     Basic_Init();    
     Buzzer_Init();
-    Buzzer_Sound();
 
     LCD_Init();
     xdev_out(LCD_Put);
     while(1)
     {  
-        
+        Buzzer_Sound();
+        __delay_ms(1000);
+        Buzzer_Silent();
+        __delay_ms(1000);
     }    
     return EXIT_SUCCESS;
 }

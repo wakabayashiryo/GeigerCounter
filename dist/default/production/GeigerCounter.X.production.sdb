@@ -33,7 +33,7 @@
 [v _LCD_DisplayClear LCD_DisplayClear `(v  1 e 1 0 ]
 "10 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
-"25
+"27
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
 "26 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
 [v _xputc xputc `(v  1 e 1 0 ]
@@ -90,7 +90,7 @@
 "10 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
 {
-"23
+"25
 } 0
 "28 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
 [v _LCD_Init LCD_Init `(v  1 e 1 0 ]
@@ -125,8 +125,8 @@
 {
 "29
 } 0
-"25 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+"27 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
 {
-"44
+"46
 } 0

@@ -3942,13 +3942,15 @@ int8_t main(void)
 {
 Basic_Init();
 Buzzer_Init();
-Buzzer_SetDuty(0x01FF);
 
 LCD_Init();
 xfunc_out = (void(*)(unsigned char))(LCD_Put);
 while(1)
 {
-
+Buzzer_SetDuty(0x01FF);
+_delay((unsigned long)((1000)*(32000000/4000.0)));
+Buzzer_SetDuty(0x0000);
+_delay((unsigned long)((1000)*(32000000/4000.0)));
 }
 return 0;
 }

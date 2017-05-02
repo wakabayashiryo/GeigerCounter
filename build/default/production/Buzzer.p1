@@ -2968,8 +2968,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 "33
 [v _CCP2CON_Pre `uc ~T0 @X0 1 a ]
-[; ;Buzzer.c: 33: uint8_t CCP2CON_Pre = CCP2CON;
-[e = _CCP2CON_Pre _CCP2CON ]
+[; ;Buzzer.c: 33: uint8_t CCP2CON_Pre = CCP2CON & ~(0x03<<4);
+[e = _CCP2CON_Pre -> & -> _CCP2CON `i ~ << -> 3 `i -> 4 `i `uc ]
 [; ;Buzzer.c: 34: CCPR2L = (duty>>2);
 "34
 [e = _CCPR2L -> >> _duty -> 2 `i `uc ]
