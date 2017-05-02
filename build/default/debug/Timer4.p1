@@ -1,156 +1,21 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"3 I2C_Init.c
-[c E2983 0 1 .. ]
-[n E2983 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
-[c E2996 0 1 2 3 4 5 6 .. ]
-[n E2996 . BUS_IDLE BUS_COLLISION TRANSMITED_START TRANSMITED_ADDRESS RECEIVED_ADDRESS RECEIVED_DATA TRANSMITED_DATA  ]
-"49 I2C.h
-[s S353 `*uc 1 `uc 1 `uc 1 `uc 1 `uc -> 16 `i `uc -> 16 `i `*uc 1 `*uc 1 `E2983 1 `E2996 1 ]
-[n S353 . DataPoint size address R_nW SlaveTransmitBuff SlaveReceiveBuff TransmitPoint ReceivePoint Mode Status ]
-"1179 /opt/microchip/xc8/v1.41/include/pic16f1827.h
-[v _TRISB `Vuc ~T0 @X0 0 e@141 ]
-"2846
-[v _ANSELB `Vuc ~T0 @X0 0 e@397 ]
-"19 I2C_Init.c
-[c E2987 0 1 2 .. ]
-[n E2987 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
-"3611 /opt/microchip/xc8/v1.41/include/pic16f1827.h
-[v _SSP1STAT `Vuc ~T0 @X0 0 e@532 ]
-"3732
-[v _SSP1CON1 `Vuc ~T0 @X0 0 e@533 ]
-"3537
-[v _SSP1ADD `Vuc ~T0 @X0 0 e@530 ]
-"3946
-[s S216 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S216 . SEN RSEN PEN RCEN ACKEN ACKDT ACKSTAT GCEN ]
-"3945
-[u S215 `S216 1 ]
-[n S215 . . ]
-"3957
-[v _SSP1CON2bits `VS215 ~T0 @X0 0 e@534 ]
-"3574
-[v _SSP1MSK `Vuc ~T0 @X0 0 e@531 ]
-"7308
-[v _SSP1IE `Vb ~T0 @X0 0 e@1163 ]
-"6680
-[v _BCL1IE `Vb ~T0 @X0 0 e@1171 ]
-"7310
-[v _SSP1IF `Vb ~T0 @X0 0 e@139 ]
-"6682
-[v _BCL1IF `Vb ~T0 @X0 0 e@147 ]
-"4234
-[v _SSP2STAT `Vuc ~T0 @X0 0 e@540 ]
-"4295
-[v _SSP2CON1 `Vuc ~T0 @X0 0 e@541 ]
-"4196
-[v _SSP2ADD `Vuc ~T0 @X0 0 e@538 ]
-"4370
-[s S235 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S235 . SEN RSEN PEN RCEN ACKEN ACKDT ACKSTAT GCEN ]
-"4369
-[u S234 `S235 1 ]
-[n S234 . . ]
-"4381
-[v _SSP2CON2bits `VS234 ~T0 @X0 0 e@542 ]
-"4215
-[v _SSP2MSK `Vuc ~T0 @X0 0 e@539 ]
-"7312
-[v _SSP2IE `Vb ~T0 @X0 0 e@1184 ]
-"6684
-[v _BCL2IE `Vb ~T0 @X0 0 e@1185 ]
-"7314
-[v _SSP2IF `Vb ~T0 @X0 0 e@160 ]
-"6686
-[v _BCL2IF `Vb ~T0 @X0 0 e@161 ]
-"69 I2C_Init.c
-[c E2992 0 1 .. ]
-[n E2992 . I2C1 I2C2  ]
-"7182 /opt/microchip/xc8/v1.41/include/pic16f1827.h
+"6200 /opt/microchip/xc8/v1.41/include/pic16f1827.h
+[v _PR4 `Vuc ~T0 @X0 0 e@1046 ]
+"6181
+[v _TMR4 `Vuc ~T0 @X0 0 e@1045 ]
+"6219
+[v _T4CON `Vuc ~T0 @X0 0 e@1047 ]
+"7444
+[v _TMR4IF `Vb ~T0 @X0 0 e@153 ]
+"7442
+[v _TMR4IE `Vb ~T0 @X0 0 e@1177 ]
+"7182
 [v _PEIE `Vb ~T0 @X0 0 e@94 ]
 "6960
 [v _GIE `Vb ~T0 @X0 0 e@95 ]
-[; ;__size_t.h: 4: typedef unsigned size_t;
-[; ;stdlib.h: 7: typedef unsigned short wchar_t;
-[; ;stdlib.h: 15: typedef struct {
-[; ;stdlib.h: 16: int rem;
-[; ;stdlib.h: 17: int quot;
-[; ;stdlib.h: 18: } div_t;
-[; ;stdlib.h: 19: typedef struct {
-[; ;stdlib.h: 20: unsigned rem;
-[; ;stdlib.h: 21: unsigned quot;
-[; ;stdlib.h: 22: } udiv_t;
-[; ;stdlib.h: 23: typedef struct {
-[; ;stdlib.h: 24: long quot;
-[; ;stdlib.h: 25: long rem;
-[; ;stdlib.h: 26: } ldiv_t;
-[; ;stdlib.h: 27: typedef struct {
-[; ;stdlib.h: 28: unsigned long quot;
-[; ;stdlib.h: 29: unsigned long rem;
-[; ;stdlib.h: 30: } uldiv_t;
-[; ;stdlib.h: 53: extern double atof(const char *);
-[; ;stdlib.h: 54: extern double strtod(const char *, const char **);
-[; ;stdlib.h: 55: extern int atoi(const char *);
-[; ;stdlib.h: 56: extern unsigned xtoi(const char *);
-[; ;stdlib.h: 57: extern long atol(const char *);
-[; ;stdlib.h: 58: extern long strtol(const char *, char **, int);
-[; ;stdlib.h: 60: extern int rand(void);
-[; ;stdlib.h: 61: extern void srand(unsigned int);
-[; ;stdlib.h: 62: extern void * calloc(size_t, size_t);
-[; ;stdlib.h: 63: extern div_t div(int numer, int denom);
-[; ;stdlib.h: 64: extern udiv_t udiv(unsigned numer, unsigned denom);
-[; ;stdlib.h: 65: extern ldiv_t ldiv(long numer, long denom);
-[; ;stdlib.h: 66: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
-[; ;stdlib.h: 67: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
-[; ;stdlib.h: 68: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
-[; ;stdlib.h: 69: extern unsigned int _rotl(unsigned int value, unsigned int shift);
-[; ;stdlib.h: 70: extern unsigned int _rotr(unsigned int value, unsigned int shift);
-[; ;stdlib.h: 75: extern void * malloc(size_t);
-[; ;stdlib.h: 76: extern void free(void *);
-[; ;stdlib.h: 77: extern void * realloc(void *, size_t);
-[; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
-[; ;stdlib.h: 86: extern int atexit(void (*)(void));
-[; ;stdlib.h: 87: extern char * getenv(const char *);
-[; ;stdlib.h: 88: extern char ** environ;
-[; ;stdlib.h: 89: extern int system(char *);
-[; ;stdlib.h: 90: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
-[; ;stdlib.h: 91: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
-[; ;stdlib.h: 92: extern int abs(int);
-[; ;stdlib.h: 93: extern long labs(long);
-[; ;stdlib.h: 95: extern char * itoa(char * buf, int val, int base);
-[; ;stdlib.h: 96: extern char * utoa(char * buf, unsigned val, int base);
-[; ;stdlib.h: 101: extern char * ltoa(char * buf, long val, int base);
-[; ;stdlib.h: 102: extern char * ultoa(char * buf, unsigned long val, int base);
-[; ;stdlib.h: 104: extern char * ftoa(float f, int * status);
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
+[; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f1827.h: 49: extern volatile unsigned char INDF0 @ 0x000;
 "51 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [; ;pic16f1827.h: 51: asm("INDF0 equ 00h");
@@ -2902,6 +2767,92 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 192: extern unsigned char __resetbits;
 [; ;pic.h: 193: extern __bit __powerdown;
 [; ;pic.h: 194: extern __bit __timeout;
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stdlib.h: 7: typedef unsigned short wchar_t;
+[; ;stdlib.h: 15: typedef struct {
+[; ;stdlib.h: 16: int rem;
+[; ;stdlib.h: 17: int quot;
+[; ;stdlib.h: 18: } div_t;
+[; ;stdlib.h: 19: typedef struct {
+[; ;stdlib.h: 20: unsigned rem;
+[; ;stdlib.h: 21: unsigned quot;
+[; ;stdlib.h: 22: } udiv_t;
+[; ;stdlib.h: 23: typedef struct {
+[; ;stdlib.h: 24: long quot;
+[; ;stdlib.h: 25: long rem;
+[; ;stdlib.h: 26: } ldiv_t;
+[; ;stdlib.h: 27: typedef struct {
+[; ;stdlib.h: 28: unsigned long quot;
+[; ;stdlib.h: 29: unsigned long rem;
+[; ;stdlib.h: 30: } uldiv_t;
+[; ;stdlib.h: 53: extern double atof(const char *);
+[; ;stdlib.h: 54: extern double strtod(const char *, const char **);
+[; ;stdlib.h: 55: extern int atoi(const char *);
+[; ;stdlib.h: 56: extern unsigned xtoi(const char *);
+[; ;stdlib.h: 57: extern long atol(const char *);
+[; ;stdlib.h: 58: extern long strtol(const char *, char **, int);
+[; ;stdlib.h: 60: extern int rand(void);
+[; ;stdlib.h: 61: extern void srand(unsigned int);
+[; ;stdlib.h: 62: extern void * calloc(size_t, size_t);
+[; ;stdlib.h: 63: extern div_t div(int numer, int denom);
+[; ;stdlib.h: 64: extern udiv_t udiv(unsigned numer, unsigned denom);
+[; ;stdlib.h: 65: extern ldiv_t ldiv(long numer, long denom);
+[; ;stdlib.h: 66: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+[; ;stdlib.h: 67: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 68: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 69: extern unsigned int _rotl(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 70: extern unsigned int _rotr(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 75: extern void * malloc(size_t);
+[; ;stdlib.h: 76: extern void free(void *);
+[; ;stdlib.h: 77: extern void * realloc(void *, size_t);
+[; ;stdlib.h: 86: extern int atexit(void (*)(void));
+[; ;stdlib.h: 87: extern char * getenv(const char *);
+[; ;stdlib.h: 88: extern char ** environ;
+[; ;stdlib.h: 89: extern int system(char *);
+[; ;stdlib.h: 90: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+[; ;stdlib.h: 91: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+[; ;stdlib.h: 92: extern int abs(int);
+[; ;stdlib.h: 93: extern long labs(long);
+[; ;stdlib.h: 95: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 96: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 101: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 102: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 104: extern char * ftoa(float f, int * status);
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;Timer1.h: 28: void Timer1_Init(void);
+[; ;Timer1.h: 29: uint16_t Timer1_DiffCounter(void);
+[; ;Timer1.h: 30: void Timer1_Handler(void);
+[; ;Buzzer.h: 41: void Buzzer_Init(void);
+[; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
+[; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
+[; ;Buzzer.h: 44: void Buzzer_Handler(void);
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void LCD_DisplayClear(void);
@@ -2921,388 +2872,198 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;xprintf.h: 33: int xgets (char* buff, int len);
 [; ;xprintf.h: 34: int xfgets (unsigned char (*func)(void), char* buff, int len);
 [; ;xprintf.h: 35: int xatoi (char** str, long* res);
-"26 main.h
+[; ;I2C.h: 23: typedef enum
+[; ;I2C.h: 24: {
+[; ;I2C.h: 25: I2C_MODE_MASTER,
+[; ;I2C.h: 26: I2C_MODE_SLAVE
+[; ;I2C.h: 27: }I2Cx_Mode;
+[; ;I2C.h: 29: typedef enum
+[; ;I2C.h: 30: {
+[; ;I2C.h: 31: I2C_SPEED_STANDARD,
+[; ;I2C.h: 32: I2C_SPEED_HIGH,
+[; ;I2C.h: 33: I2C_SPEED_NONE
+[; ;I2C.h: 34: }I2Cx_Speed;
+[; ;I2C.h: 36: typedef enum
+[; ;I2C.h: 37: {
+[; ;I2C.h: 38: I2C1_MODULE,
+[; ;I2C.h: 39: I2C2_MODULE
+[; ;I2C.h: 40: }I2Cx_Module;
+[; ;I2C.h: 42: typedef struct
+[; ;I2C.h: 43: {
+[; ;I2C.h: 44: uint8_t SlaveTransmitBuff[8];
+[; ;I2C.h: 45: uint8_t SlaveReceiveBuff[8];
+[; ;I2C.h: 46: uint8_t *TransmitPoint;
+[; ;I2C.h: 47: uint8_t *ReceivePoint;
+[; ;I2C.h: 48: I2Cx_Mode Mode;
+[; ;I2C.h: 49: }I2Cx_Configuration;
+[; ;I2C.h: 51: void I2C1_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
+[; ;I2C.h: 52: void I2C1_Interrupt(void);
+[; ;I2C.h: 53: int8_t I2C1_Transmit(uint8_t address,uint8_t *pData,uint8_t size);
+[; ;I2C.h: 54: int8_t I2C1_Receive(uint8_t address,uint8_t *pData,uint8_t size);
+[; ;I2C.h: 56: void I2C2_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
+[; ;I2C.h: 57: void I2C2_Interrupt(void);
+[; ;I2C.h: 58: int8_t I2C2_Transmit(uint8_t address,uint8_t *pData,uint8_t size);
+[; ;I2C.h: 59: int8_t I2C2_Receive(uint8_t address,uint8_t *pData,uint8_t size);
+[; ;I2C.h: 61: void I2C_Init(I2Cx_Module I2Cx,uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
+[; ;I2C.h: 62: int8_t I2C_Transmit(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
+[; ;I2C.h: 63: int8_t I2C_Receive(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
+[; ;I2C.h: 64: void I2C_CommonInterrupt(void);
+[; ;MCP4726.h: 26: typedef union
+[; ;MCP4726.h: 27: {
+[; ;MCP4726.h: 28: uint8_t Voltage_Data[2];
+[; ;MCP4726.h: 29: struct
+[; ;MCP4726.h: 30: {
+[; ;MCP4726.h: 31: uint8_t Voltage4bits:4;
+[; ;MCP4726.h: 32: uint8_t PowerDown :2;
+[; ;MCP4726.h: 33: uint8_t Command :2;
+[; ;MCP4726.h: 34: uint8_t Voltage8bits:8;
+[; ;MCP4726.h: 35: };
+[; ;MCP4726.h: 37: }Voltage_Reg;
+[; ;MCP4726.h: 39: typedef union
+[; ;MCP4726.h: 40: {
+[; ;MCP4726.h: 41: uint8_t Memory_Data[3];
+[; ;MCP4726.h: 42: struct
+[; ;MCP4726.h: 43: {
+[; ;MCP4726.h: 44: uint8_t Command :3;
+[; ;MCP4726.h: 45: uint8_t Voltage_Ref :2;
+[; ;MCP4726.h: 46: uint8_t PowerDown :2;
+[; ;MCP4726.h: 47: uint8_t Gain :1;
+[; ;MCP4726.h: 48: uint8_t DataHigher :8;
+[; ;MCP4726.h: 49: uint8_t DataLower :8;
+[; ;MCP4726.h: 50: };
+[; ;MCP4726.h: 52: }Memory_Reg;
+[; ;MCP4726.h: 54: typedef union
+[; ;MCP4726.h: 55: {
+[; ;MCP4726.h: 56: uint8_t AllMemory_Data[3];
+[; ;MCP4726.h: 57: struct
+[; ;MCP4726.h: 58: {
+[; ;MCP4726.h: 59: uint8_t Command :3;
+[; ;MCP4726.h: 60: uint8_t Voltage_Ref :2;
+[; ;MCP4726.h: 61: uint8_t PowerDown :2;
+[; ;MCP4726.h: 62: uint8_t Gain :1;
+[; ;MCP4726.h: 63: uint8_t DataHigher :8;
+[; ;MCP4726.h: 64: uint8_t DataLower :8;
+[; ;MCP4726.h: 65: };
+[; ;MCP4726.h: 67: }AllMemory_Reg;
+[; ;MCP4726.h: 69: typedef union
+[; ;MCP4726.h: 70: {
+[; ;MCP4726.h: 71: uint8_t Config_Data[1];
+[; ;MCP4726.h: 72: struct
+[; ;MCP4726.h: 73: {
+[; ;MCP4726.h: 74: uint8_t Gain :1;
+[; ;MCP4726.h: 75: uint8_t PowerDown :2;
+[; ;MCP4726.h: 76: uint8_t Voltage_Ref :2;
+[; ;MCP4726.h: 77: uint8_t Command :3;
+[; ;MCP4726.h: 78: };
+[; ;MCP4726.h: 79: }Config_Reg;
+[; ;MCP4726.h: 81: void DAC_Initialize(void);
+[; ;MCP4726.h: 82: int8_t DAC_WriteVoltage(uint16_t volue);
+[; ;eeprom.h: 18: int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
+[; ;eeprom.h: 19: int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
+[; ;mTouch.h: 21: void mTouch_Init(void);
+[; ;mTouch.h: 22: void CPSx_Read(void);
+"33 main.h
 [p x FOSC=INTOSC ]
-"27
+"34
 [p x WDTE=OFF ]
-"28
+"35
 [p x PWRTE=ON ]
-"29
+"36
 [p x MCLRE=ON ]
-"30
-[p x CP=OFF ]
-"31
-[p x CPD=OFF ]
-"32
-[p x BOREN=ON ]
-"33
-[p x CLKOUTEN=OFF ]
-"34
-[p x IESO=OFF ]
-"35
-[p x FCMEN=OFF ]
-"38
-[p x WRT=OFF ]
-"39
-[p x PLLEN=ON ]
-"40
-[p x STVREN=OFF ]
-"41
-[p x BORV=LO ]
-"42
-[p x LVP=OFF ]
-[; ;main.h: 49: int8_t Basic_Init(void);
-[; ;I2C.h: 15: typedef enum
-[; ;I2C.h: 16: {
-[; ;I2C.h: 17: I2C_MODE_MASTER,
-[; ;I2C.h: 18: I2C_MODE_SLAVE
-[; ;I2C.h: 19: }I2Cx_Mode;
-[; ;I2C.h: 21: typedef enum
-[; ;I2C.h: 22: {
-[; ;I2C.h: 23: I2C_SPEED_STANDARD,
-[; ;I2C.h: 24: I2C_SPEED_HIGH,
-[; ;I2C.h: 25: I2C_SPEED_NONE
-[; ;I2C.h: 26: }I2Cx_Speed;
-[; ;I2C.h: 28: typedef enum
-[; ;I2C.h: 29: {
-[; ;I2C.h: 30: I2C1,
-[; ;I2C.h: 31: I2C2
-[; ;I2C.h: 32: }I2Cx_Module;
-[; ;I2C.h: 34: typedef enum
-[; ;I2C.h: 35: {
-[; ;I2C.h: 37: BUS_IDLE,
-[; ;I2C.h: 38: BUS_COLLISION,
-[; ;I2C.h: 40: TRANSMITED_START,
-[; ;I2C.h: 41: TRANSMITED_ADDRESS,
-[; ;I2C.h: 43: RECEIVED_ADDRESS,
-[; ;I2C.h: 44: RECEIVED_DATA,
-[; ;I2C.h: 45: TRANSMITED_DATA,
-[; ;I2C.h: 46: }I2Cx_Status;
-[; ;I2C.h: 48: typedef struct
-[; ;I2C.h: 49: {
-[; ;I2C.h: 50: uint8_t *DataPoint;
-[; ;I2C.h: 51: uint8_t size;
-[; ;I2C.h: 52: uint8_t address;
-[; ;I2C.h: 53: uint8_t R_nW;
-[; ;I2C.h: 54: uint8_t SlaveTransmitBuff[16];
-[; ;I2C.h: 55: uint8_t SlaveReceiveBuff[16];
-[; ;I2C.h: 56: uint8_t *TransmitPoint;
-[; ;I2C.h: 57: uint8_t *ReceivePoint;
-[; ;I2C.h: 58: I2Cx_Mode Mode;
-[; ;I2C.h: 59: I2Cx_Status Status;
-[; ;I2C.h: 60: }I2Cx_Configuration;
-[; ;I2C.h: 62: typedef enum
-[; ;I2C.h: 63: {
-[; ;I2C.h: 64: I2C_OK,
-[; ;I2C.h: 65: I2C_BUSY,
-[; ;I2C.h: 66: I2C_BUSCOLLISION,
-[; ;I2C.h: 67: I2C_WRITECOLLISION,
-[; ;I2C.h: 68: I2C_OVERFLOW
-[; ;I2C.h: 69: }I2Cx_Error;
-[; ;I2C.h: 71: uint8_t I2C_Init(I2Cx_Module I2Cx,uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
-[; ;I2C.h: 72: I2Cx_Error I2C_Transmit(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
-[; ;I2C.h: 73: I2Cx_Error I2C_Receive(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
-[; ;I2C.h: 74: void I2C_CommomInterrupt(void);
-"3 I2C_Init.c
-[v _I2C1_Config `S353 ~T0 @X0 1 e ]
-[; ;I2C_Init.c: 3: I2Cx_Configuration I2C1_Config;
-"4
-[v _I2C2_Config `S353 ~T0 @X0 1 e ]
-[; ;I2C_Init.c: 4: I2Cx_Configuration I2C2_Config;
-"6
-[v _I2C1_PinInit `(v ~T0 @X0 1 sf ]
-"7
-{
-[; ;I2C_Init.c: 6: static void I2C1_PinInit(void)
-[; ;I2C_Init.c: 7: {
-[e :U _I2C1_PinInit ]
-[f ]
-[; ;I2C_Init.c: 8: TRISB |= ((1<<1)|(1<<4));
-"8
-[e =| _TRISB -> | << -> 1 `i -> 1 `i << -> 1 `i -> 4 `i `uc ]
-[; ;I2C_Init.c: 9: ANSELB &= ~((1<<1)|(1<<4));
-"9
-[e =& _ANSELB -> ~ | << -> 1 `i -> 1 `i << -> 1 `i -> 4 `i `uc ]
-[; ;I2C_Init.c: 10: }
-"10
-[e :UE 354 ]
-}
-"12
-[v _I2C2_PinInit `(v ~T0 @X0 1 sf ]
-"13
-{
-[; ;I2C_Init.c: 12: static void I2C2_PinInit(void)
-[; ;I2C_Init.c: 13: {
-[e :U _I2C2_PinInit ]
-[f ]
-[; ;I2C_Init.c: 14: TRISB |= ((1<<3)|(1<<5));
-"14
-[e =| _TRISB -> | << -> 1 `i -> 3 `i << -> 1 `i -> 5 `i `uc ]
-[; ;I2C_Init.c: 15: ANSELB &= ~((1<<3)|(1<<5));
-"15
-[e =& _ANSELB -> ~ | << -> 1 `i -> 3 `i << -> 1 `i -> 5 `i `uc ]
-[; ;I2C_Init.c: 16: }
-"16
-[e :UE 355 ]
-}
-"18
-[v _I2C1_Setting `(v ~T0 @X0 1 sf3`uc`E2983`E2987 ]
-"19
-{
-[; ;I2C_Init.c: 18: static void I2C1_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed)
-[; ;I2C_Init.c: 19: {
-[e :U _I2C1_Setting ]
-"18
-[v _address `uc ~T0 @X0 1 r1 ]
-[v _mode `E2983 ~T0 @X0 1 r2 ]
-[v _Speed `E2987 ~T0 @X0 1 r3 ]
-"19
-[f ]
-[; ;I2C_Init.c: 20: switch(mode)
-"20
-[e $U 358  ]
-[; ;I2C_Init.c: 21: {
-"21
-{
-[; ;I2C_Init.c: 22: case I2C_MODE_MASTER:
-"22
-[e :U 359 ]
-[; ;I2C_Init.c: 23: SSP1STAT = 0x80;
-"23
-[e = _SSP1STAT -> -> 128 `i `uc ]
-[; ;I2C_Init.c: 24: SSP1CON1 = 0x28;
-"24
-[e = _SSP1CON1 -> -> 40 `i `uc ]
-[; ;I2C_Init.c: 25: if(Speed==I2C_SPEED_STANDARD)SSP1ADD = 0x4F;
-"25
-[e $ ! == -> _Speed `i -> . `E2987 0 `i 360  ]
-[e = _SSP1ADD -> -> 79 `i `uc ]
-[e $U 361  ]
-"26
-[e :U 360 ]
-[; ;I2C_Init.c: 26: else if(Speed==I2C_SPEED_HIGH)SSP1ADD = 0x13;
-[e $ ! == -> _Speed `i -> . `E2987 1 `i 362  ]
-[e = _SSP1ADD -> -> 19 `i `uc ]
-[e :U 362 ]
-"27
-[e :U 361 ]
-[; ;I2C_Init.c: 27: break;
-[e $U 357  ]
-[; ;I2C_Init.c: 29: case I2C_MODE_SLAVE:
-"29
-[e :U 363 ]
-[; ;I2C_Init.c: 30: SSP1STAT = 0x00;
-"30
-[e = _SSP1STAT -> -> 0 `i `uc ]
-[; ;I2C_Init.c: 31: SSP1CON1 = 0x26;
-"31
-[e = _SSP1CON1 -> -> 38 `i `uc ]
-[; ;I2C_Init.c: 32: SSP1CON2bits.SEN= 1;
-"32
-[e = . . _SSP1CON2bits 0 0 -> -> 1 `i `uc ]
-[; ;I2C_Init.c: 33: SSP1ADD = address << 1;
-"33
-[e = _SSP1ADD -> << -> _address `i -> 1 `i `uc ]
-[; ;I2C_Init.c: 34: SSP1MSK = 0xfe;
-"34
-[e = _SSP1MSK -> -> 254 `i `uc ]
-[; ;I2C_Init.c: 35: break;
-"35
-[e $U 357  ]
-"36
-}
-[; ;I2C_Init.c: 36: }
-[e $U 357  ]
-"20
-[e :U 358 ]
-[e [\ _mode , $ . `E2983 0 359
- , $ . `E2983 1 363
- 357 ]
-"36
-[e :U 357 ]
-[; ;I2C_Init.c: 37: SSP1IE = 1;
 "37
-[e = _SSP1IE -> -> 1 `i `b ]
-[; ;I2C_Init.c: 38: BCL1IE = 1;
+[p x CP=OFF ]
 "38
-[e = _BCL1IE -> -> 1 `i `b ]
-[; ;I2C_Init.c: 39: SSP1IF = 0;
+[p x CPD=OFF ]
 "39
-[e = _SSP1IF -> -> 0 `i `b ]
-[; ;I2C_Init.c: 40: BCL1IF = 0;
+[p x BOREN=ON ]
 "40
-[e = _BCL1IF -> -> 0 `i `b ]
-[; ;I2C_Init.c: 41: }
+[p x CLKOUTEN=OFF ]
 "41
-[e :UE 356 ]
-}
-"43
-[v _I2C2_Setting `(v ~T0 @X0 1 sf3`uc`E2983`E2987 ]
-"44
-{
-[; ;I2C_Init.c: 43: static void I2C2_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed)
-[; ;I2C_Init.c: 44: {
-[e :U _I2C2_Setting ]
-"43
-[v _address `uc ~T0 @X0 1 r1 ]
-[v _mode `E2983 ~T0 @X0 1 r2 ]
-[v _Speed `E2987 ~T0 @X0 1 r3 ]
-"44
-[f ]
-[; ;I2C_Init.c: 45: switch(mode)
+[p x IESO=OFF ]
+"42
+[p x FCMEN=OFF ]
 "45
-[e $U 366  ]
-[; ;I2C_Init.c: 46: {
+[p x WRT=OFF ]
 "46
-{
-[; ;I2C_Init.c: 47: case I2C_MODE_MASTER:
+[p x PLLEN=ON ]
 "47
-[e :U 367 ]
-[; ;I2C_Init.c: 48: SSP2STAT = 0x80;
+[p x STVREN=OFF ]
 "48
-[e = _SSP2STAT -> -> 128 `i `uc ]
-[; ;I2C_Init.c: 49: SSP2CON1 = 0x28;
+[p x BORV=LO ]
 "49
-[e = _SSP2CON1 -> -> 40 `i `uc ]
-[; ;I2C_Init.c: 50: if(Speed==I2C_SPEED_STANDARD)SSP2ADD = 0x4F;
-"50
-[e $ ! == -> _Speed `i -> . `E2987 0 `i 368  ]
-[e = _SSP2ADD -> -> 79 `i `uc ]
-[e $U 369  ]
-"51
-[e :U 368 ]
-[; ;I2C_Init.c: 51: else if(Speed==I2C_SPEED_HIGH)SSP2ADD = 0x13;
-[e $ ! == -> _Speed `i -> . `E2987 1 `i 370  ]
-[e = _SSP2ADD -> -> 19 `i `uc ]
-[e :U 370 ]
-"52
-[e :U 369 ]
-[; ;I2C_Init.c: 52: break;
-[e $U 365  ]
-[; ;I2C_Init.c: 54: case I2C_MODE_SLAVE:
-"54
-[e :U 371 ]
-[; ;I2C_Init.c: 55: SSP2STAT = 0x00;
-"55
-[e = _SSP2STAT -> -> 0 `i `uc ]
-[; ;I2C_Init.c: 56: SSP2CON1 = 0x26;
-"56
-[e = _SSP2CON1 -> -> 38 `i `uc ]
-[; ;I2C_Init.c: 57: SSP2CON2bits.SEN= 1;
-"57
-[e = . . _SSP2CON2bits 0 0 -> -> 1 `i `uc ]
-[; ;I2C_Init.c: 58: SSP2ADD = address << 1;
-"58
-[e = _SSP2ADD -> << -> _address `i -> 1 `i `uc ]
-[; ;I2C_Init.c: 59: SSP2MSK = 0xfe;
-"59
-[e = _SSP2MSK -> -> 254 `i `uc ]
-[; ;I2C_Init.c: 60: break;
-"60
-[e $U 365  ]
-"61
-}
-[; ;I2C_Init.c: 61: }
-[e $U 365  ]
-"45
-[e :U 366 ]
-[e [\ _mode , $ . `E2983 0 367
- , $ . `E2983 1 371
- 365 ]
-"61
-[e :U 365 ]
-[; ;I2C_Init.c: 62: SSP2IE = 1;
-"62
-[e = _SSP2IE -> -> 1 `i `b ]
-[; ;I2C_Init.c: 63: BCL2IE = 1;
-"63
-[e = _BCL2IE -> -> 1 `i `b ]
-[; ;I2C_Init.c: 64: SSP2IF = 0;
-"64
-[e = _SSP2IF -> -> 0 `i `b ]
-[; ;I2C_Init.c: 65: BCL2IF = 0;
-"65
-[e = _BCL2IF -> -> 0 `i `b ]
-[; ;I2C_Init.c: 66: }
-"66
-[e :UE 364 ]
-}
-"68
-[v _I2C_Init `(uc ~T0 @X0 1 ef4`E2992`uc`E2983`E2987 ]
-"69
+[p x LVP=OFF ]
+[; ;main.h: 60: int8_t Basic_Init(void);
+[; ;Timer4.h: 17: void Timer4_Init(void);
+[; ;Timer4.h: 18: uint8_t Timer4_Handler(void);
+"3 Timer4.c
+[v _Timer4_Init `(v ~T0 @X0 1 ef ]
+"4
 {
-[; ;I2C_Init.c: 68: uint8_t I2C_Init(I2Cx_Module I2Cx,uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed)
-[; ;I2C_Init.c: 69: {
-[e :U _I2C_Init ]
-"68
-[v _I2Cx `E2992 ~T0 @X0 1 r1 ]
-[v _address `uc ~T0 @X0 1 r2 ]
-[v _mode `E2983 ~T0 @X0 1 r3 ]
-[v _Speed `E2987 ~T0 @X0 1 r4 ]
-"69
+[; ;Timer4.c: 3: void Timer4_Init(void)
+[; ;Timer4.c: 4: {
+[e :U _Timer4_Init ]
 [f ]
-"70
-[v _Result `uc ~T0 @X0 1 a ]
-[; ;I2C_Init.c: 70: uint8_t Result = 0;
-[e = _Result -> -> 0 `i `uc ]
-[; ;I2C_Init.c: 72: switch(I2Cx)
-"72
-[e $U 374  ]
-[; ;I2C_Init.c: 73: {
-"73
-{
-[; ;I2C_Init.c: 74: case I2C1:
-"74
-[e :U 375 ]
-[; ;I2C_Init.c: 75: I2C1_PinInit();
-"75
-[e ( _I2C1_PinInit ..  ]
-[; ;I2C_Init.c: 76: I2C1_Config.Mode = mode;
-"76
-[e = . _I2C1_Config 8 _mode ]
-[; ;I2C_Init.c: 77: I2C1_Setting(address,mode,Speed);
-"77
-[e ( _I2C1_Setting (3 , , _address _mode _Speed ]
-[; ;I2C_Init.c: 78: break;
-"78
-[e $U 373  ]
-[; ;I2C_Init.c: 80: case I2C2:
-"80
-[e :U 376 ]
-[; ;I2C_Init.c: 81: I2C2_PinInit();
-"81
-[e ( _I2C2_PinInit ..  ]
-[; ;I2C_Init.c: 82: I2C2_Config.Mode = mode;
-"82
-[e = . _I2C2_Config 8 _mode ]
-[; ;I2C_Init.c: 83: I2C2_Setting(address,mode,Speed);
-"83
-[e ( _I2C2_Setting (3 , , _address _mode _Speed ]
-[; ;I2C_Init.c: 84: break;
-"84
-[e $U 373  ]
-"85
-}
-[; ;I2C_Init.c: 85: }
-[e $U 373  ]
-"72
-[e :U 374 ]
-[e [\ _I2Cx , $ . `E2992 0 375
- , $ . `E2992 1 376
- 373 ]
-"85
-[e :U 373 ]
-[; ;I2C_Init.c: 87: PEIE = 1;
-"87
+[; ;Timer4.c: 5: PR4 = 0x7D;
+"5
+[e = _PR4 -> -> 125 `i `uc ]
+[; ;Timer4.c: 6: TMR4 = 0x00;
+"6
+[e = _TMR4 -> -> 0 `i `uc ]
+[; ;Timer4.c: 7: T4CON |= (0x03<<0);
+"7
+[e =| _T4CON -> << -> 3 `i -> 0 `i `uc ]
+[; ;Timer4.c: 8: T4CON |= (0x00<<3);
+"8
+[e =| _T4CON -> << -> 0 `i -> 3 `i `uc ]
+[; ;Timer4.c: 9: T4CON |= (0x01<<2);
+"9
+[e =| _T4CON -> << -> 1 `i -> 2 `i `uc ]
+[; ;Timer4.c: 11: TMR4IF = 0;
+"11
+[e = _TMR4IF -> -> 0 `i `b ]
+[; ;Timer4.c: 12: TMR4IE = 1;
+"12
+[e = _TMR4IE -> -> 1 `i `b ]
+[; ;Timer4.c: 13: PEIE = 1;
+"13
 [e = _PEIE -> -> 1 `i `b ]
-[; ;I2C_Init.c: 88: GIE = 1;
-"88
+[; ;Timer4.c: 14: GIE = 1;
+"14
 [e = _GIE -> -> 1 `i `b ]
-[; ;I2C_Init.c: 90: return Result;
-"90
-[e ) _Result ]
-[e $UE 372  ]
-[; ;I2C_Init.c: 91: }
-"91
-[e :UE 372 ]
+[; ;Timer4.c: 15: }
+"15
+[e :UE 362 ]
+}
+"17
+[v _Timer4_Handler `(uc ~T0 @X0 1 ef ]
+"18
+{
+[; ;Timer4.c: 17: uint8_t Timer4_Handler(void)
+[; ;Timer4.c: 18: {
+[e :U _Timer4_Handler ]
+[f ]
+[; ;Timer4.c: 19: if(TMR4IE&&TMR4IF)
+"19
+[e $ ! && _TMR4IE _TMR4IF 364  ]
+[; ;Timer4.c: 20: {
+"20
+{
+[; ;Timer4.c: 21: TMR4IF = 0;
+"21
+[e = _TMR4IF -> -> 0 `i `b ]
+[; ;Timer4.c: 22: return 1;
+"22
+[e ) -> -> 1 `i `uc ]
+[e $UE 363  ]
+"23
+}
+[e :U 364 ]
+[; ;Timer4.c: 23: }
+[; ;Timer4.c: 24: return 0;
+"24
+[e ) -> -> 0 `i `uc ]
+[e $UE 363  ]
+[; ;Timer4.c: 25: }
+"25
+[e :UE 363 ]
 }

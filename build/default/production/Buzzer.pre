@@ -1,5 +1,5 @@
 
-# 1 "Timer4.c"
+# 1 "Buzzer.c"
 
 # 26 "/opt/microchip/xc8/v1.41/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -3888,12 +3888,6 @@ void Timer1_Init(void);
 uint16_t Timer1_DiffCounter(void);
 void Timer1_Handler(void);
 
-# 41 "Buzzer.h"
-void Buzzer_Init(void);
-void Buzzer_SetDuty(uint16_t duty);
-void Buzzer_MiliSecond(uint16_t time);
-void Buzzer_Handler(void);
-
 # 32 "LCD.h"
 void LCD_Init(void);
 void LCD_Put(int8_t word);
@@ -4030,6 +4024,10 @@ int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
 void mTouch_Init(void);
 void CPSx_Read(void);
 
+# 17 "Timer4.h"
+void Timer4_Init(void);
+uint8_t Timer4_Handler(void);
+
 
 # 33 "main.h"
 #pragma config FOSC = INTOSC
@@ -4053,32 +4051,57 @@ void CPSx_Read(void);
 # 60
 int8_t Basic_Init(void);
 
-# 17 "Timer4.h"
-void Timer4_Init(void);
-uint8_t Timer4_Handler(void);
+# 41 "Buzzer.h"
+void Buzzer_Init(void);
+void Buzzer_SetDuty(uint16_t duty);
+void Buzzer_MiliSecond(uint16_t time);
+void Buzzer_Handler(void);
 
-# 3 "Timer4.c"
-void Timer4_Init(void)
+# 9 "Buzzer.c"
+static uint16_t count;
+
+void Buzzer_Init(void)
 {
-PR4 = 0x7D;
-TMR4 = 0x00;
-T4CON |= (0x03<<0);
-T4CON |= (0x00<<3);
-T4CON |= (0x01<<2);
+TRISA &= ~(0x01<<7);
+ANSELA &= ~(0x01<<7);
+APFCON0 |= (0x01<<3);
 
-TMR4IF = 0;
-TMR4IE = 1;
-PEIE = 1;
-GIE = 1;
+T2CON |= (0x00<<3);
+T2CON |= (0x02<<0);
+T2CON |= (0x01<<2);
+
+TMR2 = 0x00;
+PR2 = 0xFF;
+
+CCP2CON &= ~(0x03<<6);
+CCP2CON |= (0x0C<<0);
+CCPTMRS &= ~(0x03<<2);
+
+CCPR2L = 0x00;
 }
 
-uint8_t Timer4_Handler(void)
+void Buzzer_SetDuty(uint16_t duty)
 {
-if(TMR4IE&&TMR4IF)
-{
-TMR4IF = 0;
-return 1;
-}
-return 0;
+uint8_t CCP2CON_Pre = CCP2CON & ~(0x03<<4);
+CCPR2L = (duty>>2);
+CCP2CON = CCP2CON_Pre | ((duty&0x03)<<4);
 }
 
+void Buzzer_MiliSecond(uint16_t time)
+{
+if(count==0)
+count = time;
+}
+
+void Buzzer_Handler(void)
+{
+if(count>0)
+{
+count--;
+Buzzer_SetDuty(0x01FF);
+}
+else
+{
+Buzzer_SetDuty(0x0000);
+}
+}

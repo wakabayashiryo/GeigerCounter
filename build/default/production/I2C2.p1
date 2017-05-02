@@ -4,12 +4,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 "2846
 [v _ANSELB `Vuc ~T0 @X0 0 e@397 ]
 "16 I2C2.c
-[c E3053 0 1 .. ]
-[n E3053 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
-[c E3057 0 1 2 .. ]
-[n E3057 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
+[c E3057 0 1 .. ]
+[n E3057 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
+[c E3061 0 1 2 .. ]
+[n E3061 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
 "43 I2C.h
-[s S361 `uc -> 8 `i `uc -> 8 `i `*uc 1 `*uc 1 `E3053 1 ]
+[s S361 `uc -> 8 `i `uc -> 8 `i `*uc 1 `*uc 1 `E3057 1 ]
 [n S361 . SlaveTransmitBuff SlaveReceiveBuff TransmitPoint ReceivePoint Mode ]
 "7 I2C2.c
 [v _I2C2_Config `S361 ~T0 @X0 0 e ]
@@ -2896,8 +2896,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.h: 28: void Timer1_Init(void);
 [; ;Timer1.h: 29: uint16_t Timer1_DiffCounter(void);
 [; ;Timer1.h: 30: void Timer1_Handler(void);
-[; ;Buzer.h: 41: void Buzer_Init(void);
-[; ;Buzer.h: 42: void Buzer_SetDuty(uint16_t duty);
+[; ;Buzzer.h: 41: void Buzzer_Init(void);
+[; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
+[; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
+[; ;Buzzer.h: 44: void Buzzer_Handler(void);
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void LCD_DisplayClear(void);
@@ -3060,7 +3062,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 362 ]
 }
 "15
-[v _I2C2_Setting `(v ~T0 @X0 1 ef3`uc`E3053`E3057 ]
+[v _I2C2_Setting `(v ~T0 @X0 1 ef3`uc`E3057`E3061 ]
 "16
 {
 [; ;I2C2.c: 15: void I2C2_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed)
@@ -3068,8 +3070,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _I2C2_Setting ]
 "15
 [v _address `uc ~T0 @X0 1 r1 ]
-[v _mode `E3053 ~T0 @X0 1 r2 ]
-[v _Speed `E3057 ~T0 @X0 1 r3 ]
+[v _mode `E3057 ~T0 @X0 1 r2 ]
+[v _Speed `E3061 ~T0 @X0 1 r3 ]
 "16
 [f ]
 [; ;I2C2.c: 17: I2C2_PinInit();
@@ -3092,7 +3094,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =| _SSP2CON1 -> << -> 8 `i -> 0 `i `uc ]
 [; ;I2C2.c: 24: if(Speed==I2C_SPEED_STANDARD)
 "24
-[e $ ! == -> _Speed `i -> . `E3057 0 `i 367  ]
+[e $ ! == -> _Speed `i -> . `E3061 0 `i 367  ]
 [; ;I2C2.c: 25: {
 "25
 {
@@ -3109,7 +3111,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "29
 [e :U 367 ]
 [; ;I2C2.c: 29: else if(Speed==I2C_SPEED_HIGH)
-[e $ ! == -> _Speed `i -> . `E3057 1 `i 369  ]
+[e $ ! == -> _Speed `i -> . `E3061 1 `i 369  ]
 [; ;I2C2.c: 30: {
 "30
 {
@@ -3160,8 +3162,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 364  ]
 "20
 [e :U 365 ]
-[e [\ _mode , $ . `E3053 0 366
- , $ . `E3053 1 370
+[e [\ _mode , $ . `E3057 0 366
+ , $ . `E3057 1 370
  364 ]
 "45
 [e :U 364 ]
@@ -3365,8 +3367,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 372  ]
 "56
 [e :U 373 ]
-[e [\ . _I2C2_Config 4 , $ . `E3053 0 374
- , $ . `E3053 1 399
+[e [\ . _I2C2_Config 4 , $ . `E3057 0 374
+ , $ . `E3057 1 399
  372 ]
 "98
 [e :U 372 ]
@@ -3562,8 +3564,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 407  ]
 "107
 [e :U 408 ]
-[e [\ . _I2C2_Config 4 , $ . `E3053 0 409
- , $ . `E3053 1 438
+[e [\ . _I2C2_Config 4 , $ . `E3057 0 409
+ , $ . `E3057 1 438
  407 ]
 "147
 [e :U 407 ]

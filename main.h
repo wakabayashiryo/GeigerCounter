@@ -12,7 +12,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include "Timer1.h"
-#include "Buzer.h"
+#include "Buzzer.h"
 #include "LCD.h"
 #include "xprintf.h"
 #include "I2C.h"

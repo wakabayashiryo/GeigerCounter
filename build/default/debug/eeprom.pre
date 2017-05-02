@@ -1,5 +1,5 @@
 
-# 1 "I2C.c"
+# 1 "eeprom.c"
 
 # 26 "/opt/microchip/xc8/v1.41/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -3721,6 +3721,78 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
+# 4 "/opt/microchip/xc8/v1.41/include/__size_t.h"
+typedef unsigned size_t;
+
+# 7 "/opt/microchip/xc8/v1.41/include/stdlib.h"
+typedef unsigned short wchar_t;
+
+# 15
+typedef struct {
+int rem;
+int quot;
+} div_t;
+typedef struct {
+unsigned rem;
+unsigned quot;
+} udiv_t;
+typedef struct {
+long quot;
+long rem;
+} ldiv_t;
+typedef struct {
+unsigned long quot;
+unsigned long rem;
+} uldiv_t;
+
+# 53
+extern double atof(const char *);
+extern double strtod(const char *, const char **);
+extern int atoi(const char *);
+extern unsigned xtoi(const char *);
+extern long atol(const char *);
+extern long strtol(const char *, char **, int);
+
+extern int rand(void);
+extern void srand(unsigned int);
+extern void * calloc(size_t, size_t);
+extern div_t div(int numer, int denom);
+extern udiv_t udiv(unsigned numer, unsigned denom);
+extern ldiv_t ldiv(long numer, long denom);
+extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+extern unsigned int _rotl(unsigned int value, unsigned int shift);
+extern unsigned int _rotr(unsigned int value, unsigned int shift);
+
+
+
+
+extern void * malloc(size_t);
+extern void free(void *);
+extern void * realloc(void *, size_t);
+
+# 86
+extern int atexit(void (*)(void));
+extern char * getenv(const char *);
+extern char ** environ;
+extern int system(char *);
+extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+extern int abs(int);
+extern long labs(long);
+
+extern char * itoa(char * buf, int val, int base);
+extern char * utoa(char * buf, unsigned val, int base);
+
+
+
+
+extern char * ltoa(char * buf, long val, int base);
+extern char * ultoa(char * buf, unsigned long val, int base);
+
+extern char * ftoa(float f, int * status);
+
 # 13 "/opt/microchip/xc8/v1.41/include/stdint.h"
 typedef signed char int8_t;
 
@@ -3811,198 +3883,206 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 9 "I2C.h"
+# 28 "Timer1.h"
+void Timer1_Init(void);
+uint16_t Timer1_DiffCounter(void);
+void Timer1_Handler(void);
+
+# 41 "Buzzer.h"
+void Buzzer_Init(void);
+void Buzzer_SetDuty(uint16_t duty);
+void Buzzer_MiliSecond(uint16_t time);
+void Buzzer_Handler(void);
+
+# 32 "LCD.h"
+void LCD_Init(void);
+void LCD_Put(int8_t word);
+void LCD_DisplayClear(void);
+void LCD_CursorHome(void);
+void LCD_CursorPosition(uint8_t tx ,uint8_t ty);
+void LCD_CursorShift(uint8_t shift,uint8_t RL);
+void LCD_DispShift(uint8_t shift,uint8_t RL);
+
+# 17 "xprintf.h"
+extern void (*xfunc_out)(unsigned char);
+void xputc (char c);
+void xputs (const char* str);
+void xfputs (void (*func)(unsigned char), const char* str);
+void xprintf (const char* fmt, ...);
+void xsprintf (char* buff, const char* fmt, ...);
+void xfprintf (void (*func)(unsigned char), const char* fmt, ...);
+void put_dump (const void* buff, unsigned long addr, int len, int width);
+
+# 32
+extern unsigned char (*xfunc_in)(void);
+int xgets (char* buff, int len);
+int xfgets (unsigned char (*func)(void), char* buff, int len);
+int xatoi (char** str, long* res);
+
+# 23 "I2C.h"
 typedef enum
 {
-MASTER,
-SLAVE,
-}MODE;
+I2C_MODE_MASTER,
+I2C_MODE_SLAVE
+}I2Cx_Mode;
 
 typedef enum
 {
-STANDARD,
-HIGH,
-NONE
-}SPEED;
+I2C_SPEED_STANDARD,
+I2C_SPEED_HIGH,
+I2C_SPEED_NONE
+}I2Cx_Speed;
 
-# 31
-uint8_t I2C_Send(uint8_t adrs,uint8_t len,uint8_t *buf);
-
-# 40
-uint8_t I2C_Receive(uint8_t adrs,uint8_t len,uint8_t *buf);
-
-void Slave_Interrupt( void );
-void I2C_Init(uint8_t add,MODE mode,SPEED spd);
-int _I2C_Transmit(uint8_t address,uint8_t *pData,uint8_t size);
-int _I2C_Receive(uint8_t address,uint8_t *pData,uint8_t size);
-
-# 4 "I2C.c"
-uint8_t rcv_data[8];
-uint8_t snd_data[8];
-
-int8_t rcv_flg;
-
-uint8_t *x,*y;
-
-static void I2C2_PinInit(void)
+typedef enum
 {
-TRISB |= ((1<<2)|(1<<5));
-ANSELB &= ~((1<<2)|(1<<5));
+I2C1_MODULE,
+I2C2_MODULE
+}I2Cx_Module;
 
+typedef struct
+{
+uint8_t SlaveTransmitBuff[8];
+uint8_t SlaveReceiveBuff[8];
+uint8_t *TransmitPoint;
+uint8_t *ReceivePoint;
+I2Cx_Mode Mode;
+}I2Cx_Configuration;
+
+void I2C1_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
+void I2C1_Interrupt(void);
+int8_t I2C1_Transmit(uint8_t address,uint8_t *pData,uint8_t size);
+int8_t I2C1_Receive(uint8_t address,uint8_t *pData,uint8_t size);
+
+void I2C2_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
+void I2C2_Interrupt(void);
+int8_t I2C2_Transmit(uint8_t address,uint8_t *pData,uint8_t size);
+int8_t I2C2_Receive(uint8_t address,uint8_t *pData,uint8_t size);
+
+void I2C_Init(I2Cx_Module I2Cx,uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
+int8_t I2C_Transmit(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
+int8_t I2C_Receive(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
+void I2C_CommonInterrupt(void);
+
+# 26 "MCP4726.h"
+typedef union
+{
+uint8_t Voltage_Data[2];
+struct
+{
+uint8_t Voltage4bits:4;
+uint8_t PowerDown :2;
+uint8_t Command :2;
+uint8_t Voltage8bits:8;
+};
+
+}Voltage_Reg;
+
+typedef union
+{
+uint8_t Memory_Data[3];
+struct
+{
+uint8_t Command :3;
+uint8_t Voltage_Ref :2;
+uint8_t PowerDown :2;
+uint8_t Gain :1;
+uint8_t DataHigher :8;
+uint8_t DataLower :8;
+};
+
+}Memory_Reg;
+
+typedef union
+{
+uint8_t AllMemory_Data[3];
+struct
+{
+uint8_t Command :3;
+uint8_t Voltage_Ref :2;
+uint8_t PowerDown :2;
+uint8_t Gain :1;
+uint8_t DataHigher :8;
+uint8_t DataLower :8;
+};
+
+}AllMemory_Reg;
+
+typedef union
+{
+uint8_t Config_Data[1];
+struct
+{
+uint8_t Gain :1;
+uint8_t PowerDown :2;
+uint8_t Voltage_Ref :2;
+uint8_t Command :3;
+};
+}Config_Reg;
+
+void DAC_Initialize(void);
+int8_t DAC_WriteVoltage(uint16_t volue);
+
+# 21 "mTouch.h"
+void mTouch_Init(void);
+void CPSx_Read(void);
+
+# 17 "Timer4.h"
+void Timer4_Init(void);
+uint8_t Timer4_Handler(void);
+
+
+# 33 "main.h"
+#pragma config FOSC = INTOSC
+#pragma config WDTE = OFF
+#pragma config PWRTE = ON
+#pragma config MCLRE = ON
+#pragma config CP = OFF
+#pragma config CPD = OFF
+#pragma config BOREN = ON
+#pragma config CLKOUTEN = OFF
+#pragma config IESO = OFF
+#pragma config FCMEN = OFF
+
+
+#pragma config WRT = OFF
+#pragma config PLLEN = ON
+#pragma config STVREN = OFF
+#pragma config BORV = LO
+#pragma config LVP = OFF
+
+# 60
+int8_t Basic_Init(void);
+
+# 18 "eeprom.h"
+int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
+int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
+
+# 12 "eeprom.c"
+int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr)
+{
+uint8_t i = 0;
+
+for(;i<size;i++)
+{
+if((addr+i)>256-1)
+return 1;
+eeprom_write(addr+i,pData[i]);
 }
-
-void I2C_Init(uint8_t add,MODE mode,SPEED spd)
-{
-
-I2C2_PinInit();
-
-switch(mode)
-{
-case MASTER:
-SSP2STAT = 0x80;
-SSP2CON1 = 0x28;
-if(spd==STANDARD)SSP2ADD = 0x4F;
-else if(spd==HIGH)SSP2ADD = 0x13;
-else SSP2ADD = 0x4F;
-break;
-
-case SLAVE:
-SSP2STAT = 0x00;
-SSP2CON1 = 0x26;
-SSP2CON2bits.SEN= 1;
-SSP2ADD = add << 1;
-SSP2MSK = 0xfe;
-break;
-}
-SSP2IE = 1;
-BCL1IE = 1;
-PEIE = 1;
-GIE = 1;
-SSP2IF = 0;
-BCL1IF = 0;
-}
-
-void Slave_Interrupt(void)
-{
-if(SSP2IF&&SSP2IE)
-{
-if(SSP2STATbits.D_nA)
-{
-if(SSP2STATbits.R_nW)
-{
-if(!SSP2CON2bits.ACKSTAT)
-{
-while((SSP2CON1bits.CKP)|(SSP2STATbits.BF));
-SSP2BUF = *x;
-x++;
-SSP2CON1bits.CKP = 1;
-}
-}
-else
-{
-*y = SSP2BUF;
-y++;
-rcv_flg++;
-SSP2CON1bits.CKP = 1;
-}
-}
-else if(!SSP2STATbits.D_nA)
-{
-SSP2BUF;
-
-rcv_flg = 0;
-
-if(SSP2STATbits.R_nW)
-{
-x = snd_data;
-
-while((SSP2CON1bits.CKP)|(SSP2STATbits.BF));
-SSP2BUF = *x;
-x++;
-}
-else
-{
-y = rcv_data;
-}
-SSP2CON1bits.CKP = 1;
-}
-SSP2IF = 0;
-}
-
-if(BCL2IE&&BCL2IF)
-{
-BCL2IF = 0;
-}
-
-}
-int _I2C_Transmit(uint8_t address,uint8_t *pData,uint8_t size)
-{
-uint8_t i;
-int8_t ans;
-
-while(SSP2STATbits.R_nW|SSP2STATbits.BF);
-SSP2CON2bits.SEN = 1;
-
-while(SSP2STATbits.R_nW|SSP2STATbits.BF);
-SSP2BUF = address << 1;
-while(SSP2STATbits.R_nW);
-
-ans = SSP2CON2bits.ACKSTAT;
-if (!ans)
-{
-for (i=0;i<size;i++)
-{
-while(SSP2STATbits.R_nW|SSP2STATbits.BF);
-SSP2BUF = *(pData+i);
-while(SSP2STATbits.R_nW);
-
-ans = SSP2CON2bits.ACKSTAT;
-if (ans)
-{
-ans = 2;
-break;
-}
-}
-}
-
-while(SSP2STATbits.R_nW|SSP2STATbits.BF);
-SSP2CON2bits.PEN = 1;
 
 return 0;
 }
 
-int _I2C_Receive(uint8_t address,uint8_t *pData,uint8_t size)
+# 30
+int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr)
 {
-uint8_t i, ans;
+uint8_t i = 0;
 
-while(SSP2STATbits.R_nW|SSP2STATbits.BF);
-SSP2CON2bits.SEN = 1;
-
-while(SSP2STATbits.R_nW|SSP2STATbits.BF);
-SSP2BUF = ((address << 1)|0x01);
-while(SSP2STATbits.R_nW);
-
-ans = SSP2CON2bits.ACKSTAT;
-if (!ans)
+for(;i<size;i++)
 {
-for (i=0;i<size;i++)
-{
-while(SSP2STATbits.R_nW|SSP2STATbits.BF);
-SSP2CON2bits.RCEN = 1;
-while(SSP2CON2bits.RCEN);
-*(pData+i) = SSP2BUF;
-while(SSP2STATbits.R_nW|SSP2STATbits.BF);
-if (i == size-1)
-SSP2CON2bits.ACKDT = 1;
-else
-SSP2CON2bits.ACKDT = 0;
-SSP2CON2bits.ACKEN = 1;
-}
+if((addr+i)>256-1)
+return 1;
+pData[i] = eeprom_read(addr+i);
 }
 
-while(SSP2STATbits.R_nW|SSP2STATbits.BF);
-SSP2CON2bits.PEN = 1;
-
-return ans;
+return 0;
 }
-

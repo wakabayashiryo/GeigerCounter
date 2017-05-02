@@ -2995,78 +2995,146 @@ Version 3.2 HI-TECH Software Intermediate Code
 "49
 [p x LVP=OFF ]
 [; ;main.h: 60: int8_t Basic_Init(void);
-[; ;Buzer.h: 41: void Buzer_Init(void);
-[; ;Buzer.h: 42: void Buzer_SetDuty(uint16_t duty);
-"9 Buzer.c
-[v _Buzer_Init `(v ~T0 @X0 1 ef ]
-"10
-{
-[; ;Buzer.c: 9: void Buzer_Init(void)
-[; ;Buzer.c: 10: {
-[e :U _Buzer_Init ]
-[f ]
-[; ;Buzer.c: 11: TRISA &= ~(0x01<<7);
+[; ;Buzzer.h: 41: void Buzzer_Init(void);
+[; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
+[; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
+[; ;Buzzer.h: 44: void Buzzer_Handler(void);
+"9 Buzzer.c
+[v _count `ui ~T0 @X0 1 s ]
+[; ;Buzzer.c: 9: static uint16_t count;
 "11
-[e =& _TRISA -> ~ << -> 1 `i -> 7 `i `uc ]
-[; ;Buzer.c: 12: ANSELA &= ~(0x01<<7);
+[v _Buzzer_Init `(v ~T0 @X0 1 ef ]
 "12
-[e =& _ANSELA -> ~ << -> 1 `i -> 7 `i `uc ]
-[; ;Buzer.c: 13: APFCON0 |= (0x01<<3);
+{
+[; ;Buzzer.c: 11: void Buzzer_Init(void)
+[; ;Buzzer.c: 12: {
+[e :U _Buzzer_Init ]
+[f ]
+[; ;Buzzer.c: 13: TRISA &= ~(0x01<<7);
 "13
-[e =| _APFCON0 -> << -> 1 `i -> 3 `i `uc ]
-[; ;Buzer.c: 15: T2CON |= (0x00<<3);
+[e =& _TRISA -> ~ << -> 1 `i -> 7 `i `uc ]
+[; ;Buzzer.c: 14: ANSELA &= ~(0x01<<7);
+"14
+[e =& _ANSELA -> ~ << -> 1 `i -> 7 `i `uc ]
+[; ;Buzzer.c: 15: APFCON0 |= (0x01<<3);
 "15
-[e =| _T2CON -> << -> 0 `i -> 3 `i `uc ]
-[; ;Buzer.c: 16: T2CON |= (0x02<<0);
-"16
-[e =| _T2CON -> << -> 2 `i -> 0 `i `uc ]
-[; ;Buzer.c: 17: T2CON |= (0x01<<2);
+[e =| _APFCON0 -> << -> 1 `i -> 3 `i `uc ]
+[; ;Buzzer.c: 17: T2CON |= (0x00<<3);
 "17
-[e =| _T2CON -> << -> 1 `i -> 2 `i `uc ]
-[; ;Buzer.c: 19: TMR2 = 0x00;
+[e =| _T2CON -> << -> 0 `i -> 3 `i `uc ]
+[; ;Buzzer.c: 18: T2CON |= (0x02<<0);
+"18
+[e =| _T2CON -> << -> 2 `i -> 0 `i `uc ]
+[; ;Buzzer.c: 19: T2CON |= (0x01<<2);
 "19
+[e =| _T2CON -> << -> 1 `i -> 2 `i `uc ]
+[; ;Buzzer.c: 21: TMR2 = 0x00;
+"21
 [e = _TMR2 -> -> 0 `i `uc ]
-[; ;Buzer.c: 20: PR2 = 0xFF;
-"20
-[e = _PR2 -> -> 255 `i `uc ]
-[; ;Buzer.c: 22: CCP2CON &= ~(0x03<<6);
+[; ;Buzzer.c: 22: PR2 = 0xFF;
 "22
-[e =& _CCP2CON -> ~ << -> 3 `i -> 6 `i `uc ]
-[; ;Buzer.c: 23: CCP2CON |= (0x0C<<0);
-"23
-[e =| _CCP2CON -> << -> 12 `i -> 0 `i `uc ]
-[; ;Buzer.c: 24: CCPTMRS &= ~(0x03<<2);
+[e = _PR2 -> -> 255 `i `uc ]
+[; ;Buzzer.c: 24: CCP2CON &= ~(0x03<<6);
 "24
-[e =& _CCPTMRS -> ~ << -> 3 `i -> 2 `i `uc ]
-[; ;Buzer.c: 26: CCPR2L = 0x00;
+[e =& _CCP2CON -> ~ << -> 3 `i -> 6 `i `uc ]
+[; ;Buzzer.c: 25: CCP2CON |= (0x0C<<0);
+"25
+[e =| _CCP2CON -> << -> 12 `i -> 0 `i `uc ]
+[; ;Buzzer.c: 26: CCPTMRS &= ~(0x03<<2);
 "26
+[e =& _CCPTMRS -> ~ << -> 3 `i -> 2 `i `uc ]
+[; ;Buzzer.c: 28: CCPR2L = 0x00;
+"28
 [e = _CCPR2L -> -> 0 `i `uc ]
-[; ;Buzer.c: 27: }
-"27
+[; ;Buzzer.c: 29: }
+"29
 [e :UE 362 ]
 }
-"29
-[v _Buzer_SetDuty `(v ~T0 @X0 1 ef1`ui ]
-"30
-{
-[; ;Buzer.c: 29: void Buzer_SetDuty(uint16_t duty)
-[; ;Buzer.c: 30: {
-[e :U _Buzer_SetDuty ]
-"29
-[v _duty `ui ~T0 @X0 1 r1 ]
-"30
-[f ]
 "31
-[v _CCP2CON_Pre `uc ~T0 @X0 1 a ]
-[; ;Buzer.c: 31: uint8_t CCP2CON_Pre = CCP2CON;
-[e = _CCP2CON_Pre _CCP2CON ]
-[; ;Buzer.c: 32: CCPR2L = (duty>>2);
+[v _Buzzer_SetDuty `(v ~T0 @X0 1 ef1`ui ]
 "32
-[e = _CCPR2L -> >> _duty -> 2 `i `uc ]
-[; ;Buzer.c: 33: CCP2CON = CCP2CON_Pre | ((duty&0x03)<<4);
+{
+[; ;Buzzer.c: 31: void Buzzer_SetDuty(uint16_t duty)
+[; ;Buzzer.c: 32: {
+[e :U _Buzzer_SetDuty ]
+"31
+[v _duty `ui ~T0 @X0 1 r1 ]
+"32
+[f ]
 "33
-[e = _CCP2CON -> | -> _CCP2CON_Pre `ui << & _duty -> -> 3 `i `ui -> 4 `i `uc ]
-[; ;Buzer.c: 34: }
+[v _CCP2CON_Pre `uc ~T0 @X0 1 a ]
+[; ;Buzzer.c: 33: uint8_t CCP2CON_Pre = CCP2CON;
+[e = _CCP2CON_Pre _CCP2CON ]
+[; ;Buzzer.c: 34: CCPR2L = (duty>>2);
 "34
+[e = _CCPR2L -> >> _duty -> 2 `i `uc ]
+[; ;Buzzer.c: 35: CCP2CON = CCP2CON_Pre | ((duty&0x03)<<4);
+"35
+[e = _CCP2CON -> | -> _CCP2CON_Pre `ui << & _duty -> -> 3 `i `ui -> 4 `i `uc ]
+[; ;Buzzer.c: 36: }
+"36
 [e :UE 363 ]
+}
+"38
+[v _Buzzer_MiliSecond `(v ~T0 @X0 1 ef1`ui ]
+"39
+{
+[; ;Buzzer.c: 38: void Buzzer_MiliSecond(uint16_t time)
+[; ;Buzzer.c: 39: {
+[e :U _Buzzer_MiliSecond ]
+"38
+[v _time `ui ~T0 @X0 1 r1 ]
+"39
+[f ]
+[; ;Buzzer.c: 40: if(count==0)
+"40
+[e $ ! == _count -> -> 0 `i `ui 365  ]
+[; ;Buzzer.c: 41: count = time;
+"41
+[e = _count _time ]
+[e :U 365 ]
+[; ;Buzzer.c: 42: }
+"42
+[e :UE 364 ]
+}
+"44
+[v _Buzzer_Handler `(v ~T0 @X0 1 ef ]
+"45
+{
+[; ;Buzzer.c: 44: void Buzzer_Handler(void)
+[; ;Buzzer.c: 45: {
+[e :U _Buzzer_Handler ]
+[f ]
+[; ;Buzzer.c: 46: if(count>0)
+"46
+[e $ ! > _count -> -> 0 `i `ui 367  ]
+[; ;Buzzer.c: 47: {
+"47
+{
+[; ;Buzzer.c: 48: count--;
+"48
+[e -- _count -> -> 1 `i `ui ]
+[; ;Buzzer.c: 49: Buzzer_SetDuty(0x01FF);
+"49
+[e ( _Buzzer_SetDuty (1 -> -> 511 `i `ui ]
+"50
+}
+[; ;Buzzer.c: 50: }
+[e $U 368  ]
+"51
+[e :U 367 ]
+[; ;Buzzer.c: 51: else
+[; ;Buzzer.c: 52: {
+"52
+{
+[; ;Buzzer.c: 53: Buzzer_SetDuty(0x0000);
+"53
+[e ( _Buzzer_SetDuty (1 -> -> 0 `i `ui ]
+"54
+}
+[e :U 368 ]
+[; ;Buzzer.c: 54: }
+[; ;Buzzer.c: 55: }
+"55
+[e :UE 366 ]
 }

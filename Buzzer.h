@@ -28,18 +28,20 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef BUZER_H
-#define	BUZER_H
+#ifndef BUZZER_H
+#define	BUZZER_H
 
 #include "main.h"
 
-#define BUZER_PR2 0xFF
+#define BUZZER_PR2 0xFF
     
-#define Buzer_Sound() Buzer_SetDuty(0x01FF)
-#define Buzer_Silent() Buzer_SetDuty(0x0000)
+#define Buzzer_Sound() Buzzer_SetDuty(0x01FF)
+#define Buzzer_Silent() Buzzer_SetDuty(0x0000)
     
-void Buzer_Init(void);
-void Buzer_SetDuty(uint16_t duty);
+void Buzzer_Init(void);
+void Buzzer_SetDuty(uint16_t duty);
+void Buzzer_MiliSecond(uint16_t time);
+void Buzzer_Handler(void);//Set Function Repeat for 1 mili second
 
 
 #endif	/* BUZER_H */

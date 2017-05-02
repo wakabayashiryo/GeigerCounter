@@ -1,6 +1,6 @@
- build/default/debug/main.d  \
- build/default/debug/main.p1:  \
- main.c  \
+ build/default/debug/Timer4.d  \
+ build/default/debug/Timer4.p1:  \
+ Timer4.c  \
 I2C.h  \
 xprintf.h  \
 main.h  \

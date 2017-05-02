@@ -1,5 +1,5 @@
 
-# 1 "Buzer.c"
+# 1 "Buzzer.c"
 
 # 26 "/opt/microchip/xc8/v1.41/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4051,12 +4051,16 @@ uint8_t Timer4_Handler(void);
 # 60
 int8_t Basic_Init(void);
 
-# 41 "Buzer.h"
-void Buzer_Init(void);
-void Buzer_SetDuty(uint16_t duty);
+# 41 "Buzzer.h"
+void Buzzer_Init(void);
+void Buzzer_SetDuty(uint16_t duty);
+void Buzzer_MiliSecond(uint16_t time);
+void Buzzer_Handler(void);
 
-# 9 "Buzer.c"
-void Buzer_Init(void)
+# 9 "Buzzer.c"
+static uint16_t count;
+
+void Buzzer_Init(void)
 {
 TRISA &= ~(0x01<<7);
 ANSELA &= ~(0x01<<7);
@@ -4076,9 +4080,28 @@ CCPTMRS &= ~(0x03<<2);
 CCPR2L = 0x00;
 }
 
-void Buzer_SetDuty(uint16_t duty)
+void Buzzer_SetDuty(uint16_t duty)
 {
 uint8_t CCP2CON_Pre = CCP2CON;
 CCPR2L = (duty>>2);
 CCP2CON = CCP2CON_Pre | ((duty&0x03)<<4);
+}
+
+void Buzzer_MiliSecond(uint16_t time)
+{
+if(count==0)
+count = time;
+}
+
+void Buzzer_Handler(void)
+{
+if(count>0)
+{
+count--;
+Buzzer_SetDuty(0x01FF);
+}
+else
+{
+Buzzer_SetDuty(0x0000);
+}
 }

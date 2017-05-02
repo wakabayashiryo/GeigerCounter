@@ -16,6 +16,8 @@ int8_t main(void)
     
     LED_BLUE(LED_OFF);      //Clear Bule LED    
     
+    Buzzer_Init();
+
     LCD_Init();
     xdev_out(LCD_Put);
     
@@ -25,20 +27,21 @@ int8_t main(void)
     mTouch_Init();
     
     Timer4_Init();
-    
-    Buzer_Init();
-    
+        
     DAC_Initialize();
 
     while(1)
     {
-//        Buzer_Sound();
+        
         LCD_CursorPosition(0,0);
-        if((CPS_PreData[0]-CPS_Data[0])>150)
+        if((CPS_PreData[0]-CPS_Data[0])>100)
+        {
+            Buzzer_MiliSecond(100);
             xprintf("CPS1");
-        else if((CPS_PreData[1]-CPS_Data[1])>150)
+        }
+        else if((CPS_PreData[1]-CPS_Data[1])>100)
             xprintf("CPS2");
-        else if((CPS_PreData[2]-CPS_Data[2])>150)
+        else if((CPS_PreData[2]-CPS_Data[2])>100)
             xprintf("CPS3");
     }
     
@@ -72,6 +75,7 @@ void interrupt Handler(void)
     if(Timer4_Handler())
     {
         CPSx_Read();
+        Buzzer_Handler();
         count++;
         if(count>1000)
         {

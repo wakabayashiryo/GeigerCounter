@@ -3883,9 +3883,11 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 41 "Buzer.h"
-void Buzer_Init(void);
-void Buzer_SetDuty(uint16_t duty);
+# 41 "Buzzer.h"
+void Buzzer_Init(void);
+void Buzzer_SetDuty(uint16_t duty);
+void Buzzer_MiliSecond(uint16_t time);
+void Buzzer_Handler(void);
 
 # 32 "LCD.h"
 void LCD_Init(void);

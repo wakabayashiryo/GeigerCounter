@@ -3888,6 +3888,12 @@ void Timer1_Init(void);
 uint16_t Timer1_DiffCounter(void);
 void Timer1_Handler(void);
 
+# 41 "Buzzer.h"
+void Buzzer_Init(void);
+void Buzzer_SetDuty(uint16_t duty);
+void Buzzer_MiliSecond(uint16_t time);
+void Buzzer_Handler(void);
+
 # 17 "xprintf.h"
 extern void (*xfunc_out)(unsigned char);
 void xputc (char c);
@@ -4007,12 +4013,20 @@ uint8_t Command :3;
 void DAC_Initialize(void);
 int8_t DAC_WriteVoltage(uint16_t volue);
 
+# 18 "eeprom.h"
+int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
+int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
 
-<<<<<<< HEAD
-# 26 "main.h"
-=======
-# 27 "main.h"
->>>>>>> ExternalDAC
+# 21 "mTouch.h"
+void mTouch_Init(void);
+void CPSx_Read(void);
+
+# 17 "Timer4.h"
+void Timer4_Init(void);
+uint8_t Timer4_Handler(void);
+
+
+# 33 "main.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = ON
@@ -4031,11 +4045,7 @@ int8_t DAC_WriteVoltage(uint16_t volue);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-<<<<<<< HEAD
-# 49
-=======
-# 50
->>>>>>> ExternalDAC
+# 60
 int8_t Basic_Init(void);
 
 # 32 "LCD.h"
@@ -4052,27 +4062,27 @@ static void LCD_WriteData(int8_t point)
 {
 _delay((unsigned long)((80)*(32000000/4000000.0)));
 PORTB = ( (((point>>4)&0x0F&0x0C)<<1)|((point>>4)&0x0F&0x03) );
-{RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
+{LATA4 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); LATA4 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
 PORTB = ( ((point&0x0F&0x0C)<<1)|(point&0x0F&0x03) );
-{RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
+{LATA4 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); LATA4 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
 }
 
 # 28
 void LCD_Init(void)
 {
-RA4 = 0;
-RA3 = 0;
+LATA3 = 0;
+LATA4 = 0;
 
 _delay((unsigned long)((30)*(32000000/4000.0)));
 PORTB = ( ((0x03&0x0C)<<1)|(0x03&0x03) );
-{RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
+{LATA4 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); LATA4 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
 _delay((unsigned long)((5)*(32000000/4000.0)));
-{RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
+{LATA4 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); LATA4 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
 _delay((unsigned long)((400)*(32000000/4000000.0)));
-{RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
+{LATA4 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); LATA4 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
 _delay((unsigned long)((400)*(32000000/4000000.0)));
 PORTB = ( ((0x02&0x0C)<<1)|(0x02&0x03) );
-{RA3 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); RA3 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
+{LATA4 = 1; _delay((unsigned long)((1)*(32000000/4000000.0))); LATA4 = 0; _delay((unsigned long)((1)*(32000000/4000000.0)));};
 
 LCD_WriteData(0x28);
 LCD_WriteData(0x0c);
@@ -4083,14 +4093,14 @@ LCD_WriteData(0x06);
 # 54
 void LCD_Put(int8_t word)
 {
-RA4 = 1;
+LATA3 = 1;
 LCD_WriteData(word);
 }
 
 # 64
 void LCD_DisplayClear(void)
 {
-RA4 = 0;
+LATA3 = 0;
 LCD_WriteData(0x01);
 _delay((unsigned long)((2)*(32000000/4000.0)));
 }
@@ -4098,7 +4108,7 @@ _delay((unsigned long)((2)*(32000000/4000.0)));
 # 75
 void LCD_CursorHome(void)
 {
-RA4 = 0;
+LATA3 = 0;
 LCD_WriteData(0x02);
 _delay((unsigned long)((2)*(32000000/4000.0)));
 }
@@ -4106,7 +4116,7 @@ _delay((unsigned long)((2)*(32000000/4000.0)));
 # 86
 void LCD_CursorPosition(uint8_t tx ,uint8_t ty)
 {
-RA4 = 0;
+LATA3 = 0;
 LCD_WriteData(0x80|tx|(0x40*ty));
 _delay((unsigned long)((40)*(32000000/4000000.0)));
 }
@@ -4116,7 +4126,7 @@ void LCD_CursorShift(uint8_t shift,uint8_t RL)
 {
 uint8_t i;
 
-RA4 = 0;
+LATA3 = 0;
 
 for(i=0;i<shift;i++)
 {
@@ -4130,7 +4140,7 @@ void LCD_DispShift(uint8_t shift,uint8_t RL)
 {
 uint8_t i;
 
-RA4 = 0;
+LATA3 = 0;
 for(i=0;i<shift;i++)
 {
 LCD_WriteData(0x18|((RL&0x01)<<2));

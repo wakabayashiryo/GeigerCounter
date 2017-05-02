@@ -3888,9 +3888,11 @@ void Timer1_Init(void);
 uint16_t Timer1_DiffCounter(void);
 void Timer1_Handler(void);
 
-# 41 "Buzer.h"
-void Buzer_Init(void);
-void Buzer_SetDuty(uint16_t duty);
+# 41 "Buzzer.h"
+void Buzzer_Init(void);
+void Buzzer_SetDuty(uint16_t duty);
+void Buzzer_MiliSecond(uint16_t time);
+void Buzzer_Handler(void);
 
 # 32 "LCD.h"
 void LCD_Init(void);
@@ -4065,6 +4067,8 @@ Basic_Init();
 
 LATA6 = 1;
 
+Buzzer_Init();
+
 LCD_Init();
 xfunc_out = (void(*)(unsigned char))(LCD_Put);
 
@@ -4075,19 +4079,20 @@ mTouch_Init();
 
 Timer4_Init();
 
-Buzer_Init();
-
 DAC_Initialize();
 
 while(1)
 {
 
 LCD_CursorPosition(0,0);
-if((CPS_PreData[0]-CPS_Data[0])>150)
+if((CPS_PreData[0]-CPS_Data[0])>100)
+{
+Buzzer_MiliSecond(100);
 xprintf("CPS1");
-else if((CPS_PreData[1]-CPS_Data[1])>150)
+}
+else if((CPS_PreData[1]-CPS_Data[1])>100)
 xprintf("CPS2");
-else if((CPS_PreData[2]-CPS_Data[2])>150)
+else if((CPS_PreData[2]-CPS_Data[2])>100)
 xprintf("CPS3");
 }
 
@@ -4121,6 +4126,7 @@ static uint16_t count = 0;
 if(Timer4_Handler())
 {
 CPSx_Read();
+Buzzer_Handler();
 count++;
 if(count>1000)
 {

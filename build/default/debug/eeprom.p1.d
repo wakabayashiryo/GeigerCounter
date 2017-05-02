@@ -1,6 +1,6 @@
- build/default/debug/main.d  \
- build/default/debug/main.p1:  \
- main.c  \
+ build/default/debug/eeprom.d  \
+ build/default/debug/eeprom.p1:  \
+ eeprom.c  \
 I2C.h  \
 xprintf.h  \
 main.h  \

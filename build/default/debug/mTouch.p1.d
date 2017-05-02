@@ -1,6 +1,6 @@
- build/default/debug/main.d  \
- build/default/debug/main.p1:  \
- main.c  \
+ build/default/debug/mTouch.d  \
+ build/default/debug/mTouch.p1:  \
+ mTouch.c  \
 I2C.h  \
 xprintf.h  \
 main.h  \

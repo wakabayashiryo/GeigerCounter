@@ -4,10 +4,10 @@
 I2C.h  \
 xprintf.h  \
 main.h  \
-<<<<<<< HEAD
-LCD.h  \
-Timer1.h 
-=======
 MCP4726.h  \
-LCD.h 
->>>>>>> ExternalDAC
+LCD.h  \
+mTouch.h  \
+Timer1.h  \
+Timer4.h  \
+eeprom.h  \
+Buzzer.h 
