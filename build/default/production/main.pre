@@ -3888,9 +3888,11 @@ void Timer1_Init(void);
 uint16_t Timer1_DiffCounter(void);
 void Timer1_Handler(void);
 
-# 41 "Buzer.h"
-void Buzer_Init(void);
-void Buzer_SetDuty(uint16_t duty);
+# 41 "Buzzer.h"
+void Buzzer_Init(void);
+void Buzzer_SetDuty(uint16_t duty);
+void Buzzer_MiliSecond(uint16_t time);
+void Buzzer_Handler(void);
 
 # 32 "LCD.h"
 void LCD_Init(void);
@@ -4024,8 +4026,16 @@ int8_t DAC_WriteVoltage(uint16_t volue);
 int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
 int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
 
+# 21 "mTouch.h"
+void mTouch_Init(void);
+void CPSx_Read(void);
 
-# 31 "main.h"
+# 17 "Timer4.h"
+void Timer4_Init(void);
+uint8_t Timer4_Handler(void);
+
+
+# 33 "main.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = ON
@@ -4044,15 +4054,20 @@ int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 54
+# 60
 int8_t Basic_Init(void);
 
 # 10 "main.c"
+uint8_t CPS_Data[3];
+uint8_t CPS_PreData[3];
+
 int8_t main(void)
 {
 Basic_Init();
 
 LATA6 = 1;
+
+Buzzer_Init();
 
 LCD_Init();
 xfunc_out = (void(*)(unsigned char))(LCD_Put);
@@ -4060,17 +4075,25 @@ xfunc_out = (void(*)(unsigned char))(LCD_Put);
 Timer1_Init();
 TMR1ON = 1;;
 
-Buzer_Init();
+mTouch_Init();
+
+Timer4_Init();
 
 DAC_Initialize();
 
 while(1)
 {
-LATA6 ^= 1;
-_delay((unsigned long)((500)*(32000000/4000.0)));
 
 LCD_CursorPosition(0,0);
-xprintf("Hellow World");
+if((CPS_PreData[0]-CPS_Data[0])>100)
+{
+Buzzer_MiliSecond(100);
+xprintf("CPS1");
+}
+else if((CPS_PreData[1]-CPS_Data[1])>100)
+xprintf("CPS2");
+else if((CPS_PreData[2]-CPS_Data[2])>100)
+xprintf("CPS3");
 }
 
 return 0;
@@ -4099,6 +4122,19 @@ return 0;
 
 void interrupt Handler(void)
 {
+static uint16_t count = 0;
+if(Timer4_Handler())
+{
+CPSx_Read();
+Buzzer_Handler();
+count++;
+if(count>1000)
+{
+count = 0;
+LATA6 ^= 1;
+}
+}
+
 Timer1_Handler();
 I2C_CommonInterrupt();
 }

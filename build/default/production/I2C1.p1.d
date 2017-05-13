@@ -4,8 +4,10 @@
 I2C.h  \
 xprintf.h  \
 main.h  \
-Buzer.h  \
 MCP4726.h  \
 LCD.h  \
+mTouch.h  \
 Timer1.h  \
-eeprom.h 
+Timer4.h  \
+eeprom.h  \
+Buzzer.h 

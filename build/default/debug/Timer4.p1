@@ -1,22 +1,18 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"1118 /opt/microchip/xc8/v1.41/include/pic16f1827.h
-[v _TRISA `Vuc ~T0 @X0 0 e@140 ]
-"2795
-[v _ANSELA `Vuc ~T0 @X0 0 e@396 ]
-"2715
-[v _APFCON0 `Vuc ~T0 @X0 0 e@285 ]
-"950
-[v _T2CON `Vuc ~T0 @X0 0 e@28 ]
-"912
-[v _TMR2 `Vuc ~T0 @X0 0 e@26 ]
-"931
-[v _PR2 `Vuc ~T0 @X0 0 e@27 ]
-"4928
-[v _CCP2CON `Vuc ~T0 @X0 0 e@666 ]
-"5282
-[v _CCPTMRS `Vuc ~T0 @X0 0 e@670 ]
-"4890
-[v _CCPR2L `Vuc ~T0 @X0 0 e@664 ]
+"6200 /opt/microchip/xc8/v1.41/include/pic16f1827.h
+[v _PR4 `Vuc ~T0 @X0 0 e@1046 ]
+"6181
+[v _TMR4 `Vuc ~T0 @X0 0 e@1045 ]
+"6219
+[v _T4CON `Vuc ~T0 @X0 0 e@1047 ]
+"7444
+[v _TMR4IF `Vb ~T0 @X0 0 e@153 ]
+"7442
+[v _TMR4IE `Vb ~T0 @X0 0 e@1177 ]
+"7182
+[v _PEIE `Vb ~T0 @X0 0 e@94 ]
+"6960
+[v _GIE `Vb ~T0 @X0 0 e@95 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2853,6 +2849,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.h: 28: void Timer1_Init(void);
 [; ;Timer1.h: 29: uint16_t Timer1_DiffCounter(void);
 [; ;Timer1.h: 30: void Timer1_Handler(void);
+[; ;Buzzer.h: 41: void Buzzer_Init(void);
+[; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
+[; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
+[; ;Buzzer.h: 44: void Buzzer_Handler(void);
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void LCD_DisplayClear(void);
@@ -2960,109 +2960,110 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MCP4726.h: 82: int8_t DAC_WriteVoltage(uint16_t volue);
 [; ;eeprom.h: 18: int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
 [; ;eeprom.h: 19: int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
-"31 main.h
+[; ;mTouch.h: 21: void mTouch_Init(void);
+[; ;mTouch.h: 22: void CPSx_Read(void);
+"33 main.h
 [p x FOSC=INTOSC ]
-"32
-[p x WDTE=OFF ]
-"33
-[p x PWRTE=ON ]
 "34
-[p x MCLRE=ON ]
+[p x WDTE=OFF ]
 "35
-[p x CP=OFF ]
+[p x PWRTE=ON ]
 "36
-[p x CPD=OFF ]
+[p x MCLRE=ON ]
 "37
-[p x BOREN=ON ]
+[p x CP=OFF ]
 "38
-[p x CLKOUTEN=OFF ]
+[p x CPD=OFF ]
 "39
-[p x IESO=OFF ]
+[p x BOREN=ON ]
 "40
+[p x CLKOUTEN=OFF ]
+"41
+[p x IESO=OFF ]
+"42
 [p x FCMEN=OFF ]
-"43
-[p x WRT=OFF ]
-"44
-[p x PLLEN=ON ]
 "45
-[p x STVREN=OFF ]
+[p x WRT=OFF ]
 "46
-[p x BORV=LO ]
+[p x PLLEN=ON ]
 "47
+[p x STVREN=OFF ]
+"48
+[p x BORV=LO ]
+"49
 [p x LVP=OFF ]
-[; ;main.h: 54: int8_t Basic_Init(void);
-[; ;Buzer.h: 41: void Buzer_Init(void);
-[; ;Buzer.h: 42: void Buzer_SetDuty(uint16_t duty);
-"9 Buzer.c
-[v _Buzer_Init `(v ~T0 @X0 1 ef ]
-"10
+[; ;main.h: 60: int8_t Basic_Init(void);
+[; ;Timer4.h: 17: void Timer4_Init(void);
+[; ;Timer4.h: 18: uint8_t Timer4_Handler(void);
+"3 Timer4.c
+[v _Timer4_Init `(v ~T0 @X0 1 ef ]
+"4
 {
-[; ;Buzer.c: 9: void Buzer_Init(void)
-[; ;Buzer.c: 10: {
-[e :U _Buzer_Init ]
+[; ;Timer4.c: 3: void Timer4_Init(void)
+[; ;Timer4.c: 4: {
+[e :U _Timer4_Init ]
 [f ]
-[; ;Buzer.c: 11: TRISA &= ~(0x01<<7);
+[; ;Timer4.c: 5: PR4 = 0x7D;
+"5
+[e = _PR4 -> -> 125 `i `uc ]
+[; ;Timer4.c: 6: TMR4 = 0x00;
+"6
+[e = _TMR4 -> -> 0 `i `uc ]
+[; ;Timer4.c: 7: T4CON |= (0x03<<0);
+"7
+[e =| _T4CON -> << -> 3 `i -> 0 `i `uc ]
+[; ;Timer4.c: 8: T4CON |= (0x00<<3);
+"8
+[e =| _T4CON -> << -> 0 `i -> 3 `i `uc ]
+[; ;Timer4.c: 9: T4CON |= (0x01<<2);
+"9
+[e =| _T4CON -> << -> 1 `i -> 2 `i `uc ]
+[; ;Timer4.c: 11: TMR4IF = 0;
 "11
-[e =& _TRISA -> ~ << -> 1 `i -> 7 `i `uc ]
-[; ;Buzer.c: 12: ANSELA &= ~(0x01<<7);
+[e = _TMR4IF -> -> 0 `i `b ]
+[; ;Timer4.c: 12: TMR4IE = 1;
 "12
-[e =& _ANSELA -> ~ << -> 1 `i -> 7 `i `uc ]
-[; ;Buzer.c: 13: APFCON0 |= (0x01<<3);
+[e = _TMR4IE -> -> 1 `i `b ]
+[; ;Timer4.c: 13: PEIE = 1;
 "13
-[e =| _APFCON0 -> << -> 1 `i -> 3 `i `uc ]
-[; ;Buzer.c: 15: T2CON |= (0x00<<3);
+[e = _PEIE -> -> 1 `i `b ]
+[; ;Timer4.c: 14: GIE = 1;
+"14
+[e = _GIE -> -> 1 `i `b ]
+[; ;Timer4.c: 15: }
 "15
-[e =| _T2CON -> << -> 0 `i -> 3 `i `uc ]
-[; ;Buzer.c: 16: T2CON |= (0x02<<0);
-"16
-[e =| _T2CON -> << -> 2 `i -> 0 `i `uc ]
-[; ;Buzer.c: 17: T2CON |= (0x01<<2);
-"17
-[e =| _T2CON -> << -> 1 `i -> 2 `i `uc ]
-[; ;Buzer.c: 19: TMR2 = 0x00;
-"19
-[e = _TMR2 -> -> 0 `i `uc ]
-[; ;Buzer.c: 20: PR2 = 0xFF;
-"20
-[e = _PR2 -> -> 255 `i `uc ]
-[; ;Buzer.c: 22: CCP2CON &= ~(0x03<<6);
-"22
-[e =& _CCP2CON -> ~ << -> 3 `i -> 6 `i `uc ]
-[; ;Buzer.c: 23: CCP2CON |= (0x0C<<0);
-"23
-[e =| _CCP2CON -> << -> 12 `i -> 0 `i `uc ]
-[; ;Buzer.c: 24: CCPTMRS &= ~(0x03<<2);
-"24
-[e =& _CCPTMRS -> ~ << -> 3 `i -> 2 `i `uc ]
-[; ;Buzer.c: 26: CCPR2L = 0x00;
-"26
-[e = _CCPR2L -> -> 0 `i `uc ]
-[; ;Buzer.c: 27: }
-"27
 [e :UE 362 ]
 }
-"29
-[v _Buzer_SetDuty `(v ~T0 @X0 1 ef1`ui ]
-"30
+"17
+[v _Timer4_Handler `(uc ~T0 @X0 1 ef ]
+"18
 {
-[; ;Buzer.c: 29: void Buzer_SetDuty(uint16_t duty)
-[; ;Buzer.c: 30: {
-[e :U _Buzer_SetDuty ]
-"29
-[v _duty `ui ~T0 @X0 1 r1 ]
-"30
+[; ;Timer4.c: 17: uint8_t Timer4_Handler(void)
+[; ;Timer4.c: 18: {
+[e :U _Timer4_Handler ]
 [f ]
-"31
-[v _CCP2CON_Pre `uc ~T0 @X0 1 a ]
-[; ;Buzer.c: 31: uint8_t CCP2CON_Pre = CCP2CON;
-[e = _CCP2CON_Pre _CCP2CON ]
-[; ;Buzer.c: 32: CCPR2L = (duty>>2);
-"32
-[e = _CCPR2L -> >> _duty -> 2 `i `uc ]
-[; ;Buzer.c: 33: CCP2CON = CCP2CON_Pre | ((duty&0x03)<<4);
-"33
-[e = _CCP2CON -> | -> _CCP2CON_Pre `ui << & _duty -> -> 3 `i `ui -> 4 `i `uc ]
-[; ;Buzer.c: 34: }
-"34
+[; ;Timer4.c: 19: if(TMR4IE&&TMR4IF)
+"19
+[e $ ! && _TMR4IE _TMR4IF 364  ]
+[; ;Timer4.c: 20: {
+"20
+{
+[; ;Timer4.c: 21: TMR4IF = 0;
+"21
+[e = _TMR4IF -> -> 0 `i `b ]
+[; ;Timer4.c: 22: return 1;
+"22
+[e ) -> -> 1 `i `uc ]
+[e $UE 363  ]
+"23
+}
+[e :U 364 ]
+[; ;Timer4.c: 23: }
+[; ;Timer4.c: 24: return 0;
+"24
+[e ) -> -> 0 `i `uc ]
+[e $UE 363  ]
+[; ;Timer4.c: 25: }
+"25
 [e :UE 363 ]
 }

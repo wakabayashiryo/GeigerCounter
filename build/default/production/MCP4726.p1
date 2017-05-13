@@ -18,16 +18,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [u S356 `uc -> 3 `i `S357 1 ]
 [n S356 . Memory_Data . ]
 "16 MCP4726.c
-[c E3000 0 1 .. ]
-[n E3000 . I2C1_MODULE I2C2_MODULE  ]
-[c E2991 0 1 .. ]
-[n E2991 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
-[c E2995 0 1 2 .. ]
-[n E2995 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
+[c E3004 0 1 .. ]
+[n E3004 . I2C1_MODULE I2C2_MODULE  ]
+[c E2995 0 1 .. ]
+[n E2995 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
+[c E2999 0 1 2 .. ]
+[n E2999 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
 "61 I2C.h
-[v _I2C_Init `(v ~T0 @X0 0 ef4`E3000`uc`E2991`E2995 ]
+[v _I2C_Init `(v ~T0 @X0 0 ef4`E3004`uc`E2995`E2999 ]
 "62
-[v _I2C_Transmit `(c ~T0 @X0 0 ef4`E3000`uc`*uc`uc ]
+[v _I2C_Transmit `(c ~T0 @X0 0 ef4`E3004`uc`*uc`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2864,8 +2864,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.h: 28: void Timer1_Init(void);
 [; ;Timer1.h: 29: uint16_t Timer1_DiffCounter(void);
 [; ;Timer1.h: 30: void Timer1_Handler(void);
-[; ;Buzer.h: 41: void Buzer_Init(void);
-[; ;Buzer.h: 42: void Buzer_SetDuty(uint16_t duty);
+[; ;Buzzer.h: 41: void Buzzer_Init(void);
+[; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
+[; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
+[; ;Buzzer.h: 44: void Buzzer_Handler(void);
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void LCD_DisplayClear(void);
@@ -2923,37 +2925,41 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;I2C.h: 64: void I2C_CommonInterrupt(void);
 [; ;eeprom.h: 18: int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
 [; ;eeprom.h: 19: int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
-"31 main.h
+[; ;mTouch.h: 21: void mTouch_Init(void);
+[; ;mTouch.h: 22: void CPSx_Read(void);
+[; ;Timer4.h: 17: void Timer4_Init(void);
+[; ;Timer4.h: 18: uint8_t Timer4_Handler(void);
+"33 main.h
 [p x FOSC=INTOSC ]
-"32
-[p x WDTE=OFF ]
-"33
-[p x PWRTE=ON ]
 "34
-[p x MCLRE=ON ]
+[p x WDTE=OFF ]
 "35
-[p x CP=OFF ]
+[p x PWRTE=ON ]
 "36
-[p x CPD=OFF ]
+[p x MCLRE=ON ]
 "37
-[p x BOREN=ON ]
+[p x CP=OFF ]
 "38
-[p x CLKOUTEN=OFF ]
+[p x CPD=OFF ]
 "39
-[p x IESO=OFF ]
+[p x BOREN=ON ]
 "40
+[p x CLKOUTEN=OFF ]
+"41
+[p x IESO=OFF ]
+"42
 [p x FCMEN=OFF ]
-"43
-[p x WRT=OFF ]
-"44
-[p x PLLEN=ON ]
 "45
-[p x STVREN=OFF ]
+[p x WRT=OFF ]
 "46
-[p x BORV=LO ]
+[p x PLLEN=ON ]
 "47
+[p x STVREN=OFF ]
+"48
+[p x BORV=LO ]
+"49
 [p x LVP=OFF ]
-[; ;main.h: 54: int8_t Basic_Init(void);
+[; ;main.h: 60: int8_t Basic_Init(void);
 [; ;MCP4726.h: 26: typedef union
 [; ;MCP4726.h: 27: {
 [; ;MCP4726.h: 28: uint8_t Voltage_Data[2];
@@ -3023,7 +3029,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;MCP4726.c: 16: I2C_Init(I2C2_MODULE,0x00,I2C_MODE_MASTER,I2C_SPEED_STANDARD);
 "16
-[e ( _I2C_Init (4 , , , . `E3000 1 -> -> 0 `i `uc . `E2991 0 . `E2995 0 ]
+[e ( _I2C_Init (4 , , , . `E3004 1 -> -> 0 `i `uc . `E2995 0 . `E2999 0 ]
 [; ;MCP4726.c: 18: ConfigReg.Command = (uint8_t)(0x4);
 "18
 [e = . . _ConfigReg 1 3 -> -> 4 `i `uc ]
@@ -3038,7 +3044,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _ConfigReg 1 2 -> -> 0 `i `uc ]
 [; ;MCP4726.c: 23: I2C_Transmit(I2C2_MODULE,0x60,ConfigReg.Config_Data,1);
 "23
-[e ( _I2C_Transmit (4 , , , . `E3000 1 -> -> 96 `i `uc &U . _ConfigReg 0 -> -> 1 `i `uc ]
+[e ( _I2C_Transmit (4 , , , . `E3004 1 -> -> 96 `i `uc &U . _ConfigReg 0 -> -> 1 `i `uc ]
 [; ;MCP4726.c: 25: }
 "25
 [e :UE 362 ]
@@ -3071,7 +3077,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _VoltageReg 1 3 -> & _volue -> -> 255 `i `ui `uc ]
 [; ;MCP4726.c: 36: result = I2C_Transmit(I2C2_MODULE,0x60,VoltageReg.Voltage_Data,2);
 "36
-[e = _result ( _I2C_Transmit (4 , , , . `E3000 1 -> -> 96 `i `uc &U . _VoltageReg 0 -> -> 2 `i `uc ]
+[e = _result ( _I2C_Transmit (4 , , , . `E3004 1 -> -> 96 `i `uc &U . _VoltageReg 0 -> -> 2 `i `uc ]
 [; ;MCP4726.c: 38: return result;
 "38
 [e ) _result ]

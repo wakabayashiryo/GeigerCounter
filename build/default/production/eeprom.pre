@@ -3888,9 +3888,11 @@ void Timer1_Init(void);
 uint16_t Timer1_DiffCounter(void);
 void Timer1_Handler(void);
 
-# 41 "Buzer.h"
-void Buzer_Init(void);
-void Buzer_SetDuty(uint16_t duty);
+# 41 "Buzzer.h"
+void Buzzer_Init(void);
+void Buzzer_SetDuty(uint16_t duty);
+void Buzzer_MiliSecond(uint16_t time);
+void Buzzer_Handler(void);
 
 # 32 "LCD.h"
 void LCD_Init(void);
@@ -4020,8 +4022,16 @@ uint8_t Command :3;
 void DAC_Initialize(void);
 int8_t DAC_WriteVoltage(uint16_t volue);
 
+# 21 "mTouch.h"
+void mTouch_Init(void);
+void CPSx_Read(void);
 
-# 31 "main.h"
+# 17 "Timer4.h"
+void Timer4_Init(void);
+uint8_t Timer4_Handler(void);
+
+
+# 33 "main.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = ON
@@ -4040,7 +4050,7 @@ int8_t DAC_WriteVoltage(uint16_t volue);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 54
+# 60
 int8_t Basic_Init(void);
 
 # 18 "eeprom.h"

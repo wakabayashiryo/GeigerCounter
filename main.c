@@ -7,29 +7,42 @@
 
 #include "main.h"
 
+uint8_t CPS_Data[3];
+uint8_t CPS_PreData[3];
+
 int8_t main(void)
 {
     Basic_Init();
     
-    LATA6 = 1;      //Clear Bule LED    
+    LED_BLUE(LED_OFF);      //Clear Bule LED    
     
+    Buzzer_Init();
+
     LCD_Init();
     xdev_out(LCD_Put);
     
     Timer1_Init();
     Timer1_Start();
     
-    Buzer_Init();
+    mTouch_Init();
     
+    Timer4_Init();
+        
     DAC_Initialize();
 
     while(1)
     {
-        LATA6 ^= 1;
-        __delay_ms(500);
-
+        
         LCD_CursorPosition(0,0);
-        xprintf("Hellow World");
+        if((CPS_PreData[0]-CPS_Data[0])>100)
+        {
+            Buzzer_MiliSecond(100);
+            xprintf("CPS1");
+        }
+        else if((CPS_PreData[1]-CPS_Data[1])>100)
+            xprintf("CPS2");
+        else if((CPS_PreData[2]-CPS_Data[2])>100)
+            xprintf("CPS3");
     }
     
     return EXIT_SUCCESS;
@@ -58,6 +71,19 @@ int8_t Basic_Init(void)
 
 void interrupt Handler(void)
 {
+    static uint16_t count = 0;
+    if(Timer4_Handler())
+    {
+        CPSx_Read();
+        Buzzer_Handler();
+        count++;
+        if(count>1000)
+        {
+            count = 0;
+            LATA6 ^= 1;
+        }
+    }
+    
     Timer1_Handler();
     I2C_CommonInterrupt();
 }

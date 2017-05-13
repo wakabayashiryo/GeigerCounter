@@ -2847,8 +2847,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.h: 28: void Timer1_Init(void);
 [; ;Timer1.h: 29: uint16_t Timer1_DiffCounter(void);
 [; ;Timer1.h: 30: void Timer1_Handler(void);
-[; ;Buzer.h: 41: void Buzer_Init(void);
-[; ;Buzer.h: 42: void Buzer_SetDuty(uint16_t duty);
+[; ;Buzzer.h: 41: void Buzzer_Init(void);
+[; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
+[; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
+[; ;Buzzer.h: 44: void Buzzer_Handler(void);
 [; ;xprintf.h: 17: extern void (*xfunc_out)(unsigned char);
 [; ;xprintf.h: 18: void xputc (char c);
 [; ;xprintf.h: 19: void xputs (const char* str);
@@ -2949,37 +2951,41 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MCP4726.h: 82: int8_t DAC_WriteVoltage(uint16_t volue);
 [; ;eeprom.h: 18: int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
 [; ;eeprom.h: 19: int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
-"31 main.h
+[; ;mTouch.h: 21: void mTouch_Init(void);
+[; ;mTouch.h: 22: void CPSx_Read(void);
+[; ;Timer4.h: 17: void Timer4_Init(void);
+[; ;Timer4.h: 18: uint8_t Timer4_Handler(void);
+"33 main.h
 [p x FOSC=INTOSC ]
-"32
-[p x WDTE=OFF ]
-"33
-[p x PWRTE=ON ]
 "34
-[p x MCLRE=ON ]
+[p x WDTE=OFF ]
 "35
-[p x CP=OFF ]
+[p x PWRTE=ON ]
 "36
-[p x CPD=OFF ]
+[p x MCLRE=ON ]
 "37
-[p x BOREN=ON ]
+[p x CP=OFF ]
 "38
-[p x CLKOUTEN=OFF ]
+[p x CPD=OFF ]
 "39
-[p x IESO=OFF ]
+[p x BOREN=ON ]
 "40
+[p x CLKOUTEN=OFF ]
+"41
+[p x IESO=OFF ]
+"42
 [p x FCMEN=OFF ]
-"43
-[p x WRT=OFF ]
-"44
-[p x PLLEN=ON ]
 "45
-[p x STVREN=OFF ]
+[p x WRT=OFF ]
 "46
-[p x BORV=LO ]
+[p x PLLEN=ON ]
 "47
+[p x STVREN=OFF ]
+"48
+[p x BORV=LO ]
+"49
 [p x LVP=OFF ]
-[; ;main.h: 54: int8_t Basic_Init(void);
+[; ;main.h: 60: int8_t Basic_Init(void);
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void LCD_DisplayClear(void);

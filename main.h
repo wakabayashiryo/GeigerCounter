@@ -12,12 +12,14 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include "Timer1.h"
-#include "Buzer.h"
+#include "Buzzer.h"
 #include "LCD.h"
 #include "xprintf.h"
 #include "I2C.h"
 #include "MCP4726.h"
 #include "eeprom.h"
+#include "mTouch.h"
+#include "Timer4.h"
 
 #ifdef	__cplusplus
 extern "C" {
@@ -50,6 +52,10 @@ extern "C" {
 // Use project enums instead of #define for ON and OFF.
     
 #define _XTAL_FREQ 32000000
+    
+#define LED_ON 0
+#define LED_OFF 1
+#define LED_BLUE(x) LATA6 = x    
     
 int8_t Basic_Init(void);
 
