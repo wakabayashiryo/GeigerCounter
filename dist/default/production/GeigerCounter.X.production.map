@@ -5,8 +5,13 @@ Linker command line:
 -W-3 --edf=/opt/microchip/xc8/v1.41/dat/en_msgs.txt -cs \
   -h+dist/default/production/GeigerCounter.X.production.sym \
   --cmf=dist/default/production/GeigerCounter.X.production.cmf -z -Q16F1827 \
+<<<<<<< HEAD
   -o/tmp/xcXNU3mbh -Mdist/default/production/GeigerCounter.X.production.map \
   -E1 -ver=XC8 -ASTACK=020E1h-0216fh -pstack=STACK -ACODE=00h-07FFhx2 \
+=======
+  -o/tmp/xcX9YK5Uw -Mdist/default/production/GeigerCounter.X.production.map \
+  -E1 -ver=XC8 -ASTACK=02044h-0216fh -pstack=STACK -ACODE=00h-07FFhx2 \
+>>>>>>> ExternalDAC
   -ASTRCODE=00h-0FFFh -ASTRING=00h-0FFhx16 -ACONST=00h-0FFhx16 \
   -AENTRY=00h-0FFhx16 -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
   -ABANK1=0A0h-0EFh -ABANK2=0120h-016Fh -ABANK3=01A0h-01EFh \
@@ -27,7 +32,11 @@ Linker command line:
   -ppowerup=CODE -pcinit=CODE -pfunctab=CODE -ACONFIG=08007h-08008h \
   -pconfig=CONFIG -DCONFIG=2 -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 \
   -AEEDATA=00h-0FFh/0F000h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
+<<<<<<< HEAD
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/xcXKjTioe.obj \
+=======
+  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/xcXKZAyBJ.obj \
+>>>>>>> ExternalDAC
   dist/default/production/GeigerCounter.X.production.obj 
 
 Object code version is 3.11
@@ -37,8 +46,13 @@ Machine type is 16F1827
 
 
                 Name                               Link     Load   Length Selector   Space Scale
+<<<<<<< HEAD
 /tmp/xcXKjTioe.obj
                 end_init                             30       30        2        8       0
+=======
+/tmp/xcXKZAyBJ.obj
+                end_init                             10       10        2        8       0
+>>>>>>> ExternalDAC
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        2    1000E       0
 dist/default/production/GeigerCounter.X.production.obj
