@@ -3886,7 +3886,7 @@ typedef uint16_t uintptr_t;
 # 28 "Timer1.h"
 void Timer1_Init(void);
 uint16_t Timer1_DiffCounter(void);
-void Timer1_Handler(void);
+uint8_t Timer1_Handler(void);
 
 # 41 "Buzzer.h"
 void Buzzer_Init(void);

@@ -133,11 +133,15 @@ I2C_SPEED_NONE 2
 "3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
 [v _Timer1_Init Timer1_Init `(v  1 e 1 0 ]
 "33
+<<<<<<< HEAD
 [v _Timer1_Handler Timer1_Handler `(v  1 e 1 0 ]
 "3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer4.c
 [v _Timer4_Init Timer4_Init `(v  1 e 1 0 ]
 "17
 [v _Timer4_Handler Timer4_Handler `(uc  1 e 1 0 ]
+=======
+[v _Timer1_Handler Timer1_Handler `(uc  1 e 1 0 ]
+>>>>>>> Timer1
 "26 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
 [v _xputc xputc `(v  1 e 1 0 ]
 "44
@@ -604,9 +608,9 @@ I2C_SPEED_NONE 2
 "25
 } 0
 "33 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
-[v _Timer1_Handler Timer1_Handler `(v  1 e 1 0 ]
+[v _Timer1_Handler Timer1_Handler `(uc  1 e 1 0 ]
 {
-"39
+"41
 } 0
 "58 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C_Common.c
 [v _I2C_CommonInterrupt I2C_CommonInterrupt `(v  1 e 1 0 ]

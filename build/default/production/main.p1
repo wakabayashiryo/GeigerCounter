@@ -54,9 +54,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 "44 Buzzer.h
 [v _Buzzer_Handler `(v ~T0 @X0 0 ef ]
 "30 Timer1.h
+<<<<<<< HEAD
 [v _Timer1_Handler `(v ~T0 @X0 0 ef ]
 "64 I2C.h
 [v _I2C_CommonInterrupt `(v ~T0 @X0 0 ef ]
+=======
+[v _Timer1_Handler `(uc ~T0 @X0 0 ef ]
+>>>>>>> Timer1
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2892,11 +2896,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;Timer1.h: 28: void Timer1_Init(void);
 [; ;Timer1.h: 29: uint16_t Timer1_DiffCounter(void);
+<<<<<<< HEAD
 [; ;Timer1.h: 30: void Timer1_Handler(void);
 [; ;Buzzer.h: 41: void Buzzer_Init(void);
 [; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
 [; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
 [; ;Buzzer.h: 44: void Buzzer_Handler(void);
+=======
+[; ;Timer1.h: 30: uint8_t Timer1_Handler(void);
+>>>>>>> Timer1
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void LCD_DisplayClear(void);

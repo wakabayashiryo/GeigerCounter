@@ -2846,11 +2846,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;Timer1.h: 28: void Timer1_Init(void);
 [; ;Timer1.h: 29: uint16_t Timer1_DiffCounter(void);
+<<<<<<< HEAD
 [; ;Timer1.h: 30: void Timer1_Handler(void);
 [; ;Buzzer.h: 41: void Buzzer_Init(void);
 [; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
 [; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
 [; ;Buzzer.h: 44: void Buzzer_Handler(void);
+=======
+[; ;Timer1.h: 30: uint8_t Timer1_Handler(void);
+>>>>>>> Timer1
 [; ;xprintf.h: 17: extern void (*xfunc_out)(unsigned char);
 [; ;xprintf.h: 18: void xputc (char c);
 [; ;xprintf.h: 19: void xputs (const char* str);

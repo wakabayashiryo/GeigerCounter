@@ -27,7 +27,7 @@ extern "C" {
     
 void Timer1_Init(void);
 uint16_t Timer1_DiffCounter(void);
-void Timer1_Handler(void);
+uint8_t Timer1_Handler(void);
 
 #ifdef	__cplusplus
 }

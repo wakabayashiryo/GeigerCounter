@@ -3000,7 +3000,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.h: 60: int8_t Basic_Init(void);
 [; ;Timer1.h: 28: void Timer1_Init(void);
 [; ;Timer1.h: 29: uint16_t Timer1_DiffCounter(void);
-[; ;Timer1.h: 30: void Timer1_Handler(void);
+[; ;Timer1.h: 30: uint8_t Timer1_Handler(void);
 "3 Timer1.c
 [v _Timer1_Init `(v ~T0 @X0 1 ef ]
 "4
@@ -3079,10 +3079,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 363 ]
 }
 "33
-[v _Timer1_Handler `(v ~T0 @X0 1 ef ]
+[v _Timer1_Handler `(uc ~T0 @X0 1 ef ]
 "34
 {
-[; ;Timer1.c: 33: void Timer1_Handler(void)
+[; ;Timer1.c: 33: uint8_t Timer1_Handler(void)
 [; ;Timer1.c: 34: {
 [e :U _Timer1_Handler ]
 [f ]
@@ -3095,11 +3095,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.c: 37: TMR1IF = 0;
 "37
 [e = _TMR1IF -> -> 0 `i `b ]
+[; ;Timer1.c: 38: return 1;
 "38
+[e ) -> -> 1 `i `uc ]
+[e $UE 355  ]
+"39
 }
+<<<<<<< HEAD
 [e :U 365 ]
 [; ;Timer1.c: 38: }
 [; ;Timer1.c: 39: }
 "39
 [e :UE 364 ]
+=======
+[e :U 356 ]
+[; ;Timer1.c: 39: }
+[; ;Timer1.c: 40: return 0;
+"40
+[e ) -> -> 0 `i `uc ]
+[e $UE 355  ]
+[; ;Timer1.c: 41: }
+"41
+[e :UE 355 ]
+>>>>>>> Timer1
 }

@@ -4055,7 +4055,7 @@ int8_t Basic_Init(void);
 # 28 "Timer1.h"
 void Timer1_Init(void);
 uint16_t Timer1_DiffCounter(void);
-void Timer1_Handler(void);
+uint8_t Timer1_Handler(void);
 
 # 3 "Timer1.c"
 void Timer1_Init(void)
@@ -4088,10 +4088,12 @@ counternow = (uint16_t)TMR1;
 return counternow;
 }
 
-void Timer1_Handler(void)
+uint8_t Timer1_Handler(void)
 {
 if(TMR1IF&&TMR1IE)
 {
 TMR1IF = 0;
+return 1;
 }
+return 0;
 }

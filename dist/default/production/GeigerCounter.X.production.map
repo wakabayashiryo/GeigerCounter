@@ -6,12 +6,17 @@ Linker command line:
   -h+dist/default/production/GeigerCounter.X.production.sym \
   --cmf=dist/default/production/GeigerCounter.X.production.cmf -z -Q16F1827 \
 <<<<<<< HEAD
+<<<<<<< HEAD
   -o/tmp/xcXNU3mbh -Mdist/default/production/GeigerCounter.X.production.map \
   -E1 -ver=XC8 -ASTACK=020E1h-0216fh -pstack=STACK -ACODE=00h-07FFhx2 \
 =======
   -o/tmp/xcX9YK5Uw -Mdist/default/production/GeigerCounter.X.production.map \
   -E1 -ver=XC8 -ASTACK=02044h-0216fh -pstack=STACK -ACODE=00h-07FFhx2 \
 >>>>>>> ExternalDAC
+=======
+  -o/tmp/xcXUo2qgI -Mdist/default/production/GeigerCounter.X.production.map \
+  -E1 -ver=XC8 -ASTACK=02040h-0216fh -pstack=STACK -ACODE=00h-07FFhx2 \
+>>>>>>> Timer1
   -ASTRCODE=00h-0FFFh -ASTRING=00h-0FFhx16 -ACONST=00h-0FFhx16 \
   -AENTRY=00h-0FFhx16 -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
   -ABANK1=0A0h-0EFh -ABANK2=0120h-016Fh -ABANK3=01A0h-01EFh \
@@ -33,10 +38,14 @@ Linker command line:
   -pconfig=CONFIG -DCONFIG=2 -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 \
   -AEEDATA=00h-0FFh/0F000h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
 <<<<<<< HEAD
+<<<<<<< HEAD
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/xcXKjTioe.obj \
 =======
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/xcXKZAyBJ.obj \
 >>>>>>> ExternalDAC
+=======
+  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/xcXq8yoRl.obj \
+>>>>>>> Timer1
   dist/default/production/GeigerCounter.X.production.obj 
 
 Object code version is 3.11
@@ -47,12 +56,17 @@ Machine type is 16F1827
 
                 Name                               Link     Load   Length Selector   Space Scale
 <<<<<<< HEAD
+<<<<<<< HEAD
 /tmp/xcXKjTioe.obj
                 end_init                             30       30        2        8       0
 =======
 /tmp/xcXKZAyBJ.obj
                 end_init                             10       10        2        8       0
 >>>>>>> ExternalDAC
+=======
+/tmp/xcXq8yoRl.obj
+                end_init                             10       10        2        8       0
+>>>>>>> Timer1
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        2    1000E       0
 dist/default/production/GeigerCounter.X.production.obj
@@ -1620,7 +1634,11 @@ Total ram usage:        8 bytes
   i               1    5[BANK0 ] unsigned char 
   result          1    7[BANK0 ] char 
  Return value:  Size  Location     Type
+<<<<<<< HEAD
                   1    wreg      char 
+=======
+                  1    wreg      unsigned char 
+>>>>>>> Timer1
  Registers used:
 		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0
  Tracked objects:
