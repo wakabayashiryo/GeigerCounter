@@ -2848,7 +2848,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.h: 30: inline uint32_t Timer1_SumRead(void);
 [; ;Timer1.h: 31: inline uint16_t Timer1_ResultRead(void);
 [; ;Timer1.h: 32: inline void Timer1_Count10us(void);
-[; ;Timer1.h: 33: void Timer1_DetectAssignCount(void);
+[; ;Timer1.h: 33: uint8_t Timer1_DetectAssignCount(void);
 [; ;xprintf.h: 17: extern void (*xfunc_out)(unsigned char);
 [; ;xprintf.h: 18: void xputc (char c);
 [; ;xprintf.h: 19: void xputs (const char* str);

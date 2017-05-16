@@ -2904,7 +2904,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.h: 30: inline uint32_t Timer1_SumRead(void);
 [; ;Timer1.h: 31: inline uint16_t Timer1_ResultRead(void);
 [; ;Timer1.h: 32: inline void Timer1_Count10us(void);
-[; ;Timer1.h: 33: void Timer1_DetectAssignCount(void);
+[; ;Timer1.h: 33: uint8_t Timer1_DetectAssignCount(void);
 "3 Timer1.c
 [v _countsum `ul ~T0 @X0 1 s ]
 [; ;Timer1.c: 3: static uint32_t countsum;
@@ -2964,89 +2964,97 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 353 ]
 }
 [v F2987 `(ul ~T0 @X0 1 tf ]
-"27
+"29
 [v _Timer1_SumRead `TF2987 ~T0 @X0 1 e ]
-"28
+"30
 {
-[; ;Timer1.c: 27: inline uint32_t Timer1_SumRead(void)
-[; ;Timer1.c: 28: {
+[; ;Timer1.c: 29: inline uint32_t Timer1_SumRead(void)
+[; ;Timer1.c: 30: {
 [e :U _Timer1_SumRead ]
 [f ]
-[; ;Timer1.c: 29: return countsum;
-"29
+[; ;Timer1.c: 31: return countsum;
+"31
 [e ) _countsum ]
 [e $UE 354  ]
-[; ;Timer1.c: 30: }
-"30
+[; ;Timer1.c: 32: }
+"32
 [e :UE 354 ]
 }
 [v F2990 `(ui ~T0 @X0 1 tf ]
-"32
+"34
 [v _Timer1_ResultRead `TF2990 ~T0 @X0 1 e ]
-"33
+"35
 {
-[; ;Timer1.c: 32: inline uint16_t Timer1_ResultRead(void)
-[; ;Timer1.c: 33: {
+[; ;Timer1.c: 34: inline uint16_t Timer1_ResultRead(void)
+[; ;Timer1.c: 35: {
 [e :U _Timer1_ResultRead ]
 [f ]
-[; ;Timer1.c: 34: return resulttime;
-"34
+[; ;Timer1.c: 36: return resulttime;
+"36
 [e ) _resulttime ]
 [e $UE 355  ]
-[; ;Timer1.c: 35: }
-"35
+[; ;Timer1.c: 37: }
+"37
 [e :UE 355 ]
 }
 [v F2993 `(v ~T0 @X0 1 tf ]
-"37
+"39
 [v _Timer1_Count10us `TF2993 ~T0 @X0 1 e ]
-"38
+"40
 {
-[; ;Timer1.c: 37: inline void Timer1_Count10us(void)
-[; ;Timer1.c: 38: {
+[; ;Timer1.c: 39: inline void Timer1_Count10us(void)
+[; ;Timer1.c: 40: {
 [e :U _Timer1_Count10us ]
 [f ]
-[; ;Timer1.c: 39: count10us++;
-"39
+[; ;Timer1.c: 41: count10us++;
+"41
 [e ++ _count10us -> -> 1 `i `ui ]
-[; ;Timer1.c: 40: }
-"40
+[; ;Timer1.c: 42: }
+"42
 [e :UE 356 ]
 }
-"42
-[v _Timer1_DetectAssignCount `(v ~T0 @X0 1 ef ]
-"43
-{
-[; ;Timer1.c: 42: void Timer1_DetectAssignCount(void)
-[; ;Timer1.c: 43: {
-[e :U _Timer1_DetectAssignCount ]
-[f ]
-[; ;Timer1.c: 44: if(TMR1IF&&TMR1IE)
 "44
-[e $ ! && _TMR1IF _TMR1IE 358  ]
-[; ;Timer1.c: 45: {
+[v _Timer1_DetectAssignCount `(uc ~T0 @X0 1 ef ]
 "45
 {
-[; ;Timer1.c: 46: countsum += 100;
+[; ;Timer1.c: 44: uint8_t Timer1_DetectAssignCount(void)
+[; ;Timer1.c: 45: {
+[e :U _Timer1_DetectAssignCount ]
+[f ]
+[; ;Timer1.c: 46: if(TMR1IF&&TMR1IE)
 "46
-[e =+ _countsum -> -> -> 100 `i `l `ul ]
-[; ;Timer1.c: 47: resulttime = count10us;
+[e $ ! && _TMR1IF _TMR1IE 358  ]
+[; ;Timer1.c: 47: {
 "47
-[e = _resulttime _count10us ]
-[; ;Timer1.c: 48: count10us = 0;
+{
+[; ;Timer1.c: 48: countsum += 100;
 "48
-[e = _count10us -> -> 0 `i `ui ]
-[; ;Timer1.c: 49: TMR1 = 0xFFFF-100;
+[e =+ _countsum -> -> -> 100 `i `l `ul ]
+[; ;Timer1.c: 49: resulttime = count10us;
 "49
-[e = _TMR1 -> - -> 65535 `ui -> -> 100 `i `ui `us ]
-[; ;Timer1.c: 50: TMR1IF = 0;
+[e = _resulttime _count10us ]
+[; ;Timer1.c: 50: count10us = 0;
 "50
-[e = _TMR1IF -> -> 0 `i `b ]
+[e = _count10us -> -> 0 `i `ui ]
+[; ;Timer1.c: 51: TMR1 = 0xFFFF-100;
 "51
+[e = _TMR1 -> - -> 65535 `ui -> -> 100 `i `ui `us ]
+[; ;Timer1.c: 52: TMR1IF = 0;
+"52
+[e = _TMR1IF -> -> 0 `i `b ]
+[; ;Timer1.c: 53: return 1;
+"53
+[e ) -> -> 1 `i `uc ]
+[e $UE 357  ]
+"54
 }
 [e :U 358 ]
-[; ;Timer1.c: 51: }
-[; ;Timer1.c: 52: }
-"52
+[; ;Timer1.c: 54: }
+[; ;Timer1.c: 55: return 0;
+"55
+[e ) -> -> 0 `i `uc ]
+[e $UE 357  ]
+[; ;Timer1.c: 56: }
+"56
 [e :UE 357 ]
 }
