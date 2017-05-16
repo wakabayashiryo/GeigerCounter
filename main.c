@@ -85,7 +85,6 @@ void interrupt Handler(void)
     if(Timer6_Handler())//repeat 10us
     {
         Timer1_Count10us();
-        LED_BLUE(LED_TOG);
     }
     if(Timer4_Handler())//repeat 1ms
     {
@@ -93,7 +92,9 @@ void interrupt Handler(void)
         Buzzer_Handler();
         mTouch_IntervalDecrement();
     }
-    Timer1_DetectAssignCount();
+    if(Timer1_DetectAssignCount())
+        LED_BLUE(LED_TOG);
+
     I2C_CommonInterrupt();
 }
 

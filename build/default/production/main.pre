@@ -3889,7 +3889,7 @@ void Timer1_Init(void);
 inline uint32_t Timer1_SumRead(void);
 inline uint16_t Timer1_ResultRead(void);
 inline void Timer1_Count10us(void);
-void Timer1_DetectAssignCount(void);
+uint8_t Timer1_DetectAssignCount(void);
 
 # 41 "Buzzer.h"
 void Buzzer_Init(void);
@@ -4151,7 +4151,6 @@ void interrupt Handler(void)
 if(Timer6_Handler())
 {
 Timer1_Count10us();
-LATA6 = !LATA6;
 }
 if(Timer4_Handler())
 {
@@ -4159,7 +4158,9 @@ CPSx_Read();
 Buzzer_Handler();
 mTouch_IntervalDecrement();
 }
-Timer1_DetectAssignCount();
+if(Timer1_DetectAssignCount())
+LATA6 = !LATA6;
+
 I2C_CommonInterrupt();
 }
 

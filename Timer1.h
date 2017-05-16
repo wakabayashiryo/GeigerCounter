@@ -30,7 +30,7 @@ void Timer1_Init(void);
 inline uint32_t Timer1_SumRead(void);
 inline uint16_t Timer1_ResultRead(void);
 inline void Timer1_Count10us(void);
-void Timer1_DetectAssignCount(void);//put into interrupt function
+uint8_t Timer1_DetectAssignCount(void);//put into interrupt function
 
 #ifdef	__cplusplus
 }

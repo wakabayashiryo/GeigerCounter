@@ -75,7 +75,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "15 main.c
 [v _mTouch_IntervalDecrement `(v ~T0 @X0 0 ef ]
 "33 Timer1.h
-[v _Timer1_DetectAssignCount `(v ~T0 @X0 0 ef ]
+[v _Timer1_DetectAssignCount `(uc ~T0 @X0 0 ef ]
 "64 I2C.h
 [v _I2C_CommonInterrupt `(v ~T0 @X0 0 ef ]
 "43 Buzzer.h
@@ -2917,7 +2917,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.h: 30: inline uint32_t Timer1_SumRead(void);
 [; ;Timer1.h: 31: inline uint16_t Timer1_ResultRead(void);
 [; ;Timer1.h: 32: inline void Timer1_Count10us(void);
-[; ;Timer1.h: 33: void Timer1_DetectAssignCount(void);
+[; ;Timer1.h: 33: uint8_t Timer1_DetectAssignCount(void);
 [; ;Buzzer.h: 41: void Buzzer_Init(void);
 [; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
 [; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
@@ -3290,119 +3290,120 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 87: Timer1_Count10us();
 "87
 [e ( _Timer1_Count10us ..  ]
-[; ;main.c: 88: LATA6 = !LATA6;
 "88
-[e = _LATA6 ! _LATA6 ]
-"89
 }
 [e :U 378 ]
-[; ;main.c: 89: }
-[; ;main.c: 90: if(Timer4_Handler())
-"90
+[; ;main.c: 88: }
+[; ;main.c: 89: if(Timer4_Handler())
+"89
 [e $ ! != -> ( _Timer4_Handler ..  `i -> -> -> 0 `i `uc `i 379  ]
-[; ;main.c: 91: {
-"91
+[; ;main.c: 90: {
+"90
 {
-[; ;main.c: 92: CPSx_Read();
-"92
+[; ;main.c: 91: CPSx_Read();
+"91
 [e ( _CPSx_Read ..  ]
-[; ;main.c: 93: Buzzer_Handler();
-"93
+[; ;main.c: 92: Buzzer_Handler();
+"92
 [e ( _Buzzer_Handler ..  ]
-[; ;main.c: 94: mTouch_IntervalDecrement();
-"94
+[; ;main.c: 93: mTouch_IntervalDecrement();
+"93
 [e ( _mTouch_IntervalDecrement ..  ]
-"95
+"94
 }
 [e :U 379 ]
-[; ;main.c: 95: }
-[; ;main.c: 96: Timer1_DetectAssignCount();
+[; ;main.c: 94: }
+[; ;main.c: 95: if(Timer1_DetectAssignCount())
+"95
+[e $ ! != -> ( _Timer1_DetectAssignCount ..  `i -> -> -> 0 `i `uc `i 380  ]
+[; ;main.c: 96: LATA6 = !LATA6;
 "96
-[e ( _Timer1_DetectAssignCount ..  ]
-[; ;main.c: 97: I2C_CommonInterrupt();
-"97
-[e ( _I2C_CommonInterrupt ..  ]
-[; ;main.c: 98: }
+[e = _LATA6 ! _LATA6 ]
+[e :U 380 ]
+[; ;main.c: 98: I2C_CommonInterrupt();
 "98
+[e ( _I2C_CommonInterrupt ..  ]
+[; ;main.c: 99: }
+"99
 [e :UE 377 ]
 }
-"100
-[v _mTouch_IntervalDecrement `(v ~T0 @X0 1 ef ]
 "101
+[v _mTouch_IntervalDecrement `(v ~T0 @X0 1 ef ]
+"102
 {
-[; ;main.c: 100: void mTouch_IntervalDecrement(void)
-[; ;main.c: 101: {
+[; ;main.c: 101: void mTouch_IntervalDecrement(void)
+[; ;main.c: 102: {
 [e :U _mTouch_IntervalDecrement ]
 [f ]
-[; ;main.c: 102: if(mTouch_Interval[0]>0)
-"102
-[e $ ! > -> *U + &U _mTouch_Interval * -> -> -> 0 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> 0 `i 381  ]
-[; ;main.c: 103: mTouch_Interval[0]--;
+[; ;main.c: 103: if(mTouch_Interval[0]>0)
 "103
-[e -- *U + &U _mTouch_Interval * -> -> -> 0 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 1 `i `uc ]
-[e :U 381 ]
-[; ;main.c: 104: if(mTouch_Interval[1]>0)
+[e $ ! > -> *U + &U _mTouch_Interval * -> -> -> 0 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> 0 `i 382  ]
+[; ;main.c: 104: mTouch_Interval[0]--;
 "104
-[e $ ! > -> *U + &U _mTouch_Interval * -> -> -> 1 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> 0 `i 382  ]
-[; ;main.c: 105: mTouch_Interval[1]--;
-"105
-[e -- *U + &U _mTouch_Interval * -> -> -> 1 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 1 `i `uc ]
+[e -- *U + &U _mTouch_Interval * -> -> -> 0 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 1 `i `uc ]
 [e :U 382 ]
-[; ;main.c: 106: if(mTouch_Interval[2]>0)
+[; ;main.c: 105: if(mTouch_Interval[1]>0)
+"105
+[e $ ! > -> *U + &U _mTouch_Interval * -> -> -> 1 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> 0 `i 383  ]
+[; ;main.c: 106: mTouch_Interval[1]--;
 "106
-[e $ ! > -> *U + &U _mTouch_Interval * -> -> -> 2 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> 0 `i 383  ]
-[; ;main.c: 107: mTouch_Interval[2]--;
-"107
-[e -- *U + &U _mTouch_Interval * -> -> -> 2 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 1 `i `uc ]
+[e -- *U + &U _mTouch_Interval * -> -> -> 1 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 1 `i `uc ]
 [e :U 383 ]
-[; ;main.c: 108: }
+[; ;main.c: 107: if(mTouch_Interval[2]>0)
+"107
+[e $ ! > -> *U + &U _mTouch_Interval * -> -> -> 2 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> 0 `i 384  ]
+[; ;main.c: 108: mTouch_Interval[2]--;
 "108
-[e :UE 380 ]
+[e -- *U + &U _mTouch_Interval * -> -> -> 2 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 1 `i `uc ]
+[e :U 384 ]
+[; ;main.c: 109: }
+"109
+[e :UE 381 ]
 }
-"110
+"111
 [v _mTouch_Read `(uc ~T0 @X0 1 ef1`uc ]
-"111
-{
-[; ;main.c: 110: uint8_t mTouch_Read(uint8_t chan)
-[; ;main.c: 111: {
-[e :U _mTouch_Read ]
-"110
-[v _chan `uc ~T0 @X0 1 r1 ]
-"111
-[f ]
-[; ;main.c: 112: if(chan>2)return 0;
 "112
-[e $ ! > -> _chan `i -> 2 `i 385  ]
-[e ) -> -> 0 `i `uc ]
-[e $UE 384  ]
-[e :U 385 ]
-[; ;main.c: 114: if(((CPS_PreData[chan]-CPS_Data[chan])>100)&&!mTouch_Interval[chan])
-"114
-[e $ ! && > - -> *U + &U _CPS_PreData * -> _chan `ux -> -> # *U &U _CPS_PreData `ui `ux `i -> *U + &U _CPS_Data * -> _chan `ux -> -> # *U &U _CPS_Data `ui `ux `i -> 100 `i ! != -> *U + &U _mTouch_Interval * -> _chan `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> -> -> 0 `i `uc `i 386  ]
-[; ;main.c: 115: {
-"115
 {
-[; ;main.c: 116: mTouch_Interval[chan] = 100;
-"116
-[e = *U + &U _mTouch_Interval * -> _chan `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 100 `i `uc ]
-[; ;main.c: 117: Buzzer_MiliSecond(100);
-"117
-[e ( _Buzzer_MiliSecond (1 -> -> 100 `i `ui ]
-[; ;main.c: 118: return 1;
-"118
-[e ) -> -> 1 `i `uc ]
-[e $UE 384  ]
-"119
-}
-[e :U 386 ]
-[; ;main.c: 119: }
-[; ;main.c: 120: return 0;
-"120
+[; ;main.c: 111: uint8_t mTouch_Read(uint8_t chan)
+[; ;main.c: 112: {
+[e :U _mTouch_Read ]
+"111
+[v _chan `uc ~T0 @X0 1 r1 ]
+"112
+[f ]
+[; ;main.c: 113: if(chan>2)return 0;
+"113
+[e $ ! > -> _chan `i -> 2 `i 386  ]
 [e ) -> -> 0 `i `uc ]
-[e $UE 384  ]
-[; ;main.c: 121: }
+[e $UE 385  ]
+[e :U 386 ]
+[; ;main.c: 115: if(((CPS_PreData[chan]-CPS_Data[chan])>100)&&!mTouch_Interval[chan])
+"115
+[e $ ! && > - -> *U + &U _CPS_PreData * -> _chan `ux -> -> # *U &U _CPS_PreData `ui `ux `i -> *U + &U _CPS_Data * -> _chan `ux -> -> # *U &U _CPS_Data `ui `ux `i -> 100 `i ! != -> *U + &U _mTouch_Interval * -> _chan `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> -> -> 0 `i `uc `i 387  ]
+[; ;main.c: 116: {
+"116
+{
+[; ;main.c: 117: mTouch_Interval[chan] = 100;
+"117
+[e = *U + &U _mTouch_Interval * -> _chan `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 100 `i `uc ]
+[; ;main.c: 118: Buzzer_MiliSecond(100);
+"118
+[e ( _Buzzer_MiliSecond (1 -> -> 100 `i `ui ]
+[; ;main.c: 119: return 1;
+"119
+[e ) -> -> 1 `i `uc ]
+[e $UE 385  ]
+"120
+}
+[e :U 387 ]
+[; ;main.c: 120: }
+[; ;main.c: 121: return 0;
 "121
-[e :UE 384 ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 385  ]
+[; ;main.c: 122: }
+"122
+[e :UE 385 ]
 }
 [a 1C 37 100 32 37 100 0 ]
 [a 3C 65 68 74 71 65 73 78 0 ]

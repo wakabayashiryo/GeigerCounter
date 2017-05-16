@@ -4070,7 +4070,7 @@ void Timer1_Init(void);
 inline uint32_t Timer1_SumRead(void);
 inline uint16_t Timer1_ResultRead(void);
 inline void Timer1_Count10us(void);
-void Timer1_DetectAssignCount(void);
+uint8_t Timer1_DetectAssignCount(void);
 
 # 3 "Timer1.c"
 static uint32_t countsum;
@@ -4114,7 +4114,7 @@ inline void Timer1_Count10us(void)
 count10us++;
 }
 
-void Timer1_DetectAssignCount(void)
+uint8_t Timer1_DetectAssignCount(void)
 {
 if(TMR1IF&&TMR1IE)
 {
@@ -4123,5 +4123,7 @@ resulttime = count10us;
 count10us = 0;
 TMR1 = 0xFFFF-100;
 TMR1IF = 0;
+return 1;
 }
+return 0;
 }

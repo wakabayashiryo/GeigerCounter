@@ -41,7 +41,7 @@ inline void Timer1_Count10us(void)
     count10us++;
 }
 
-void Timer1_DetectAssignCount(void)//put into interrupt function
+uint8_t Timer1_DetectAssignCount(void)//put into interrupt function
 {
     if(TMR1IF&&TMR1IE)
     {
@@ -50,5 +50,7 @@ void Timer1_DetectAssignCount(void)//put into interrupt function
         count10us = 0;
         TMR1 = 0xFFFF-DETECT_NUM_OF_COUNT;
         TMR1IF = 0;
+        return 1;
     }
+    return 0;
 }

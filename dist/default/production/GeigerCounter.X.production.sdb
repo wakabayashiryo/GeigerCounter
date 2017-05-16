@@ -129,9 +129,9 @@ PMTDEVICE 3
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
 "83
 [v _Handler Handler `II(v  1 e 1 0 ]
-"100
+"101
 [v _mTouch_IntervalDecrement mTouch_IntervalDecrement `(v  1 e 1 0 ]
-"110
+"111
 [v _mTouch_Read mTouch_Read `(uc  1 e 1 0 ]
 "14 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/MCP4726.c
 [v _DAC_Initialize DAC_Initialize `(v  1 e 1 0 ]
@@ -150,7 +150,7 @@ PMTDEVICE 3
 "39
 [v _Timer1_Count10us Timer1_Count10us `T(v  1 e 1 0 ]
 "44
-[v _Timer1_DetectAssignCount Timer1_DetectAssignCount `(v  1 e 1 0 ]
+[v _Timer1_DetectAssignCount Timer1_DetectAssignCount `(uc  1 e 1 0 ]
 "3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer4.c
 [v _Timer4_Init Timer4_Init `(v  1 e 1 0 ]
 "17
@@ -470,14 +470,14 @@ PMTDEVICE 3
 [v ___lldiv@dividend dividend `ul  1 p 4 4 ]
 "31
 } 0
-"110 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+"111 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _mTouch_Read mTouch_Read `(uc  1 e 1 0 ]
 {
 [v mTouch_Read@chan chan `uc  1 a 1 wreg ]
 [v mTouch_Read@chan chan `uc  1 a 1 wreg ]
-"112
+"113
 [v mTouch_Read@chan chan `uc  1 a 1 7 ]
-"121
+"122
 } 0
 "38 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Buzzer.c
 [v _Buzzer_MiliSecond Buzzer_MiliSecond `(v  1 e 1 0 ]
@@ -654,12 +654,12 @@ PMTDEVICE 3
 "83
 [v _Handler Handler `II(v  1 e 1 0 ]
 {
-"98
+"99
 } 0
-"100
+"101
 [v _mTouch_IntervalDecrement mTouch_IntervalDecrement `(v  1 e 1 0 ]
 {
-"108
+"109
 } 0
 "17 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer6.c
 [v _Timer6_Handler Timer6_Handler `(i  1 e 2 0 ]
@@ -672,9 +672,9 @@ PMTDEVICE 3
 "25
 } 0
 "44 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
-[v _Timer1_DetectAssignCount Timer1_DetectAssignCount `(v  1 e 1 0 ]
+[v _Timer1_DetectAssignCount Timer1_DetectAssignCount `(uc  1 e 1 0 ]
 {
-"54
+"56
 } 0
 "39
 [v _Timer1_Count10us Timer1_Count10us `T(v  1 e 1 0 ]

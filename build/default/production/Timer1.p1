@@ -3011,7 +3011,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.h: 30: inline uint32_t Timer1_SumRead(void);
 [; ;Timer1.h: 31: inline uint16_t Timer1_ResultRead(void);
 [; ;Timer1.h: 32: inline void Timer1_Count10us(void);
-[; ;Timer1.h: 33: void Timer1_DetectAssignCount(void);
+[; ;Timer1.h: 33: uint8_t Timer1_DetectAssignCount(void);
 "3 Timer1.c
 [v _countsum `ul ~T0 @X0 1 s ]
 [; ;Timer1.c: 3: static uint32_t countsum;
@@ -3121,10 +3121,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 366 ]
 }
 "44
-[v _Timer1_DetectAssignCount `(v ~T0 @X0 1 ef ]
+[v _Timer1_DetectAssignCount `(uc ~T0 @X0 1 ef ]
 "45
 {
-[; ;Timer1.c: 44: void Timer1_DetectAssignCount(void)
+[; ;Timer1.c: 44: uint8_t Timer1_DetectAssignCount(void)
 [; ;Timer1.c: 45: {
 [e :U _Timer1_DetectAssignCount ]
 [f ]
@@ -3149,11 +3149,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.c: 52: TMR1IF = 0;
 "52
 [e = _TMR1IF -> -> 0 `i `b ]
+[; ;Timer1.c: 53: return 1;
 "53
+[e ) -> -> 1 `i `uc ]
+[e $UE 367  ]
+"54
 }
 [e :U 368 ]
-[; ;Timer1.c: 53: }
 [; ;Timer1.c: 54: }
-"54
+[; ;Timer1.c: 55: return 0;
+"55
+[e ) -> -> 0 `i `uc ]
+[e $UE 367  ]
+[; ;Timer1.c: 56: }
+"56
 [e :UE 367 ]
 }
