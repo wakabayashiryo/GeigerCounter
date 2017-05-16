@@ -4049,7 +4049,19 @@ uint8_t Timer4_Handler(void);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 60
+# 61
+typedef struct
+{
+enum
+{
+COUNT = 0,
+SELECTFUNC = 1,
+ADJGAIN = 2,
+PMTDEVICE = 3
+}MODESTAT;
+uint8_t ModeNum;
+}ModeConfig;
+
 int8_t Basic_Init(void);
 
 # 28 "Timer1.h"

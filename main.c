@@ -9,40 +9,50 @@
 
 uint8_t CPS_Data[3];
 uint8_t CPS_PreData[3];
+ModeConfig mode;
+uint8_t mTouch_Interval[3];
+
+void mTouch_IntervalDecrement(void);
+uint8_t mTouch_Read(uint8_t chan);
 
 int8_t main(void)
 {
     Basic_Init();
-    
     LED_BLUE(LED_OFF);      //Clear Bule LED    
-    
     Buzzer_Init();
-
     LCD_Init();
     xdev_out(LCD_Put);
-    
     Timer1_Init();
     Timer1_Start();
-    
     mTouch_Init();
-    
     Timer4_Init();
-        
     DAC_Initialize();
 
+    mode.ModeNum = 0;
+    
     while(1)
     {
+        if(mTouch_Read(2)&&(mode.ModeNum<NUM_OF_MODE-1))
+            mode.ModeNum++;
+        else if(mTouch_Read(1)&&(mode.ModeNum>0))
+            mode.ModeNum--;
         
-        LCD_CursorPosition(0,0);
-        if((CPS_PreData[0]-CPS_Data[0])>100)
+        LCD_CursorHome();
+        switch(mode.ModeNum) 
         {
-            Buzzer_MiliSecond(100);
-            xprintf("CPS1");
+            case COUNT:
+                xprintf("COUNT");
+            break;
+            case SELECTFUNC:
+                xprintf("SELECTFUNC");
+            break;
+            case ADJGAIN:
+                xprintf("ADJGAIN");
+            break;
+            case PMTDEVICE:
+                xprintf("PMTDEVICE");
+            break;
         }
-        else if((CPS_PreData[1]-CPS_Data[1])>100)
-            xprintf("CPS2");
-        else if((CPS_PreData[2]-CPS_Data[2])>100)
-            xprintf("CPS3");
     }
     
     return EXIT_SUCCESS;
@@ -71,19 +81,36 @@ int8_t Basic_Init(void)
 
 void interrupt Handler(void)
 {
-    static uint16_t count = 0;
     if(Timer4_Handler())
     {
         CPSx_Read();
         Buzzer_Handler();
-        count++;
-        if(count>1000)
-        {
-            count = 0;
-            LATA6 ^= 1;
-        }
+        mTouch_IntervalDecrement();
     }
     
     Timer1_Handler();
     I2C_CommonInterrupt();
+}
+
+void mTouch_IntervalDecrement(void)
+{
+    if(mTouch_Interval[0]>0)
+        mTouch_Interval[0]--;
+    if(mTouch_Interval[1]>0)
+        mTouch_Interval[1]--;
+    if(mTouch_Interval[2]>0)
+        mTouch_Interval[2]--;
+}
+
+uint8_t mTouch_Read(uint8_t chan)
+{
+    if(chan>2)return 0;
+    
+    if(((CPS_PreData[chan]-CPS_Data[chan])>130)&&!mTouch_Interval[chan])
+    {
+        mTouch_Interval[chan] = 100;
+        Buzzer_MiliSecond(100);
+        return 1;
+    }
+    return 0;
 }

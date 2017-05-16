@@ -34,7 +34,6 @@
       <itemPath>mTouch.c</itemPath>
       <itemPath>main.c</itemPath>
       <itemPath>table.c</itemPath>
-      <itemPath>main.c</itemPath>
       <itemPath>xprintf.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"

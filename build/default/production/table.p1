@@ -2834,7 +2834,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;Timer1.h: 28: void Timer1_Init(void);
 [; ;Timer1.h: 29: uint16_t Timer1_DiffCounter(void);
-[; ;Timer1.h: 30: void Timer1_Handler(void);
+[; ;Timer1.h: 30: uint8_t Timer1_Handler(void);
 [; ;Buzzer.h: 41: void Buzzer_Init(void);
 [; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
 [; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
@@ -2980,7 +2980,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x BORV=LO ]
 "49
 [p x LVP=OFF ]
-[; ;main.h: 60: int8_t Basic_Init(void);
+[; ;main.h: 61: typedef struct
+[; ;main.h: 62: {
+[; ;main.h: 63: enum
+[; ;main.h: 64: {
+[; ;main.h: 65: COUNT = 0,
+[; ;main.h: 66: SELECTFUNC = 1,
+[; ;main.h: 67: ADJGAIN = 2,
+[; ;main.h: 68: PMTDEVICE = 3
+[; ;main.h: 69: }MODESTAT;
+[; ;main.h: 70: uint8_t ModeNum;
+[; ;main.h: 71: }ModeConfig;
+[; ;main.h: 73: int8_t Basic_Init(void);
 "3 table.c
 [v _DAC_DataTable `Cui ~T0 @X0 -> 0 `x e ]
 [i _DAC_DataTable

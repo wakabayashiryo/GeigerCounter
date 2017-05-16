@@ -2846,15 +2846,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;Timer1.h: 28: void Timer1_Init(void);
 [; ;Timer1.h: 29: uint16_t Timer1_DiffCounter(void);
-<<<<<<< HEAD
-[; ;Timer1.h: 30: void Timer1_Handler(void);
+[; ;Timer1.h: 30: uint8_t Timer1_Handler(void);
 [; ;Buzzer.h: 41: void Buzzer_Init(void);
 [; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
 [; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
 [; ;Buzzer.h: 44: void Buzzer_Handler(void);
-=======
-[; ;Timer1.h: 30: uint8_t Timer1_Handler(void);
->>>>>>> Timer1
 [; ;xprintf.h: 17: extern void (*xfunc_out)(unsigned char);
 [; ;xprintf.h: 18: void xputc (char c);
 [; ;xprintf.h: 19: void xputs (const char* str);
@@ -2989,7 +2985,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x BORV=LO ]
 "49
 [p x LVP=OFF ]
-[; ;main.h: 60: int8_t Basic_Init(void);
+[; ;main.h: 61: typedef struct
+[; ;main.h: 62: {
+[; ;main.h: 63: enum
+[; ;main.h: 64: {
+[; ;main.h: 65: COUNT = 0,
+[; ;main.h: 66: SELECTFUNC = 1,
+[; ;main.h: 67: ADJGAIN = 2,
+[; ;main.h: 68: PMTDEVICE = 3
+[; ;main.h: 69: }MODESTAT;
+[; ;main.h: 70: uint8_t ModeNum;
+[; ;main.h: 71: }ModeConfig;
+[; ;main.h: 73: int8_t Basic_Init(void);
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void LCD_DisplayClear(void);
@@ -3035,7 +3042,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [; ;LCD.c: 22: }
 "22
-[e :UE 362 ]
+[e :UE 363 ]
 }
 "28
 [v _LCD_Init `(v ~T0 @X0 1 ef ]
@@ -3115,7 +3122,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _LCD_WriteData (1 -> -> 6 `i `c ]
 [; ;LCD.c: 48: }
 "48
-[e :UE 363 ]
+[e :UE 364 ]
 }
 "54
 [v _LCD_Put `(v ~T0 @X0 1 ef1`c ]
@@ -3136,7 +3143,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _LCD_WriteData (1 _word ]
 [; ;LCD.c: 58: }
 "58
-[e :UE 364 ]
+[e :UE 365 ]
 }
 "64
 [v _LCD_DisplayClear `(v ~T0 @X0 1 ef ]
@@ -3157,7 +3164,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
 [; ;LCD.c: 69: }
 "69
-[e :UE 365 ]
+[e :UE 366 ]
 }
 "75
 [v _LCD_CursorHome `(v ~T0 @X0 1 ef ]
@@ -3178,7 +3185,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
 [; ;LCD.c: 80: }
 "80
-[e :UE 366 ]
+[e :UE 367 ]
 }
 "86
 [v _LCD_CursorPosition `(v ~T0 @X0 1 ef2`uc`uc ]
@@ -3203,7 +3210,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( __delay (1 -> * -> -> 40 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
 [; ;LCD.c: 91: }
 "91
-[e :UE 367 ]
+[e :UE 368 ]
 }
 "97
 [v _LCD_CursorShift `(v ~T0 @X0 1 ef2`uc`uc ]
@@ -3227,9 +3234,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "103
 {
 [e = _i -> -> 0 `i `uc ]
-[e $U 372  ]
+[e $U 373  ]
 "104
-[e :U 369 ]
+[e :U 370 ]
 [; ;LCD.c: 104: {
 {
 [; ;LCD.c: 105: LCD_WriteData(0x10|((RL&0x01)<<2));
@@ -3242,15 +3249,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "103
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 372 ]
-[e $ < -> _i `i -> _shift `i 369  ]
-[e :U 370 ]
+[e :U 373 ]
+[e $ < -> _i `i -> _shift `i 370  ]
+[e :U 371 ]
 "107
 }
 [; ;LCD.c: 107: }
 [; ;LCD.c: 108: }
 "108
-[e :UE 368 ]
+[e :UE 369 ]
 }
 "114
 [v _LCD_DispShift `(v ~T0 @X0 1 ef2`uc`uc ]
@@ -3274,9 +3281,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "119
 {
 [e = _i -> -> 0 `i `uc ]
-[e $U 377  ]
+[e $U 378  ]
 "120
-[e :U 374 ]
+[e :U 375 ]
 [; ;LCD.c: 120: {
 {
 [; ;LCD.c: 121: LCD_WriteData(0x18|((RL&0x01)<<2));
@@ -3289,13 +3296,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "119
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 377 ]
-[e $ < -> _i `i -> _shift `i 374  ]
-[e :U 375 ]
+[e :U 378 ]
+[e $ < -> _i `i -> _shift `i 375  ]
+[e :U 376 ]
 "123
 }
 [; ;LCD.c: 123: }
 [; ;LCD.c: 124: }
 "124
-[e :UE 373 ]
+[e :UE 374 ]
 }

@@ -2997,7 +2997,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x BORV=LO ]
 "49
 [p x LVP=OFF ]
-[; ;main.h: 60: int8_t Basic_Init(void);
+[; ;main.h: 61: typedef struct
+[; ;main.h: 62: {
+[; ;main.h: 63: enum
+[; ;main.h: 64: {
+[; ;main.h: 65: COUNT = 0,
+[; ;main.h: 66: SELECTFUNC = 1,
+[; ;main.h: 67: ADJGAIN = 2,
+[; ;main.h: 68: PMTDEVICE = 3
+[; ;main.h: 69: }MODESTAT;
+[; ;main.h: 70: uint8_t ModeNum;
+[; ;main.h: 71: }ModeConfig;
+[; ;main.h: 73: int8_t Basic_Init(void);
 [; ;Timer1.h: 28: void Timer1_Init(void);
 [; ;Timer1.h: 29: uint16_t Timer1_DiffCounter(void);
 [; ;Timer1.h: 30: uint8_t Timer1_Handler(void);
@@ -3047,7 +3058,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _GIE -> -> 1 `i `b ]
 [; ;Timer1.c: 21: }
 "21
-[e :UE 362 ]
+[e :UE 363 ]
 }
 "23
 [v _Timer1_DiffCounter `(ui ~T0 @X0 1 ef ]
@@ -3073,10 +3084,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.c: 30: return counternow;
 "30
 [e ) _counternow ]
-[e $UE 363  ]
+[e $UE 364  ]
 [; ;Timer1.c: 31: }
 "31
-[e :UE 363 ]
+[e :UE 364 ]
 }
 "33
 [v _Timer1_Handler `(uc ~T0 @X0 1 ef ]
@@ -3088,7 +3099,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;Timer1.c: 35: if(TMR1IF&&TMR1IE)
 "35
-[e $ ! && _TMR1IF _TMR1IE 365  ]
+[e $ ! && _TMR1IF _TMR1IE 366  ]
 [; ;Timer1.c: 36: {
 "36
 {
@@ -3098,24 +3109,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.c: 38: return 1;
 "38
 [e ) -> -> 1 `i `uc ]
-[e $UE 355  ]
+[e $UE 365  ]
 "39
 }
-<<<<<<< HEAD
-[e :U 365 ]
-[; ;Timer1.c: 38: }
-[; ;Timer1.c: 39: }
-"39
-[e :UE 364 ]
-=======
-[e :U 356 ]
+[e :U 366 ]
 [; ;Timer1.c: 39: }
 [; ;Timer1.c: 40: return 0;
 "40
 [e ) -> -> 0 `i `uc ]
-[e $UE 355  ]
+[e $UE 365  ]
 [; ;Timer1.c: 41: }
 "41
-[e :UE 355 ]
->>>>>>> Timer1
+[e :UE 365 ]
 }

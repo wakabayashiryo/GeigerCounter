@@ -57,6 +57,19 @@ extern "C" {
 #define LED_OFF 1
 #define LED_BLUE(x) LATA6 = x    
     
+#define NUM_OF_MODE 4 
+typedef struct
+{
+    enum
+    {
+        COUNT       = 0,
+        SELECTFUNC  = 1,
+        ADJGAIN     = 2,
+        PMTDEVICE   = 3
+    }MODESTAT;
+    uint8_t ModeNum;
+}ModeConfig;
+
 int8_t Basic_Init(void);
 
 #ifdef	__cplusplus

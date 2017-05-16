@@ -51,7 +51,6 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-<<<<<<< HEAD
 SOURCEFILES_QUOTED_IF_SPACED=Buzzer.c I2C1.c I2C2.c I2C_Common.c LCD.c MCP4726.c Timer1.c Timer4.c eeprom.c mTouch.c main.c table.c xprintf.c
 
 # Object Files Quoted if spaced
@@ -63,19 +62,6 @@ OBJECTFILES=${OBJECTDIR}/Buzzer.p1 ${OBJECTDIR}/I2C1.p1 ${OBJECTDIR}/I2C2.p1 ${O
 
 # Source Files
 SOURCEFILES=Buzzer.c I2C1.c I2C2.c I2C_Common.c LCD.c MCP4726.c Timer1.c Timer4.c eeprom.c mTouch.c main.c table.c xprintf.c
-=======
-SOURCEFILES_QUOTED_IF_SPACED=LCD.c Timer1.c main.c xprintf.c
-
-# Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/LCD.p1 ${OBJECTDIR}/Timer1.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/xprintf.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/LCD.p1.d ${OBJECTDIR}/Timer1.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/xprintf.p1.d
-
-# Object Files
-OBJECTFILES=${OBJECTDIR}/LCD.p1 ${OBJECTDIR}/Timer1.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/xprintf.p1
-
-# Source Files
-SOURCEFILES=LCD.c Timer1.c main.c xprintf.c
->>>>>>> Timer1
 
 
 CFLAGS=
@@ -101,7 +87,6 @@ MP_PROCESSOR_OPTION=16F1827
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-<<<<<<< HEAD
 ${OBJECTDIR}/Buzzer.p1: Buzzer.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Buzzer.p1.d 
@@ -134,8 +119,6 @@ ${OBJECTDIR}/I2C_Common.p1: I2C_Common.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/I2C_Common.d ${OBJECTDIR}/I2C_Common.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/I2C_Common.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-=======
->>>>>>> Timer1
 ${OBJECTDIR}/LCD.p1: LCD.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/LCD.p1.d 
@@ -144,7 +127,6 @@ ${OBJECTDIR}/LCD.p1: LCD.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/LCD.d ${OBJECTDIR}/LCD.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/LCD.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-<<<<<<< HEAD
 ${OBJECTDIR}/MCP4726.p1: MCP4726.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/MCP4726.p1.d 
@@ -153,8 +135,6 @@ ${OBJECTDIR}/MCP4726.p1: MCP4726.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/MCP4726.d ${OBJECTDIR}/MCP4726.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/MCP4726.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-=======
->>>>>>> Timer1
 ${OBJECTDIR}/Timer1.p1: Timer1.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Timer1.p1.d 
@@ -163,7 +143,6 @@ ${OBJECTDIR}/Timer1.p1: Timer1.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/Timer1.d ${OBJECTDIR}/Timer1.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/Timer1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-<<<<<<< HEAD
 ${OBJECTDIR}/Timer4.p1: Timer4.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Timer4.p1.d 
@@ -188,8 +167,6 @@ ${OBJECTDIR}/mTouch.p1: mTouch.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/mTouch.d ${OBJECTDIR}/mTouch.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mTouch.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-=======
->>>>>>> Timer1
 ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.p1.d 
@@ -198,7 +175,6 @@ ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-<<<<<<< HEAD
 ${OBJECTDIR}/table.p1: table.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/table.p1.d 
@@ -207,8 +183,6 @@ ${OBJECTDIR}/table.p1: table.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/table.d ${OBJECTDIR}/table.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/table.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-=======
->>>>>>> Timer1
 ${OBJECTDIR}/xprintf.p1: xprintf.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/xprintf.p1.d 
@@ -218,7 +192,6 @@ ${OBJECTDIR}/xprintf.p1: xprintf.c  nbproject/Makefile-${CND_CONF}.mk
 	@${FIXDEPS} ${OBJECTDIR}/xprintf.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
-<<<<<<< HEAD
 ${OBJECTDIR}/Buzzer.p1: Buzzer.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Buzzer.p1.d 
@@ -251,8 +224,6 @@ ${OBJECTDIR}/I2C_Common.p1: I2C_Common.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/I2C_Common.d ${OBJECTDIR}/I2C_Common.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/I2C_Common.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-=======
->>>>>>> Timer1
 ${OBJECTDIR}/LCD.p1: LCD.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/LCD.p1.d 
@@ -261,7 +232,6 @@ ${OBJECTDIR}/LCD.p1: LCD.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/LCD.d ${OBJECTDIR}/LCD.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/LCD.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-<<<<<<< HEAD
 ${OBJECTDIR}/MCP4726.p1: MCP4726.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/MCP4726.p1.d 
@@ -270,8 +240,6 @@ ${OBJECTDIR}/MCP4726.p1: MCP4726.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/MCP4726.d ${OBJECTDIR}/MCP4726.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/MCP4726.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-=======
->>>>>>> Timer1
 ${OBJECTDIR}/Timer1.p1: Timer1.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Timer1.p1.d 
@@ -280,7 +248,6 @@ ${OBJECTDIR}/Timer1.p1: Timer1.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/Timer1.d ${OBJECTDIR}/Timer1.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/Timer1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-<<<<<<< HEAD
 ${OBJECTDIR}/Timer4.p1: Timer4.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Timer4.p1.d 
@@ -305,8 +272,6 @@ ${OBJECTDIR}/mTouch.p1: mTouch.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/mTouch.d ${OBJECTDIR}/mTouch.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mTouch.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-=======
->>>>>>> Timer1
 ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.p1.d 
@@ -315,7 +280,6 @@ ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-<<<<<<< HEAD
 ${OBJECTDIR}/table.p1: table.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/table.p1.d 
@@ -324,8 +288,6 @@ ${OBJECTDIR}/table.p1: table.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/table.d ${OBJECTDIR}/table.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/table.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-=======
->>>>>>> Timer1
 ${OBJECTDIR}/xprintf.p1: xprintf.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/xprintf.p1.d 

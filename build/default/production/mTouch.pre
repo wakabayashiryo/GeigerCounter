@@ -3886,7 +3886,7 @@ typedef uint16_t uintptr_t;
 # 28 "Timer1.h"
 void Timer1_Init(void);
 uint16_t Timer1_DiffCounter(void);
-void Timer1_Handler(void);
+uint8_t Timer1_Handler(void);
 
 # 41 "Buzzer.h"
 void Buzzer_Init(void);
@@ -4050,7 +4050,19 @@ uint8_t Timer4_Handler(void);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 60
+# 61
+typedef struct
+{
+enum
+{
+COUNT = 0,
+SELECTFUNC = 1,
+ADJGAIN = 2,
+PMTDEVICE = 3
+}MODESTAT;
+uint8_t ModeNum;
+}ModeConfig;
+
 int8_t Basic_Init(void);
 
 # 21 "mTouch.h"

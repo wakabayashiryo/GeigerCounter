@@ -3886,17 +3886,14 @@ typedef uint16_t uintptr_t;
 # 28 "Timer1.h"
 void Timer1_Init(void);
 uint16_t Timer1_DiffCounter(void);
-void Timer1_Handler(void);
+uint8_t Timer1_Handler(void);
 
-<<<<<<< HEAD:build/default/production/table.pre
 # 41 "Buzzer.h"
 void Buzzer_Init(void);
 void Buzzer_SetDuty(uint16_t duty);
 void Buzzer_MiliSecond(uint16_t time);
 void Buzzer_Handler(void);
 
-=======
->>>>>>> Timer1:build/default/debug/main.pre
 # 32 "LCD.h"
 void LCD_Init(void);
 void LCD_Put(int8_t word);
@@ -3936,7 +3933,6 @@ I2C_SPEED_HIGH,
 I2C_SPEED_NONE
 }I2Cx_Speed;
 
-<<<<<<< HEAD:build/default/production/table.pre
 typedef enum
 {
 I2C1_MODULE,
@@ -4040,9 +4036,6 @@ uint8_t Timer4_Handler(void);
 
 
 # 33 "main.h"
-=======
-# 26 "main.h"
->>>>>>> Timer1:build/default/debug/main.pre
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = ON
@@ -4061,114 +4054,23 @@ uint8_t Timer4_Handler(void);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-<<<<<<< HEAD:build/default/production/table.pre
-# 60
+# 61
+typedef struct
+{
+enum
+{
+COUNT = 0,
+SELECTFUNC = 1,
+ADJGAIN = 2,
+PMTDEVICE = 3
+}MODESTAT;
+uint8_t ModeNum;
+}ModeConfig;
+
 int8_t Basic_Init(void);
 
 # 3 "table.c"
 const uint16_t DAC_DataTable[]={ 409,450,491,532,573, 614,655,696,737,778, 819,859,900,941,982, };
-=======
-# 49
-int8_t Basic_Init(void);
-
-# 7 "/opt/microchip/xc8/v1.41/include/stdarg.h"
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 43 "/opt/microchip/xc8/v1.41/include/stdio.h"
-struct __prbuf
-{
-char * ptr;
-void (* func)(char);
-};
-
-# 29 "/opt/microchip/xc8/v1.41/include/errno.h"
-extern int errno;
-
-# 12 "/opt/microchip/xc8/v1.41/include/conio.h"
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-# 23
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 88 "/opt/microchip/xc8/v1.41/include/stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-
-# 180
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-
-# 13 "main.c"
-int8_t main(void)
-{
-Basic_Init();
-
-Timer1_Init();
-
-
-LCD_Init();
-xfunc_out = (void(*)(unsigned char))(LCD_Put);
-
-uint16_t j = 0;
-uint16_t i=500;
-
-uint8_t buff[10];
-while(1)
-{
-uint16_t p = 0;
-
-# 35
-LCD_CursorPosition(0,1);
-sprintf(buff,"%d %d",i++,j++);
-while(buff[p])
-{
-LCD_Put(buff[p]);
-p++;
-}
-}
-
-return 0;
-}
-
-int8_t Basic_Init(void)
-{
-OSCCON = 0xF3;
-
-
->>>>>>> Timer1:build/default/debug/main.pre
 
 # 9
 const uint8_t *DAC_VoltageTable[]={ "0.5V","0.55V","0.6V","0.65V","0.7V", "0.75V","0.8V","0.85V","0.9V","0.95V", "1.0V","1.05V","1.1V","1.15V","1.2V", };
@@ -4179,13 +4081,3 @@ const uint8_t *H7826_Gain[]={ "1777","3957","8219","16099","30000", "53553","920
 # 21
 const uint8_t *H7826_01_Gain[]={"1250","2580","4998","9182","16125", "27238","44478","70500","108843","164139", "242364","351127","499999","700890","968472", };
 
-<<<<<<< HEAD:build/default/production/table.pre
-=======
-return 0;
-}
-
-void interrupt Handler(void)
-{
-Timer1_Handler();
-}
->>>>>>> Timer1:build/default/debug/main.pre
