@@ -52,5 +52,4 @@ int8_t Basic_Init(void)
 
 void interrupt Handler(void)
 {
-    Timer1_Handler();
 }

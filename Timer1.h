@@ -26,8 +26,11 @@ extern "C" {
 #define Timer1_Clear()  Timer1_Write(0x0000)
     
 void Timer1_Init(void);
-uint16_t Timer1_DiffCounter(void);
-uint8_t Timer1_Handler(void);
+#define DETECT_NUM_OF_COUNT 100
+inline uint32_t Timer1_SumRead(void);
+inline uint16_t Timer1_ResultRead(void);
+inline void Timer1_Count10us(void);
+void Timer1_DetectAssignCount(void);//put into interrupt function
 
 #ifdef	__cplusplus
 }

@@ -8,9 +8,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TMR1ON `Vb ~T0 @X0 0 e@192 ]
 "32 LCD.h
 [v _LCD_Init `(v ~T0 @X0 0 ef ]
-[v F2946 `(v ~T0 @X0 0 tf1`uc ]
+[v F2953 `(v ~T0 @X0 0 tf1`uc ]
 "17 xprintf.h
-[v _xfunc_out `*F2946 ~T0 @X0 0 e ]
+[v _xfunc_out `*F2953 ~T0 @X0 0 e ]
 "33 LCD.h
 [v _LCD_Put `(v ~T0 @X0 0 ef1`c ]
 "36
@@ -37,8 +37,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PORTA `Vuc ~T0 @X0 0 e@12 ]
 "473
 [v _PORTB `Vuc ~T0 @X0 0 e@13 ]
-"30 Timer1.h
-[v _Timer1_Handler `(uc ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2873,8 +2871,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;Timer1.h: 28: void Timer1_Init(void);
-[; ;Timer1.h: 29: uint16_t Timer1_DiffCounter(void);
-[; ;Timer1.h: 30: uint8_t Timer1_Handler(void);
+[; ;Timer1.h: 30: inline uint32_t Timer1_SumRead(void);
+[; ;Timer1.h: 31: inline uint16_t Timer1_ResultRead(void);
+[; ;Timer1.h: 32: inline void Timer1_Count10us(void);
+[; ;Timer1.h: 33: void Timer1_DetectAssignCount(void);
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void LCD_DisplayClear(void);
@@ -2975,9 +2975,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "20
 [e ( _LCD_Init ..  ]
 [; ;main.c: 21: xfunc_out = (void(*)(unsigned char))(LCD_Put);
-[v F3052 `(v ~T0 @X0 0 tf1`uc ]
+[v F3059 `(v ~T0 @X0 0 tf1`uc ]
 "21
-[e = _xfunc_out -> &U _LCD_Put `*F3052 ]
+[e = _xfunc_out -> &U _LCD_Put `*F3059 ]
 [; ;main.c: 23: while(1)
 "23
 [e :U 356 ]
@@ -3048,20 +3048,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 "51
 [e :UE 358 ]
 }
-[v F3060 `(v ~T0 @X0 1 tf ]
+[v F3067 `(v ~T0 @X0 1 tf ]
 "53
-[v _Handler `IF3060 ~T0 @X0 1 e ]
+[v _Handler `IF3067 ~T0 @X0 1 e ]
 "54
 {
 [; ;main.c: 53: void interrupt Handler(void)
 [; ;main.c: 54: {
 [e :U _Handler ]
 [f ]
-[; ;main.c: 55: Timer1_Handler();
+[; ;main.c: 55: }
 "55
-[e ( _Timer1_Handler ..  ]
-[; ;main.c: 56: }
-"56
 [e :UE 359 ]
 }
 [a 1C 37 85 32 0 ]

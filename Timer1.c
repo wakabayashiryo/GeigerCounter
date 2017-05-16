@@ -1,5 +1,8 @@
 #include "Timer1.h"
 
+static uint32_t countsum;
+static uint16_t count10us,resulttime;
+
 void Timer1_Init(void)
 {
     TRISB |= (1<<6);       //RA6 is input it is used Timer1
@@ -12,30 +15,40 @@ void Timer1_Init(void)
         
     T1GCON = 0x00;         //Not use Trigger
     
-    TMR1 = 0x0000;           //Clear Timer1
-
-    TMR1IE = 1;
+    TMR1 = 0xFFFF-DETECT_NUM_OF_COUNT;//Clear Timer1
+    count10us = 0x0000;
+    
     TMR1IF = 0;
+    TMR1IE = 1;
     PEIE = 1;
     GIE = 1;
 }
 
-uint16_t Timer1_DiffCounter(void)
+/***Constat Accuracy Measurement***/
+
+inline uint32_t Timer1_SumRead(void)
 {
-    uint16_t counternow;
-    
-    counternow = Timer1_Read();
-    Timer1_Clear();
-    
-    return counternow;
+    return countsum;
 }
 
-uint8_t Timer1_Handler(void)
+inline uint16_t Timer1_ResultRead(void)
+{
+    return resulttime;
+}
+
+inline void Timer1_Count10us(void)
+{
+    count10us++;
+}
+
+void Timer1_DetectAssignCount(void)//put into interrupt function
 {
     if(TMR1IF&&TMR1IE)
     {
+        countsum += 100;
+        resulttime = count10us;
+        count10us = 0;
+        TMR1 = 0xFFFF-DETECT_NUM_OF_COUNT;
         TMR1IF = 0;
-        return 1;
     }
-    return 0;
 }

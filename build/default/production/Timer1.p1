@@ -9,16 +9,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _T1GCON `Vuc ~T0 @X0 0 e@25 ]
 "728
 [v _TMR1 `Vus ~T0 @X0 0 e@22 ]
-"7430
-[v _TMR1IE `Vb ~T0 @X0 0 e@1160 ]
 "7432
 [v _TMR1IF `Vb ~T0 @X0 0 e@136 ]
+"7430
+[v _TMR1IE `Vb ~T0 @X0 0 e@1160 ]
 "7182
 [v _PEIE `Vb ~T0 @X0 0 e@94 ]
 "6960
 [v _GIE `Vb ~T0 @X0 0 e@95 ]
-"7434
-[v _TMR1ON `Vb ~T0 @X0 0 e@192 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2903,115 +2901,152 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x LVP=OFF ]
 [; ;main.h: 49: int8_t Basic_Init(void);
 [; ;Timer1.h: 28: void Timer1_Init(void);
-[; ;Timer1.h: 29: uint16_t Timer1_DiffCounter(void);
-[; ;Timer1.h: 30: uint8_t Timer1_Handler(void);
+[; ;Timer1.h: 30: inline uint32_t Timer1_SumRead(void);
+[; ;Timer1.h: 31: inline uint16_t Timer1_ResultRead(void);
+[; ;Timer1.h: 32: inline void Timer1_Count10us(void);
+[; ;Timer1.h: 33: void Timer1_DetectAssignCount(void);
 "3 Timer1.c
-[v _Timer1_Init `(v ~T0 @X0 1 ef ]
+[v _countsum `ul ~T0 @X0 1 s ]
+[; ;Timer1.c: 3: static uint32_t countsum;
 "4
+[v _count10us `ui ~T0 @X0 1 s ]
+[v _resulttime `ui ~T0 @X0 1 s ]
+[; ;Timer1.c: 4: static uint16_t count10us,resulttime;
+"6
+[v _Timer1_Init `(v ~T0 @X0 1 ef ]
+"7
 {
-[; ;Timer1.c: 3: void Timer1_Init(void)
-[; ;Timer1.c: 4: {
+[; ;Timer1.c: 6: void Timer1_Init(void)
+[; ;Timer1.c: 7: {
 [e :U _Timer1_Init ]
 [f ]
-[; ;Timer1.c: 5: TRISB |= (1<<6);
-"5
-[e =| _TRISB -> << -> 1 `i -> 6 `i `uc ]
-[; ;Timer1.c: 6: ANSELB &= ~(1<<6);
-"6
-[e =& _ANSELB -> ~ << -> 1 `i -> 6 `i `uc ]
-[; ;Timer1.c: 8: T1CON |= (0x01<<2);
+[; ;Timer1.c: 8: TRISB |= (1<<6);
 "8
-[e =| _T1CON -> << -> 1 `i -> 2 `i `uc ]
-[; ;Timer1.c: 9: T1CON &= ~(0x01<<3);
+[e =| _TRISB -> << -> 1 `i -> 6 `i `uc ]
+[; ;Timer1.c: 9: ANSELB &= ~(1<<6);
 "9
-[e =& _T1CON -> ~ << -> 1 `i -> 3 `i `uc ]
-[; ;Timer1.c: 10: T1CON |= (0x00<<4);
-"10
-[e =| _T1CON -> << -> 0 `i -> 4 `i `uc ]
-[; ;Timer1.c: 11: T1CON |= (0x02<<6);
+[e =& _ANSELB -> ~ << -> 1 `i -> 6 `i `uc ]
+[; ;Timer1.c: 11: T1CON |= (0x01<<2);
 "11
-[e =| _T1CON -> << -> 2 `i -> 6 `i `uc ]
-[; ;Timer1.c: 13: T1GCON = 0x00;
+[e =| _T1CON -> << -> 1 `i -> 2 `i `uc ]
+[; ;Timer1.c: 12: T1CON &= ~(0x01<<3);
+"12
+[e =& _T1CON -> ~ << -> 1 `i -> 3 `i `uc ]
+[; ;Timer1.c: 13: T1CON |= (0x00<<4);
 "13
+[e =| _T1CON -> << -> 0 `i -> 4 `i `uc ]
+[; ;Timer1.c: 14: T1CON |= (0x02<<6);
+"14
+[e =| _T1CON -> << -> 2 `i -> 6 `i `uc ]
+[; ;Timer1.c: 16: T1GCON = 0x00;
+"16
 [e = _T1GCON -> -> 0 `i `uc ]
-[; ;Timer1.c: 15: TMR1 = 0x0000;
-"15
-[e = _TMR1 -> -> 0 `i `us ]
-[; ;Timer1.c: 17: TMR1IE = 1;
-"17
-[e = _TMR1IE -> -> 1 `i `b ]
-[; ;Timer1.c: 18: TMR1IF = 0;
+[; ;Timer1.c: 18: TMR1 = 0xFFFF-100;
 "18
-[e = _TMR1IF -> -> 0 `i `b ]
-[; ;Timer1.c: 19: PEIE = 1;
+[e = _TMR1 -> - -> 65535 `ui -> -> 100 `i `ui `us ]
+[; ;Timer1.c: 19: count10us = 0x0000;
 "19
-[e = _PEIE -> -> 1 `i `b ]
-[; ;Timer1.c: 20: GIE = 1;
-"20
-[e = _GIE -> -> 1 `i `b ]
-[; ;Timer1.c: 21: }
+[e = _count10us -> -> 0 `i `ui ]
+[; ;Timer1.c: 21: TMR1IF = 0;
 "21
+[e = _TMR1IF -> -> 0 `i `b ]
+[; ;Timer1.c: 22: TMR1IE = 1;
+"22
+[e = _TMR1IE -> -> 1 `i `b ]
+[; ;Timer1.c: 23: PEIE = 1;
+"23
+[e = _PEIE -> -> 1 `i `b ]
+[; ;Timer1.c: 24: GIE = 1;
+"24
+[e = _GIE -> -> 1 `i `b ]
+[; ;Timer1.c: 25: }
+"25
 [e :UE 353 ]
 }
-"23
-[v _Timer1_DiffCounter `(ui ~T0 @X0 1 ef ]
-"24
-{
-[; ;Timer1.c: 23: uint16_t Timer1_DiffCounter(void)
-[; ;Timer1.c: 24: {
-[e :U _Timer1_DiffCounter ]
-[f ]
-"25
-[v _counternow `ui ~T0 @X0 1 a ]
-[; ;Timer1.c: 25: uint16_t counternow;
-[; ;Timer1.c: 27: counternow = (uint16_t)TMR1;
+[v F2987 `(ul ~T0 @X0 1 tf ]
 "27
-[e = _counternow -> _TMR1 `ui ]
-[; ;Timer1.c: 28: {TMR1ON = 0;; TMR1 = (uint16_t)0x0000; TMR1ON = 1;; };
+[v _Timer1_SumRead `TF2987 ~T0 @X0 1 e ]
 "28
 {
-[e = _TMR1ON -> -> 0 `i `b ]
-[e = _TMR1 -> -> -> 0 `i `ui `us ]
-[e = _TMR1ON -> -> 1 `i `b ]
-}
-[; ;Timer1.c: 30: return counternow;
-"30
-[e ) _counternow ]
+[; ;Timer1.c: 27: inline uint32_t Timer1_SumRead(void)
+[; ;Timer1.c: 28: {
+[e :U _Timer1_SumRead ]
+[f ]
+[; ;Timer1.c: 29: return countsum;
+"29
+[e ) _countsum ]
 [e $UE 354  ]
-[; ;Timer1.c: 31: }
-"31
+[; ;Timer1.c: 30: }
+"30
 [e :UE 354 ]
 }
+[v F2990 `(ui ~T0 @X0 1 tf ]
+"32
+[v _Timer1_ResultRead `TF2990 ~T0 @X0 1 e ]
 "33
-[v _Timer1_Handler `(uc ~T0 @X0 1 ef ]
-"34
 {
-[; ;Timer1.c: 33: uint8_t Timer1_Handler(void)
-[; ;Timer1.c: 34: {
-[e :U _Timer1_Handler ]
+[; ;Timer1.c: 32: inline uint16_t Timer1_ResultRead(void)
+[; ;Timer1.c: 33: {
+[e :U _Timer1_ResultRead ]
 [f ]
-[; ;Timer1.c: 35: if(TMR1IF&&TMR1IE)
+[; ;Timer1.c: 34: return resulttime;
+"34
+[e ) _resulttime ]
+[e $UE 355  ]
+[; ;Timer1.c: 35: }
 "35
-[e $ ! && _TMR1IF _TMR1IE 356  ]
-[; ;Timer1.c: 36: {
-"36
-{
-[; ;Timer1.c: 37: TMR1IF = 0;
-"37
-[e = _TMR1IF -> -> 0 `i `b ]
-[; ;Timer1.c: 38: return 1;
-"38
-[e ) -> -> 1 `i `uc ]
-[e $UE 355  ]
-"39
-}
-[e :U 356 ]
-[; ;Timer1.c: 39: }
-[; ;Timer1.c: 40: return 0;
-"40
-[e ) -> -> 0 `i `uc ]
-[e $UE 355  ]
-[; ;Timer1.c: 41: }
-"41
 [e :UE 355 ]
+}
+[v F2993 `(v ~T0 @X0 1 tf ]
+"37
+[v _Timer1_Count10us `TF2993 ~T0 @X0 1 e ]
+"38
+{
+[; ;Timer1.c: 37: inline void Timer1_Count10us(void)
+[; ;Timer1.c: 38: {
+[e :U _Timer1_Count10us ]
+[f ]
+[; ;Timer1.c: 39: count10us++;
+"39
+[e ++ _count10us -> -> 1 `i `ui ]
+[; ;Timer1.c: 40: }
+"40
+[e :UE 356 ]
+}
+"42
+[v _Timer1_DetectAssignCount `(v ~T0 @X0 1 ef ]
+"43
+{
+[; ;Timer1.c: 42: void Timer1_DetectAssignCount(void)
+[; ;Timer1.c: 43: {
+[e :U _Timer1_DetectAssignCount ]
+[f ]
+[; ;Timer1.c: 44: if(TMR1IF&&TMR1IE)
+"44
+[e $ ! && _TMR1IF _TMR1IE 358  ]
+[; ;Timer1.c: 45: {
+"45
+{
+[; ;Timer1.c: 46: countsum += 100;
+"46
+[e =+ _countsum -> -> -> 100 `i `l `ul ]
+[; ;Timer1.c: 47: resulttime = count10us;
+"47
+[e = _resulttime _count10us ]
+[; ;Timer1.c: 48: count10us = 0;
+"48
+[e = _count10us -> -> 0 `i `ui ]
+[; ;Timer1.c: 49: TMR1 = 0xFFFF-100;
+"49
+[e = _TMR1 -> - -> 65535 `ui -> -> 100 `i `ui `us ]
+[; ;Timer1.c: 50: TMR1IF = 0;
+"50
+[e = _TMR1IF -> -> 0 `i `b ]
+"51
+}
+[e :U 358 ]
+[; ;Timer1.c: 51: }
+[; ;Timer1.c: 52: }
+"52
+[e :UE 357 ]
 }

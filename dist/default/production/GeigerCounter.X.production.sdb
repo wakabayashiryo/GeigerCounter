@@ -35,10 +35,8 @@
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
 "53
 [v _Handler Handler `II(v  1 e 1 0 ]
-"3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
+"6 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
 [v _Timer1_Init Timer1_Init `(v  1 e 1 0 ]
-"33
-[v _Timer1_Handler Timer1_Handler `(uc  1 e 1 0 ]
 "26 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
 [v _xputc xputc `(v  1 e 1 0 ]
 "44
@@ -87,6 +85,11 @@
 [v _TMR1IF TMR1IF `VEb  1 e 0 @136 ]
 "7434
 [v _TMR1ON TMR1ON `VEb  1 e 0 @192 ]
+"3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
+[v _countsum countsum `ul  1 s 4 countsum ]
+"4
+[v _count10us count10us `ui  1 s 2 count10us ]
+[v _resulttime resulttime `ui  1 s 2 resulttime ]
 "19 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
 [v _xfunc_out xfunc_out `*.37(v  1 e 2 0 ]
 "20
@@ -187,10 +190,10 @@
 [v ___lldiv@dividend dividend `ul  1 p 4 5 ]
 "31
 } 0
-"3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
+"6 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
 [v _Timer1_Init Timer1_Init `(v  1 e 1 0 ]
 {
-"21
+"25
 } 0
 "28 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
 [v _LCD_Init LCD_Init `(v  1 e 1 0 ]
@@ -229,10 +232,5 @@
 "53
 [v _Handler Handler `II(v  1 e 1 0 ]
 {
-"56
-} 0
-"33 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
-[v _Timer1_Handler Timer1_Handler `(uc  1 e 1 0 ]
-{
-"41
+"55
 } 0
