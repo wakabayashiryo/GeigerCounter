@@ -55,6 +55,7 @@ extern "C" {
     
 #define LED_ON 0
 #define LED_OFF 1
+#define LED_TOG !LATA6
 #define LED_BLUE(x) LATA6 = x    
     
 #define NUM_OF_MODE 4 

@@ -3885,8 +3885,11 @@ typedef uint16_t uintptr_t;
 
 # 28 "Timer1.h"
 void Timer1_Init(void);
-uint16_t Timer1_DiffCounter(void);
-uint8_t Timer1_Handler(void);
+
+inline uint32_t Timer1_SumRead(void);
+inline uint16_t Timer1_ResultRead(void);
+inline void Timer1_Count10us(void);
+void Timer1_DetectAssignCount(void);
 
 # 41 "Buzzer.h"
 void Buzzer_Init(void);
@@ -4054,7 +4057,7 @@ uint8_t Timer4_Handler(void);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 61
+# 62
 typedef struct
 {
 enum
@@ -4075,27 +4078,21 @@ uint8_t CPS_PreData[3];
 ModeConfig mode;
 uint8_t mTouch_Interval[3];
 
-void mTouch_IntervalIncrement(void);
+void mTouch_IntervalDecrement(void);
 uint8_t mTouch_Read(uint8_t chan);
 
 int8_t main(void)
 {
 Basic_Init();
-
 LATA6 = 1;
-
 Buzzer_Init();
-
 LCD_Init();
 xfunc_out = (void(*)(unsigned char))(LCD_Put);
-
 Timer1_Init();
 TMR1ON = 1;;
-
 mTouch_Init();
-
 Timer4_Init();
-
+Timer6_Init();
 DAC_Initialize();
 
 mode.ModeNum = 0;
@@ -4106,11 +4103,12 @@ if(mTouch_Read(2)&&(mode.ModeNum<4-1))
 mode.ModeNum++;
 else if(mTouch_Read(1)&&(mode.ModeNum>0))
 mode.ModeNum--;
+
 LCD_CursorHome();
 switch(mode.ModeNum)
 {
 case COUNT:
-xprintf("COUNT");
+xprintf("%d %d",Timer1_ResultRead(),Timer1_SumRead());
 break;
 case SELECTFUNC:
 xprintf("SELECTFUNC");
@@ -4150,18 +4148,22 @@ return 0;
 
 void interrupt Handler(void)
 {
+if(Timer6_Handler())
+{
+Timer1_Count10us();
+LATA6 = !LATA6;
+}
 if(Timer4_Handler())
 {
 CPSx_Read();
 Buzzer_Handler();
-mTouch_IntervalIncrement();
+mTouch_IntervalDecrement();
 }
-
-Timer1_Handler();
+Timer1_DetectAssignCount();
 I2C_CommonInterrupt();
 }
 
-void mTouch_IntervalIncrement(void)
+void mTouch_IntervalDecrement(void)
 {
 if(mTouch_Interval[0]>0)
 mTouch_Interval[0]--;
@@ -4175,7 +4177,7 @@ uint8_t mTouch_Read(uint8_t chan)
 {
 if(chan>2)return 0;
 
-if(((CPS_PreData[chan]-CPS_Data[chan])>50)&&!mTouch_Interval[chan])
+if(((CPS_PreData[chan]-CPS_Data[chan])>100)&&!mTouch_Interval[chan])
 {
 mTouch_Interval[chan] = 100;
 Buzzer_MiliSecond(100);
@@ -4183,3 +4185,4 @@ return 1;
 }
 return 0;
 }
+

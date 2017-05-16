@@ -4049,7 +4049,7 @@ uint8_t Timer4_Handler(void);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 61
+# 62
 typedef struct
 {
 enum
@@ -4066,10 +4066,16 @@ int8_t Basic_Init(void);
 
 # 28 "Timer1.h"
 void Timer1_Init(void);
-uint16_t Timer1_DiffCounter(void);
-uint8_t Timer1_Handler(void);
+
+inline uint32_t Timer1_SumRead(void);
+inline uint16_t Timer1_ResultRead(void);
+inline void Timer1_Count10us(void);
+void Timer1_DetectAssignCount(void);
 
 # 3 "Timer1.c"
+static uint32_t countsum;
+static uint16_t count10us,resulttime;
+
 void Timer1_Init(void)
 {
 TRISB |= (1<<6);
@@ -4082,30 +4088,40 @@ T1CON |= (0x02<<6);
 
 T1GCON = 0x00;
 
-TMR1 = 0x0000;
+TMR1 = 0xFFFF-100;
+count10us = 0x0000;
 
-TMR1IE = 1;
 TMR1IF = 0;
+TMR1IE = 1;
 PEIE = 1;
 GIE = 1;
 }
 
-uint16_t Timer1_DiffCounter(void)
+
+
+inline uint32_t Timer1_SumRead(void)
 {
-uint16_t counternow;
-
-counternow = (uint16_t)TMR1;
-{TMR1ON = 0;; TMR1 = (uint16_t)0x0000; TMR1ON = 1;; };
-
-return counternow;
+return countsum;
 }
 
-uint8_t Timer1_Handler(void)
+inline uint16_t Timer1_ResultRead(void)
+{
+return resulttime;
+}
+
+inline void Timer1_Count10us(void)
+{
+count10us++;
+}
+
+void Timer1_DetectAssignCount(void)
 {
 if(TMR1IF&&TMR1IE)
 {
+countsum += 100;
+resulttime = count10us;
+count10us = 0;
+TMR1 = 0xFFFF-100;
 TMR1IF = 0;
-return 1;
 }
-return 0;
 }

@@ -2845,8 +2845,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;Timer1.h: 28: void Timer1_Init(void);
-[; ;Timer1.h: 29: uint16_t Timer1_DiffCounter(void);
-[; ;Timer1.h: 30: uint8_t Timer1_Handler(void);
+[; ;Timer1.h: 30: inline uint32_t Timer1_SumRead(void);
+[; ;Timer1.h: 31: inline uint16_t Timer1_ResultRead(void);
+[; ;Timer1.h: 32: inline void Timer1_Count10us(void);
+[; ;Timer1.h: 33: void Timer1_DetectAssignCount(void);
 [; ;Buzzer.h: 41: void Buzzer_Init(void);
 [; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
 [; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
@@ -2985,18 +2987,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x BORV=LO ]
 "49
 [p x LVP=OFF ]
-[; ;main.h: 61: typedef struct
-[; ;main.h: 62: {
-[; ;main.h: 63: enum
-[; ;main.h: 64: {
-[; ;main.h: 65: COUNT = 0,
-[; ;main.h: 66: SELECTFUNC = 1,
-[; ;main.h: 67: ADJGAIN = 2,
-[; ;main.h: 68: PMTDEVICE = 3
-[; ;main.h: 69: }MODESTAT;
-[; ;main.h: 70: uint8_t ModeNum;
-[; ;main.h: 71: }ModeConfig;
-[; ;main.h: 73: int8_t Basic_Init(void);
+[; ;main.h: 62: typedef struct
+[; ;main.h: 63: {
+[; ;main.h: 64: enum
+[; ;main.h: 65: {
+[; ;main.h: 66: COUNT = 0,
+[; ;main.h: 67: SELECTFUNC = 1,
+[; ;main.h: 68: ADJGAIN = 2,
+[; ;main.h: 69: PMTDEVICE = 3
+[; ;main.h: 70: }MODESTAT;
+[; ;main.h: 71: uint8_t ModeNum;
+[; ;main.h: 72: }ModeConfig;
+[; ;main.h: 74: int8_t Basic_Init(void);
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void LCD_DisplayClear(void);

@@ -2849,8 +2849,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;Timer1.h: 28: void Timer1_Init(void);
-[; ;Timer1.h: 29: uint16_t Timer1_DiffCounter(void);
-[; ;Timer1.h: 30: uint8_t Timer1_Handler(void);
+[; ;Timer1.h: 30: inline uint32_t Timer1_SumRead(void);
+[; ;Timer1.h: 31: inline uint16_t Timer1_ResultRead(void);
+[; ;Timer1.h: 32: inline void Timer1_Count10us(void);
+[; ;Timer1.h: 33: void Timer1_DetectAssignCount(void);
 [; ;Buzzer.h: 41: void Buzzer_Init(void);
 [; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
 [; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
@@ -2994,18 +2996,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x BORV=LO ]
 "49
 [p x LVP=OFF ]
-[; ;main.h: 61: typedef struct
-[; ;main.h: 62: {
-[; ;main.h: 63: enum
-[; ;main.h: 64: {
-[; ;main.h: 65: COUNT = 0,
-[; ;main.h: 66: SELECTFUNC = 1,
-[; ;main.h: 67: ADJGAIN = 2,
-[; ;main.h: 68: PMTDEVICE = 3
-[; ;main.h: 69: }MODESTAT;
-[; ;main.h: 70: uint8_t ModeNum;
-[; ;main.h: 71: }ModeConfig;
-[; ;main.h: 73: int8_t Basic_Init(void);
+[; ;main.h: 62: typedef struct
+[; ;main.h: 63: {
+[; ;main.h: 64: enum
+[; ;main.h: 65: {
+[; ;main.h: 66: COUNT = 0,
+[; ;main.h: 67: SELECTFUNC = 1,
+[; ;main.h: 68: ADJGAIN = 2,
+[; ;main.h: 69: PMTDEVICE = 3
+[; ;main.h: 70: }MODESTAT;
+[; ;main.h: 71: uint8_t ModeNum;
+[; ;main.h: 72: }ModeConfig;
+[; ;main.h: 74: int8_t Basic_Init(void);
 [; ;mTouch.h: 21: void mTouch_Init(void);
 [; ;mTouch.h: 22: void CPSx_Read(void);
 [; ;mTouch.c: 3: extern uint8_t CPS_Data[3];
@@ -3076,20 +3078,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _CPSx_Read ]
 [f ]
 "31
-[v F3138 `uc ~T0 @X0 1 s channel ]
-[i F3138
+[v F3145 `uc ~T0 @X0 1 s channel ]
+[i F3145
 -> -> 0 `i `uc
 ]
 [; ;mTouch.c: 31: static uint8_t channel=0;
 [; ;mTouch.c: 33: CPS_PreData[channel] = CPS_Data[channel];
 "33
-[e = *U + &U _CPS_PreData * -> F3138 `ux -> -> # *U &U _CPS_PreData `ui `ux *U + &U _CPS_Data * -> F3138 `ux -> -> # *U &U _CPS_Data `ui `ux ]
+[e = *U + &U _CPS_PreData * -> F3145 `ux -> -> # *U &U _CPS_PreData `ui `ux *U + &U _CPS_Data * -> F3145 `ux -> -> # *U &U _CPS_Data `ui `ux ]
 [; ;mTouch.c: 34: CPSCON0 &= ~(0x01<<7);;
 "34
 [e =& _CPSCON0 -> ~ << -> 1 `i -> 7 `i `uc ]
 [; ;mTouch.c: 35: CPS_Data[channel] = TMR0;
 "35
-[e = *U + &U _CPS_Data * -> F3138 `ux -> -> # *U &U _CPS_Data `ui `ux _TMR0 ]
+[e = *U + &U _CPS_Data * -> F3145 `ux -> -> # *U &U _CPS_Data `ui `ux _TMR0 ]
 [; ;mTouch.c: 36: TMR0 = 0x00;
 "36
 [e = _TMR0 -> -> 0 `i `uc ]
@@ -3098,12 +3100,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =| _CPSCON0 -> << -> 1 `i -> 7 `i `uc ]
 [; ;mTouch.c: 39: if(channel++>2)channel = 0;
 "39
-[e $ ! > -> ++ F3138 -> -> 1 `i `uc `i -> 2 `i 366  ]
-[e = F3138 -> -> 0 `i `uc ]
+[e $ ! > -> ++ F3145 -> -> 1 `i `uc `i -> 2 `i 366  ]
+[e = F3145 -> -> 0 `i `uc ]
 [e :U 366 ]
 [; ;mTouch.c: 40: CPSCON1 = (uint8_t)channel;
 "40
-[e = _CPSCON1 F3138 ]
+[e = _CPSCON1 F3145 ]
 [; ;mTouch.c: 42: }
 "42
 [e :UE 365 ]

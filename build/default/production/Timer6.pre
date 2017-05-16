@@ -1,5 +1,5 @@
 
-# 1 "eeprom.c"
+# 1 "Timer6.c"
 
 # 26 "/opt/microchip/xc8/v1.41/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4025,6 +4025,10 @@ uint8_t Command :3;
 void DAC_Initialize(void);
 int8_t DAC_WriteVoltage(uint16_t volue);
 
+# 18 "eeprom.h"
+int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
+int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
+
 # 21 "mTouch.h"
 void mTouch_Init(void);
 void CPSx_Read(void);
@@ -4068,36 +4072,32 @@ uint8_t ModeNum;
 
 int8_t Basic_Init(void);
 
-# 18 "eeprom.h"
-int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
-int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
+# 17 "Timer6.h"
+void Timer6_Init(void);
+uint8_t Timer6_Handler(void);
 
-# 12 "eeprom.c"
-int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr)
+# 3 "Timer6.c"
+void Timer6_Init(void)
 {
-uint8_t i = 0;
+PR6 = 50;
+TMR6 = 0x00;
+T6CON |= (0x02<<0);
+T6CON |= (0x00<<3);
+T6CON |= (0x01<<2);
 
-for(;i<size;i++)
-{
-if((addr+i)>256-1)
-return 1;
-eeprom_write(addr+i,pData[i]);
+TMR6IF = 0;
+TMR6IE = 1;
+PEIE = 1;
+GIE = 1;
 }
 
+uint8_t Timer6_Handler(void)
+{
+if(TMR6IE&&TMR6IF)
+{
+TMR6IF = 0;
+return 1;
+}
 return 0;
 }
 
-# 30
-int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr)
-{
-uint8_t i = 0;
-
-for(;i<size;i++)
-{
-if((addr+i)>256-1)
-return 1;
-pData[i] = eeprom_read(addr+i);
-}
-
-return 0;
-}

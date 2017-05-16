@@ -26,6 +26,7 @@ int8_t main(void)
     Timer1_Start();
     mTouch_Init();
     Timer4_Init();
+    Timer6_Init();
     DAC_Initialize();
 
     mode.ModeNum = 0;
@@ -41,7 +42,7 @@ int8_t main(void)
         switch(mode.ModeNum) 
         {
             case COUNT:
-                xprintf("COUNT");
+                xprintf("%d %d",Timer1_ResultRead(),Timer1_SumRead());
             break;
             case SELECTFUNC:
                 xprintf("SELECTFUNC");
@@ -81,14 +82,18 @@ int8_t Basic_Init(void)
 
 void interrupt Handler(void)
 {
-    if(Timer4_Handler())
+    if(Timer6_Handler())//repeat 10us
+    {
+        Timer1_Count10us();
+        LED_BLUE(LED_TOG);
+    }
+    if(Timer4_Handler())//repeat 1ms
     {
         CPSx_Read();
         Buzzer_Handler();
         mTouch_IntervalDecrement();
     }
-    
-    Timer1_Handler();
+    Timer1_DetectAssignCount();
     I2C_CommonInterrupt();
 }
 
@@ -106,7 +111,7 @@ uint8_t mTouch_Read(uint8_t chan)
 {
     if(chan>2)return 0;
     
-    if(((CPS_PreData[chan]-CPS_Data[chan])>130)&&!mTouch_Interval[chan])
+    if(((CPS_PreData[chan]-CPS_Data[chan])>100)&&!mTouch_Interval[chan])
     {
         mTouch_Interval[chan] = 100;
         Buzzer_MiliSecond(100);
@@ -114,3 +119,4 @@ uint8_t mTouch_Read(uint8_t chan)
     }
     return 0;
 }
+

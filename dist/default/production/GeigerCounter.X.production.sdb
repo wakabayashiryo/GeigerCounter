@@ -4,56 +4,56 @@
 [d chip 16F1827 ]
 [d frameptr 6 ]
 "16 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C1.c
-[e E3066 . `uc
+[e E3073 . `uc
 I2C_MODE_MASTER 0
 I2C_MODE_SLAVE 1
 ]
-[e E3070 . `uc
+[e E3077 . `uc
 I2C_SPEED_STANDARD 0
 I2C_SPEED_HIGH 1
 I2C_SPEED_NONE 2
 ]
 "16 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C2.c
-[e E3066 . `uc
+[e E3073 . `uc
 I2C_MODE_MASTER 0
 I2C_MODE_SLAVE 1
 ]
-[e E3070 . `uc
+[e E3077 . `uc
 I2C_SPEED_STANDARD 0
 I2C_SPEED_HIGH 1
 I2C_SPEED_NONE 2
 ]
 "3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C_Common.c
-[e E3066 . `uc
+[e E3073 . `uc
 I2C_MODE_MASTER 0
 I2C_MODE_SLAVE 1
 ]
 "7
-[e E3075 . `uc
+[e E3082 . `uc
 I2C1_MODULE 0
 I2C2_MODULE 1
 ]
-[e E3070 . `uc
+[e E3077 . `uc
 I2C_SPEED_STANDARD 0
 I2C_SPEED_HIGH 1
 I2C_SPEED_NONE 2
 ]
 "16 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/MCP4726.c
-[e E3004 . `uc
+[e E3011 . `uc
 I2C1_MODULE 0
 I2C2_MODULE 1
 ]
-[e E2995 . `uc
+[e E3002 . `uc
 I2C_MODE_MASTER 0
 I2C_MODE_SLAVE 1
 ]
-[e E2999 . `uc
+[e E3006 . `uc
 I2C_SPEED_STANDARD 0
 I2C_SPEED_HIGH 1
 I2C_SPEED_NONE 2
 ]
 "12 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
-[e E3121 . `uc
+[e E3128 . `uc
 COUNT 0
 SELECTFUNC 1
 ADJGAIN 2
@@ -125,13 +125,13 @@ PMTDEVICE 3
 [v _LCD_CursorHome LCD_CursorHome `(v  1 e 1 0 ]
 "18 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
-"67
+"62
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
-"88
+"83
 [v _Handler Handler `II(v  1 e 1 0 ]
-"101
-[v _mTouch_IntervalIncrement mTouch_IntervalIncrement `(v  1 e 1 0 ]
-"111
+"100
+[v _mTouch_IntervalDecrement mTouch_IntervalDecrement `(v  1 e 1 0 ]
+"110
 [v _mTouch_Read mTouch_Read `(uc  1 e 1 0 ]
 "14 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/MCP4726.c
 [v _DAC_Initialize DAC_Initialize `(v  1 e 1 0 ]
@@ -141,14 +141,24 @@ PMTDEVICE 3
 [v _mTouch_Init mTouch_Init `(v  1 e 1 0 ]
 "29
 [v _CPSx_Read CPSx_Read `(v  1 e 1 0 ]
-"3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
+"6 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
 [v _Timer1_Init Timer1_Init `(v  1 e 1 0 ]
-"33
-[v _Timer1_Handler Timer1_Handler `(uc  1 e 1 0 ]
+"29
+[v _Timer1_SumRead Timer1_SumRead `T(ul  1 e 4 0 ]
+"34
+[v _Timer1_ResultRead Timer1_ResultRead `T(ui  1 e 2 0 ]
+"39
+[v _Timer1_Count10us Timer1_Count10us `T(v  1 e 1 0 ]
+"44
+[v _Timer1_DetectAssignCount Timer1_DetectAssignCount `(v  1 e 1 0 ]
 "3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer4.c
 [v _Timer4_Init Timer4_Init `(v  1 e 1 0 ]
 "17
 [v _Timer4_Handler Timer4_Handler `(uc  1 e 1 0 ]
+"3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer6.c
+[v _Timer6_Init Timer6_Init `(i  1 e 2 0 ]
+"17
+[v _Timer6_Handler Timer6_Handler `(i  1 e 2 0 ]
 "26 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
 [v _xputc xputc `(v  1 e 1 0 ]
 "44
@@ -277,6 +287,12 @@ PMTDEVICE 3
 [v _PR4 PR4 `VEuc  1 e 1 @1046 ]
 "6219
 [v _T4CON T4CON `VEuc  1 e 1 @1047 ]
+"6289
+[v _TMR6 TMR6 `VEuc  1 e 1 @1052 ]
+"6308
+[v _PR6 PR6 `VEuc  1 e 1 @1053 ]
+"6327
+[v _T6CON T6CON `VEuc  1 e 1 @1054 ]
 "6680
 [v _BCL1IE BCL1IE `VEb  1 e 0 @1171 ]
 "6682
@@ -313,9 +329,13 @@ PMTDEVICE 3
 [v _TMR4IE TMR4IE `VEb  1 e 0 @1177 ]
 "7444
 [v _TMR4IF TMR4IF `VEb  1 e 0 @153 ]
+"7448
+[v _TMR6IE TMR6IE `VEb  1 e 0 @1179 ]
+"7450
+[v _TMR6IF TMR6IF `VEb  1 e 0 @155 ]
 "9 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Buzzer.c
 [v _count count `ui  1 s 2 count ]
-[s S46 . 19 `[8]uc 1 SlaveTransmitBuff 8 0 `[8]uc 1 SlaveReceiveBuff 8 8 `*.4uc 1 TransmitPoint 1 16 `*.4uc 1 ReceivePoint 1 17 `E3066 1 Mode 1 18 ]
+[s S46 . 19 `[8]uc 1 SlaveTransmitBuff 8 0 `[8]uc 1 SlaveReceiveBuff 8 8 `*.4uc 1 TransmitPoint 1 16 `*.4uc 1 ReceivePoint 1 17 `E3073 1 Mode 1 18 ]
 "3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C_Common.c
 [v _I2C1_Config I2C1_Config `S46  1 e 19 0 ]
 "4
@@ -324,9 +344,9 @@ PMTDEVICE 3
 [v _CPS_Data CPS_Data `[3]uc  1 e 3 0 ]
 "11
 [v _CPS_PreData CPS_PreData `[3]uc  1 e 3 0 ]
-[s S548 . 2 `E3121 1 MODESTAT 1 0 `uc 1 ModeNum 1 1 ]
+[s S554 . 2 `E3128 1 MODESTAT 1 0 `uc 1 ModeNum 1 1 ]
 "12
-[v _mode mode `S548  1 e 2 0 ]
+[v _mode mode `S554  1 e 2 0 ]
 "13
 [v _mTouch_Interval mTouch_Interval `[3]uc  1 e 3 0 ]
 [s S411 . 1 `uc 1 Gain 1 0 :1:0 
@@ -345,6 +365,11 @@ PMTDEVICE 3
 "11
 [u S424 . 2 `[2]uc 1 Voltage_Data 2 0 `S419 1 . 2 0 ]
 [v _VoltageReg VoltageReg `S424  1 s 2 VoltageReg ]
+"3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
+[v _countsum countsum `ul  1 s 4 countsum ]
+"4
+[v _count10us count10us `ui  1 s 2 count10us ]
+[v _resulttime resulttime `ui  1 s 2 resulttime ]
 "19 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
 [v _xfunc_out xfunc_out `*.37(v  1 e 2 0 ]
 "20
@@ -354,13 +379,13 @@ PMTDEVICE 3
 "18 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
 {
-"65
+"60
 } 0
 "165 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
 [v _xprintf xprintf `(v  1 e 1 0 ]
 {
 "170
-[v xprintf@arp arp `[1]*.4v  1 a 1 69 ]
+[v xprintf@arp arp `[1]*.4v  1 a 1 71 ]
 "166
 [v xprintf@fmt fmt `*.25DCCuc  1 p 2 62 ]
 "176
@@ -445,14 +470,14 @@ PMTDEVICE 3
 [v ___lldiv@dividend dividend `ul  1 p 4 4 ]
 "31
 } 0
-"111 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+"110 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _mTouch_Read mTouch_Read `(uc  1 e 1 0 ]
 {
 [v mTouch_Read@chan chan `uc  1 a 1 wreg ]
 [v mTouch_Read@chan chan `uc  1 a 1 wreg ]
-"113
+"112
 [v mTouch_Read@chan chan `uc  1 a 1 7 ]
-"122
+"121
 } 0
 "38 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Buzzer.c
 [v _Buzzer_MiliSecond Buzzer_MiliSecond `(v  1 e 1 0 ]
@@ -470,15 +495,30 @@ PMTDEVICE 3
 {
 "10
 } 0
+"3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer6.c
+[v _Timer6_Init Timer6_Init `(i  1 e 2 0 ]
+{
+"15
+} 0
 "3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer4.c
 [v _Timer4_Init Timer4_Init `(v  1 e 1 0 ]
 {
 "15
 } 0
-"3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
+"29 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
+[v _Timer1_SumRead Timer1_SumRead `T(ul  1 e 4 0 ]
+{
+"32
+} 0
+"34
+[v _Timer1_ResultRead Timer1_ResultRead `T(ui  1 e 2 0 ]
+{
+"37
+} 0
+"6
 [v _Timer1_Init Timer1_Init `(v  1 e 1 0 ]
 {
-"21
+"25
 } 0
 "28 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
 [v _LCD_Init LCD_Init `(v  1 e 1 0 ]
@@ -512,15 +552,15 @@ PMTDEVICE 3
 "23 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C_Common.c
 [v _I2C_Transmit I2C_Transmit `(c  1 e 1 0 ]
 {
-[v I2C_Transmit@I2Cx I2Cx `E3075  1 a 1 wreg ]
+[v I2C_Transmit@I2Cx I2Cx `E3082  1 a 1 wreg ]
 "25
 [v I2C_Transmit@result result `c  1 a 1 15 ]
 "23
-[v I2C_Transmit@I2Cx I2Cx `E3075  1 a 1 wreg ]
+[v I2C_Transmit@I2Cx I2Cx `E3082  1 a 1 wreg ]
 [v I2C_Transmit@address address `uc  1 p 1 8 ]
 [v I2C_Transmit@pData pData `*.4uc  1 p 1 9 ]
 [v I2C_Transmit@size size `uc  1 p 1 10 ]
-[v I2C_Transmit@I2Cx I2Cx `E3075  1 a 1 14 ]
+[v I2C_Transmit@I2Cx I2Cx `E3082  1 a 1 14 ]
 "38
 } 0
 "52 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C2.c
@@ -561,12 +601,12 @@ PMTDEVICE 3
 "6 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C_Common.c
 [v _I2C_Init I2C_Init `(v  1 e 1 0 ]
 {
-[v I2C_Init@I2Cx I2Cx `E3075  1 a 1 wreg ]
-[v I2C_Init@I2Cx I2Cx `E3075  1 a 1 wreg ]
+[v I2C_Init@I2Cx I2Cx `E3082  1 a 1 wreg ]
+[v I2C_Init@I2Cx I2Cx `E3082  1 a 1 wreg ]
 [v I2C_Init@address address `uc  1 p 1 5 ]
-[v I2C_Init@mode mode `E3066  1 p 1 6 ]
-[v I2C_Init@Speed Speed `E3070  1 p 1 7 ]
-[v I2C_Init@I2Cx I2Cx `E3075  1 a 1 10 ]
+[v I2C_Init@mode mode `E3073  1 p 1 6 ]
+[v I2C_Init@Speed Speed `E3077  1 p 1 7 ]
+[v I2C_Init@I2Cx I2Cx `E3082  1 a 1 10 ]
 "21
 } 0
 "15 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C2.c
@@ -574,8 +614,8 @@ PMTDEVICE 3
 {
 [v I2C2_Setting@address address `uc  1 a 1 wreg ]
 [v I2C2_Setting@address address `uc  1 a 1 wreg ]
-[v I2C2_Setting@mode mode `E3066  1 p 1 1 ]
-[v I2C2_Setting@Speed Speed `E3070  1 p 1 2 ]
+[v I2C2_Setting@mode mode `E3073  1 p 1 1 ]
+[v I2C2_Setting@Speed Speed `E3077  1 p 1 2 ]
 "17
 [v I2C2_Setting@address address `uc  1 a 1 4 ]
 "50
@@ -590,8 +630,8 @@ PMTDEVICE 3
 {
 [v I2C1_Setting@address address `uc  1 a 1 wreg ]
 [v I2C1_Setting@address address `uc  1 a 1 wreg ]
-[v I2C1_Setting@mode mode `E3066  1 p 1 1 ]
-[v I2C1_Setting@Speed Speed `E3070  1 p 1 2 ]
+[v I2C1_Setting@mode mode `E3073  1 p 1 1 ]
+[v I2C1_Setting@Speed Speed `E3077  1 p 1 2 ]
 "17
 [v I2C1_Setting@address address `uc  1 a 1 4 ]
 "50
@@ -606,30 +646,40 @@ PMTDEVICE 3
 {
 "29
 } 0
-"67 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+"62 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
 {
-"86
+"81
 } 0
-"88
+"83
 [v _Handler Handler `II(v  1 e 1 0 ]
 {
-"99
+"98
 } 0
-"101
-[v _mTouch_IntervalIncrement mTouch_IntervalIncrement `(v  1 e 1 0 ]
+"100
+[v _mTouch_IntervalDecrement mTouch_IntervalDecrement `(v  1 e 1 0 ]
 {
-"109
+"108
+} 0
+"17 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer6.c
+[v _Timer6_Handler Timer6_Handler `(i  1 e 2 0 ]
+{
+"25
 } 0
 "17 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer4.c
 [v _Timer4_Handler Timer4_Handler `(uc  1 e 1 0 ]
 {
 "25
 } 0
-"33 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
-[v _Timer1_Handler Timer1_Handler `(uc  1 e 1 0 ]
+"44 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
+[v _Timer1_DetectAssignCount Timer1_DetectAssignCount `(v  1 e 1 0 ]
 {
-"41
+"54
+} 0
+"39
+[v _Timer1_Count10us Timer1_Count10us `T(v  1 e 1 0 ]
+{
+"42
 } 0
 "58 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C_Common.c
 [v _I2C_CommonInterrupt I2C_CommonInterrupt `(v  1 e 1 0 ]
