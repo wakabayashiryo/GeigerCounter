@@ -13,6 +13,7 @@ extern "C" {
 #endif
 
 #include <xc.h>
+#include <math.h>
 #include "main.h"
     
 #define Timer1_Start()  TMR1ON = 1;
@@ -26,11 +27,14 @@ extern "C" {
 #define Timer1_Clear()  Timer1_Write(0x0000)
     
 void Timer1_Init(void);
-#define DETECT_NUM_OF_COUNT 100
-inline uint32_t Timer1_SumRead(void);
-inline uint16_t Timer1_ResultRead(void);
+
+#define DETECT_NUM_OF_COUNT 10
+inline uint32_t Timer1_GetCount(void);
+float Timer1_GetError(void);
+uint16_t Timer1_GetCPM(void);
+
 inline void Timer1_Count10us(void);
-uint8_t Timer1_DetectAssignCount(void);//put into interrupt function
+inline uint8_t Timer1_DetectAssignCount(void);//put into interrupt function
 
 #ifdef	__cplusplus
 }

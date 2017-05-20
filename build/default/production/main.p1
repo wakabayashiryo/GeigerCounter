@@ -2,15 +2,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "49 main.h
 [v _Basic_Init `(c ~T0 @X0 0 ef ]
-"28 Timer1.h
+"29 Timer1.h
 [v _Timer1_Init `(v ~T0 @X0 0 ef ]
 "7434 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [v _TMR1ON `Vb ~T0 @X0 0 e@192 ]
 "32 LCD.h
 [v _LCD_Init `(v ~T0 @X0 0 ef ]
-[v F2953 `(v ~T0 @X0 0 tf1`uc ]
+[v F3014 `(v ~T0 @X0 0 tf1`uc ]
 "17 xprintf.h
-[v _xfunc_out `*F2953 ~T0 @X0 0 e ]
+[v _xfunc_out `*F3014 ~T0 @X0 0 e ]
 "33 LCD.h
 [v _LCD_Put `(v ~T0 @X0 0 ef1`c ]
 "36
@@ -2870,11 +2870,38 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;Timer1.h: 28: void Timer1_Init(void);
-[; ;Timer1.h: 30: inline uint32_t Timer1_SumRead(void);
-[; ;Timer1.h: 31: inline uint16_t Timer1_ResultRead(void);
-[; ;Timer1.h: 32: inline void Timer1_Count10us(void);
-[; ;Timer1.h: 33: uint8_t Timer1_DetectAssignCount(void);
+[; ;math.h: 30: extern double fabs(double);
+[; ;math.h: 31: extern double floor(double);
+[; ;math.h: 32: extern double ceil(double);
+[; ;math.h: 33: extern double modf(double, double *);
+[; ;math.h: 34: extern double sqrt(double);
+[; ;math.h: 35: extern double atof(const char *);
+[; ;math.h: 36: extern double sin(double) ;
+[; ;math.h: 37: extern double cos(double) ;
+[; ;math.h: 38: extern double tan(double) ;
+[; ;math.h: 39: extern double asin(double) ;
+[; ;math.h: 40: extern double acos(double) ;
+[; ;math.h: 41: extern double atan(double);
+[; ;math.h: 42: extern double atan2(double, double) ;
+[; ;math.h: 43: extern double log(double);
+[; ;math.h: 44: extern double log10(double);
+[; ;math.h: 45: extern double pow(double, double) ;
+[; ;math.h: 46: extern double exp(double) ;
+[; ;math.h: 47: extern double sinh(double) ;
+[; ;math.h: 48: extern double cosh(double) ;
+[; ;math.h: 49: extern double tanh(double);
+[; ;math.h: 50: extern double eval_poly(double, const double *, int);
+[; ;math.h: 51: extern double frexp(double, int *);
+[; ;math.h: 52: extern double ldexp(double, int);
+[; ;math.h: 53: extern double fmod(double, double);
+[; ;math.h: 54: extern double trunc(double);
+[; ;math.h: 55: extern double round(double);
+[; ;Timer1.h: 29: void Timer1_Init(void);
+[; ;Timer1.h: 32: inline uint32_t Timer1_GetCount(void);
+[; ;Timer1.h: 33: float Timer1_GetError(void);
+[; ;Timer1.h: 34: uint16_t Timer1_GetCPM(void);
+[; ;Timer1.h: 36: inline void Timer1_Count10us(void);
+[; ;Timer1.h: 37: inline uint8_t Timer1_DetectAssignCount(void);
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void LCD_DisplayClear(void);
@@ -2975,9 +3002,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "20
 [e ( _LCD_Init ..  ]
 [; ;main.c: 21: xfunc_out = (void(*)(unsigned char))(LCD_Put);
-[v F3059 `(v ~T0 @X0 0 tf1`uc ]
+[v F3120 `(v ~T0 @X0 0 tf1`uc ]
 "21
-[e = _xfunc_out -> &U _LCD_Put `*F3059 ]
+[e = _xfunc_out -> &U _LCD_Put `*F3120 ]
 [; ;main.c: 23: while(1)
 "23
 [e :U 356 ]
@@ -3048,9 +3075,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "51
 [e :UE 358 ]
 }
-[v F3067 `(v ~T0 @X0 1 tf ]
+[v F3128 `(v ~T0 @X0 1 tf ]
 "53
-[v _Handler `IF3067 ~T0 @X0 1 e ]
+[v _Handler `IF3128 ~T0 @X0 1 e ]
 "54
 {
 [; ;main.c: 53: void interrupt Handler(void)

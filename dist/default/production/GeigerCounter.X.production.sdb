@@ -7,10 +7,24 @@
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 /opt/microchip/xc8/v1.41/sources/common/ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
+"56 /opt/microchip/xc8/v1.41/sources/common/ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"4 /opt/microchip/xc8/v1.41/sources/common/ftge.c
+[v ___ftge __ftge `(b  1 e 0 0 ]
+"62 /opt/microchip/xc8/v1.41/sources/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"18 /opt/microchip/xc8/v1.41/sources/common/ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"44 /opt/microchip/xc8/v1.41/sources/common/fttol.c
+[v ___fttol __fttol `(l  1 e 4 0 ]
 "6 /opt/microchip/xc8/v1.41/sources/common/lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
 "6 /opt/microchip/xc8/v1.41/sources/common/llmod.c
 [v ___llmod __llmod `(ul  1 e 4 0 ]
+"35 /opt/microchip/xc8/v1.41/sources/common/lltoft.c
+[v ___lltoft __lltoft `(f  1 e 3 0 ]
+"9 /opt/microchip/xc8/v1.41/sources/common/sprcsqrt.c
+[v _sqrt sqrt `(d  1 e 3 0 ]
 "15 /opt/microchip/xc8/v1.41/sources/common/Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 /opt/microchip/xc8/v1.41/sources/common/Umul32.c
@@ -85,11 +99,12 @@
 [v _TMR1IF TMR1IF `VEb  1 e 0 @136 ]
 "7434
 [v _TMR1ON TMR1ON `VEb  1 e 0 @192 ]
+"3 /opt/microchip/xc8/v1.41/sources/common/errno.c
+[v _errno errno `i  1 e 2 0 ]
 "3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
 [v _countsum countsum `ul  1 s 4 countsum ]
 "4
-[v _count10us count10us `ui  1 s 2 count10us ]
-[v _resulttime resulttime `ui  1 s 2 resulttime ]
+[v _timesum timesum `ul  1 s 4 timesum ]
 "19 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
 [v _xfunc_out xfunc_out `*.37(v  1 e 2 0 ]
 "20
@@ -193,7 +208,7 @@
 "6 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
 [v _Timer1_Init Timer1_Init `(v  1 e 1 0 ]
 {
-"25
+"24
 } 0
 "28 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
 [v _LCD_Init LCD_Init `(v  1 e 1 0 ]
