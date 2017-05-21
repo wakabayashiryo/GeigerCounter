@@ -4037,7 +4037,7 @@ int8_t DAC_WriteVoltage(uint16_t volue);
 # 10 "MCP4726.c"
 static Config_Reg ConfigReg;
 static Voltage_Reg VoltageReg;
-static Memory_Reg MemoryReg;
+
 
 void DAC_Initialize(void)
 {
@@ -4054,15 +4054,11 @@ I2C_Transmit(I2C2_MODULE,0x60,ConfigReg.Config_Data,1);
 
 int8_t DAC_WriteVoltage(uint16_t volue)
 {
-int8_t result;
-
 VoltageReg.Command = (uint8_t)(0x0);
 VoltageReg.PowerDown = ConfigReg.PowerDown;
 VoltageReg.Voltage4bits = (uint8_t)((volue&0x0F00)>>8);
 VoltageReg.Voltage8bits = (uint8_t)(volue&0x00FF);
 
-result = I2C_Transmit(I2C2_MODULE,0x60,VoltageReg.Voltage_Data,2);
-
-return result;
+return I2C_Transmit(I2C2_MODULE,0x60,VoltageReg.Voltage_Data,2);
 }
 

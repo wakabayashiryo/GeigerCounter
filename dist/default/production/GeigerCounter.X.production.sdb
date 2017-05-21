@@ -148,7 +148,7 @@ I2C_SPEED_NONE 2
 [v _SSP1MSK SSP1MSK `VEuc  1 e 1 @531 ]
 "3611
 [v _SSP1STAT SSP1STAT `VEuc  1 e 1 @532 ]
-[s S312 . 1 `uc 1 BF 1 0 :1:0 
+[s S229 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -158,11 +158,11 @@ I2C_SPEED_NONE 2
 `uc 1 SMP 1 0 :1:7 
 ]
 "3633
-[u S321 . 1 `S312 1 . 1 0 ]
-[v _SSP1STATbits SSP1STATbits `VES321  1 e 1 @532 ]
+[u S238 . 1 `S229 1 . 1 0 ]
+[v _SSP1STATbits SSP1STATbits `VES238  1 e 1 @532 ]
 "3732
 [v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @533 ]
-[s S258 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S175 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
@@ -172,13 +172,13 @@ I2C_SPEED_NONE 2
 `uc 1 WCOL 1 0 :1:7 
 ]
 "3761
-[s S267 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S184 . 1 `uc 1 SSPM 1 0 :4:0 
 ]
-[u S269 . 1 `S258 1 . 1 0 `S267 1 . 1 0 ]
-[v _SSP1CON1bits SSP1CON1bits `VES269  1 e 1 @533 ]
+[u S186 . 1 `S175 1 . 1 0 `S184 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES186  1 e 1 @533 ]
 "3935
 [v _SSP1CON2 SSP1CON2 `VEuc  1 e 1 @534 ]
-[s S284 . 1 `uc 1 SEN 1 0 :1:0 
+[s S201 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -188,8 +188,8 @@ I2C_SPEED_NONE 2
 `uc 1 GCEN 1 0 :1:7 
 ]
 "3957
-[u S293 . 1 `S284 1 . 1 0 ]
-[v _SSP1CON2bits SSP1CON2bits `VES293  1 e 1 @534 ]
+[u S210 . 1 `S201 1 . 1 0 ]
+[v _SSP1CON2bits SSP1CON2bits `VES210  1 e 1 @534 ]
 "4177
 [v _SSP2BUF SSP2BUF `VEuc  1 e 1 @537 ]
 "4196
@@ -199,15 +199,15 @@ I2C_SPEED_NONE 2
 "4234
 [v _SSP2STAT SSP2STAT `VEuc  1 e 1 @540 ]
 "4251
-[v _SSP2STATbits SSP2STATbits `VES321  1 e 1 @540 ]
+[v _SSP2STATbits SSP2STATbits `VES238  1 e 1 @540 ]
 "4295
 [v _SSP2CON1 SSP2CON1 `VEuc  1 e 1 @541 ]
 "4315
-[v _SSP2CON1bits SSP2CON1bits `VES269  1 e 1 @541 ]
+[v _SSP2CON1bits SSP2CON1bits `VES186  1 e 1 @541 ]
 "4364
 [v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @542 ]
 "4381
-[v _SSP2CON2bits SSP2CON2bits `VES293  1 e 1 @542 ]
+[v _SSP2CON2bits SSP2CON2bits `VES210  1 e 1 @542 ]
 "6680
 [v _BCL1IE BCL1IE `VEb  1 e 0 @1171 ]
 "6682
@@ -234,27 +234,27 @@ I2C_SPEED_NONE 2
 [v _SSP2IE SSP2IE `VEb  1 e 0 @1184 ]
 "7314
 [v _SSP2IF SSP2IF `VEb  1 e 0 @160 ]
-[s S243 . 19 `[8]uc 1 SlaveTransmitBuff 8 0 `[8]uc 1 SlaveReceiveBuff 8 8 `*.4uc 1 TransmitPoint 1 16 `*.4uc 1 ReceivePoint 1 17 `E3027 1 Mode 1 18 ]
+[s S160 . 19 `[8]uc 1 SlaveTransmitBuff 8 0 `[8]uc 1 SlaveReceiveBuff 8 8 `*.4uc 1 TransmitPoint 1 16 `*.4uc 1 ReceivePoint 1 17 `E3027 1 Mode 1 18 ]
 "3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C_Common.c
-[v _I2C1_Config I2C1_Config `S243  1 e 19 0 ]
+[v _I2C1_Config I2C1_Config `S160  1 e 19 0 ]
 "4
-[v _I2C2_Config I2C2_Config `S243  1 e 19 0 ]
-[s S576 . 1 `uc 1 Gain 1 0 :1:0 
+[v _I2C2_Config I2C2_Config `S160  1 e 19 0 ]
+[s S525 . 1 `uc 1 Gain 1 0 :1:0 
 `uc 1 PowerDown 1 0 :2:1 
 `uc 1 Voltage_Ref 1 0 :2:3 
 `uc 1 Command 1 0 :3:5 
 ]
 "10 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/MCP4726.c
-[u S581 . 1 `[1]uc 1 Config_Data 1 0 `S576 1 . 1 0 ]
-[v _ConfigReg ConfigReg `S581  1 s 1 ConfigReg ]
-[s S584 . 2 `uc 1 Voltage4bits 1 0 :4:0 
+[u S530 . 1 `[1]uc 1 Config_Data 1 0 `S525 1 . 1 0 ]
+[v _ConfigReg ConfigReg `S530  1 s 1 ConfigReg ]
+[s S533 . 2 `uc 1 Voltage4bits 1 0 :4:0 
 `uc 1 PowerDown 1 0 :2:4 
 `uc 1 Command 1 0 :2:6 
 `uc 1 Voltage8bits 1 1 :8:0 
 ]
 "11
-[u S589 . 2 `[2]uc 1 Voltage_Data 2 0 `S584 1 . 2 0 ]
-[v _VoltageReg VoltageReg `S589  1 s 2 VoltageReg ]
+[u S538 . 2 `[2]uc 1 Voltage_Data 2 0 `S533 1 . 2 0 ]
+[v _VoltageReg VoltageReg `S538  1 s 2 VoltageReg ]
 "19 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
 [v _xfunc_out xfunc_out `*.37(v  1 e 2 0 ]
 "20
@@ -265,9 +265,9 @@ I2C_SPEED_NONE 2
 [v _main main `(c  1 e 1 0 ]
 {
 "27
-[v main@voltage_70 voltage `ui  1 a 2 18 ]
+[v main@voltage_613 voltage `ui  1 a 2 17 ]
 "22
-[v main@voltage voltage `ui  1 a 2 16 ]
+[v main@voltage voltage `ui  1 a 2 15 ]
 "34
 } 0
 "28 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
@@ -292,11 +292,8 @@ I2C_SPEED_NONE 2
 "27 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/MCP4726.c
 [v _DAC_WriteVoltage DAC_WriteVoltage `(c  1 e 1 0 ]
 {
-"29
-[v DAC_WriteVoltage@result result `c  1 a 1 10 ]
-"27
 [v DAC_WriteVoltage@volue volue `ui  1 p 2 8 ]
-"39
+"35
 } 0
 "14
 [v _DAC_Initialize DAC_Initialize `(v  1 e 1 0 ]
@@ -322,7 +319,7 @@ I2C_SPEED_NONE 2
 {
 [v I2C2_Transmit@address address `uc  1 a 1 wreg ]
 "91
-[v I2C2_Transmit@i_513 i `uc  1 a 1 8 ]
+[v I2C2_Transmit@i_430 i `uc  1 a 1 8 ]
 "69
 [v I2C2_Transmit@i i `uc  1 a 1 7 ]
 "54
@@ -340,7 +337,7 @@ I2C_SPEED_NONE 2
 {
 [v I2C1_Transmit@address address `uc  1 a 1 wreg ]
 "91
-[v I2C1_Transmit@i_369 i `uc  1 a 1 8 ]
+[v I2C1_Transmit@i_286 i `uc  1 a 1 8 ]
 "69
 [v I2C1_Transmit@i i `uc  1 a 1 7 ]
 "54
