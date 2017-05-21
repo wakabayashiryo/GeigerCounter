@@ -4,15 +4,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Basic_Init `(c ~T0 @X0 0 ef ]
 "32 LCD.h
 [v _LCD_Init `(v ~T0 @X0 0 ef ]
-[v F2940 `(v ~T0 @X0 0 tf1`uc ]
-"17 xprintf.h
-[v _xfunc_out `*F2940 ~T0 @X0 0 e ]
-"33 LCD.h
-[v _LCD_Put `(v ~T0 @X0 0 ef1`c ]
-"36
+"37
 [v _LCD_CursorPosition `(v ~T0 @X0 0 ef2`uc`uc ]
-"21 xprintf.h
-[v _xprintf `(v ~T0 @X0 0 ev`*Cuc ]
+"195 /opt/microchip/xc8/v1.41/include/stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 "1662 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [v _OSCCON `Vuc ~T0 @X0 0 e@153 ]
 "1118
@@ -2864,25 +2859,43 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 43: struct __prbuf
+[; ;stdio.h: 44: {
+[; ;stdio.h: 45: char * ptr;
+[; ;stdio.h: 46: void (* func)(char);
+[; ;stdio.h: 47: };
+[; ;errno.h: 29: extern int errno;
+[; ;conio.h: 12: extern void init_uart(void);
+[; ;conio.h: 14: extern char getch(void);
+[; ;conio.h: 15: extern char getche(void);
+[; ;conio.h: 16: extern void putch(char);
+[; ;conio.h: 17: extern void ungetch(char);
+[; ;conio.h: 19: extern __bit kbhit(void);
+[; ;conio.h: 23: extern char * cgets(char *);
+[; ;conio.h: 24: extern void cputs(const char *);
+[; ;stdio.h: 88: extern int cprintf(char *, ...);
+[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 183: extern char * gets(char *);
+[; ;stdio.h: 184: extern int puts(const char *);
+[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
-[; ;LCD.h: 34: void LCD_DisplayClear(void);
-[; ;LCD.h: 35: void LCD_CursorHome(void);
-[; ;LCD.h: 36: void LCD_CursorPosition(uint8_t tx ,uint8_t ty);
-[; ;LCD.h: 37: void LCD_CursorShift(uint8_t shift,uint8_t RL);
-[; ;LCD.h: 38: void LCD_DispShift(uint8_t shift,uint8_t RL);
-[; ;xprintf.h: 17: extern void (*xfunc_out)(unsigned char);
-[; ;xprintf.h: 18: void xputc (char c);
-[; ;xprintf.h: 19: void xputs (const char* str);
-[; ;xprintf.h: 20: void xfputs (void (*func)(unsigned char), const char* str);
-[; ;xprintf.h: 21: void xprintf (const char* fmt, ...);
-[; ;xprintf.h: 22: void xsprintf (char* buff, const char* fmt, ...);
-[; ;xprintf.h: 23: void xfprintf (void (*func)(unsigned char), const char* fmt, ...);
-[; ;xprintf.h: 24: void put_dump (const void* buff, unsigned long addr, int len, int width);
-[; ;xprintf.h: 32: extern unsigned char (*xfunc_in)(void);
-[; ;xprintf.h: 33: int xgets (char* buff, int len);
-[; ;xprintf.h: 34: int xfgets (unsigned char (*func)(void), char* buff, int len);
-[; ;xprintf.h: 35: int xatoi (char** str, long* res);
+[; ;LCD.h: 34: void putch(char c);
+[; ;LCD.h: 35: void LCD_DisplayClear(void);
+[; ;LCD.h: 36: void LCD_CursorHome(void);
+[; ;LCD.h: 37: void LCD_CursorPosition(uint8_t tx ,uint8_t ty);
+[; ;LCD.h: 38: void LCD_CursorShift(uint8_t shift,uint8_t RL);
+[; ;LCD.h: 39: void LCD_DispShift(uint8_t shift,uint8_t RL);
 "25 main.h
 [p x FOSC=INTOSC ]
 "26
@@ -2928,79 +2941,76 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 15: LCD_Init();
 "15
 [e ( _LCD_Init ..  ]
-[; ;main.c: 16: xfunc_out = (void(*)(unsigned char))(LCD_Put);
-[v F2985 `(v ~T0 @X0 0 tf1`uc ]
-"16
-[e = _xfunc_out -> &U _LCD_Put `*F2985 ]
-[; ;main.c: 18: while(1)
-"18
-[e :U 355 ]
-[; ;main.c: 19: {
-"19
-{
-[; ;main.c: 20: LCD_CursorPosition(0,0);
-"20
-[e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 21: xprintf("Hellow World");
-"21
-[e ( _xprintf :s 1C ]
-"22
-}
-[e :U 354 ]
-"18
-[e $U 355  ]
+[; ;main.c: 17: while(1)
+"17
 [e :U 356 ]
-[; ;main.c: 22: }
-[; ;main.c: 23: return 0;
-"23
-[e ) -> -> 0 `i `c ]
-[e $UE 353  ]
-[; ;main.c: 24: }
-"24
-[e :UE 353 ]
-}
-"26
-[v _Basic_Init `(c ~T0 @X0 1 ef ]
-"27
+[; ;main.c: 18: {
+"18
 {
-[; ;main.c: 26: int8_t Basic_Init(void)
-[; ;main.c: 27: {
+[; ;main.c: 19: LCD_CursorPosition(0,0);
+"19
+[e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;main.c: 20: printf("Hellow World");
+"20
+[e ( _printf :s 1C ]
+"21
+}
+[e :U 355 ]
+"17
+[e $U 356  ]
+[e :U 357 ]
+[; ;main.c: 21: }
+[; ;main.c: 22: return 0;
+"22
+[e ) -> -> 0 `i `c ]
+[e $UE 354  ]
+[; ;main.c: 23: }
+"23
+[e :UE 354 ]
+}
+"25
+[v _Basic_Init `(c ~T0 @X0 1 ef ]
+"26
+{
+[; ;main.c: 25: int8_t Basic_Init(void)
+[; ;main.c: 26: {
 [e :U _Basic_Init ]
 [f ]
-[; ;main.c: 28: OSCCON = 0xF0;
-"28
+[; ;main.c: 27: OSCCON = 0xF0;
+"27
 [e = _OSCCON -> -> 240 `i `uc ]
-[; ;main.c: 32: TRISA = 0x07;
-"32
+[; ;main.c: 31: TRISA = 0x07;
+"31
 [e = _TRISA -> -> 7 `i `uc ]
-[; ;main.c: 33: ANSELA = 0x07;
-"33
+[; ;main.c: 32: ANSELA = 0x07;
+"32
 [e = _ANSELA -> -> 7 `i `uc ]
-[; ;main.c: 35: TRISB = 0x40;
-"35
+[; ;main.c: 34: TRISB = 0x40;
+"34
 [e = _TRISB -> -> 64 `i `uc ]
-[; ;main.c: 36: ANSELB = 0x00;
-"36
+[; ;main.c: 35: ANSELB = 0x00;
+"35
 [e = _ANSELB -> -> 0 `i `uc ]
-[; ;main.c: 38: APFCON0 = 0x08;
-"38
+[; ;main.c: 37: APFCON0 = 0x08;
+"37
 [e = _APFCON0 -> -> 8 `i `uc ]
-[; ;main.c: 39: APFCON1 = 0x00;
-"39
+[; ;main.c: 38: APFCON1 = 0x00;
+"38
 [e = _APFCON1 -> -> 0 `i `uc ]
-[; ;main.c: 41: PORTA = 0x00;
-"41
+[; ;main.c: 40: PORTA = 0x00;
+"40
 [e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 42: PORTB = 0x00;
-"42
+[; ;main.c: 41: PORTB = 0x00;
+"41
 [e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 44: return 0;
-"44
+[; ;main.c: 43: return 0;
+"43
 [e ) -> -> 0 `i `c ]
-[e $UE 357  ]
-[; ;main.c: 45: }
-"45
-[e :UE 357 ]
+[e $UE 358  ]
+[; ;main.c: 44: }
+"44
+[e :UE 358 ]
 }
+[p f _printf 8388608 ]
 [a 1C 72 101 108 108 111 119 32 87 111 114 108 100 0 ]
 
