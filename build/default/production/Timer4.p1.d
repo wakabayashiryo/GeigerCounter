@@ -2,7 +2,6 @@
  build/default/production/Timer4.p1:  \
  Timer4.c  \
 I2C.h  \
-xprintf.h  \
 main.h  \
 MCP4726.h  \
 LCD.h  \

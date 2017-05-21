@@ -3931,27 +3931,12 @@ void Buzzer_Handler(void);
 # 32 "LCD.h"
 void LCD_Init(void);
 void LCD_Put(int8_t word);
+void putch(char c);
 void LCD_DisplayClear(void);
 void LCD_CursorHome(void);
 void LCD_CursorPosition(uint8_t tx ,uint8_t ty);
 void LCD_CursorShift(uint8_t shift,uint8_t RL);
 void LCD_DispShift(uint8_t shift,uint8_t RL);
-
-# 17 "xprintf.h"
-extern void (*xfunc_out)(unsigned char);
-void xputc (char c);
-void xputs (const char* str);
-void xfputs (void (*func)(unsigned char), const char* str);
-void xprintf (const char* fmt, ...);
-void xsprintf (char* buff, const char* fmt, ...);
-void xfprintf (void (*func)(unsigned char), const char* fmt, ...);
-void put_dump (const void* buff, unsigned long addr, int len, int width);
-
-# 32
-extern unsigned char (*xfunc_in)(void);
-int xgets (char* buff, int len);
-int xfgets (unsigned char (*func)(void), char* buff, int len);
-int xatoi (char** str, long* res);
 
 # 23 "I2C.h"
 typedef enum
@@ -4012,6 +3997,66 @@ uint8_t Timer4_Handler(void);
 # 17 "Timer6.h"
 void Timer6_Init(void);
 uint8_t Timer6_Handler(void);
+
+# 7 "/opt/microchip/xc8/v1.41/include/stdarg.h"
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+
+# 43 "/opt/microchip/xc8/v1.41/include/stdio.h"
+struct __prbuf
+{
+char * ptr;
+void (* func)(char);
+};
+
+# 29 "/opt/microchip/xc8/v1.41/include/errno.h"
+extern int errno;
+
+# 12 "/opt/microchip/xc8/v1.41/include/conio.h"
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+# 23
+extern char * cgets(char *);
+extern void cputs(const char *);
+
+# 88 "/opt/microchip/xc8/v1.41/include/stdio.h"
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+
+
+# 180
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
 
 
 # 34 "main.h"

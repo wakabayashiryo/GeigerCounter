@@ -2,7 +2,6 @@
  build/default/production/eeprom.p1:  \
  eeprom.c  \
 I2C.h  \
-xprintf.h  \
 main.h  \
 MCP4726.h  \
 LCD.h  \

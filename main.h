@@ -14,13 +14,13 @@
 #include "Timer1.h"
 #include "Buzzer.h"
 #include "LCD.h"
-#include "xprintf.h"
 #include "I2C.h"
 #include "MCP4726.h"
 #include "eeprom.h"
 #include "mTouch.h"
 #include "Timer4.h"
 #include "Timer6.h"
+#include <stdio.h>
 
 #ifdef	__cplusplus
 extern "C" {

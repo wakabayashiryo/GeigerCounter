@@ -21,7 +21,7 @@ int8_t main(void)
     LED_BLUE(LED_OFF);      //Clear Bule LED    
     Buzzer_Init();
     LCD_Init();
-    xdev_out(LCD_Put);
+
     Timer1_Init();
     Timer1_Start();
     mTouch_Init();
@@ -42,21 +42,20 @@ int8_t main(void)
         switch(mode.ModeNum) 
         {
             case COUNT:
-                xprintf("%lu",Timer1_GetCPM());
+                printf("%lu",Timer1_GetCPM());
             break;
             case SELECTFUNC:
-                xprintf("SELECTFUNC");
+                printf("SELECTFUNC");
             break;
             case ADJGAIN:
-                xprintf("ADJGAIN");
+                printf("ADJGAIN");
             break;
             case PMTDEVICE:
-                xprintf("PMTDEVICE");
+                printf("PMTDEVICE");
             break;
         }
     }
     
-    return EXIT_SUCCESS;
 }
 
 int8_t Basic_Init(void)

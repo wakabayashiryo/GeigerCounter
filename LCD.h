@@ -31,6 +31,7 @@ extern "C" {
     
 void LCD_Init(void);
 void LCD_Put(int8_t word);
+void putch(char c);
 void LCD_DisplayClear(void);
 void LCD_CursorHome(void);
 void LCD_CursorPosition(uint8_t tx ,uint8_t ty);

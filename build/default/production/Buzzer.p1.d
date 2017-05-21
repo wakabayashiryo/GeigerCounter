@@ -2,7 +2,6 @@
  build/default/production/Buzzer.p1:  \
  Buzzer.c  \
 I2C.h  \
-xprintf.h  \
 main.h  \
 MCP4726.h  \
 LCD.h  \

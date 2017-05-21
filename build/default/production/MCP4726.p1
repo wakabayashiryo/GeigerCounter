@@ -1,33 +1,33 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "73 MCP4726.h
-[s S362 :1 `uc 1 :2 `uc 1 :2 `uc 1 :3 `uc 1 ]
-[n S362 . Gain PowerDown Voltage_Ref Command ]
+[s S363 :1 `uc 1 :2 `uc 1 :2 `uc 1 :3 `uc 1 ]
+[n S363 . Gain PowerDown Voltage_Ref Command ]
 "70
-[u S361 `uc -> -> 1 `i `ux `S362 1 ]
-[n S361 . Config_Data . ]
+[u S362 `uc -> -> 1 `i `ux `S363 1 ]
+[n S362 . Config_Data . ]
 "30
-[s S356 :4 `uc 1 :2 `uc 1 :2 `uc 1 :8 `uc 1 ]
-[n S356 . Voltage4bits PowerDown Command Voltage8bits ]
+[s S357 :4 `uc 1 :2 `uc 1 :2 `uc 1 :8 `uc 1 ]
+[n S357 . Voltage4bits PowerDown Command Voltage8bits ]
 "27
-[u S355 `uc -> 2 `i `S356 1 ]
-[n S355 . Voltage_Data . ]
+[u S356 `uc -> 2 `i `S357 1 ]
+[n S356 . Voltage_Data . ]
 "43
-[s S358 :3 `uc 1 :2 `uc 1 :2 `uc 1 :1 `uc 1 :8 `uc 1 :8 `uc 1 ]
-[n S358 . Command Voltage_Ref PowerDown Gain DataHigher DataLower ]
+[s S359 :3 `uc 1 :2 `uc 1 :2 `uc 1 :1 `uc 1 :8 `uc 1 :8 `uc 1 ]
+[n S359 . Command Voltage_Ref PowerDown Gain DataHigher DataLower ]
 "40
-[u S357 `uc -> 3 `i `S358 1 ]
-[n S357 . Memory_Data . ]
+[u S358 `uc -> 3 `i `S359 1 ]
+[n S358 . Memory_Data . ]
 "16 MCP4726.c
-[c E3069 0 1 .. ]
-[n E3069 . I2C1_MODULE I2C2_MODULE  ]
-[c E3060 0 1 .. ]
-[n E3060 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
-[c E3064 0 1 2 .. ]
-[n E3064 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
+[c E3029 0 1 .. ]
+[n E3029 . I2C1_MODULE I2C2_MODULE  ]
+[c E3020 0 1 .. ]
+[n E3020 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
+[c E3024 0 1 2 .. ]
+[n E3024 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
 "61 I2C.h
-[v _I2C_Init `(v ~T0 @X0 0 ef4`E3069`uc`E3060`E3064 ]
+[v _I2C_Init `(v ~T0 @X0 0 ef4`E3029`uc`E3020`E3024 ]
 "62
-[v _I2C_Transmit `(c ~T0 @X0 0 ef4`E3069`uc`*uc`uc ]
+[v _I2C_Transmit `(c ~T0 @X0 0 ef4`E3029`uc`*uc`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2899,23 +2899,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Buzzer.h: 44: void Buzzer_Handler(void);
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
-[; ;LCD.h: 34: void LCD_DisplayClear(void);
-[; ;LCD.h: 35: void LCD_CursorHome(void);
-[; ;LCD.h: 36: void LCD_CursorPosition(uint8_t tx ,uint8_t ty);
-[; ;LCD.h: 37: void LCD_CursorShift(uint8_t shift,uint8_t RL);
-[; ;LCD.h: 38: void LCD_DispShift(uint8_t shift,uint8_t RL);
-[; ;xprintf.h: 17: extern void (*xfunc_out)(unsigned char);
-[; ;xprintf.h: 18: void xputc (char c);
-[; ;xprintf.h: 19: void xputs (const char* str);
-[; ;xprintf.h: 20: void xfputs (void (*func)(unsigned char), const char* str);
-[; ;xprintf.h: 21: void xprintf (const char* fmt, ...);
-[; ;xprintf.h: 22: void xsprintf (char* buff, const char* fmt, ...);
-[; ;xprintf.h: 23: void xfprintf (void (*func)(unsigned char), const char* fmt, ...);
-[; ;xprintf.h: 24: void put_dump (const void* buff, unsigned long addr, int len, int width);
-[; ;xprintf.h: 32: extern unsigned char (*xfunc_in)(void);
-[; ;xprintf.h: 33: int xgets (char* buff, int len);
-[; ;xprintf.h: 34: int xfgets (unsigned char (*func)(void), char* buff, int len);
-[; ;xprintf.h: 35: int xatoi (char** str, long* res);
+[; ;LCD.h: 34: void putch(char c);
+[; ;LCD.h: 35: void LCD_DisplayClear(void);
+[; ;LCD.h: 36: void LCD_CursorHome(void);
+[; ;LCD.h: 37: void LCD_CursorPosition(uint8_t tx ,uint8_t ty);
+[; ;LCD.h: 38: void LCD_CursorShift(uint8_t shift,uint8_t RL);
+[; ;LCD.h: 39: void LCD_DispShift(uint8_t shift,uint8_t RL);
 [; ;I2C.h: 23: typedef enum
 [; ;I2C.h: 24: {
 [; ;I2C.h: 25: I2C_MODE_MASTER,
@@ -2960,6 +2949,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer4.h: 18: uint8_t Timer4_Handler(void);
 [; ;Timer6.h: 17: void Timer6_Init(void);
 [; ;Timer6.h: 18: uint8_t Timer6_Handler(void);
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 43: struct __prbuf
+[; ;stdio.h: 44: {
+[; ;stdio.h: 45: char * ptr;
+[; ;stdio.h: 46: void (* func)(char);
+[; ;stdio.h: 47: };
+[; ;errno.h: 29: extern int errno;
+[; ;conio.h: 12: extern void init_uart(void);
+[; ;conio.h: 14: extern char getch(void);
+[; ;conio.h: 15: extern char getche(void);
+[; ;conio.h: 16: extern void putch(char);
+[; ;conio.h: 17: extern void ungetch(char);
+[; ;conio.h: 19: extern __bit kbhit(void);
+[; ;conio.h: 23: extern char * cgets(char *);
+[; ;conio.h: 24: extern void cputs(const char *);
+[; ;stdio.h: 88: extern int cprintf(char *, ...);
+[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 183: extern char * gets(char *);
+[; ;stdio.h: 184: extern int puts(const char *);
+[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 195: extern int printf(const char *, ...);
 "34 main.h
 [p x FOSC=INTOSC ]
 "35
@@ -3053,13 +3071,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MCP4726.h: 81: void DAC_Initialize(void);
 [; ;MCP4726.h: 82: int8_t DAC_WriteVoltage(uint16_t volue);
 "10 MCP4726.c
-[v _ConfigReg `S361 ~T0 @X0 1 s ]
+[v _ConfigReg `S362 ~T0 @X0 1 s ]
 [; ;MCP4726.c: 10: static Config_Reg ConfigReg;
 "11
-[v _VoltageReg `S355 ~T0 @X0 1 s ]
+[v _VoltageReg `S356 ~T0 @X0 1 s ]
 [; ;MCP4726.c: 11: static Voltage_Reg VoltageReg;
 "12
-[v _MemoryReg `S357 ~T0 @X0 1 s ]
+[v _MemoryReg `S358 ~T0 @X0 1 s ]
 [; ;MCP4726.c: 12: static Memory_Reg MemoryReg;
 "14
 [v _DAC_Initialize `(v ~T0 @X0 1 ef ]
@@ -3071,7 +3089,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;MCP4726.c: 16: I2C_Init(I2C2_MODULE,0x00,I2C_MODE_MASTER,I2C_SPEED_STANDARD);
 "16
-[e ( _I2C_Init (4 , , , . `E3069 1 -> -> 0 `i `uc . `E3060 0 . `E3064 0 ]
+[e ( _I2C_Init (4 , , , . `E3029 1 -> -> 0 `i `uc . `E3020 0 . `E3024 0 ]
 [; ;MCP4726.c: 18: ConfigReg.Command = (uint8_t)(0x4);
 "18
 [e = . . _ConfigReg 1 3 -> -> 4 `i `uc ]
@@ -3086,10 +3104,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _ConfigReg 1 2 -> -> 0 `i `uc ]
 [; ;MCP4726.c: 23: I2C_Transmit(I2C2_MODULE,0x60,ConfigReg.Config_Data,1);
 "23
-[e ( _I2C_Transmit (4 , , , . `E3069 1 -> -> 96 `i `uc &U . _ConfigReg 0 -> -> 1 `i `uc ]
+[e ( _I2C_Transmit (4 , , , . `E3029 1 -> -> 96 `i `uc &U . _ConfigReg 0 -> -> 1 `i `uc ]
 [; ;MCP4726.c: 25: }
 "25
-[e :UE 363 ]
+[e :UE 364 ]
 }
 "27
 [v _DAC_WriteVoltage `(c ~T0 @X0 1 ef1`ui ]
@@ -3119,12 +3137,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _VoltageReg 1 3 -> & _volue -> -> 255 `i `ui `uc ]
 [; ;MCP4726.c: 36: result = I2C_Transmit(I2C2_MODULE,0x60,VoltageReg.Voltage_Data,2);
 "36
-[e = _result ( _I2C_Transmit (4 , , , . `E3069 1 -> -> 96 `i `uc &U . _VoltageReg 0 -> -> 2 `i `uc ]
+[e = _result ( _I2C_Transmit (4 , , , . `E3029 1 -> -> 96 `i `uc &U . _VoltageReg 0 -> -> 2 `i `uc ]
 [; ;MCP4726.c: 38: return result;
 "38
 [e ) _result ]
-[e $UE 364  ]
+[e $UE 365  ]
 [; ;MCP4726.c: 39: }
 "39
-[e :UE 364 ]
+[e :UE 365 ]
 }
