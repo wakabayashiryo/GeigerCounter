@@ -11,8 +11,8 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include "Timer1.h"
+#include <stdio.h>
 #include "LCD.h"
-#include "xprintf.h"
 
 #ifdef	__cplusplus
 extern "C" {

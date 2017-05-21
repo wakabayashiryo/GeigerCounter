@@ -18,12 +18,11 @@ int8_t main(void)
     Timer1_Start();
 
     LCD_Init();
-    xdev_out(LCD_Put);
-
+  
     while(1)
     {
         LCD_CursorPosition(0,0);
-        xprintf("%U ",Timer1_Read());
+        printf("%lu ",Timer1_Read());
     }
     
     return EXIT_SUCCESS;
