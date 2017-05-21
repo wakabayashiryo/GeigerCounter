@@ -41,16 +41,16 @@ int8_t main(void)
         switch(mode.ModeNum) 
         {
             case COUNT:
-//                printf("%lu",Timer1_GetCPM());
+                printf("%lu",Timer1_GetCPM());
             break;
             case SELECTFUNC:
-//                printf("SELECTFUNC");
+                printf("SELECTFUNC");
             break;
             case ADJGAIN:
-//                printf("ADJGAIN");
+                printf("ADJGAIN");
             break;
             case PMTDEVICE:
-//                printf("PMTDEVICE");
+                printf("PMTDEVICE");
             break;
         }
     }

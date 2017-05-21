@@ -24,10 +24,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Timer4_Init `(v ~T0 @X0 0 ef ]
 "17 Timer6.h
 [v _Timer6_Init `(v ~T0 @X0 0 ef ]
+"81 MCP4726.h
+[v _DAC_Initialize `(v ~T0 @X0 0 ef ]
 "16 main.c
 [v _mTouch_Read `(uc ~T0 @X0 0 ef1`uc ]
 "36 LCD.h
 [v _LCD_CursorHome `(v ~T0 @X0 0 ef ]
+"195 /opt/microchip/xc8/v1.41/include/stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"34 Timer1.h
+[v _Timer1_GetCPM `(ui ~T0 @X0 0 ef ]
 "1662 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [v _OSCCON `Vuc ~T0 @X0 0 e@153 ]
 "1118
@@ -3155,6 +3161,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 28: Timer6_Init();
 "28
 [e ( _Timer6_Init ..  ]
+[; ;main.c: 29: DAC_Initialize();
+"29
+[e ( _DAC_Initialize ..  ]
 [; ;main.c: 31: mode.ModeNum = 0;
 "31
 [e = . _mode 1 -> -> 0 `i `uc ]
@@ -3192,24 +3201,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 43: case COUNT:
 "43
 [e :U 373 ]
+[; ;main.c: 44: printf("%lu",Timer1_GetCPM());
+"44
+[e ( _printf , (. :s 1C ( _Timer1_GetCPM ..  ]
 [; ;main.c: 45: break;
 "45
 [e $U 371  ]
 [; ;main.c: 46: case SELECTFUNC:
 "46
 [e :U 374 ]
+[; ;main.c: 47: printf("SELECTFUNC");
+"47
+[e ( _printf :s 2C ]
 [; ;main.c: 48: break;
 "48
 [e $U 371  ]
 [; ;main.c: 49: case ADJGAIN:
 "49
 [e :U 375 ]
+[; ;main.c: 50: printf("ADJGAIN");
+"50
+[e ( _printf :s 3C ]
 [; ;main.c: 51: break;
 "51
 [e $U 371  ]
 [; ;main.c: 52: case PMTDEVICE:
 "52
 [e :U 376 ]
+[; ;main.c: 53: printf("PMTDEVICE");
+"53
+[e ( _printf :s 4C ]
 [; ;main.c: 54: break;
 "54
 [e $U 371  ]
@@ -3417,3 +3438,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 "120
 [e :UE 386 ]
 }
+[p f _printf 8389648 ]
+[a 1C 37 108 117 0 ]
+[a 3C 65 68 74 71 65 73 78 0 ]
+[a 4C 80 77 84 68 69 86 73 67 69 0 ]
+[a 2C 83 69 76 69 67 84 70 85 78 67 0 ]

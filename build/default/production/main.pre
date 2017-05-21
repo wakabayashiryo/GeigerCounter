@@ -4172,7 +4172,7 @@ TMR1ON = 1;;
 mTouch_Init();
 Timer4_Init();
 Timer6_Init();
-
+DAC_Initialize();
 
 mode.ModeNum = 0;
 
@@ -4187,16 +4187,16 @@ LCD_CursorHome();
 switch(mode.ModeNum)
 {
 case COUNT:
-
+printf("%lu",Timer1_GetCPM());
 break;
 case SELECTFUNC:
-
+printf("SELECTFUNC");
 break;
 case ADJGAIN:
-
+printf("ADJGAIN");
 break;
 case PMTDEVICE:
-
+printf("PMTDEVICE");
 break;
 }
 }
