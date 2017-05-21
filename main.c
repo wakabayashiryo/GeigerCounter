@@ -42,7 +42,7 @@ int8_t main(void)
         switch(mode.ModeNum) 
         {
             case COUNT:
-                xprintf("%d %d",Timer1_ResultRead(),Timer1_SumRead());
+                xprintf("%lu",Timer1_GetCPM());
             break;
             case SELECTFUNC:
                 xprintf("SELECTFUNC");

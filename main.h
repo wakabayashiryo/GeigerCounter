@@ -20,6 +20,7 @@
 #include "eeprom.h"
 #include "mTouch.h"
 #include "Timer4.h"
+#include "Timer6.h"
 
 #ifdef	__cplusplus
 extern "C" {

@@ -3721,6 +3721,34 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
+# 30 "/opt/microchip/xc8/v1.41/include/math.h"
+extern double fabs(double);
+extern double floor(double);
+extern double ceil(double);
+extern double modf(double, double *);
+extern double sqrt(double);
+extern double atof(const char *);
+extern double sin(double) ;
+extern double cos(double) ;
+extern double tan(double) ;
+extern double asin(double) ;
+extern double acos(double) ;
+extern double atan(double);
+extern double atan2(double, double) ;
+extern double log(double);
+extern double log10(double);
+extern double pow(double, double) ;
+extern double exp(double) ;
+extern double sinh(double) ;
+extern double cosh(double) ;
+extern double tanh(double);
+extern double eval_poly(double, const double *, int);
+extern double frexp(double, int *);
+extern double ldexp(double, int);
+extern double fmod(double, double);
+extern double trunc(double);
+extern double round(double);
+
 # 4 "/opt/microchip/xc8/v1.41/include/__size_t.h"
 typedef unsigned size_t;
 
@@ -4029,8 +4057,12 @@ void CPSx_Read(void);
 void Timer4_Init(void);
 uint8_t Timer4_Handler(void);
 
+# 17 "Timer6.h"
+void Timer6_Init(void);
+uint8_t Timer6_Handler(void);
 
-# 33 "main.h"
+
+# 34 "main.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = ON
@@ -4049,7 +4081,7 @@ uint8_t Timer4_Handler(void);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 62
+# 63
 typedef struct
 {
 enum
@@ -4064,17 +4096,20 @@ uint8_t ModeNum;
 
 int8_t Basic_Init(void);
 
-# 28 "Timer1.h"
+# 29 "Timer1.h"
 void Timer1_Init(void);
 
-inline uint32_t Timer1_SumRead(void);
-inline uint16_t Timer1_ResultRead(void);
-inline void Timer1_Count10us(void);
+
+uint32_t Timer1_GetCount(void);
+float Timer1_GetError(void);
+uint16_t Timer1_GetCPM(void);
+
+void Timer1_Count10us(void);
 uint8_t Timer1_DetectAssignCount(void);
 
 # 3 "Timer1.c"
 static uint32_t countsum;
-static uint16_t count10us,resulttime;
+static uint32_t timesum;
 
 void Timer1_Init(void)
 {
@@ -4088,8 +4123,7 @@ T1CON |= (0x02<<6);
 
 T1GCON = 0x00;
 
-TMR1 = 0xFFFF-100;
-count10us = 0x0000;
+TMR1 = 0xFFFF-10;
 
 TMR1IF = 0;
 TMR1IE = 1;
@@ -4099,29 +4133,32 @@ GIE = 1;
 
 
 
-inline uint32_t Timer1_SumRead(void)
+uint32_t Timer1_GetCount(void)
 {
 return countsum;
 }
 
-inline uint16_t Timer1_ResultRead(void)
+float Timer1_GetError(void)
 {
-return resulttime;
+return sqrt(countsum)/(float)countsum*1000.0;
 }
 
-inline void Timer1_Count10us(void)
+uint16_t Timer1_GetCPM(void)
 {
-count10us++;
+return (uint16_t)((countsum * 6000000) / timesum );
+}
+
+void Timer1_Count10us(void)
+{
+timesum++;
 }
 
 uint8_t Timer1_DetectAssignCount(void)
 {
 if(TMR1IF&&TMR1IE)
 {
-countsum += 100;
-resulttime = count10us;
-count10us = 0;
-TMR1 = 0xFFFF-100;
+countsum += 10;
+TMR1 = 0xFFFF-10;
 TMR1IF = 0;
 return 1;
 }

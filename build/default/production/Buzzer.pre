@@ -3883,12 +3883,43 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 28 "Timer1.h"
+# 30 "/opt/microchip/xc8/v1.41/include/math.h"
+extern double fabs(double);
+extern double floor(double);
+extern double ceil(double);
+extern double modf(double, double *);
+extern double sqrt(double);
+extern double atof(const char *);
+extern double sin(double) ;
+extern double cos(double) ;
+extern double tan(double) ;
+extern double asin(double) ;
+extern double acos(double) ;
+extern double atan(double);
+extern double atan2(double, double) ;
+extern double log(double);
+extern double log10(double);
+extern double pow(double, double) ;
+extern double exp(double) ;
+extern double sinh(double) ;
+extern double cosh(double) ;
+extern double tanh(double);
+extern double eval_poly(double, const double *, int);
+extern double frexp(double, int *);
+extern double ldexp(double, int);
+extern double fmod(double, double);
+extern double trunc(double);
+extern double round(double);
+
+# 29 "Timer1.h"
 void Timer1_Init(void);
 
-inline uint32_t Timer1_SumRead(void);
-inline uint16_t Timer1_ResultRead(void);
-inline void Timer1_Count10us(void);
+
+uint32_t Timer1_GetCount(void);
+float Timer1_GetError(void);
+uint16_t Timer1_GetCPM(void);
+
+void Timer1_Count10us(void);
 uint8_t Timer1_DetectAssignCount(void);
 
 # 32 "LCD.h"
@@ -4031,8 +4062,12 @@ void CPSx_Read(void);
 void Timer4_Init(void);
 uint8_t Timer4_Handler(void);
 
+# 17 "Timer6.h"
+void Timer6_Init(void);
+uint8_t Timer6_Handler(void);
 
-# 33 "main.h"
+
+# 34 "main.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = ON
@@ -4051,7 +4086,7 @@ uint8_t Timer4_Handler(void);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 62
+# 63
 typedef struct
 {
 enum

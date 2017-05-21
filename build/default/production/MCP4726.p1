@@ -18,16 +18,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [u S357 `uc -> 3 `i `S358 1 ]
 [n S357 . Memory_Data . ]
 "16 MCP4726.c
-[c E3011 0 1 .. ]
-[n E3011 . I2C1_MODULE I2C2_MODULE  ]
-[c E3002 0 1 .. ]
-[n E3002 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
-[c E3006 0 1 2 .. ]
-[n E3006 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
+[c E3069 0 1 .. ]
+[n E3069 . I2C1_MODULE I2C2_MODULE  ]
+[c E3060 0 1 .. ]
+[n E3060 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
+[c E3064 0 1 2 .. ]
+[n E3064 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
 "61 I2C.h
-[v _I2C_Init `(v ~T0 @X0 0 ef4`E3011`uc`E3002`E3006 ]
+[v _I2C_Init `(v ~T0 @X0 0 ef4`E3069`uc`E3060`E3064 ]
 "62
-[v _I2C_Transmit `(c ~T0 @X0 0 ef4`E3011`uc`*uc`uc ]
+[v _I2C_Transmit `(c ~T0 @X0 0 ef4`E3069`uc`*uc`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2861,11 +2861,38 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;Timer1.h: 28: void Timer1_Init(void);
-[; ;Timer1.h: 30: inline uint32_t Timer1_SumRead(void);
-[; ;Timer1.h: 31: inline uint16_t Timer1_ResultRead(void);
-[; ;Timer1.h: 32: inline void Timer1_Count10us(void);
-[; ;Timer1.h: 33: uint8_t Timer1_DetectAssignCount(void);
+[; ;math.h: 30: extern double fabs(double);
+[; ;math.h: 31: extern double floor(double);
+[; ;math.h: 32: extern double ceil(double);
+[; ;math.h: 33: extern double modf(double, double *);
+[; ;math.h: 34: extern double sqrt(double);
+[; ;math.h: 35: extern double atof(const char *);
+[; ;math.h: 36: extern double sin(double) ;
+[; ;math.h: 37: extern double cos(double) ;
+[; ;math.h: 38: extern double tan(double) ;
+[; ;math.h: 39: extern double asin(double) ;
+[; ;math.h: 40: extern double acos(double) ;
+[; ;math.h: 41: extern double atan(double);
+[; ;math.h: 42: extern double atan2(double, double) ;
+[; ;math.h: 43: extern double log(double);
+[; ;math.h: 44: extern double log10(double);
+[; ;math.h: 45: extern double pow(double, double) ;
+[; ;math.h: 46: extern double exp(double) ;
+[; ;math.h: 47: extern double sinh(double) ;
+[; ;math.h: 48: extern double cosh(double) ;
+[; ;math.h: 49: extern double tanh(double);
+[; ;math.h: 50: extern double eval_poly(double, const double *, int);
+[; ;math.h: 51: extern double frexp(double, int *);
+[; ;math.h: 52: extern double ldexp(double, int);
+[; ;math.h: 53: extern double fmod(double, double);
+[; ;math.h: 54: extern double trunc(double);
+[; ;math.h: 55: extern double round(double);
+[; ;Timer1.h: 29: void Timer1_Init(void);
+[; ;Timer1.h: 32: uint32_t Timer1_GetCount(void);
+[; ;Timer1.h: 33: float Timer1_GetError(void);
+[; ;Timer1.h: 34: uint16_t Timer1_GetCPM(void);
+[; ;Timer1.h: 36: void Timer1_Count10us(void);
+[; ;Timer1.h: 37: uint8_t Timer1_DetectAssignCount(void);
 [; ;Buzzer.h: 41: void Buzzer_Init(void);
 [; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
 [; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
@@ -2931,48 +2958,50 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mTouch.h: 22: void CPSx_Read(void);
 [; ;Timer4.h: 17: void Timer4_Init(void);
 [; ;Timer4.h: 18: uint8_t Timer4_Handler(void);
-"33 main.h
+[; ;Timer6.h: 17: void Timer6_Init(void);
+[; ;Timer6.h: 18: uint8_t Timer6_Handler(void);
+"34 main.h
 [p x FOSC=INTOSC ]
-"34
-[p x WDTE=OFF ]
 "35
-[p x PWRTE=ON ]
+[p x WDTE=OFF ]
 "36
-[p x MCLRE=ON ]
+[p x PWRTE=ON ]
 "37
-[p x CP=OFF ]
+[p x MCLRE=ON ]
 "38
-[p x CPD=OFF ]
+[p x CP=OFF ]
 "39
-[p x BOREN=ON ]
+[p x CPD=OFF ]
 "40
-[p x CLKOUTEN=OFF ]
+[p x BOREN=ON ]
 "41
-[p x IESO=OFF ]
+[p x CLKOUTEN=OFF ]
 "42
+[p x IESO=OFF ]
+"43
 [p x FCMEN=OFF ]
-"45
-[p x WRT=OFF ]
 "46
-[p x PLLEN=ON ]
+[p x WRT=OFF ]
 "47
-[p x STVREN=OFF ]
+[p x PLLEN=ON ]
 "48
-[p x BORV=LO ]
+[p x STVREN=OFF ]
 "49
+[p x BORV=LO ]
+"50
 [p x LVP=OFF ]
-[; ;main.h: 62: typedef struct
-[; ;main.h: 63: {
-[; ;main.h: 64: enum
-[; ;main.h: 65: {
-[; ;main.h: 66: COUNT = 0,
-[; ;main.h: 67: SELECTFUNC = 1,
-[; ;main.h: 68: ADJGAIN = 2,
-[; ;main.h: 69: PMTDEVICE = 3
-[; ;main.h: 70: }MODESTAT;
-[; ;main.h: 71: uint8_t ModeNum;
-[; ;main.h: 72: }ModeConfig;
-[; ;main.h: 74: int8_t Basic_Init(void);
+[; ;main.h: 63: typedef struct
+[; ;main.h: 64: {
+[; ;main.h: 65: enum
+[; ;main.h: 66: {
+[; ;main.h: 67: COUNT = 0,
+[; ;main.h: 68: SELECTFUNC = 1,
+[; ;main.h: 69: ADJGAIN = 2,
+[; ;main.h: 70: PMTDEVICE = 3
+[; ;main.h: 71: }MODESTAT;
+[; ;main.h: 72: uint8_t ModeNum;
+[; ;main.h: 73: }ModeConfig;
+[; ;main.h: 75: int8_t Basic_Init(void);
 [; ;MCP4726.h: 26: typedef union
 [; ;MCP4726.h: 27: {
 [; ;MCP4726.h: 28: uint8_t Voltage_Data[2];
@@ -3042,7 +3071,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;MCP4726.c: 16: I2C_Init(I2C2_MODULE,0x00,I2C_MODE_MASTER,I2C_SPEED_STANDARD);
 "16
-[e ( _I2C_Init (4 , , , . `E3011 1 -> -> 0 `i `uc . `E3002 0 . `E3006 0 ]
+[e ( _I2C_Init (4 , , , . `E3069 1 -> -> 0 `i `uc . `E3060 0 . `E3064 0 ]
 [; ;MCP4726.c: 18: ConfigReg.Command = (uint8_t)(0x4);
 "18
 [e = . . _ConfigReg 1 3 -> -> 4 `i `uc ]
@@ -3057,7 +3086,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _ConfigReg 1 2 -> -> 0 `i `uc ]
 [; ;MCP4726.c: 23: I2C_Transmit(I2C2_MODULE,0x60,ConfigReg.Config_Data,1);
 "23
-[e ( _I2C_Transmit (4 , , , . `E3011 1 -> -> 96 `i `uc &U . _ConfigReg 0 -> -> 1 `i `uc ]
+[e ( _I2C_Transmit (4 , , , . `E3069 1 -> -> 96 `i `uc &U . _ConfigReg 0 -> -> 1 `i `uc ]
 [; ;MCP4726.c: 25: }
 "25
 [e :UE 363 ]
@@ -3090,7 +3119,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _VoltageReg 1 3 -> & _volue -> -> 255 `i `ui `uc ]
 [; ;MCP4726.c: 36: result = I2C_Transmit(I2C2_MODULE,0x60,VoltageReg.Voltage_Data,2);
 "36
-[e = _result ( _I2C_Transmit (4 , , , . `E3011 1 -> -> 96 `i `uc &U . _VoltageReg 0 -> -> 2 `i `uc ]
+[e = _result ( _I2C_Transmit (4 , , , . `E3069 1 -> -> 96 `i `uc &U . _VoltageReg 0 -> -> 2 `i `uc ]
 [; ;MCP4726.c: 38: return result;
 "38
 [e ) _result ]

@@ -4,12 +4,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 "2846
 [v _ANSELB `Vuc ~T0 @X0 0 e@397 ]
 "16 I2C2.c
-[c E3073 0 1 .. ]
-[n E3073 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
-[c E3077 0 1 2 .. ]
-[n E3077 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
+[c E3135 0 1 .. ]
+[n E3135 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
+[c E3139 0 1 2 .. ]
+[n E3139 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
 "43 I2C.h
-[s S362 `uc -> 8 `i `uc -> 8 `i `*uc 1 `*uc 1 `E3073 1 ]
+[s S362 `uc -> 8 `i `uc -> 8 `i `*uc 1 `*uc 1 `E3135 1 ]
 [n S362 . SlaveTransmitBuff SlaveReceiveBuff TransmitPoint ReceivePoint Mode ]
 "7 I2C2.c
 [v _I2C2_Config `S362 ~T0 @X0 0 e ]
@@ -2893,11 +2893,38 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;Timer1.h: 28: void Timer1_Init(void);
-[; ;Timer1.h: 30: inline uint32_t Timer1_SumRead(void);
-[; ;Timer1.h: 31: inline uint16_t Timer1_ResultRead(void);
-[; ;Timer1.h: 32: inline void Timer1_Count10us(void);
-[; ;Timer1.h: 33: uint8_t Timer1_DetectAssignCount(void);
+[; ;math.h: 30: extern double fabs(double);
+[; ;math.h: 31: extern double floor(double);
+[; ;math.h: 32: extern double ceil(double);
+[; ;math.h: 33: extern double modf(double, double *);
+[; ;math.h: 34: extern double sqrt(double);
+[; ;math.h: 35: extern double atof(const char *);
+[; ;math.h: 36: extern double sin(double) ;
+[; ;math.h: 37: extern double cos(double) ;
+[; ;math.h: 38: extern double tan(double) ;
+[; ;math.h: 39: extern double asin(double) ;
+[; ;math.h: 40: extern double acos(double) ;
+[; ;math.h: 41: extern double atan(double);
+[; ;math.h: 42: extern double atan2(double, double) ;
+[; ;math.h: 43: extern double log(double);
+[; ;math.h: 44: extern double log10(double);
+[; ;math.h: 45: extern double pow(double, double) ;
+[; ;math.h: 46: extern double exp(double) ;
+[; ;math.h: 47: extern double sinh(double) ;
+[; ;math.h: 48: extern double cosh(double) ;
+[; ;math.h: 49: extern double tanh(double);
+[; ;math.h: 50: extern double eval_poly(double, const double *, int);
+[; ;math.h: 51: extern double frexp(double, int *);
+[; ;math.h: 52: extern double ldexp(double, int);
+[; ;math.h: 53: extern double fmod(double, double);
+[; ;math.h: 54: extern double trunc(double);
+[; ;math.h: 55: extern double round(double);
+[; ;Timer1.h: 29: void Timer1_Init(void);
+[; ;Timer1.h: 32: uint32_t Timer1_GetCount(void);
+[; ;Timer1.h: 33: float Timer1_GetError(void);
+[; ;Timer1.h: 34: uint16_t Timer1_GetCPM(void);
+[; ;Timer1.h: 36: void Timer1_Count10us(void);
+[; ;Timer1.h: 37: uint8_t Timer1_DetectAssignCount(void);
 [; ;Buzzer.h: 41: void Buzzer_Init(void);
 [; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
 [; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
@@ -2977,48 +3004,50 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mTouch.h: 22: void CPSx_Read(void);
 [; ;Timer4.h: 17: void Timer4_Init(void);
 [; ;Timer4.h: 18: uint8_t Timer4_Handler(void);
-"33 main.h
+[; ;Timer6.h: 17: void Timer6_Init(void);
+[; ;Timer6.h: 18: uint8_t Timer6_Handler(void);
+"34 main.h
 [p x FOSC=INTOSC ]
-"34
-[p x WDTE=OFF ]
 "35
-[p x PWRTE=ON ]
+[p x WDTE=OFF ]
 "36
-[p x MCLRE=ON ]
+[p x PWRTE=ON ]
 "37
-[p x CP=OFF ]
+[p x MCLRE=ON ]
 "38
-[p x CPD=OFF ]
+[p x CP=OFF ]
 "39
-[p x BOREN=ON ]
+[p x CPD=OFF ]
 "40
-[p x CLKOUTEN=OFF ]
+[p x BOREN=ON ]
 "41
-[p x IESO=OFF ]
+[p x CLKOUTEN=OFF ]
 "42
+[p x IESO=OFF ]
+"43
 [p x FCMEN=OFF ]
-"45
-[p x WRT=OFF ]
 "46
-[p x PLLEN=ON ]
+[p x WRT=OFF ]
 "47
-[p x STVREN=OFF ]
+[p x PLLEN=ON ]
 "48
-[p x BORV=LO ]
+[p x STVREN=OFF ]
 "49
+[p x BORV=LO ]
+"50
 [p x LVP=OFF ]
-[; ;main.h: 62: typedef struct
-[; ;main.h: 63: {
-[; ;main.h: 64: enum
-[; ;main.h: 65: {
-[; ;main.h: 66: COUNT = 0,
-[; ;main.h: 67: SELECTFUNC = 1,
-[; ;main.h: 68: ADJGAIN = 2,
-[; ;main.h: 69: PMTDEVICE = 3
-[; ;main.h: 70: }MODESTAT;
-[; ;main.h: 71: uint8_t ModeNum;
-[; ;main.h: 72: }ModeConfig;
-[; ;main.h: 74: int8_t Basic_Init(void);
+[; ;main.h: 63: typedef struct
+[; ;main.h: 64: {
+[; ;main.h: 65: enum
+[; ;main.h: 66: {
+[; ;main.h: 67: COUNT = 0,
+[; ;main.h: 68: SELECTFUNC = 1,
+[; ;main.h: 69: ADJGAIN = 2,
+[; ;main.h: 70: PMTDEVICE = 3
+[; ;main.h: 71: }MODESTAT;
+[; ;main.h: 72: uint8_t ModeNum;
+[; ;main.h: 73: }ModeConfig;
+[; ;main.h: 75: int8_t Basic_Init(void);
 [; ;I2C.h: 23: typedef enum
 [; ;I2C.h: 24: {
 [; ;I2C.h: 25: I2C_MODE_MASTER,
@@ -3075,7 +3104,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 363 ]
 }
 "15
-[v _I2C2_Setting `(v ~T0 @X0 1 ef3`uc`E3073`E3077 ]
+[v _I2C2_Setting `(v ~T0 @X0 1 ef3`uc`E3135`E3139 ]
 "16
 {
 [; ;I2C2.c: 15: void I2C2_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed)
@@ -3083,8 +3112,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _I2C2_Setting ]
 "15
 [v _address `uc ~T0 @X0 1 r1 ]
-[v _mode `E3073 ~T0 @X0 1 r2 ]
-[v _Speed `E3077 ~T0 @X0 1 r3 ]
+[v _mode `E3135 ~T0 @X0 1 r2 ]
+[v _Speed `E3139 ~T0 @X0 1 r3 ]
 "16
 [f ]
 [; ;I2C2.c: 17: I2C2_PinInit();
@@ -3107,7 +3136,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =| _SSP2CON1 -> << -> 8 `i -> 0 `i `uc ]
 [; ;I2C2.c: 24: if(Speed==I2C_SPEED_STANDARD)
 "24
-[e $ ! == -> _Speed `i -> . `E3077 0 `i 368  ]
+[e $ ! == -> _Speed `i -> . `E3139 0 `i 368  ]
 [; ;I2C2.c: 25: {
 "25
 {
@@ -3124,7 +3153,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "29
 [e :U 368 ]
 [; ;I2C2.c: 29: else if(Speed==I2C_SPEED_HIGH)
-[e $ ! == -> _Speed `i -> . `E3077 1 `i 370  ]
+[e $ ! == -> _Speed `i -> . `E3139 1 `i 370  ]
 [; ;I2C2.c: 30: {
 "30
 {
@@ -3175,8 +3204,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 365  ]
 "20
 [e :U 366 ]
-[e [\ _mode , $ . `E3073 0 367
- , $ . `E3073 1 371
+[e [\ _mode , $ . `E3135 0 367
+ , $ . `E3135 1 371
  365 ]
 "45
 [e :U 365 ]
@@ -3380,8 +3409,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 373  ]
 "56
 [e :U 374 ]
-[e [\ . _I2C2_Config 4 , $ . `E3073 0 375
- , $ . `E3073 1 400
+[e [\ . _I2C2_Config 4 , $ . `E3135 0 375
+ , $ . `E3135 1 400
  373 ]
 "98
 [e :U 373 ]
@@ -3577,8 +3606,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 408  ]
 "107
 [e :U 409 ]
-[e [\ . _I2C2_Config 4 , $ . `E3073 0 410
- , $ . `E3073 1 439
+[e [\ . _I2C2_Config 4 , $ . `E3135 0 410
+ , $ . `E3135 1 439
  408 ]
 "147
 [e :U 408 ]
