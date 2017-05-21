@@ -24,16 +24,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Timer4_Init `(v ~T0 @X0 0 ef ]
 "17 Timer6.h
 [v _Timer6_Init `(v ~T0 @X0 0 ef ]
-"81 MCP4726.h
-[v _DAC_Initialize `(v ~T0 @X0 0 ef ]
 "16 main.c
 [v _mTouch_Read `(uc ~T0 @X0 0 ef1`uc ]
 "36 LCD.h
 [v _LCD_CursorHome `(v ~T0 @X0 0 ef ]
-"195 /opt/microchip/xc8/v1.41/include/stdio.h
-[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
-"34 Timer1.h
-[v _Timer1_GetCPM `(ui ~T0 @X0 0 ef ]
 "1662 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [v _OSCCON `Vuc ~T0 @X0 0 e@153 ]
 "1118
@@ -3146,296 +3140,280 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 23: LCD_Init();
 "23
 [e ( _LCD_Init ..  ]
-[; ;main.c: 25: Timer1_Init();
-"25
+[; ;main.c: 24: Timer1_Init();
+"24
 [e ( _Timer1_Init ..  ]
-[; ;main.c: 26: TMR1ON = 1;;
-"26
+[; ;main.c: 25: TMR1ON = 1;;
+"25
 [e = _TMR1ON -> -> 1 `i `b ]
-[; ;main.c: 27: mTouch_Init();
-"27
+[; ;main.c: 26: mTouch_Init();
+"26
 [e ( _mTouch_Init ..  ]
-[; ;main.c: 28: Timer4_Init();
-"28
+[; ;main.c: 27: Timer4_Init();
+"27
 [e ( _Timer4_Init ..  ]
-[; ;main.c: 29: Timer6_Init();
-"29
+[; ;main.c: 28: Timer6_Init();
+"28
 [e ( _Timer6_Init ..  ]
-[; ;main.c: 30: DAC_Initialize();
-"30
-[e ( _DAC_Initialize ..  ]
-[; ;main.c: 32: mode.ModeNum = 0;
-"32
+[; ;main.c: 31: mode.ModeNum = 0;
+"31
 [e = . _mode 1 -> -> 0 `i `uc ]
-[; ;main.c: 34: while(1)
-"34
+[; ;main.c: 33: while(1)
+"33
 [e :U 366 ]
-[; ;main.c: 35: {
-"35
+[; ;main.c: 34: {
+"34
 {
-[; ;main.c: 36: if(mTouch_Read(2)&&(mode.ModeNum<4-1))
-"36
+[; ;main.c: 35: if(mTouch_Read(2)&&(mode.ModeNum<4-1))
+"35
 [e $ ! && != -> ( _mTouch_Read (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i < -> . _mode 1 `i - -> 4 `i -> 1 `i 368  ]
-[; ;main.c: 37: mode.ModeNum++;
-"37
+[; ;main.c: 36: mode.ModeNum++;
+"36
 [e ++ . _mode 1 -> -> 1 `i `uc ]
 [e $U 369  ]
-"38
+"37
 [e :U 368 ]
-[; ;main.c: 38: else if(mTouch_Read(1)&&(mode.ModeNum>0))
+[; ;main.c: 37: else if(mTouch_Read(1)&&(mode.ModeNum>0))
 [e $ ! && != -> ( _mTouch_Read (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i > -> . _mode 1 `i -> 0 `i 370  ]
-[; ;main.c: 39: mode.ModeNum--;
-"39
+[; ;main.c: 38: mode.ModeNum--;
+"38
 [e -- . _mode 1 -> -> 1 `i `uc ]
 [e :U 370 ]
-"41
+"40
 [e :U 369 ]
-[; ;main.c: 41: LCD_CursorHome();
+[; ;main.c: 40: LCD_CursorHome();
 [e ( _LCD_CursorHome ..  ]
-[; ;main.c: 42: switch(mode.ModeNum)
-"42
+[; ;main.c: 41: switch(mode.ModeNum)
+"41
 [e $U 372  ]
-[; ;main.c: 43: {
-"43
-{
-[; ;main.c: 44: case COUNT:
-"44
-[e :U 373 ]
-[; ;main.c: 45: printf("%lu",Timer1_GetCPM());
-"45
-[e ( _printf , (. :s 1C ( _Timer1_GetCPM ..  ]
-[; ;main.c: 46: break;
-"46
-[e $U 371  ]
-[; ;main.c: 47: case SELECTFUNC:
-"47
-[e :U 374 ]
-[; ;main.c: 48: printf("SELECTFUNC");
-"48
-[e ( _printf :s 2C ]
-[; ;main.c: 49: break;
-"49
-[e $U 371  ]
-[; ;main.c: 50: case ADJGAIN:
-"50
-[e :U 375 ]
-[; ;main.c: 51: printf("ADJGAIN");
-"51
-[e ( _printf :s 3C ]
-[; ;main.c: 52: break;
-"52
-[e $U 371  ]
-[; ;main.c: 53: case PMTDEVICE:
-"53
-[e :U 376 ]
-[; ;main.c: 54: printf("PMTDEVICE");
-"54
-[e ( _printf :s 4C ]
-[; ;main.c: 55: break;
-"55
-[e $U 371  ]
-"56
-}
-[; ;main.c: 56: }
-[e $U 371  ]
+[; ;main.c: 42: {
 "42
+{
+[; ;main.c: 43: case COUNT:
+"43
+[e :U 373 ]
+[; ;main.c: 45: break;
+"45
+[e $U 371  ]
+[; ;main.c: 46: case SELECTFUNC:
+"46
+[e :U 374 ]
+[; ;main.c: 48: break;
+"48
+[e $U 371  ]
+[; ;main.c: 49: case ADJGAIN:
+"49
+[e :U 375 ]
+[; ;main.c: 51: break;
+"51
+[e $U 371  ]
+[; ;main.c: 52: case PMTDEVICE:
+"52
+[e :U 376 ]
+[; ;main.c: 54: break;
+"54
+[e $U 371  ]
+"55
+}
+[; ;main.c: 55: }
+[e $U 371  ]
+"41
 [e :U 372 ]
 [e [\ . _mode 1 , $ -> . `E3210 0 `uc 373
  , $ -> . `E3210 1 `uc 374
  , $ -> . `E3210 2 `uc 375
  , $ -> . `E3210 3 `uc 376
  371 ]
-"56
+"55
 [e :U 371 ]
-"57
+"56
 }
 [e :U 365 ]
-"34
+"33
 [e $U 366  ]
 [e :U 367 ]
-[; ;main.c: 57: }
-[; ;main.c: 59: }
-"59
+[; ;main.c: 56: }
+[; ;main.c: 57: return 0;
+"57
+[e ) -> -> 0 `i `c ]
+[e $UE 364  ]
+[; ;main.c: 58: }
+"58
 [e :UE 364 ]
 }
-"61
+"60
 [v _Basic_Init `(c ~T0 @X0 1 ef ]
-"62
+"61
 {
-[; ;main.c: 61: int8_t Basic_Init(void)
-[; ;main.c: 62: {
+[; ;main.c: 60: int8_t Basic_Init(void)
+[; ;main.c: 61: {
 [e :U _Basic_Init ]
 [f ]
-[; ;main.c: 63: OSCCON = 0xF0;
-"63
+[; ;main.c: 62: OSCCON = 0xF0;
+"62
 [e = _OSCCON -> -> 240 `i `uc ]
-[; ;main.c: 67: TRISA = 0x07;
-"67
+[; ;main.c: 66: TRISA = 0x07;
+"66
 [e = _TRISA -> -> 7 `i `uc ]
-[; ;main.c: 68: ANSELA = 0x07;
-"68
+[; ;main.c: 67: ANSELA = 0x07;
+"67
 [e = _ANSELA -> -> 7 `i `uc ]
-[; ;main.c: 70: TRISB = 0x40;
-"70
+[; ;main.c: 69: TRISB = 0x40;
+"69
 [e = _TRISB -> -> 64 `i `uc ]
-[; ;main.c: 71: ANSELB = 0x00;
-"71
+[; ;main.c: 70: ANSELB = 0x00;
+"70
 [e = _ANSELB -> -> 0 `i `uc ]
-[; ;main.c: 73: APFCON0 = 0x08;
-"73
+[; ;main.c: 72: APFCON0 = 0x08;
+"72
 [e = _APFCON0 -> -> 8 `i `uc ]
-[; ;main.c: 74: APFCON1 = 0x00;
-"74
+[; ;main.c: 73: APFCON1 = 0x00;
+"73
 [e = _APFCON1 -> -> 0 `i `uc ]
-[; ;main.c: 76: PORTA = 0x00;
-"76
+[; ;main.c: 75: PORTA = 0x00;
+"75
 [e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 77: PORTB = 0x00;
-"77
+[; ;main.c: 76: PORTB = 0x00;
+"76
 [e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 79: return 0;
-"79
+[; ;main.c: 78: return 0;
+"78
 [e ) -> -> 0 `i `c ]
 [e $UE 377  ]
-[; ;main.c: 80: }
-"80
+[; ;main.c: 79: }
+"79
 [e :UE 377 ]
 }
 [v F3233 `(v ~T0 @X0 1 tf ]
-"82
+"81
 [v _Handler `IF3233 ~T0 @X0 1 e ]
-"83
+"82
 {
-[; ;main.c: 82: void interrupt Handler(void)
-[; ;main.c: 83: {
+[; ;main.c: 81: void interrupt Handler(void)
+[; ;main.c: 82: {
 [e :U _Handler ]
 [f ]
-[; ;main.c: 84: if(Timer6_Handler())
-"84
+[; ;main.c: 83: if(Timer6_Handler())
+"83
 [e $ ! != -> ( _Timer6_Handler ..  `i -> -> -> 0 `i `uc `i 379  ]
-[; ;main.c: 85: {
-"85
+[; ;main.c: 84: {
+"84
 {
-[; ;main.c: 86: Timer1_Count10us();
-"86
+[; ;main.c: 85: Timer1_Count10us();
+"85
 [e ( _Timer1_Count10us ..  ]
-"87
+"86
 }
 [e :U 379 ]
-[; ;main.c: 87: }
-[; ;main.c: 88: if(Timer4_Handler())
-"88
+[; ;main.c: 86: }
+[; ;main.c: 87: if(Timer4_Handler())
+"87
 [e $ ! != -> ( _Timer4_Handler ..  `i -> -> -> 0 `i `uc `i 380  ]
-[; ;main.c: 89: {
-"89
+[; ;main.c: 88: {
+"88
 {
-[; ;main.c: 90: CPSx_Read();
-"90
+[; ;main.c: 89: CPSx_Read();
+"89
 [e ( _CPSx_Read ..  ]
-[; ;main.c: 91: Buzzer_Handler();
-"91
+[; ;main.c: 90: Buzzer_Handler();
+"90
 [e ( _Buzzer_Handler ..  ]
-[; ;main.c: 92: mTouch_IntervalDecrement();
-"92
+[; ;main.c: 91: mTouch_IntervalDecrement();
+"91
 [e ( _mTouch_IntervalDecrement ..  ]
-"93
+"92
 }
 [e :U 380 ]
-[; ;main.c: 93: }
-[; ;main.c: 94: if(Timer1_DetectAssignCount())
-"94
+[; ;main.c: 92: }
+[; ;main.c: 93: if(Timer1_DetectAssignCount())
+"93
 [e $ ! != -> ( _Timer1_DetectAssignCount ..  `i -> -> -> 0 `i `uc `i 381  ]
-[; ;main.c: 95: LATA6 = !LATA6;
-"95
+[; ;main.c: 94: LATA6 = !LATA6;
+"94
 [e = _LATA6 ! _LATA6 ]
 [e :U 381 ]
-[; ;main.c: 97: I2C_CommonInterrupt();
-"97
+[; ;main.c: 96: I2C_CommonInterrupt();
+"96
 [e ( _I2C_CommonInterrupt ..  ]
-[; ;main.c: 98: }
-"98
+[; ;main.c: 97: }
+"97
 [e :UE 378 ]
 }
-"100
+"99
 [v _mTouch_IntervalDecrement `(v ~T0 @X0 1 ef ]
-"101
+"100
 {
-[; ;main.c: 100: void mTouch_IntervalDecrement(void)
-[; ;main.c: 101: {
+[; ;main.c: 99: void mTouch_IntervalDecrement(void)
+[; ;main.c: 100: {
 [e :U _mTouch_IntervalDecrement ]
 [f ]
-[; ;main.c: 102: if(mTouch_Interval[0]>0)
-"102
+[; ;main.c: 101: if(mTouch_Interval[0]>0)
+"101
 [e $ ! > -> *U + &U _mTouch_Interval * -> -> -> 0 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> 0 `i 383  ]
-[; ;main.c: 103: mTouch_Interval[0]--;
-"103
+[; ;main.c: 102: mTouch_Interval[0]--;
+"102
 [e -- *U + &U _mTouch_Interval * -> -> -> 0 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 1 `i `uc ]
 [e :U 383 ]
-[; ;main.c: 104: if(mTouch_Interval[1]>0)
-"104
+[; ;main.c: 103: if(mTouch_Interval[1]>0)
+"103
 [e $ ! > -> *U + &U _mTouch_Interval * -> -> -> 1 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> 0 `i 384  ]
-[; ;main.c: 105: mTouch_Interval[1]--;
-"105
+[; ;main.c: 104: mTouch_Interval[1]--;
+"104
 [e -- *U + &U _mTouch_Interval * -> -> -> 1 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 1 `i `uc ]
 [e :U 384 ]
-[; ;main.c: 106: if(mTouch_Interval[2]>0)
-"106
+[; ;main.c: 105: if(mTouch_Interval[2]>0)
+"105
 [e $ ! > -> *U + &U _mTouch_Interval * -> -> -> 2 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> 0 `i 385  ]
-[; ;main.c: 107: mTouch_Interval[2]--;
-"107
+[; ;main.c: 106: mTouch_Interval[2]--;
+"106
 [e -- *U + &U _mTouch_Interval * -> -> -> 2 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 1 `i `uc ]
 [e :U 385 ]
-[; ;main.c: 108: }
-"108
+[; ;main.c: 107: }
+"107
 [e :UE 382 ]
 }
-"110
+"109
 [v _mTouch_Read `(uc ~T0 @X0 1 ef1`uc ]
-"111
-{
-[; ;main.c: 110: uint8_t mTouch_Read(uint8_t chan)
-[; ;main.c: 111: {
-[e :U _mTouch_Read ]
 "110
+{
+[; ;main.c: 109: uint8_t mTouch_Read(uint8_t chan)
+[; ;main.c: 110: {
+[e :U _mTouch_Read ]
+"109
 [v _chan `uc ~T0 @X0 1 r1 ]
-"111
+"110
 [f ]
-[; ;main.c: 112: if(chan>2)return 0;
-"112
+[; ;main.c: 111: if(chan>2)return 0;
+"111
 [e $ ! > -> _chan `i -> 2 `i 387  ]
 [e ) -> -> 0 `i `uc ]
 [e $UE 386  ]
 [e :U 387 ]
-[; ;main.c: 114: if(((CPS_PreData[chan]-CPS_Data[chan])>100)&&!mTouch_Interval[chan])
-"114
+[; ;main.c: 113: if(((CPS_PreData[chan]-CPS_Data[chan])>100)&&!mTouch_Interval[chan])
+"113
 [e $ ! && > - -> *U + &U _CPS_PreData * -> _chan `ux -> -> # *U &U _CPS_PreData `ui `ux `i -> *U + &U _CPS_Data * -> _chan `ux -> -> # *U &U _CPS_Data `ui `ux `i -> 100 `i ! != -> *U + &U _mTouch_Interval * -> _chan `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> -> -> 0 `i `uc `i 388  ]
-[; ;main.c: 115: {
-"115
+[; ;main.c: 114: {
+"114
 {
-[; ;main.c: 116: mTouch_Interval[chan] = 100;
-"116
+[; ;main.c: 115: mTouch_Interval[chan] = 100;
+"115
 [e = *U + &U _mTouch_Interval * -> _chan `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 100 `i `uc ]
-[; ;main.c: 117: Buzzer_MiliSecond(100);
-"117
+[; ;main.c: 116: Buzzer_MiliSecond(100);
+"116
 [e ( _Buzzer_MiliSecond (1 -> -> 100 `i `ui ]
-[; ;main.c: 118: return 1;
-"118
+[; ;main.c: 117: return 1;
+"117
 [e ) -> -> 1 `i `uc ]
 [e $UE 386  ]
-"119
+"118
 }
 [e :U 388 ]
-[; ;main.c: 119: }
-[; ;main.c: 120: return 0;
-"120
+[; ;main.c: 118: }
+[; ;main.c: 119: return 0;
+"119
 [e ) -> -> 0 `i `uc ]
 [e $UE 386  ]
-[; ;main.c: 121: }
-"121
+[; ;main.c: 120: }
+"120
 [e :UE 386 ]
 }
-[p f _printf 8389648 ]
-[a 1C 37 108 117 0 ]
-[a 3C 65 68 74 71 65 73 78 0 ]
-[a 4C 80 77 84 68 69 86 73 67 69 0 ]
-[a 2C 83 69 76 69 67 84 70 85 78 67 0 ]
