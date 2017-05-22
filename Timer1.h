@@ -28,13 +28,13 @@ extern "C" {
     
 void Timer1_Init(void);
 
-#define DETECT_NUM_OF_COUNT 10
-inline uint32_t Timer1_GetCount(void);
-float Timer1_GetError(void);
+#define DETECT_NUM_OF_COUNT 10UL
+uint32_t Timer1_GetCountSum(void);
+uint16_t Timer1_GetError(void);
 uint16_t Timer1_GetCPM(void);
 
-inline void Timer1_Count10us(void);
-inline uint8_t Timer1_DetectAssignCount(void);//put into interrupt function
+void Timer1_Count200us(void);
+uint8_t Timer1_DetectAssignCount(void);//put into interrupt function
 
 #ifdef	__cplusplus
 }

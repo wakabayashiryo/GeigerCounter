@@ -1,20 +1,24 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"49 main.h
+"50 main.h
 [v _Basic_Init `(c ~T0 @X0 0 ef ]
+"32 LCD.h
+[v _LCD_Init `(v ~T0 @X0 0 ef ]
 "29 Timer1.h
 [v _Timer1_Init `(v ~T0 @X0 0 ef ]
 "7434 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [v _TMR1ON `Vb ~T0 @X0 0 e@192 ]
-"32 LCD.h
-[v _LCD_Init `(v ~T0 @X0 0 ef ]
-"37
-[v _LCD_CursorPosition `(v ~T0 @X0 0 ef2`uc`uc ]
+"17 Timer4.h
+[v _Timer4_Init `(v ~T0 @X0 0 ef ]
+"36 LCD.h
+[v _LCD_CursorHome `(v ~T0 @X0 0 ef ]
 "195 /opt/microchip/xc8/v1.41/include/stdio.h
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
-"728 /opt/microchip/xc8/v1.41/include/pic16f1827.h
-[v _TMR1 `Vus ~T0 @X0 0 e@22 ]
-"1662
+"34 Timer1.h
+[v _Timer1_GetCPM `(ui ~T0 @X0 0 ef ]
+"32
+[v _Timer1_GetCountSum `(ul ~T0 @X0 0 ef ]
+"1662 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [v _OSCCON `Vuc ~T0 @X0 0 e@153 ]
 "1118
 [v _TRISA `Vuc ~T0 @X0 0 e@140 ]
@@ -32,6 +36,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PORTA `Vuc ~T0 @X0 0 e@12 ]
 "473
 [v _PORTB `Vuc ~T0 @X0 0 e@13 ]
+"18 Timer4.h
+[v _Timer4_Handler `(uc ~T0 @X0 0 ef ]
+"36 Timer1.h
+[v _Timer1_Count200us `(v ~T0 @X0 0 ef ]
+"37
+[v _Timer1_DetectAssignCount `(uc ~T0 @X0 0 ef ]
+"7048 /opt/microchip/xc8/v1.41/include/pic16f1827.h
+[v _LATA6 `Vb ~T0 @X0 0 e@2150 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2892,11 +2904,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;math.h: 54: extern double trunc(double);
 [; ;math.h: 55: extern double round(double);
 [; ;Timer1.h: 29: void Timer1_Init(void);
-[; ;Timer1.h: 32: inline uint32_t Timer1_GetCount(void);
-[; ;Timer1.h: 33: float Timer1_GetError(void);
+[; ;Timer1.h: 32: uint32_t Timer1_GetCountSum(void);
+[; ;Timer1.h: 33: uint16_t Timer1_GetError(void);
 [; ;Timer1.h: 34: uint16_t Timer1_GetCPM(void);
-[; ;Timer1.h: 36: inline void Timer1_Count10us(void);
-[; ;Timer1.h: 37: inline uint8_t Timer1_DetectAssignCount(void);
+[; ;Timer1.h: 36: void Timer1_Count200us(void);
+[; ;Timer1.h: 37: uint8_t Timer1_DetectAssignCount(void);
+[; ;Timer4.h: 17: void Timer4_Init(void);
+[; ;Timer4.h: 18: uint8_t Timer4_Handler(void);
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
@@ -2934,37 +2948,37 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LCD.h: 37: void LCD_CursorPosition(uint8_t tx ,uint8_t ty);
 [; ;LCD.h: 38: void LCD_CursorShift(uint8_t shift,uint8_t RL);
 [; ;LCD.h: 39: void LCD_DispShift(uint8_t shift,uint8_t RL);
-"26 main.h
+"27 main.h
 [p x FOSC=INTOSC ]
-"27
-[p x WDTE=OFF ]
 "28
-[p x PWRTE=ON ]
+[p x WDTE=OFF ]
 "29
-[p x MCLRE=ON ]
+[p x PWRTE=ON ]
 "30
-[p x CP=OFF ]
+[p x MCLRE=ON ]
 "31
-[p x CPD=OFF ]
+[p x CP=OFF ]
 "32
-[p x BOREN=ON ]
+[p x CPD=OFF ]
 "33
-[p x CLKOUTEN=OFF ]
+[p x BOREN=ON ]
 "34
-[p x IESO=OFF ]
+[p x CLKOUTEN=OFF ]
 "35
+[p x IESO=OFF ]
+"36
 [p x FCMEN=OFF ]
-"38
-[p x WRT=OFF ]
 "39
-[p x PLLEN=ON ]
+[p x WRT=OFF ]
 "40
-[p x STVREN=OFF ]
+[p x PLLEN=ON ]
 "41
-[p x BORV=LO ]
+[p x STVREN=OFF ]
 "42
+[p x BORV=LO ]
+"43
 [p x LVP=OFF ]
-[; ;main.h: 49: int8_t Basic_Init(void);
+[; ;main.h: 50: int8_t Basic_Init(void);
 "13 main.c
 [v _main `(c ~T0 @X0 1 ef ]
 "14
@@ -2976,27 +2990,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 15: Basic_Init();
 "15
 [e ( _Basic_Init ..  ]
-[; ;main.c: 17: Timer1_Init();
+[; ;main.c: 17: LCD_Init();
 "17
-[e ( _Timer1_Init ..  ]
-[; ;main.c: 18: TMR1ON = 1;;
-"18
-[e = _TMR1ON -> -> 1 `i `b ]
-[; ;main.c: 20: LCD_Init();
-"20
 [e ( _LCD_Init ..  ]
+[; ;main.c: 18: Timer1_Init();
+"18
+[e ( _Timer1_Init ..  ]
+[; ;main.c: 19: TMR1ON = 1;;
+"19
+[e = _TMR1ON -> -> 1 `i `b ]
+[; ;main.c: 20: Timer4_Init();
+"20
+[e ( _Timer4_Init ..  ]
 [; ;main.c: 22: while(1)
 "22
 [e :U 356 ]
 [; ;main.c: 23: {
 "23
 {
-[; ;main.c: 24: LCD_CursorPosition(0,0);
+[; ;main.c: 24: LCD_CursorHome();
 "24
-[e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 25: printf("%lu ",(uint16_t)TMR1);
+[e ( _LCD_CursorHome ..  ]
+[; ;main.c: 25: printf("%ul %d", Timer1_GetCPM(),Timer1_GetCountSum());
 "25
-[e ( _printf , (. :s 1C -> _TMR1 `ui ]
+[e ( _printf , , (. :s 1C ( _Timer1_GetCPM ..  ( _Timer1_GetCountSum ..  ]
 "26
 }
 [e :U 355 ]
@@ -3064,10 +3081,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 53: {
 [e :U _Handler ]
 [f ]
-[; ;main.c: 54: }
+[; ;main.c: 54: if(Timer4_Handler())
 "54
+[e $ ! != -> ( _Timer4_Handler ..  `i -> -> -> 0 `i `uc `i 360  ]
+[; ;main.c: 55: Timer1_Count200us();
+"55
+[e ( _Timer1_Count200us ..  ]
+[e :U 360 ]
+[; ;main.c: 57: if(Timer1_DetectAssignCount())
+"57
+[e $ ! != -> ( _Timer1_DetectAssignCount ..  `i -> -> -> 0 `i `uc `i 361  ]
+[; ;main.c: 58: LATA6 = !LATA6;
+"58
+[e = _LATA6 ! _LATA6 ]
+[e :U 361 ]
+[; ;main.c: 59: }
+"59
 [e :UE 359 ]
 }
-[p f _printf 8389648 ]
-[a 1C 37 108 117 32 0 ]
+[p f _printf 8389760 ]
+[a 1C 37 117 108 32 37 100 0 ]
 

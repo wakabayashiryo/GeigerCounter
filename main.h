@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include "Timer1.h"
+#include "Timer4.h"
 #include <stdio.h>
 #include "LCD.h"
 

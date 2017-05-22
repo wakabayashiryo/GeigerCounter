@@ -14,15 +14,15 @@ int8_t main(void)
 {
     Basic_Init();
 
+    LCD_Init();
     Timer1_Init();
     Timer1_Start();
-
-    LCD_Init();
+    Timer4_Init();
   
     while(1)
     {
-        LCD_CursorPosition(0,0);
-        printf("%lu ",Timer1_Read());
+        LCD_CursorHome();
+        printf("%ul %d", Timer1_GetCPM(),Timer1_GetCountSum());
     }
     
     return EXIT_SUCCESS;
@@ -51,4 +51,9 @@ int8_t Basic_Init(void)
 
 void interrupt Handler(void)
 {
+    if(Timer4_Handler())
+        Timer1_Count200us();
+    
+    if(Timer1_DetectAssignCount())
+        LATA6 = !LATA6;
 }

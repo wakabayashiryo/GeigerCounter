@@ -1,15 +1,177 @@
 
-# 1 "Timer1.c"
+# 1 "Timer4.c"
 
-# 26 "/opt/microchip/xc8/v1.41/include/htc.h"
-extern const char __xc8_OPTIM_SPEED;
+# 4 "/opt/microchip/xc8/v1.41/include/__size_t.h"
+typedef unsigned size_t;
 
-extern double __fpnormalize(double);
+# 7 "/opt/microchip/xc8/v1.41/include/stdlib.h"
+typedef unsigned short wchar_t;
+
+# 15
+typedef struct {
+int rem;
+int quot;
+} div_t;
+typedef struct {
+unsigned rem;
+unsigned quot;
+} udiv_t;
+typedef struct {
+long quot;
+long rem;
+} ldiv_t;
+typedef struct {
+unsigned long quot;
+unsigned long rem;
+} uldiv_t;
+
+# 53
+extern double atof(const char *);
+extern double strtod(const char *, const char **);
+extern int atoi(const char *);
+extern unsigned xtoi(const char *);
+extern long atol(const char *);
+extern long strtol(const char *, char **, int);
+
+extern int rand(void);
+extern void srand(unsigned int);
+extern void * calloc(size_t, size_t);
+extern div_t div(int numer, int denom);
+extern udiv_t udiv(unsigned numer, unsigned denom);
+extern ldiv_t ldiv(long numer, long denom);
+extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+extern unsigned int _rotl(unsigned int value, unsigned int shift);
+extern unsigned int _rotr(unsigned int value, unsigned int shift);
+
+
+
+
+extern void * malloc(size_t);
+extern void free(void *);
+extern void * realloc(void *, size_t);
 
 
 # 13 "/opt/microchip/xc8/v1.41/include/xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
+
+# 86 "/opt/microchip/xc8/v1.41/include/stdlib.h"
+extern int atexit(void (*)(void));
+extern char * getenv(const char *);
+extern char ** environ;
+extern int system(char *);
+extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+extern int abs(int);
+extern long labs(long);
+
+extern char * itoa(char * buf, int val, int base);
+extern char * utoa(char * buf, unsigned val, int base);
+
+
+
+
+extern char * ltoa(char * buf, long val, int base);
+extern char * ultoa(char * buf, unsigned long val, int base);
+
+extern char * ftoa(float f, int * status);
+
+# 13 "/opt/microchip/xc8/v1.41/include/stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 26 "/opt/microchip/xc8/v1.41/include/htc.h"
+extern const char __xc8_OPTIM_SPEED;
+
+extern double __fpnormalize(double);
 
 # 49 "/opt/microchip/xc8/v1.41/include/pic16f1827.h"
 extern volatile unsigned char INDF0 @ 0x000;
@@ -3721,197 +3883,119 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 4 "/opt/microchip/xc8/v1.41/include/__size_t.h"
-typedef unsigned size_t;
-
-# 7 "/opt/microchip/xc8/v1.41/include/stdlib.h"
-typedef unsigned short wchar_t;
-
-# 15
-typedef struct {
-int rem;
-int quot;
-} div_t;
-typedef struct {
-unsigned rem;
-unsigned quot;
-} udiv_t;
-typedef struct {
-long quot;
-long rem;
-} ldiv_t;
-typedef struct {
-unsigned long quot;
-unsigned long rem;
-} uldiv_t;
-
-# 53
+# 30 "/opt/microchip/xc8/v1.41/include/math.h"
+extern double fabs(double);
+extern double floor(double);
+extern double ceil(double);
+extern double modf(double, double *);
+extern double sqrt(double);
 extern double atof(const char *);
-extern double strtod(const char *, const char **);
-extern int atoi(const char *);
-extern unsigned xtoi(const char *);
-extern long atol(const char *);
-extern long strtol(const char *, char **, int);
+extern double sin(double) ;
+extern double cos(double) ;
+extern double tan(double) ;
+extern double asin(double) ;
+extern double acos(double) ;
+extern double atan(double);
+extern double atan2(double, double) ;
+extern double log(double);
+extern double log10(double);
+extern double pow(double, double) ;
+extern double exp(double) ;
+extern double sinh(double) ;
+extern double cosh(double) ;
+extern double tanh(double);
+extern double eval_poly(double, const double *, int);
+extern double frexp(double, int *);
+extern double ldexp(double, int);
+extern double fmod(double, double);
+extern double trunc(double);
+extern double round(double);
 
-extern int rand(void);
-extern void srand(unsigned int);
-extern void * calloc(size_t, size_t);
-extern div_t div(int numer, int denom);
-extern udiv_t udiv(unsigned numer, unsigned denom);
-extern ldiv_t ldiv(long numer, long denom);
-extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
-extern unsigned long _lrotl(unsigned long value, unsigned int shift);
-extern unsigned long _lrotr(unsigned long value, unsigned int shift);
-extern unsigned int _rotl(unsigned int value, unsigned int shift);
-extern unsigned int _rotr(unsigned int value, unsigned int shift);
-
-
-
-
-extern void * malloc(size_t);
-extern void free(void *);
-extern void * realloc(void *, size_t);
-
-# 86
-extern int atexit(void (*)(void));
-extern char * getenv(const char *);
-extern char ** environ;
-extern int system(char *);
-extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
-extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
-extern int abs(int);
-extern long labs(long);
-
-extern char * itoa(char * buf, int val, int base);
-extern char * utoa(char * buf, unsigned val, int base);
+# 29 "Timer1.h"
+void Timer1_Init(void);
 
 
+uint32_t Timer1_GetCountSum(void);
+uint16_t Timer1_GetError(void);
+uint16_t Timer1_GetCPM(void);
 
+void Timer1_Count200us(void);
+uint8_t Timer1_DetectAssignCount(void);
 
-extern char * ltoa(char * buf, long val, int base);
-extern char * ultoa(char * buf, unsigned long val, int base);
+# 7 "/opt/microchip/xc8/v1.41/include/stdarg.h"
+typedef void * va_list[1];
 
-extern char * ftoa(float f, int * status);
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
 
-# 13 "/opt/microchip/xc8/v1.41/include/stdint.h"
-typedef signed char int8_t;
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
 
-# 20
-typedef signed int int16_t;
+# 43 "/opt/microchip/xc8/v1.41/include/stdio.h"
+struct __prbuf
+{
+char * ptr;
+void (* func)(char);
+};
 
-# 28
-typedef signed short long int int24_t;
+# 29 "/opt/microchip/xc8/v1.41/include/errno.h"
+extern int errno;
 
-# 36
-typedef signed long int int32_t;
+# 12 "/opt/microchip/xc8/v1.41/include/conio.h"
+extern void init_uart(void);
 
-# 43
-typedef unsigned char uint8_t;
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
 
-# 49
-typedef unsigned int uint16_t;
+extern __bit kbhit(void);
 
-# 56
-typedef unsigned short long int uint24_t;
+# 23
+extern char * cgets(char *);
+extern void cputs(const char *);
 
-# 63
-typedef unsigned long int uint32_t;
-
-# 71
-typedef signed char int_least8_t;
-
-# 78
-typedef signed int int_least16_t;
-
-# 90
-typedef signed short long int int_least24_t;
-
-# 98
-typedef signed long int int_least32_t;
-
-# 105
-typedef unsigned char uint_least8_t;
-
-# 111
-typedef unsigned int uint_least16_t;
-
-# 121
-typedef unsigned short long int uint_least24_t;
-
-# 128
-typedef unsigned long int uint_least32_t;
-
-# 137
-typedef signed char int_fast8_t;
-
-# 144
-typedef signed int int_fast16_t;
-
-# 156
-typedef signed short long int int_fast24_t;
-
-# 164
-typedef signed long int int_fast32_t;
-
-# 171
-typedef unsigned char uint_fast8_t;
-
-# 177
-typedef unsigned int uint_fast16_t;
-
-# 187
-typedef unsigned short long int uint_fast24_t;
-
-# 194
-typedef unsigned long int uint_fast32_t;
-
-# 200
-typedef int32_t intmax_t;
+# 88 "/opt/microchip/xc8/v1.41/include/stdio.h"
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
 
 
 
-
-typedef uint32_t uintmax_t;
-
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
 
 
+# 180
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
 
-typedef int16_t intptr_t;
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
 
-
-
-
-typedef uint16_t uintptr_t;
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
 
 # 32 "LCD.h"
 void LCD_Init(void);
 void LCD_Put(int8_t word);
+void putch(char c);
 void LCD_DisplayClear(void);
 void LCD_CursorHome(void);
 void LCD_CursorPosition(uint8_t tx ,uint8_t ty);
 void LCD_CursorShift(uint8_t shift,uint8_t RL);
 void LCD_DispShift(uint8_t shift,uint8_t RL);
 
-# 17 "xprintf.h"
-extern void (*xfunc_out)(unsigned char);
-void xputc (char c);
-void xputs (const char* str);
-void xfputs (void (*func)(unsigned char), const char* str);
-void xprintf (const char* fmt, ...);
-void xsprintf (char* buff, const char* fmt, ...);
-void xfprintf (void (*func)(unsigned char), const char* fmt, ...);
-void put_dump (const void* buff, unsigned long addr, int len, int width);
 
-# 32
-extern unsigned char (*xfunc_in)(void);
-int xgets (char* buff, int len);
-int xfgets (unsigned char (*func)(void), char* buff, int len);
-int xatoi (char** str, long* res);
-
-
-# 26 "main.h"
+# 27 "main.h"
 #pragma config FOSC = INTOSC
-#pragma config WDTE = ON
+#pragma config WDTE = OFF
 #pragma config PWRTE = ON
 #pragma config MCLRE = ON
 #pragma config CP = OFF
@@ -3928,49 +4012,35 @@ int xatoi (char** str, long* res);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 49
+# 50
 int8_t Basic_Init(void);
 
-# 28 "Timer1.h"
-void Timer1_Init(void);
-uint16_t Timer1_DiffCounter(void);
-void Timer1_Handler(void);
+# 17 "Timer4.h"
+void Timer4_Init(void);
+uint8_t Timer4_Handler(void);
 
-# 3 "Timer1.c"
-void Timer1_Init(void)
+# 3 "Timer4.c"
+void Timer4_Init(void)
 {
-TRISB |= (1<<6);
-ANSELB &= ~(1<<6);
+PR4 = 0x64;
+TMR4 = 0x00;
+T4CON |= (0x02<<0);
+T4CON |= (0x00<<3);
+T4CON |= (0x01<<2);
 
-T1CON |= (0x01<<2);
-T1CON &= ~(0x01<<3);
-T1CON |= (0x00<<4);
-T1CON |= (0x02<<6);
-
-T1GCON = 0x00;
-
-TMR1 = 0x0000;
-
-TMR1IE = 1;
-TMR1IF = 0;
+TMR4IF = 0;
+TMR4IE = 1;
 PEIE = 1;
 GIE = 1;
 }
 
-uint16_t Timer1_DiffCounter(void)
+uint8_t Timer4_Handler(void)
 {
-uint16_t counternow;
-
-counternow = (uint16_t)TMR1;
-{TMR1ON = 0;; TMR1 = (uint16_t)0x0000; TMR1ON = 1;; };
-
-return counternow;
+if(TMR4IE&&TMR4IF)
+{
+TMR4IF = 0;
+return 1;
+}
+return 0;
 }
 
-void Timer1_Handler(void)
-{
-if(TMR1IF&&TMR1IE)
-{
-TMR1IF = 0;
-}
-}

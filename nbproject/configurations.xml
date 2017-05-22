@@ -10,10 +10,10 @@
       <itemPath>MCP4726.h</itemPath>
       <itemPath>Timer1.h</itemPath>
       <itemPath>Timer4.h</itemPath>
+      <itemPath>Timer6.h</itemPath>
       <itemPath>eeprom.h</itemPath>
       <itemPath>mTouch.h</itemPath>
       <itemPath>main.h</itemPath>
-      <itemPath>Timer6.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -24,6 +24,7 @@
                    projectFiles="true">
       <itemPath>LCD.c</itemPath>
       <itemPath>Timer1.c</itemPath>
+      <itemPath>Timer4.c</itemPath>
       <itemPath>main.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"

@@ -3,10 +3,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISB `Vuc ~T0 @X0 0 e@141 ]
 "2846
 [v _ANSELB `Vuc ~T0 @X0 0 e@397 ]
+"3431
+[v _WPUB `Vuc ~T0 @X0 0 e@525 ]
 "772
 [v _T1CON `Vuc ~T0 @X0 0 e@24 ]
 "843
 [v _T1GCON `Vuc ~T0 @X0 0 e@25 ]
+"7434
+[v _TMR1ON `Vb ~T0 @X0 0 e@192 ]
 "728
 [v _TMR1 `Vus ~T0 @X0 0 e@22 ]
 "7432
@@ -2878,6 +2882,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;Timer4.h: 17: void Timer4_Init(void);
+[; ;Timer4.h: 18: uint8_t Timer4_Handler(void);
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
@@ -2915,199 +2921,254 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LCD.h: 37: void LCD_CursorPosition(uint8_t tx ,uint8_t ty);
 [; ;LCD.h: 38: void LCD_CursorShift(uint8_t shift,uint8_t RL);
 [; ;LCD.h: 39: void LCD_DispShift(uint8_t shift,uint8_t RL);
-"26 main.h
+"27 main.h
 [p x FOSC=INTOSC ]
-"27
-[p x WDTE=OFF ]
 "28
-[p x PWRTE=ON ]
+[p x WDTE=OFF ]
 "29
-[p x MCLRE=ON ]
+[p x PWRTE=ON ]
 "30
-[p x CP=OFF ]
+[p x MCLRE=ON ]
 "31
-[p x CPD=OFF ]
+[p x CP=OFF ]
 "32
-[p x BOREN=ON ]
+[p x CPD=OFF ]
 "33
-[p x CLKOUTEN=OFF ]
+[p x BOREN=ON ]
 "34
-[p x IESO=OFF ]
+[p x CLKOUTEN=OFF ]
 "35
+[p x IESO=OFF ]
+"36
 [p x FCMEN=OFF ]
-"38
-[p x WRT=OFF ]
 "39
-[p x PLLEN=ON ]
+[p x WRT=OFF ]
 "40
-[p x STVREN=OFF ]
+[p x PLLEN=ON ]
 "41
-[p x BORV=LO ]
+[p x STVREN=OFF ]
 "42
+[p x BORV=LO ]
+"43
 [p x LVP=OFF ]
-[; ;main.h: 49: int8_t Basic_Init(void);
+[; ;main.h: 50: int8_t Basic_Init(void);
 [; ;Timer1.h: 29: void Timer1_Init(void);
-[; ;Timer1.h: 32: inline uint32_t Timer1_GetCount(void);
-[; ;Timer1.h: 33: float Timer1_GetError(void);
+[; ;Timer1.h: 32: uint32_t Timer1_GetCountSum(void);
+[; ;Timer1.h: 33: uint16_t Timer1_GetError(void);
 [; ;Timer1.h: 34: uint16_t Timer1_GetCPM(void);
-[; ;Timer1.h: 36: inline void Timer1_Count10us(void);
-[; ;Timer1.h: 37: inline uint8_t Timer1_DetectAssignCount(void);
+[; ;Timer1.h: 36: void Timer1_Count200us(void);
+[; ;Timer1.h: 37: uint8_t Timer1_DetectAssignCount(void);
 "3 Timer1.c
-[v _countsum `ul ~T0 @X0 1 s ]
-[; ;Timer1.c: 3: static uint32_t countsum;
+[v _SigmaCount `ul ~T0 @X0 1 s ]
+[v _SigmaCPM `ul ~T0 @X0 1 s ]
+[v _Num_of_Detect `ul ~T0 @X0 1 s ]
+[v _AverageCPM `ul ~T0 @X0 1 s ]
+[; ;Timer1.c: 3: static uint32_t SigmaCount,SigmaCPM,Num_of_Detect,AverageCPM;
 "4
-[v _timesum `ul ~T0 @X0 1 s ]
-[; ;Timer1.c: 4: static uint32_t timesum;
-"6
-[v _Timer1_Init `(v ~T0 @X0 1 ef ]
+[v _timecount `ul ~T0 @X0 1 s ]
+[; ;Timer1.c: 4: static uint32_t timecount;
+"5
+[v _RenewalCPM `ui ~T0 @X0 1 s ]
+[; ;Timer1.c: 5: static uint16_t RenewalCPM;
 "7
+[v _Timer1_Init `(v ~T0 @X0 1 ef ]
+"8
 {
-[; ;Timer1.c: 6: void Timer1_Init(void)
-[; ;Timer1.c: 7: {
+[; ;Timer1.c: 7: void Timer1_Init(void)
+[; ;Timer1.c: 8: {
 [e :U _Timer1_Init ]
 [f ]
-[; ;Timer1.c: 8: TRISB |= (1<<6);
-"8
-[e =| _TRISB -> << -> 1 `i -> 6 `i `uc ]
-[; ;Timer1.c: 9: ANSELB &= ~(1<<6);
+[; ;Timer1.c: 9: TRISB |= (1<<6);
 "9
+[e =| _TRISB -> << -> 1 `i -> 6 `i `uc ]
+[; ;Timer1.c: 10: ANSELB &= ~(1<<6);
+"10
 [e =& _ANSELB -> ~ << -> 1 `i -> 6 `i `uc ]
-[; ;Timer1.c: 11: T1CON |= (0x01<<2);
+[; ;Timer1.c: 11: WPUB |= (1<<6);
 "11
-[e =| _T1CON -> << -> 1 `i -> 2 `i `uc ]
-[; ;Timer1.c: 12: T1CON &= ~(0x01<<3);
-"12
-[e =& _T1CON -> ~ << -> 1 `i -> 3 `i `uc ]
-[; ;Timer1.c: 13: T1CON |= (0x00<<4);
+[e =| _WPUB -> << -> 1 `i -> 6 `i `uc ]
+[; ;Timer1.c: 13: T1CON |= (0x01<<2);
 "13
-[e =| _T1CON -> << -> 0 `i -> 4 `i `uc ]
-[; ;Timer1.c: 14: T1CON |= (0x02<<6);
+[e =| _T1CON -> << -> 1 `i -> 2 `i `uc ]
+[; ;Timer1.c: 14: T1CON &= ~(0x01<<3);
 "14
-[e =| _T1CON -> << -> 2 `i -> 6 `i `uc ]
-[; ;Timer1.c: 16: T1GCON = 0x00;
+[e =& _T1CON -> ~ << -> 1 `i -> 3 `i `uc ]
+[; ;Timer1.c: 15: T1CON |= (0x00<<4);
+"15
+[e =| _T1CON -> << -> 0 `i -> 4 `i `uc ]
+[; ;Timer1.c: 16: T1CON |= (0x02<<6);
 "16
-[e = _T1GCON -> -> 0 `i `uc ]
-[; ;Timer1.c: 18: TMR1 = 0xFFFF-10;
+[e =| _T1CON -> << -> 2 `i -> 6 `i `uc ]
+[; ;Timer1.c: 18: T1GCON = 0x00;
 "18
-[e = _TMR1 -> - -> 65535 `ui -> -> 10 `i `ui `us ]
-[; ;Timer1.c: 20: TMR1IF = 0;
+[e = _T1GCON -> -> 0 `i `uc ]
+[; ;Timer1.c: 20: {TMR1ON = 0;; TMR1 = (uint16_t)0xFFFF - 10UL; TMR1ON = 1;; };
 "20
-[e = _TMR1IF -> -> 0 `i `b ]
-[; ;Timer1.c: 21: TMR1IE = 1;
-"21
-[e = _TMR1IE -> -> 1 `i `b ]
-[; ;Timer1.c: 22: PEIE = 1;
+{
+[e = _TMR1ON -> -> 0 `i `b ]
+[e = _TMR1 -> - -> -> 65535 `ui `ul -> 10 `ul `us ]
+[e = _TMR1ON -> -> 1 `i `b ]
+}
+[; ;Timer1.c: 22: TMR1IF = 0;
 "22
-[e = _PEIE -> -> 1 `i `b ]
-[; ;Timer1.c: 23: GIE = 1;
+[e = _TMR1IF -> -> 0 `i `b ]
+[; ;Timer1.c: 23: TMR1IE = 1;
 "23
-[e = _GIE -> -> 1 `i `b ]
-[; ;Timer1.c: 24: }
+[e = _TMR1IE -> -> 1 `i `b ]
+[; ;Timer1.c: 24: PEIE = 1;
 "24
+[e = _PEIE -> -> 1 `i `b ]
+[; ;Timer1.c: 25: GIE = 1;
+"25
+[e = _GIE -> -> 1 `i `b ]
+[; ;Timer1.c: 26: }
+"26
 [e :UE 354 ]
 }
-[v F3066 `(ul ~T0 @X0 1 tf ]
+"29
+[v _Timer1_GetCountSum `(ul ~T0 @X0 1 ef ]
 "30
-[v _Timer1_GetCount `TF3066 ~T0 @X0 1 e ]
-"31
 {
-[; ;Timer1.c: 30: inline uint32_t Timer1_GetCount(void)
-[; ;Timer1.c: 31: {
-[e :U _Timer1_GetCount ]
+[; ;Timer1.c: 29: uint32_t Timer1_GetCountSum(void)
+[; ;Timer1.c: 30: {
+[e :U _Timer1_GetCountSum ]
 [f ]
-[; ;Timer1.c: 32: return countsum;
-"32
-[e ) _countsum ]
+[; ;Timer1.c: 31: return SigmaCount;
+"31
+[e ) _SigmaCount ]
 [e $UE 355  ]
-[; ;Timer1.c: 33: }
-"33
+[; ;Timer1.c: 32: }
+"32
 [e :UE 355 ]
 }
+"34
+[v _Timer1_GetError `(ui ~T0 @X0 1 ef ]
 "35
-[v _Timer1_GetError `(f ~T0 @X0 1 ef ]
-"36
 {
-[; ;Timer1.c: 35: float Timer1_GetError(void)
-[; ;Timer1.c: 36: {
+[; ;Timer1.c: 34: uint16_t Timer1_GetError(void)
+[; ;Timer1.c: 35: {
 [e :U _Timer1_GetError ]
 [f ]
-[; ;Timer1.c: 37: return sqrt(countsum)/(float)countsum*1000.0;
-"37
-[e ) -> * / ( _sqrt (1 -> _countsum `d -> -> _countsum `f `d .1000.0 `f ]
+[; ;Timer1.c: 36: return (uint16_t)((sqrt(SigmaCount)/(float)SigmaCount)*10);
+"36
+[e ) -> * / ( _sqrt (1 -> _SigmaCount `d -> -> _SigmaCount `f `d -> -> 10 `i `d `ui ]
 [e $UE 356  ]
-[; ;Timer1.c: 38: }
-"38
+[; ;Timer1.c: 37: }
+"37
 [e :UE 356 ]
 }
-"40
+"39
 [v _Timer1_GetCPM `(ui ~T0 @X0 1 ef ]
-"41
+"40
 {
-[; ;Timer1.c: 40: uint16_t Timer1_GetCPM(void)
-[; ;Timer1.c: 41: {
+[; ;Timer1.c: 39: uint16_t Timer1_GetCPM(void)
+[; ;Timer1.c: 40: {
 [e :U _Timer1_GetCPM ]
 [f ]
-[; ;Timer1.c: 42: return (uint16_t)(countsum / timesum * 6.0e6);
-"42
-[e ) -> * -> / _countsum _timesum `d .6.0e6 `ui ]
+[; ;Timer1.c: 41: return AverageCPM;
+"41
+[e ) -> _AverageCPM `ui ]
 [e $UE 357  ]
-[; ;Timer1.c: 43: }
-"43
+[; ;Timer1.c: 42: }
+"42
 [e :UE 357 ]
 }
-[v F3073 `(v ~T0 @X0 1 tf ]
+"44
+[v _Timer1_Count200us `(v ~T0 @X0 1 ef ]
 "45
-[v _Timer1_Count10us `TF3073 ~T0 @X0 1 e ]
-"46
 {
-[; ;Timer1.c: 45: inline void Timer1_Count10us(void)
-[; ;Timer1.c: 46: {
-[e :U _Timer1_Count10us ]
+[; ;Timer1.c: 44: void Timer1_Count200us(void)
+[; ;Timer1.c: 45: {
+[e :U _Timer1_Count200us ]
 [f ]
-[; ;Timer1.c: 47: timesum++;
+[; ;Timer1.c: 46: timecount++;
+"46
+[e ++ _timecount -> -> -> 1 `i `l `ul ]
+[; ;Timer1.c: 47: }
 "47
-[e ++ _timesum -> -> -> 1 `i `l `ul ]
-[; ;Timer1.c: 48: }
-"48
 [e :UE 358 ]
 }
-[v F3076 `(uc ~T0 @X0 1 tf ]
+"49
+[v _Timer1_DetectAssignCount `(uc ~T0 @X0 1 ef ]
 "50
-[v _Timer1_DetectAssignCount `TF3076 ~T0 @X0 1 e ]
-"51
 {
-[; ;Timer1.c: 50: inline uint8_t Timer1_DetectAssignCount(void)
-[; ;Timer1.c: 51: {
+[; ;Timer1.c: 49: uint8_t Timer1_DetectAssignCount(void)
+[; ;Timer1.c: 50: {
 [e :U _Timer1_DetectAssignCount ]
 [f ]
-[; ;Timer1.c: 52: if(TMR1IF&&TMR1IE)
+"51
+[v F3093 `ui ~T0 @X0 1 s PreviousTimer1 ]
+[; ;Timer1.c: 51: static uint16_t PreviousTimer1;
+[; ;Timer1.c: 52: if((timecount>50000)&&(TMR1==PreviousTimer1))
 "52
-[e $ ! && _TMR1IF _TMR1IE 360  ]
-[; ;Timer1.c: 53: {
+[e $ ! && > _timecount -> -> 50000 `l `ul == -> _TMR1 `ui F3093 360  ]
+[; ;Timer1.c: 53: SigmaCPM = 0;
 "53
-{
-[; ;Timer1.c: 54: countsum += 10;
+[e = _SigmaCPM -> -> -> 0 `i `l `ul ]
+[e :U 360 ]
+[; ;Timer1.c: 54: PreviousTimer1 = (uint16_t)TMR1;
 "54
-[e =+ _countsum -> -> -> 10 `i `l `ul ]
-[; ;Timer1.c: 55: TMR1 = 0xFFFF-10;
-"55
-[e = _TMR1 -> - -> 65535 `ui -> -> 10 `i `ui `us ]
-[; ;Timer1.c: 56: TMR1IF = 0;
+[e = F3093 -> _TMR1 `ui ]
+[; ;Timer1.c: 56: RenewalCPM++;
 "56
-[e = _TMR1IF -> -> 0 `i `b ]
-[; ;Timer1.c: 57: return 1;
+[e ++ _RenewalCPM -> -> 1 `i `ui ]
+[; ;Timer1.c: 57: if(RenewalCPM>5000)
 "57
+[e $ ! > _RenewalCPM -> -> 5000 `i `ui 361  ]
+[; ;Timer1.c: 58: {
+"58
+{
+[; ;Timer1.c: 59: RenewalCPM = 0;
+"59
+[e = _RenewalCPM -> -> 0 `i `ui ]
+[; ;Timer1.c: 60: AverageCPM = SigmaCPM/Num_of_Detect;
+"60
+[e = _AverageCPM / _SigmaCPM _Num_of_Detect ]
+"61
+}
+[e :U 361 ]
+[; ;Timer1.c: 61: }
+[; ;Timer1.c: 63: if(TMR1IF&&TMR1IE)
+"63
+[e $ ! && _TMR1IF _TMR1IE 362  ]
+[; ;Timer1.c: 64: {
+"64
+{
+[; ;Timer1.c: 65: SigmaCount += 10UL;
+"65
+[e =+ _SigmaCount -> 10 `ul ]
+[; ;Timer1.c: 67: SigmaCPM += (uint16_t)((10UL * 12000UL) / timecount);
+"67
+[e =+ _SigmaCPM -> -> / * -> 10 `ul -> 12000 `ul _timecount `ui `ul ]
+[; ;Timer1.c: 68: Num_of_Detect++;
+"68
+[e ++ _Num_of_Detect -> -> -> 1 `i `l `ul ]
+[; ;Timer1.c: 70: timecount = 0;
+"70
+[e = _timecount -> -> -> 0 `i `l `ul ]
+[; ;Timer1.c: 71: {TMR1ON = 0;; TMR1 = (uint16_t)0xFFFF-10UL; TMR1ON = 1;; };
+"71
+{
+[e = _TMR1ON -> -> 0 `i `b ]
+[e = _TMR1 -> - -> -> 65535 `ui `ul -> 10 `ul `us ]
+[e = _TMR1ON -> -> 1 `i `b ]
+}
+[; ;Timer1.c: 72: TMR1IF = 0;
+"72
+[e = _TMR1IF -> -> 0 `i `b ]
+[; ;Timer1.c: 73: return 1;
+"73
 [e ) -> -> 1 `i `uc ]
 [e $UE 359  ]
-"58
+"74
 }
-[e :U 360 ]
-[; ;Timer1.c: 58: }
-[; ;Timer1.c: 59: return 0;
-"59
+[e :U 362 ]
+[; ;Timer1.c: 74: }
+[; ;Timer1.c: 75: return 0;
+"75
 [e ) -> -> 0 `i `uc ]
 [e $UE 359  ]
-[; ;Timer1.c: 60: }
-"60
+[; ;Timer1.c: 76: }
+"76
 [e :UE 359 ]
 }

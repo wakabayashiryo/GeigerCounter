@@ -2871,11 +2871,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;math.h: 54: extern double trunc(double);
 [; ;math.h: 55: extern double round(double);
 [; ;Timer1.h: 29: void Timer1_Init(void);
-[; ;Timer1.h: 32: inline uint32_t Timer1_GetCount(void);
-[; ;Timer1.h: 33: float Timer1_GetError(void);
+[; ;Timer1.h: 32: uint32_t Timer1_GetCountSum(void);
+[; ;Timer1.h: 33: uint16_t Timer1_GetError(void);
 [; ;Timer1.h: 34: uint16_t Timer1_GetCPM(void);
-[; ;Timer1.h: 36: inline void Timer1_Count10us(void);
-[; ;Timer1.h: 37: inline uint8_t Timer1_DetectAssignCount(void);
+[; ;Timer1.h: 36: void Timer1_Count200us(void);
+[; ;Timer1.h: 37: uint8_t Timer1_DetectAssignCount(void);
+[; ;Timer4.h: 17: void Timer4_Init(void);
+[; ;Timer4.h: 18: uint8_t Timer4_Handler(void);
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
@@ -2905,37 +2907,37 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
 [; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 195: extern int printf(const char *, ...);
-"26 main.h
+"27 main.h
 [p x FOSC=INTOSC ]
-"27
-[p x WDTE=OFF ]
 "28
-[p x PWRTE=ON ]
+[p x WDTE=OFF ]
 "29
-[p x MCLRE=ON ]
+[p x PWRTE=ON ]
 "30
-[p x CP=OFF ]
+[p x MCLRE=ON ]
 "31
-[p x CPD=OFF ]
+[p x CP=OFF ]
 "32
-[p x BOREN=ON ]
+[p x CPD=OFF ]
 "33
-[p x CLKOUTEN=OFF ]
+[p x BOREN=ON ]
 "34
-[p x IESO=OFF ]
+[p x CLKOUTEN=OFF ]
 "35
+[p x IESO=OFF ]
+"36
 [p x FCMEN=OFF ]
-"38
-[p x WRT=OFF ]
 "39
-[p x PLLEN=ON ]
+[p x WRT=OFF ]
 "40
-[p x STVREN=OFF ]
+[p x PLLEN=ON ]
 "41
-[p x BORV=LO ]
+[p x STVREN=OFF ]
 "42
+[p x BORV=LO ]
+"43
 [p x LVP=OFF ]
-[; ;main.h: 49: int8_t Basic_Init(void);
+[; ;main.h: 50: int8_t Basic_Init(void);
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void putch(char c);

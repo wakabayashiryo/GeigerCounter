@@ -21,16 +21,14 @@
 [v ___fttol __fttol `(l  1 e 4 0 ]
 "6 /opt/microchip/xc8/v1.41/sources/common/lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
-"6 /opt/microchip/xc8/v1.41/sources/common/llmod.c
-[v ___llmod __llmod `(ul  1 e 4 0 ]
 "35 /opt/microchip/xc8/v1.41/sources/common/lltoft.c
 [v ___lltoft __lltoft `(f  1 e 3 0 ]
+"6 /opt/microchip/xc8/v1.41/sources/common/lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"6 /opt/microchip/xc8/v1.41/sources/common/lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
 "9 /opt/microchip/xc8/v1.41/sources/common/sprcsqrt.c
 [v _sqrt sqrt `(d  1 e 3 0 ]
-"15 /opt/microchip/xc8/v1.41/sources/common/Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
-"15 /opt/microchip/xc8/v1.41/sources/common/Umul32.c
-[v ___lmul __lmul `(ul  1 e 4 0 ]
 "6 /opt/microchip/xc8/v1.41/sources/pic/eeprom.c
 [v _eecpymem eecpymem `(v  1 e 1 0 ]
 "39
@@ -43,26 +41,28 @@
 [v _putch putch `(v  1 e 1 0 ]
 "73
 [v _LCD_DisplayClear LCD_DisplayClear `(v  1 e 1 0 ]
-"95
-[v _LCD_CursorPosition LCD_CursorPosition `(v  1 e 1 0 ]
+"84
+[v _LCD_CursorHome LCD_CursorHome `(v  1 e 1 0 ]
 "13 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
 "31
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
 "52
 [v _Handler Handler `II(v  1 e 1 0 ]
-"6 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
+"7 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
 [v _Timer1_Init Timer1_Init `(v  1 e 1 0 ]
-"26 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
-[v _xputc xputc `(v  1 e 1 0 ]
+"29
+[v _Timer1_GetCountSum Timer1_GetCountSum `(ul  1 e 4 0 ]
+"39
+[v _Timer1_GetCPM Timer1_GetCPM `(ui  1 e 2 0 ]
 "44
-[v _xputs xputs `(v  1 e 1 0 ]
-"88
-[v _xvprintf xvprintf `(v  1 s 1 xvprintf ]
-"165
-[v _xprintf xprintf `(v  1 e 1 0 ]
-"277
-[v _xgets xgets `(i  1 e 2 0 ]
+[v _Timer1_Count200us Timer1_Count200us `(v  1 e 1 0 ]
+"49
+[v _Timer1_DetectAssignCount Timer1_DetectAssignCount `(uc  1 e 1 0 ]
+"3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer4.c
+[v _Timer4_Init Timer4_Init `(v  1 e 1 0 ]
+"17
+[v _Timer4_Handler Timer4_Handler `(uc  1 e 1 0 ]
 "412 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [v _PORTA PORTA `VEuc  1 e 1 @12 ]
 "473
@@ -87,8 +87,18 @@
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
 "2846
 [v _ANSELB ANSELB `VEuc  1 e 1 @397 ]
+"3431
+[v _WPUB WPUB `VEuc  1 e 1 @525 ]
+"6181
+[v _TMR4 TMR4 `VEuc  1 e 1 @1045 ]
+"6200
+[v _PR4 PR4 `VEuc  1 e 1 @1046 ]
+"6219
+[v _T4CON T4CON `VEuc  1 e 1 @1047 ]
 "6960
 [v _GIE GIE `VEb  1 e 0 @95 ]
+"7048
+[v _LATA6 LATA6 `VEb  1 e 0 @2150 ]
 "7182
 [v _PEIE PEIE `VEb  1 e 0 @94 ]
 "7216
@@ -101,20 +111,23 @@
 [v _TMR1IF TMR1IF `VEb  1 e 0 @136 ]
 "7434
 [v _TMR1ON TMR1ON `VEb  1 e 0 @192 ]
+"7442
+[v _TMR4IE TMR4IE `VEb  1 e 0 @1177 ]
+"7444
+[v _TMR4IF TMR4IF `VEb  1 e 0 @153 ]
 "354 /opt/microchip/xc8/v1.41/sources/common/doprnt.c
-[v _dpowers dpowers `DCC[10]ul  1 s 40 dpowers ]
+[v _dpowers dpowers `DCC[5]ui  1 s 10 dpowers ]
 "3 /opt/microchip/xc8/v1.41/sources/common/errno.c
 [v _errno errno `i  1 e 2 0 ]
 "3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
-[v _countsum countsum `ul  1 s 4 countsum ]
+[v _SigmaCount SigmaCount `ul  1 s 4 SigmaCount ]
+[v _SigmaCPM SigmaCPM `ul  1 s 4 SigmaCPM ]
+[v _Num_of_Detect Num_of_Detect `ul  1 s 4 Num_of_Detect ]
+[v _AverageCPM AverageCPM `ul  1 s 4 AverageCPM ]
 "4
-[v _timesum timesum `ul  1 s 4 timesum ]
-"19 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/xprintf.c
-[v _xfunc_out xfunc_out `*.37(v  1 e 2 0 ]
-"20
-[v _outptr outptr `*.1uc  1 s 1 outptr ]
-"271
-[v _xfunc_in xfunc_in `*.37(uc  1 e 2 0 ]
+[v _timecount timecount `ul  1 s 4 timecount ]
+"5
+[v _RenewalCPM RenewalCPM `ui  1 s 2 RenewalCPM ]
 "13 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
 {
@@ -124,17 +137,17 @@
 [v _printf printf `(i  1 e 2 0 ]
 {
 "528
-[v printf@val val `ul  1 a 4 26 ]
-"504
-[v printf@prec prec `i  1 a 2 24 ]
+[v printf@val val `ui  1 a 2 30 ]
 "499
-[v printf@c c `c  1 a 1 31 ]
-"466
-[v printf@ap ap `[1]*.4v  1 a 1 30 ]
+[v printf@c c `c  1 a 1 32 ]
 "508
-[v printf@flag flag `uc  1 a 1 23 ]
+[v printf@flag flag `uc  1 a 1 29 ]
+"466
+[v printf@ap ap `[1]*.4v  1 a 1 28 ]
+"506
+[v printf@prec prec `c  1 a 1 27 ]
 "464
-[v printf@f f `*.25DCCuc  1 p 2 13 ]
+[v printf@f f `*.25DCCuc  1 p 2 15 ]
 "1541
 } 0
 "64 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
@@ -146,32 +159,47 @@
 [v putch@c c `uc  1 a 1 4 ]
 "68
 } 0
-"6 /opt/microchip/xc8/v1.41/sources/common/llmod.c
-[v ___llmod __llmod `(ul  1 e 4 0 ]
+"6 /opt/microchip/xc8/v1.41/sources/common/lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
 {
 "11
-[v ___llmod@counter counter `uc  1 a 1 11 ]
+[v ___lwmod@counter counter `uc  1 a 1 14 ]
 "6
-[v ___llmod@divisor divisor `ul  1 p 4 5 ]
-[v ___llmod@dividend dividend `ul  1 p 4 9 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 9 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 11 ]
 "26
 } 0
-"6 /opt/microchip/xc8/v1.41/sources/common/lldiv.c
-[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"6 /opt/microchip/xc8/v1.41/sources/common/lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 {
 "11
-[v ___lldiv@quotient quotient `ul  1 a 4 0 ]
+[v ___lwdiv@quotient quotient `ui  1 a 2 6 ]
 "12
-[v ___lldiv@counter counter `uc  1 a 1 4 ]
+[v ___lwdiv@counter counter `uc  1 a 1 8 ]
 "6
-[v ___lldiv@divisor divisor `ul  1 p 4 1 ]
-[v ___lldiv@dividend dividend `ul  1 p 4 5 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 1 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 3 ]
 "31
 } 0
-"6 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
+"3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer4.c
+[v _Timer4_Init Timer4_Init `(v  1 e 1 0 ]
+{
+"15
+} 0
+"7 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
 [v _Timer1_Init Timer1_Init `(v  1 e 1 0 ]
 {
-"24
+"26
+} 0
+"29
+[v _Timer1_GetCountSum Timer1_GetCountSum `(ul  1 e 4 0 ]
+{
+"32
+} 0
+"39
+[v _Timer1_GetCPM Timer1_GetCPM `(ui  1 e 2 0 ]
+{
+"42
 } 0
 "28 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
 [v _LCD_Init LCD_Init `(v  1 e 1 0 ]
@@ -183,15 +211,10 @@
 {
 "78
 } 0
-"95
-[v _LCD_CursorPosition LCD_CursorPosition `(v  1 e 1 0 ]
+"84
+[v _LCD_CursorHome LCD_CursorHome `(v  1 e 1 0 ]
 {
-[v LCD_CursorPosition@tx tx `uc  1 a 1 wreg ]
-[v LCD_CursorPosition@tx tx `uc  1 a 1 wreg ]
-[v LCD_CursorPosition@ty ty `uc  1 p 1 4 ]
-"97
-[v LCD_CursorPosition@tx tx `uc  1 a 1 6 ]
-"100
+"89
 } 0
 "15
 [v _LCD_WriteData LCD_WriteData `(v  1 s 1 LCD_WriteData ]
@@ -210,5 +233,34 @@
 "52
 [v _Handler Handler `II(v  1 e 1 0 ]
 {
-"54
+"59
+} 0
+"17 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer4.c
+[v _Timer4_Handler Timer4_Handler `(uc  1 e 1 0 ]
+{
+"25
+} 0
+"49 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
+[v _Timer1_DetectAssignCount Timer1_DetectAssignCount `(uc  1 e 1 0 ]
+{
+"51
+[v Timer1_DetectAssignCount@PreviousTimer1 PreviousTimer1 `ui  1 s 2 PreviousTimer1 ]
+"76
+} 0
+"6 /opt/microchip/xc8/v1.41/sources/common/lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+{
+"11
+[v ___lldiv@quotient quotient `ul  1 a 4 9 ]
+"12
+[v ___lldiv@counter counter `uc  1 a 1 13 ]
+"6
+[v ___lldiv@divisor divisor `ul  1 p 4 0 ]
+[v ___lldiv@dividend dividend `ul  1 p 4 4 ]
+"31
+} 0
+"44 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
+[v _Timer1_Count200us Timer1_Count200us `(v  1 e 1 0 ]
+{
+"47
 } 0
