@@ -2872,12 +2872,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;math.h: 53: extern double fmod(double, double);
 [; ;math.h: 54: extern double trunc(double);
 [; ;math.h: 55: extern double round(double);
-[; ;Timer1.h: 29: void Timer1_Init(void);
-[; ;Timer1.h: 32: uint32_t Timer1_GetCountSum(void);
-[; ;Timer1.h: 33: uint16_t Timer1_GetError(void);
-[; ;Timer1.h: 34: uint16_t Timer1_GetCPM(void);
-[; ;Timer1.h: 36: void Timer1_Count200us(void);
-[; ;Timer1.h: 37: uint8_t Timer1_DetectAssignCount(void);
+[; ;Timer1.h: 19: typedef struct
+[; ;Timer1.h: 20: {
+[; ;Timer1.h: 21: uint32_t Delta_t;
+[; ;Timer1.h: 22: uint16_t RenewalCPM;
+[; ;Timer1.h: 23: }TimeCounter;
+[; ;Timer1.h: 25: typedef struct
+[; ;Timer1.h: 26: {
+[; ;Timer1.h: 27: uint32_t SigmaDeltaCount;
+[; ;Timer1.h: 28: uint32_t SigmaCPM;
+[; ;Timer1.h: 29: uint16_t AverageCPM;
+[; ;Timer1.h: 30: uint32_t Num_of_Detect;
+[; ;Timer1.h: 31: }Counters;
+[; ;Timer1.h: 40: void Timer1_Init(void);
+[; ;Timer1.h: 41: void Timer1_StartCount(void);
+[; ;Timer1.h: 42: void Timer1_StopCount(void);
+[; ;Timer1.h: 43: void Timer1_ClearRecord(void);
+[; ;Timer1.h: 46: uint32_t Timer1_GetCountSum(void);
+[; ;Timer1.h: 47: uint16_t Timer1_GetCPM(void);
+[; ;Timer1.h: 49: void Timer1_Count200us(void);
+[; ;Timer1.h: 50: uint8_t Timer1_DetectAssignCount(void);
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
@@ -2985,7 +2999,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _GIE -> -> 1 `i `b ]
 [; ;Timer4.c: 15: }
 "15
-[e :UE 354 ]
+[e :UE 356 ]
 }
 "17
 [v _Timer4_Handler `(uc ~T0 @X0 1 ef ]
@@ -2997,7 +3011,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;Timer4.c: 19: if(TMR4IE&&TMR4IF)
 "19
-[e $ ! && _TMR4IE _TMR4IF 356  ]
+[e $ ! && _TMR4IE _TMR4IF 358  ]
 [; ;Timer4.c: 20: {
 "20
 {
@@ -3007,16 +3021,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer4.c: 22: return 1;
 "22
 [e ) -> -> 1 `i `uc ]
-[e $UE 355  ]
+[e $UE 357  ]
 "23
 }
-[e :U 356 ]
+[e :U 358 ]
 [; ;Timer4.c: 23: }
 [; ;Timer4.c: 24: return 0;
 "24
 [e ) -> -> 0 `i `uc ]
-[e $UE 355  ]
+[e $UE 357  ]
 [; ;Timer4.c: 25: }
 "25
-[e :UE 355 ]
+[e :UE 357 ]
 }

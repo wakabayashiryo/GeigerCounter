@@ -9,26 +9,12 @@
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 /opt/microchip/xc8/v1.41/sources/common/ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
-"56 /opt/microchip/xc8/v1.41/sources/common/ftdiv.c
-[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
-"4 /opt/microchip/xc8/v1.41/sources/common/ftge.c
-[v ___ftge __ftge `(b  1 e 0 0 ]
-"62 /opt/microchip/xc8/v1.41/sources/common/ftmul.c
-[v ___ftmul __ftmul `(f  1 e 3 0 ]
-"18 /opt/microchip/xc8/v1.41/sources/common/ftsub.c
-[v ___ftsub __ftsub `(f  1 e 3 0 ]
-"44 /opt/microchip/xc8/v1.41/sources/common/fttol.c
-[v ___fttol __fttol `(l  1 e 4 0 ]
 "6 /opt/microchip/xc8/v1.41/sources/common/lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
-"35 /opt/microchip/xc8/v1.41/sources/common/lltoft.c
-[v ___lltoft __lltoft `(f  1 e 3 0 ]
 "6 /opt/microchip/xc8/v1.41/sources/common/lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 "6 /opt/microchip/xc8/v1.41/sources/common/lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
-"9 /opt/microchip/xc8/v1.41/sources/common/sprcsqrt.c
-[v _sqrt sqrt `(d  1 e 3 0 ]
 "6 /opt/microchip/xc8/v1.41/sources/pic/eeprom.c
 [v _eecpymem eecpymem `(v  1 e 1 0 ]
 "39
@@ -45,19 +31,23 @@
 [v _LCD_CursorHome LCD_CursorHome `(v  1 e 1 0 ]
 "13 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
-"31
+"32
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
-"52
+"53
 [v _Handler Handler `II(v  1 e 1 0 ]
-"7 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
+"6 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
 [v _Timer1_Init Timer1_Init `(v  1 e 1 0 ]
-"29
+"31
+[v _Timer1_StartCount Timer1_StartCount `(v  1 e 1 0 ]
+"42
+[v _Timer1_ClearRecord Timer1_ClearRecord `(v  1 e 1 0 ]
+"51
 [v _Timer1_GetCountSum Timer1_GetCountSum `(ul  1 e 4 0 ]
-"39
+"56
 [v _Timer1_GetCPM Timer1_GetCPM `(ui  1 e 2 0 ]
-"44
+"62
 [v _Timer1_Count200us Timer1_Count200us `(v  1 e 1 0 ]
-"49
+"67
 [v _Timer1_DetectAssignCount Timer1_DetectAssignCount `(uc  1 e 1 0 ]
 "3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer4.c
 [v _Timer4_Init Timer4_Init `(v  1 e 1 0 ]
@@ -117,21 +107,16 @@
 [v _TMR4IF TMR4IF `VEb  1 e 0 @153 ]
 "354 /opt/microchip/xc8/v1.41/sources/common/doprnt.c
 [v _dpowers dpowers `DCC[5]ui  1 s 10 dpowers ]
-"3 /opt/microchip/xc8/v1.41/sources/common/errno.c
-[v _errno errno `i  1 e 2 0 ]
+[s S53 . 14 `ul 1 SigmaDeltaCount 4 0 `ul 1 SigmaCPM 4 4 `ui 1 AverageCPM 2 8 `ul 1 Num_of_Detect 4 10 ]
 "3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
-[v _SigmaCount SigmaCount `ul  1 s 4 SigmaCount ]
-[v _SigmaCPM SigmaCPM `ul  1 s 4 SigmaCPM ]
-[v _Num_of_Detect Num_of_Detect `ul  1 s 4 Num_of_Detect ]
-[v _AverageCPM AverageCPM `ul  1 s 4 AverageCPM ]
+[v _cnts cnts `S53  1 s 14 cnts ]
+[s S58 . 6 `ul 1 Delta_t 4 0 `ui 1 RenewalCPM 2 4 ]
 "4
-[v _timecount timecount `ul  1 s 4 timecount ]
-"5
-[v _RenewalCPM RenewalCPM `ui  1 s 2 RenewalCPM ]
+[v _tcnt tcnt `S58  1 s 6 tcnt ]
 "13 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
 {
-"29
+"30
 } 0
 "464 /opt/microchip/xc8/v1.41/sources/common/doprnt.c
 [v _printf printf `(i  1 e 2 0 ]
@@ -186,20 +171,30 @@
 {
 "15
 } 0
-"7 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
+"31 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
+[v _Timer1_StartCount Timer1_StartCount `(v  1 e 1 0 ]
+{
+"35
+} 0
+"42
+[v _Timer1_ClearRecord Timer1_ClearRecord `(v  1 e 1 0 ]
+{
+"49
+} 0
+"6
 [v _Timer1_Init Timer1_Init `(v  1 e 1 0 ]
 {
-"26
+"27
 } 0
-"29
+"51
 [v _Timer1_GetCountSum Timer1_GetCountSum `(ul  1 e 4 0 ]
 {
-"32
+"54
 } 0
-"39
+"56
 [v _Timer1_GetCPM Timer1_GetCPM `(ui  1 e 2 0 ]
 {
-"42
+"59
 } 0
 "28 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/LCD.c
 [v _LCD_Init LCD_Init `(v  1 e 1 0 ]
@@ -225,27 +220,27 @@
 [v LCD_WriteData@point point `c  1 a 1 3 ]
 "22
 } 0
-"31 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+"32 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
 {
-"50
+"51
 } 0
-"52
+"53
 [v _Handler Handler `II(v  1 e 1 0 ]
 {
-"59
+"60
 } 0
 "17 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer4.c
 [v _Timer4_Handler Timer4_Handler `(uc  1 e 1 0 ]
 {
 "25
 } 0
-"49 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
+"67 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
 [v _Timer1_DetectAssignCount Timer1_DetectAssignCount `(uc  1 e 1 0 ]
 {
-"51
+"69
 [v Timer1_DetectAssignCount@PreviousTimer1 PreviousTimer1 `ui  1 s 2 PreviousTimer1 ]
-"76
+"95
 } 0
 "6 /opt/microchip/xc8/v1.41/sources/common/lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
@@ -259,8 +254,8 @@
 [v ___lldiv@dividend dividend `ul  1 p 4 4 ]
 "31
 } 0
-"44 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
+"62 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
 [v _Timer1_Count200us Timer1_Count200us `(v  1 e 1 0 ]
 {
-"47
+"65
 } 0

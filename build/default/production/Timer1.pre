@@ -4008,21 +4008,37 @@ void LCD_DispShift(uint8_t shift,uint8_t RL);
 # 50
 int8_t Basic_Init(void);
 
-# 29 "Timer1.h"
+# 19 "Timer1.h"
+typedef struct
+{
+uint32_t Delta_t;
+uint16_t RenewalCPM;
+}TimeCounter;
+
+typedef struct
+{
+uint32_t SigmaDeltaCount;
+uint32_t SigmaCPM;
+uint16_t AverageCPM;
+uint32_t Num_of_Detect;
+}Counters;
+
+# 40
 void Timer1_Init(void);
+void Timer1_StartCount(void);
+void Timer1_StopCount(void);
+void Timer1_ClearRecord(void);
 
 
 uint32_t Timer1_GetCountSum(void);
-uint16_t Timer1_GetError(void);
 uint16_t Timer1_GetCPM(void);
 
 void Timer1_Count200us(void);
 uint8_t Timer1_DetectAssignCount(void);
 
 # 3 "Timer1.c"
-static uint32_t SigmaCount,SigmaCPM,Num_of_Detect,AverageCPM;
-static uint32_t timecount;
-static uint16_t RenewalCPM;
+static Counters cnts;
+static TimeCounter tcnt;
 
 void Timer1_Init(void)
 {
@@ -4037,58 +4053,78 @@ T1CON |= (0x02<<6);
 
 T1GCON = 0x00;
 
-{TMR1ON = 0;; TMR1 = (uint16_t)0xFFFF - 10UL; TMR1ON = 1;; };
+{TMR1ON = 0; TMR1 = (uint16_t)0xFFFF - 10UL; TMR1ON = 1; };
 
 TMR1IF = 0;
 TMR1IE = 1;
 PEIE = 1;
 GIE = 1;
+
+TMR1ON = 0;
 }
 
+
+
+void Timer1_StartCount(void)
+{
+Timer1_ClearRecord();
+TMR1ON = 1;
+}
+
+void Timer1_StopCount(void)
+{
+TMR1ON = 0;
+}
+
+void Timer1_ClearRecord(void)
+{
+{TMR1ON = 0; TMR1 = (uint16_t)0x0000; TMR1ON = 1; };
+cnts.SigmaDeltaCount= 0;
+cnts.SigmaCPM = 0;
+cnts.Num_of_Detect = 0;
+tcnt.Delta_t = 0;
+}
 
 uint32_t Timer1_GetCountSum(void)
 {
-return SigmaCount;
-}
-
-uint16_t Timer1_GetError(void)
-{
-return (uint16_t)((sqrt(SigmaCount)/(float)SigmaCount)*10);
+return cnts.SigmaDeltaCount;
 }
 
 uint16_t Timer1_GetCPM(void)
 {
-return AverageCPM;
+return cnts.AverageCPM;
 }
+
 
 void Timer1_Count200us(void)
 {
-timecount++;
+tcnt.Delta_t++;
 }
 
 uint8_t Timer1_DetectAssignCount(void)
 {
 static uint16_t PreviousTimer1;
-if((timecount>50000)&&(TMR1==PreviousTimer1))
-SigmaCPM = 0;
+
+if((tcnt.Delta_t>50000)&&(TMR1==PreviousTimer1))
+cnts.SigmaCPM = 0;
 PreviousTimer1 = (uint16_t)TMR1;
 
-RenewalCPM++;
-if(RenewalCPM>5000)
+tcnt.RenewalCPM++;
+if((tcnt.RenewalCPM>5000)&&cnts.Num_of_Detect)
 {
-RenewalCPM = 0;
-AverageCPM = SigmaCPM/Num_of_Detect;
+tcnt.RenewalCPM = 0;
+cnts.AverageCPM = cnts.SigmaCPM/cnts.Num_of_Detect;
 }
 
 if(TMR1IF&&TMR1IE)
 {
-SigmaCount += 10UL;
+cnts.SigmaDeltaCount+= 10UL;
 
-SigmaCPM += (uint16_t)((10UL * 12000UL) / timecount);
-Num_of_Detect++;
+cnts.SigmaCPM += (uint16_t)((10UL * 12000UL) / tcnt.Delta_t);
+cnts.Num_of_Detect++;
 
-timecount = 0;
-{TMR1ON = 0;; TMR1 = (uint16_t)0xFFFF-10UL; TMR1ON = 1;; };
+tcnt.Delta_t = 0;
+{TMR1ON = 0; TMR1 = (uint16_t)0xFFFF-10UL; TMR1ON = 1; };
 TMR1IF = 0;
 return 1;
 }

@@ -16,9 +16,10 @@ int8_t main(void)
 
     LCD_Init();
     Timer1_Init();
-    Timer1_Start();
     Timer4_Init();
   
+    Timer1_StartCount();
+    
     while(1)
     {
         LCD_CursorHome();
