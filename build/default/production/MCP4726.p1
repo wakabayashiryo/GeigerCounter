@@ -1,27 +1,27 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "73 MCP4726.h
-[s S363 :1 `uc 1 :2 `uc 1 :2 `uc 1 :3 `uc 1 ]
-[n S363 . Gain PowerDown Voltage_Ref Command ]
+[s S365 :1 `uc 1 :2 `uc 1 :2 `uc 1 :3 `uc 1 ]
+[n S365 . Gain PowerDown Voltage_Ref Command ]
 "70
-[u S362 `uc -> -> 1 `i `ux `S363 1 ]
-[n S362 . Config_Data . ]
+[u S364 `uc -> -> 1 `i `ux `S365 1 ]
+[n S364 . Config_Data . ]
 "30
-[s S357 :4 `uc 1 :2 `uc 1 :2 `uc 1 :8 `uc 1 ]
-[n S357 . Voltage4bits PowerDown Command Voltage8bits ]
+[s S359 :4 `uc 1 :2 `uc 1 :2 `uc 1 :8 `uc 1 ]
+[n S359 . Voltage4bits PowerDown Command Voltage8bits ]
 "27
-[u S356 `uc -> 2 `i `S357 1 ]
-[n S356 . Voltage_Data . ]
+[u S358 `uc -> 2 `i `S359 1 ]
+[n S358 . Voltage_Data . ]
 "16 MCP4726.c
-[c E3029 0 1 .. ]
-[n E3029 . I2C1_MODULE I2C2_MODULE  ]
-[c E3020 0 1 .. ]
-[n E3020 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
-[c E3024 0 1 2 .. ]
-[n E3024 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
+[c E3043 0 1 .. ]
+[n E3043 . I2C1_MODULE I2C2_MODULE  ]
+[c E3034 0 1 .. ]
+[n E3034 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
+[c E3038 0 1 2 .. ]
+[n E3038 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
 "61 I2C.h
-[v _I2C_Init `(v ~T0 @X0 0 ef4`E3029`uc`E3020`E3024 ]
+[v _I2C_Init `(v ~T0 @X0 0 ef4`E3043`uc`E3034`E3038 ]
 "62
-[v _I2C_Transmit `(c ~T0 @X0 0 ef4`E3029`uc`*uc`uc ]
+[v _I2C_Transmit `(c ~T0 @X0 0 ef4`E3043`uc`*uc`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2881,12 +2881,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;math.h: 53: extern double fmod(double, double);
 [; ;math.h: 54: extern double trunc(double);
 [; ;math.h: 55: extern double round(double);
-[; ;Timer1.h: 29: void Timer1_Init(void);
-[; ;Timer1.h: 32: uint32_t Timer1_GetCount(void);
-[; ;Timer1.h: 33: float Timer1_GetError(void);
-[; ;Timer1.h: 34: uint16_t Timer1_GetCPM(void);
-[; ;Timer1.h: 36: void Timer1_Count10us(void);
-[; ;Timer1.h: 37: uint8_t Timer1_DetectAssignCount(void);
+[; ;Timer1.h: 19: typedef struct
+[; ;Timer1.h: 20: {
+[; ;Timer1.h: 21: uint32_t Delta_t;
+[; ;Timer1.h: 22: uint16_t RenewalCPM;
+[; ;Timer1.h: 23: }TimeCounter;
+[; ;Timer1.h: 25: typedef struct
+[; ;Timer1.h: 26: {
+[; ;Timer1.h: 27: uint32_t SigmaDeltaCount;
+[; ;Timer1.h: 28: uint32_t SigmaCPM;
+[; ;Timer1.h: 29: uint16_t AverageCPM;
+[; ;Timer1.h: 30: uint32_t Num_of_Detect;
+[; ;Timer1.h: 31: }Counters;
+[; ;Timer1.h: 40: void Timer1_Init(void);
+[; ;Timer1.h: 41: void Timer1_StartCount(void);
+[; ;Timer1.h: 42: void Timer1_StopCount(void);
+[; ;Timer1.h: 43: void Timer1_ClearRecord(void);
+[; ;Timer1.h: 46: uint32_t Timer1_GetCountSum(void);
+[; ;Timer1.h: 47: uint16_t Timer1_GetCPM(void);
+[; ;Timer1.h: 49: void Timer1_Count200us(void);
+[; ;Timer1.h: 50: uint8_t Timer1_DetectAssignCount(void);
 [; ;Buzzer.h: 41: void Buzzer_Init(void);
 [; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
 [; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
@@ -2940,9 +2954,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mTouch.h: 21: void mTouch_Init(void);
 [; ;mTouch.h: 22: void CPSx_Read(void);
 [; ;Timer4.h: 17: void Timer4_Init(void);
-[; ;Timer4.h: 18: uint8_t Timer4_Handler(void);
+[; ;Timer4.h: 18: uint8_t Timer4_CheckFlag(void);
 [; ;Timer6.h: 17: void Timer6_Init(void);
-[; ;Timer6.h: 18: uint8_t Timer6_Handler(void);
+[; ;Timer6.h: 18: uint8_t Timer6_CheckFlag(void);
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
@@ -3065,10 +3079,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MCP4726.h: 81: void DAC_Initialize(void);
 [; ;MCP4726.h: 82: int8_t DAC_WriteVoltage(uint16_t volue);
 "10 MCP4726.c
-[v _ConfigReg `S362 ~T0 @X0 1 s ]
+[v _ConfigReg `S364 ~T0 @X0 1 s ]
 [; ;MCP4726.c: 10: static Config_Reg ConfigReg;
 "11
-[v _VoltageReg `S356 ~T0 @X0 1 s ]
+[v _VoltageReg `S358 ~T0 @X0 1 s ]
 [; ;MCP4726.c: 11: static Voltage_Reg VoltageReg;
 "14
 [v _DAC_Initialize `(v ~T0 @X0 1 ef ]
@@ -3080,7 +3094,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;MCP4726.c: 16: I2C_Init(I2C2_MODULE,0x00,I2C_MODE_MASTER,I2C_SPEED_STANDARD);
 "16
-[e ( _I2C_Init (4 , , , . `E3029 1 -> -> 0 `i `uc . `E3020 0 . `E3024 0 ]
+[e ( _I2C_Init (4 , , , . `E3043 1 -> -> 0 `i `uc . `E3034 0 . `E3038 0 ]
 [; ;MCP4726.c: 18: ConfigReg.Command = (uint8_t)(0x4);
 "18
 [e = . . _ConfigReg 1 3 -> -> 4 `i `uc ]
@@ -3095,10 +3109,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _ConfigReg 1 2 -> -> 0 `i `uc ]
 [; ;MCP4726.c: 23: I2C_Transmit(I2C2_MODULE,0x60,ConfigReg.Config_Data,1);
 "23
-[e ( _I2C_Transmit (4 , , , . `E3029 1 -> -> 96 `i `uc &U . _ConfigReg 0 -> -> 1 `i `uc ]
+[e ( _I2C_Transmit (4 , , , . `E3043 1 -> -> 96 `i `uc &U . _ConfigReg 0 -> -> 1 `i `uc ]
 [; ;MCP4726.c: 25: }
 "25
-[e :UE 364 ]
+[e :UE 366 ]
 }
 "27
 [v _DAC_WriteVoltage `(c ~T0 @X0 1 ef1`ui ]
@@ -3125,9 +3139,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _VoltageReg 1 3 -> & _volue -> -> 255 `i `ui `uc ]
 [; ;MCP4726.c: 34: return I2C_Transmit(I2C2_MODULE,0x60,VoltageReg.Voltage_Data,2);
 "34
-[e ) ( _I2C_Transmit (4 , , , . `E3029 1 -> -> 96 `i `uc &U . _VoltageReg 0 -> -> 2 `i `uc ]
-[e $UE 365  ]
+[e ) ( _I2C_Transmit (4 , , , . `E3043 1 -> -> 96 `i `uc &U . _VoltageReg 0 -> -> 2 `i `uc ]
+[e $UE 367  ]
 [; ;MCP4726.c: 35: }
 "35
-[e :UE 365 ]
+[e :UE 367 ]
 }

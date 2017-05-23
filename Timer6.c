@@ -2,9 +2,9 @@
 
 void Timer6_Init(void)
 {
-    PR6 = 50;         //Period Register is 5
+    PR6 = 0x7D;         //Period Register is 125
     TMR6 = 0x00;        //Clear 
-    T6CON |= (0x02<<0); //Clock Prescaler is 16
+    T6CON |= (0x03<<0); //Clock Prescaler is 64
     T6CON |= (0x00<<3); //Post Scaler is 1
     T6CON |= (0x01<<2); //Timer6 is enabled
     
@@ -14,7 +14,7 @@ void Timer6_Init(void)
     GIE = 1;
 }
 
-uint8_t Timer6_Handler(void)//10us
+uint8_t Timer6_CheckFlag(void)//10us
 {
     if(TMR6IE&&TMR6IF)
     {

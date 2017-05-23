@@ -2,9 +2,9 @@
 
 void Timer4_Init(void)
 {
-    PR4 = 0x7D;         //Period Register is 125
+    PR4 = 0x64;         //Period Register is 100
     TMR4 = 0x00;        //Clear 
-    T4CON |= (0x03<<0); //Clock Prescaler is 64
+    T4CON |= (0x02<<0); //Clock Prescaler is 16
     T4CON |= (0x00<<3); //Post Scaler is 1
     T4CON |= (0x01<<2); //Timer4 is enabled
     
@@ -14,7 +14,7 @@ void Timer4_Init(void)
     GIE = 1;
 }
 
-uint8_t Timer4_Handler(void)
+uint8_t Timer4_CheckFlag(void)
 {
     if(TMR4IE&&TMR4IF)
     {

@@ -2872,12 +2872,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;math.h: 53: extern double fmod(double, double);
 [; ;math.h: 54: extern double trunc(double);
 [; ;math.h: 55: extern double round(double);
-[; ;Timer1.h: 29: void Timer1_Init(void);
-[; ;Timer1.h: 32: uint32_t Timer1_GetCount(void);
-[; ;Timer1.h: 33: float Timer1_GetError(void);
-[; ;Timer1.h: 34: uint16_t Timer1_GetCPM(void);
-[; ;Timer1.h: 36: void Timer1_Count10us(void);
-[; ;Timer1.h: 37: uint8_t Timer1_DetectAssignCount(void);
+[; ;Timer1.h: 19: typedef struct
+[; ;Timer1.h: 20: {
+[; ;Timer1.h: 21: uint32_t Delta_t;
+[; ;Timer1.h: 22: uint16_t RenewalCPM;
+[; ;Timer1.h: 23: }TimeCounter;
+[; ;Timer1.h: 25: typedef struct
+[; ;Timer1.h: 26: {
+[; ;Timer1.h: 27: uint32_t SigmaDeltaCount;
+[; ;Timer1.h: 28: uint32_t SigmaCPM;
+[; ;Timer1.h: 29: uint16_t AverageCPM;
+[; ;Timer1.h: 30: uint32_t Num_of_Detect;
+[; ;Timer1.h: 31: }Counters;
+[; ;Timer1.h: 40: void Timer1_Init(void);
+[; ;Timer1.h: 41: void Timer1_StartCount(void);
+[; ;Timer1.h: 42: void Timer1_StopCount(void);
+[; ;Timer1.h: 43: void Timer1_ClearRecord(void);
+[; ;Timer1.h: 46: uint32_t Timer1_GetCountSum(void);
+[; ;Timer1.h: 47: uint16_t Timer1_GetCPM(void);
+[; ;Timer1.h: 49: void Timer1_Count200us(void);
+[; ;Timer1.h: 50: uint8_t Timer1_DetectAssignCount(void);
 [; ;Buzzer.h: 41: void Buzzer_Init(void);
 [; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
 [; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
@@ -2981,7 +2995,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mTouch.h: 21: void mTouch_Init(void);
 [; ;mTouch.h: 22: void CPSx_Read(void);
 [; ;Timer6.h: 17: void Timer6_Init(void);
-[; ;Timer6.h: 18: uint8_t Timer6_Handler(void);
+[; ;Timer6.h: 18: uint8_t Timer6_CheckFlag(void);
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
@@ -3054,7 +3068,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.h: 73: }ModeConfig;
 [; ;main.h: 75: int8_t Basic_Init(void);
 [; ;Timer4.h: 17: void Timer4_Init(void);
-[; ;Timer4.h: 18: uint8_t Timer4_Handler(void);
+[; ;Timer4.h: 18: uint8_t Timer4_CheckFlag(void);
 "3 Timer4.c
 [v _Timer4_Init `(v ~T0 @X0 1 ef ]
 "4
@@ -3063,15 +3077,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer4.c: 4: {
 [e :U _Timer4_Init ]
 [f ]
-[; ;Timer4.c: 5: PR4 = 0x7D;
+[; ;Timer4.c: 5: PR4 = 0x64;
 "5
-[e = _PR4 -> -> 125 `i `uc ]
+[e = _PR4 -> -> 100 `i `uc ]
 [; ;Timer4.c: 6: TMR4 = 0x00;
 "6
 [e = _TMR4 -> -> 0 `i `uc ]
-[; ;Timer4.c: 7: T4CON |= (0x03<<0);
+[; ;Timer4.c: 7: T4CON |= (0x02<<0);
 "7
-[e =| _T4CON -> << -> 3 `i -> 0 `i `uc ]
+[e =| _T4CON -> << -> 2 `i -> 0 `i `uc ]
 [; ;Timer4.c: 8: T4CON |= (0x00<<3);
 "8
 [e =| _T4CON -> << -> 0 `i -> 3 `i `uc ]
@@ -3092,19 +3106,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _GIE -> -> 1 `i `b ]
 [; ;Timer4.c: 15: }
 "15
-[e :UE 364 ]
+[e :UE 366 ]
 }
 "17
-[v _Timer4_Handler `(uc ~T0 @X0 1 ef ]
+[v _Timer4_CheckFlag `(uc ~T0 @X0 1 ef ]
 "18
 {
-[; ;Timer4.c: 17: uint8_t Timer4_Handler(void)
+[; ;Timer4.c: 17: uint8_t Timer4_CheckFlag(void)
 [; ;Timer4.c: 18: {
-[e :U _Timer4_Handler ]
+[e :U _Timer4_CheckFlag ]
 [f ]
 [; ;Timer4.c: 19: if(TMR4IE&&TMR4IF)
 "19
-[e $ ! && _TMR4IE _TMR4IF 366  ]
+[e $ ! && _TMR4IE _TMR4IF 368  ]
 [; ;Timer4.c: 20: {
 "20
 {
@@ -3114,16 +3128,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer4.c: 22: return 1;
 "22
 [e ) -> -> 1 `i `uc ]
-[e $UE 365  ]
+[e $UE 367  ]
 "23
 }
-[e :U 366 ]
+[e :U 368 ]
 [; ;Timer4.c: 23: }
 [; ;Timer4.c: 24: return 0;
 "24
 [e ) -> -> 0 `i `uc ]
-[e $UE 365  ]
+[e $UE 367  ]
 [; ;Timer4.c: 25: }
 "25
-[e :UE 365 ]
+[e :UE 367 ]
 }

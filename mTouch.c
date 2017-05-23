@@ -21,7 +21,7 @@ void mTouch_Init(void)
     
     /*CPS Configration*/
     CPSCON0 |= (0x01<<0);       //Timer0 clock source is the capacitive sensing oscillator
-    CPSCON0 |= (0x03<<2);       //SPS range is 0.1uA
+    CPSCON0 |= (0x03<<2);       //SPS range is 18uA
     CPS_DISABLE();
     CPS_CHANNEL(0x00);
 }
@@ -31,6 +31,7 @@ void CPSx_Read(void)
     static uint8_t channel=0;
     
     CPS_PreData[channel] = CPS_Data[channel];
+
     CPS_DISABLE();
     CPS_Data[channel] = TMR0;
     TMR0 = 0x00;

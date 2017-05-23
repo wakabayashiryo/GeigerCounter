@@ -16,24 +16,37 @@ extern "C" {
 #include <math.h>
 #include "main.h"
     
-#define Timer1_Start()  TMR1ON = 1;
-#define Timer1_Stop()   TMR1ON = 0;
+typedef struct
+{
+    uint32_t Delta_t;
+    uint16_t RenewalCPM;
+}TimeCounter;
+    
+typedef struct
+{
+    uint32_t SigmaDeltaCount;
+    uint32_t SigmaCPM;
+    uint16_t AverageCPM;
+    uint32_t Num_of_Detect;
+}Counters;
 
 #define Timer1_Read()   (uint16_t)TMR1
-#define Timer1_Write(x)  {Timer1_Stop();\
+#define Timer1_Write(x)  {TMR1ON = 0;\
                         TMR1 = (uint16_t)x;\
-                        Timer1_Start();\
+                        TMR1ON = 1;\
                         }   
-#define Timer1_Clear()  Timer1_Write(0x0000)
+#define Timer1_Reset()  Timer1_Write(0xFFFF - DELTA_COUNT)
     
 void Timer1_Init(void);
+void Timer1_StartCount(void);
+void Timer1_StopCount(void);
+void Timer1_ClearRecord(void);
 
-#define DETECT_NUM_OF_COUNT 10
-uint32_t Timer1_GetCount(void);
-float Timer1_GetError(void);
+#define DELTA_COUNT 10UL
+uint32_t Timer1_GetCountSum(void);
 uint16_t Timer1_GetCPM(void);
 
-void Timer1_Count10us(void);
+void Timer1_Count200us(void);
 uint8_t Timer1_DetectAssignCount(void);//put into interrupt function
 
 #ifdef	__cplusplus

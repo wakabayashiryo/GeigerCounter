@@ -2862,12 +2862,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;math.h: 53: extern double fmod(double, double);
 [; ;math.h: 54: extern double trunc(double);
 [; ;math.h: 55: extern double round(double);
-[; ;Timer1.h: 29: void Timer1_Init(void);
-[; ;Timer1.h: 32: uint32_t Timer1_GetCount(void);
-[; ;Timer1.h: 33: float Timer1_GetError(void);
-[; ;Timer1.h: 34: uint16_t Timer1_GetCPM(void);
-[; ;Timer1.h: 36: void Timer1_Count10us(void);
-[; ;Timer1.h: 37: uint8_t Timer1_DetectAssignCount(void);
+[; ;Timer1.h: 19: typedef struct
+[; ;Timer1.h: 20: {
+[; ;Timer1.h: 21: uint32_t Delta_t;
+[; ;Timer1.h: 22: uint16_t RenewalCPM;
+[; ;Timer1.h: 23: }TimeCounter;
+[; ;Timer1.h: 25: typedef struct
+[; ;Timer1.h: 26: {
+[; ;Timer1.h: 27: uint32_t SigmaDeltaCount;
+[; ;Timer1.h: 28: uint32_t SigmaCPM;
+[; ;Timer1.h: 29: uint16_t AverageCPM;
+[; ;Timer1.h: 30: uint32_t Num_of_Detect;
+[; ;Timer1.h: 31: }Counters;
+[; ;Timer1.h: 40: void Timer1_Init(void);
+[; ;Timer1.h: 41: void Timer1_StartCount(void);
+[; ;Timer1.h: 42: void Timer1_StopCount(void);
+[; ;Timer1.h: 43: void Timer1_ClearRecord(void);
+[; ;Timer1.h: 46: uint32_t Timer1_GetCountSum(void);
+[; ;Timer1.h: 47: uint16_t Timer1_GetCPM(void);
+[; ;Timer1.h: 49: void Timer1_Count200us(void);
+[; ;Timer1.h: 50: uint8_t Timer1_DetectAssignCount(void);
 [; ;Buzzer.h: 41: void Buzzer_Init(void);
 [; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
 [; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
@@ -2969,9 +2983,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mTouch.h: 21: void mTouch_Init(void);
 [; ;mTouch.h: 22: void CPSx_Read(void);
 [; ;Timer4.h: 17: void Timer4_Init(void);
-[; ;Timer4.h: 18: uint8_t Timer4_Handler(void);
+[; ;Timer4.h: 18: uint8_t Timer4_CheckFlag(void);
 [; ;Timer6.h: 17: void Timer6_Init(void);
-[; ;Timer6.h: 18: uint8_t Timer6_Handler(void);
+[; ;Timer6.h: 18: uint8_t Timer6_CheckFlag(void);
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
@@ -3065,19 +3079,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 16: for(;i<size;i++)
 "16
 {
-[e $U 368  ]
+[e $U 370  ]
 "17
-[e :U 365 ]
+[e :U 367 ]
 [; ;eeprom.c: 17: {
 {
 [; ;eeprom.c: 18: if((addr+i)>256-1)
 "18
-[e $ ! > + -> _addr `i -> _i `i - -> 256 `i -> 1 `i 369  ]
+[e $ ! > + -> _addr `i -> _i `i - -> 256 `i -> 1 `i 371  ]
 [; ;eeprom.c: 19: return 1;
 "19
 [e ) -> -> 1 `i `c ]
-[e $UE 364  ]
-[e :U 369 ]
+[e $UE 366  ]
+[e :U 371 ]
 [; ;eeprom.c: 20: eeprom_write(addr+i,pData[i]);
 "20
 [e ( _eeprom_write (2 , -> + -> _addr `i -> _i `i `uc *U + _pData * -> _i `ux -> -> # *U _pData `ui `ux ]
@@ -3085,19 +3099,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "16
 [e ++ _i -> -> 1 `i `uc ]
+[e :U 370 ]
+[e $ < -> _i `i -> _size `i 367  ]
 [e :U 368 ]
-[e $ < -> _i `i -> _size `i 365  ]
-[e :U 366 ]
 "21
 }
 [; ;eeprom.c: 21: }
 [; ;eeprom.c: 23: return 0;
 "23
 [e ) -> -> 0 `i `c ]
-[e $UE 364  ]
+[e $UE 366  ]
 [; ;eeprom.c: 24: }
 "24
-[e :UE 364 ]
+[e :UE 366 ]
 }
 "30
 [v _EEPROM_MultiRead `(c ~T0 @X0 1 ef3`*uc`uc`uc ]
@@ -3119,19 +3133,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 34: for(;i<size;i++)
 "34
 {
-[e $U 374  ]
+[e $U 376  ]
 "35
-[e :U 371 ]
+[e :U 373 ]
 [; ;eeprom.c: 35: {
 {
 [; ;eeprom.c: 36: if((addr+i)>256-1)
 "36
-[e $ ! > + -> _addr `i -> _i `i - -> 256 `i -> 1 `i 375  ]
+[e $ ! > + -> _addr `i -> _i `i - -> 256 `i -> 1 `i 377  ]
 [; ;eeprom.c: 37: return 1;
 "37
 [e ) -> -> 1 `i `c ]
-[e $UE 370  ]
-[e :U 375 ]
+[e $UE 372  ]
+[e :U 377 ]
 [; ;eeprom.c: 38: pData[i] = eeprom_read(addr+i);
 "38
 [e = *U + _pData * -> _i `ux -> -> # *U _pData `ui `ux ( _eeprom_read (1 -> + -> _addr `i -> _i `i `uc ]
@@ -3139,17 +3153,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "34
 [e ++ _i -> -> 1 `i `uc ]
+[e :U 376 ]
+[e $ < -> _i `i -> _size `i 373  ]
 [e :U 374 ]
-[e $ < -> _i `i -> _size `i 371  ]
-[e :U 372 ]
 "39
 }
 [; ;eeprom.c: 39: }
 [; ;eeprom.c: 41: return 0;
 "41
 [e ) -> -> 0 `i `c ]
-[e $UE 370  ]
+[e $UE 372  ]
 [; ;eeprom.c: 42: }
 "42
-[e :UE 370 ]
+[e :UE 372 ]
 }

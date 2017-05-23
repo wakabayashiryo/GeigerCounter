@@ -3911,15 +3911,32 @@ extern double fmod(double, double);
 extern double trunc(double);
 extern double round(double);
 
-# 29 "Timer1.h"
+# 19 "Timer1.h"
+typedef struct
+{
+uint32_t Delta_t;
+uint16_t RenewalCPM;
+}TimeCounter;
+
+typedef struct
+{
+uint32_t SigmaDeltaCount;
+uint32_t SigmaCPM;
+uint16_t AverageCPM;
+uint32_t Num_of_Detect;
+}Counters;
+
+# 40
 void Timer1_Init(void);
+void Timer1_StartCount(void);
+void Timer1_StopCount(void);
+void Timer1_ClearRecord(void);
 
 
-uint32_t Timer1_GetCount(void);
-float Timer1_GetError(void);
+uint32_t Timer1_GetCountSum(void);
 uint16_t Timer1_GetCPM(void);
 
-void Timer1_Count10us(void);
+void Timer1_Count200us(void);
 uint8_t Timer1_DetectAssignCount(void);
 
 # 41 "Buzzer.h"
@@ -4047,11 +4064,11 @@ void CPSx_Read(void);
 
 # 17 "Timer4.h"
 void Timer4_Init(void);
-uint8_t Timer4_Handler(void);
+uint8_t Timer4_CheckFlag(void);
 
 # 17 "Timer6.h"
 void Timer6_Init(void);
-uint8_t Timer6_Handler(void);
+uint8_t Timer6_CheckFlag(void);
 
 # 7 "/opt/microchip/xc8/v1.41/include/stdarg.h"
 typedef void * va_list[1];

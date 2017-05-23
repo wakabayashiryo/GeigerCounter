@@ -22,11 +22,12 @@ int8_t main(void)
     Buzzer_Init();
     LCD_Init();
     Timer1_Init();
-    Timer1_Start();
     mTouch_Init();
     Timer4_Init();
     Timer6_Init();
     DAC_Initialize();
+    
+    Timer1_StartCount();
 
     mode.ModeNum = 0;
     
@@ -41,7 +42,7 @@ int8_t main(void)
         switch(mode.ModeNum) 
         {
             case COUNT:
-                printf("%lu",Timer1_GetCPM());
+                printf("%5ul %7ul", Timer1_GetCPM(),Timer1_GetCountSum());
             break;
             case SELECTFUNC:
                 printf("SELECTFUNC");
@@ -54,7 +55,8 @@ int8_t main(void)
             break;
         }
     }
-    return 0;
+    
+    return EXIT_SUCCESS;
 }
 
 int8_t Basic_Init(void)
@@ -63,13 +65,13 @@ int8_t Basic_Init(void)
                         //internal Oscilltor is 32MHz
                         //clock source is internal one.
     
-    TRISA = 0x07;       //RA0~2 is input it is used CPS  
-    ANSELA = 0x07;      //RA0~2 is analog it is used CPS
+    TRISA = 0x00;       //All PORTA is output 
+    ANSELA = 0x00;      //All PORTA  is analog 
    
-    TRISB = 0x40;       //RA6 is input it is used Timer1
+    TRISB = 0x00;       //All PORTB pin is output
     ANSELB = 0x00;      //All PORTB pin is digital
     /*alternate pin fuction control*/
-    APFCON0 = 0x08;     //RA7 use CCP2
+    APFCON0 = 0x00;     //no alteration
     APFCON1 = 0x00;     //no alteration
     
     PORTA = 0x00;       //clear
@@ -80,19 +82,19 @@ int8_t Basic_Init(void)
 
 void interrupt Handler(void)
 {
-    if(Timer6_Handler())//repeat 10us
-    {
-        Timer1_Count10us();
-    }
-    if(Timer4_Handler())//repeat 1ms
-    {
-        CPSx_Read();
-        Buzzer_Handler();
-        mTouch_IntervalDecrement();
-    }
+    if(Timer4_CheckFlag())
+        Timer1_Count200us();
+    
     if(Timer1_DetectAssignCount())
         LED_BLUE(LED_TOG);
 
+    if(Timer6_CheckFlag())//every 1ms
+    {
+        CPSx_Read();
+        mTouch_IntervalDecrement();
+
+        Buzzer_Handler();
+    }
     I2C_CommonInterrupt();
 }
 
@@ -110,7 +112,7 @@ uint8_t mTouch_Read(uint8_t chan)
 {
     if(chan>2)return 0;
     
-    if(((CPS_PreData[chan]-CPS_Data[chan])>100)&&!mTouch_Interval[chan])
+    if(((CPS_PreData[chan]-CPS_Data[chan])>200)&&!mTouch_Interval[chan])
     {
         mTouch_Interval[chan] = 100;
         Buzzer_MiliSecond(100);
