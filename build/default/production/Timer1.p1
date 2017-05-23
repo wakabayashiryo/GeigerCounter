@@ -2889,7 +2889,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;Timer4.h: 17: void Timer4_Init(void);
-[; ;Timer4.h: 18: uint8_t Timer4_Handler(void);
+[; ;Timer4.h: 18: uint8_t Timer4_CheckFlag(void);
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
@@ -3083,11 +3083,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.c: 43: {
 [e :U _Timer1_ClearRecord ]
 [f ]
-[; ;Timer1.c: 44: {TMR1ON = 0; TMR1 = (uint16_t)0x0000; TMR1ON = 1; };
+[; ;Timer1.c: 44: {TMR1ON = 0; TMR1 = (uint16_t)0xFFFF - 10UL; TMR1ON = 1; };
 "44
 {
 [e = _TMR1ON -> -> 0 `i `b ]
-[e = _TMR1 -> -> -> 0 `i `ui `us ]
+[e = _TMR1 -> - -> -> 65535 `ui `ul -> 10 `ul `us ]
 [e = _TMR1ON -> -> 1 `i `b ]
 }
 [; ;Timer1.c: 45: cnts.SigmaDeltaCount= 0;
@@ -3164,7 +3164,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "69
 [v F3104 `ui ~T0 @X0 1 s PreviousTimer1 ]
 [; ;Timer1.c: 69: static uint16_t PreviousTimer1;
-[; ;Timer1.c: 71: if((tcnt.Delta_t>50000)&&(TMR1==PreviousTimer1))
+[; ;Timer1.c: 71: if((tcnt.Delta_t>50000)&&((uint16_t)TMR1==PreviousTimer1))
 "71
 [e $ ! && > . _tcnt 0 -> -> 50000 `l `ul == -> _TMR1 `ui F3104 364  ]
 [; ;Timer1.c: 72: cnts.SigmaCPM = 0;
@@ -3202,9 +3202,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.c: 84: cnts.SigmaDeltaCount+= 10UL;
 "84
 [e =+ . _cnts 0 -> 10 `ul ]
-[; ;Timer1.c: 86: cnts.SigmaCPM += (uint16_t)((10UL * 12000UL) / tcnt.Delta_t);
+[; ;Timer1.c: 86: cnts.SigmaCPM += (uint32_t)((10UL * 12000UL) / tcnt.Delta_t);
 "86
-[e =+ . _cnts 1 -> -> / * -> 10 `ul -> 12000 `ul . _tcnt 0 `ui `ul ]
+[e =+ . _cnts 1 / * -> 10 `ul -> 12000 `ul . _tcnt 0 ]
 [; ;Timer1.c: 87: cnts.Num_of_Detect++;
 "87
 [e ++ . _cnts 3 -> -> -> 1 `i `l `ul ]

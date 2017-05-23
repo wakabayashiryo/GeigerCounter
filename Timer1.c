@@ -16,7 +16,7 @@ void Timer1_Init(void)
         
     T1GCON = 0x00;         //Not use Trigger
 
-    Timer1_Write(0xFFFF - DELTA_COUNT);
+    Timer1_Reset();
     
     TMR1IF = 0;
     TMR1IE = 1;
@@ -41,7 +41,7 @@ void Timer1_StopCount(void)
 
 void Timer1_ClearRecord(void)
 {
-    Timer1_Clear();
+    Timer1_Reset();
     cnts.SigmaDeltaCount= 0;
     cnts.SigmaCPM = 0;
     cnts.Num_of_Detect = 0;
@@ -68,7 +68,7 @@ uint8_t Timer1_DetectAssignCount(void)//put into interrupt function
 {    
     static uint16_t PreviousTimer1;
     
-    if((tcnt.Delta_t>50000)&&(TMR1==PreviousTimer1))//If Counter did not detect between 1count and 10 counts. Reset CPM
+    if((tcnt.Delta_t>50000)&&(Timer1_Read()==PreviousTimer1))//If Counter did not detect between 1count and 10 counts. Reset CPM
         cnts.SigmaCPM = 0;
     PreviousTimer1 = Timer1_Read();
     
@@ -83,7 +83,7 @@ uint8_t Timer1_DetectAssignCount(void)//put into interrupt function
     {
         cnts.SigmaDeltaCount+= DELTA_COUNT;
         
-        cnts.SigmaCPM += (uint16_t)((DELTA_COUNT * 12000UL) / tcnt.Delta_t);
+        cnts.SigmaCPM += (uint32_t)((DELTA_COUNT * 12000UL) / tcnt.Delta_t);
         cnts.Num_of_Detect++;//Number of Detected 10 counts
         
         tcnt.Delta_t = 0;

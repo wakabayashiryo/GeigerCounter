@@ -35,7 +35,7 @@ typedef struct
                         TMR1 = (uint16_t)x;\
                         TMR1ON = 1;\
                         }   
-#define Timer1_Clear()  Timer1_Write(0x0000)
+#define Timer1_Reset()  Timer1_Write(0xFFFF - DELTA_COUNT)
     
 void Timer1_Init(void);
 void Timer1_StartCount(void);

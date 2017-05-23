@@ -52,7 +52,7 @@ int8_t Basic_Init(void)
 
 void interrupt Handler(void)
 {
-    if(Timer4_Handler())
+    if(Timer4_CheckFlag())
         Timer1_Count200us();
     
     if(Timer1_DetectAssignCount())

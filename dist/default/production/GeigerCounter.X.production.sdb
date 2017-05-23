@@ -52,7 +52,7 @@
 "3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer4.c
 [v _Timer4_Init Timer4_Init `(v  1 e 1 0 ]
 "17
-[v _Timer4_Handler Timer4_Handler `(uc  1 e 1 0 ]
+[v _Timer4_CheckFlag Timer4_CheckFlag `(uc  1 e 1 0 ]
 "412 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [v _PORTA PORTA `VEuc  1 e 1 @12 ]
 "473
@@ -231,7 +231,7 @@
 "60
 } 0
 "17 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer4.c
-[v _Timer4_Handler Timer4_Handler `(uc  1 e 1 0 ]
+[v _Timer4_CheckFlag Timer4_CheckFlag `(uc  1 e 1 0 ]
 {
 "25
 } 0

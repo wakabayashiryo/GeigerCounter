@@ -3913,7 +3913,7 @@ typedef uint16_t uintptr_t;
 
 # 17 "Timer4.h"
 void Timer4_Init(void);
-uint8_t Timer4_Handler(void);
+uint8_t Timer4_CheckFlag(void);
 
 # 7 "/opt/microchip/xc8/v1.41/include/stdarg.h"
 typedef void * va_list[1];
@@ -4078,7 +4078,7 @@ TMR1ON = 0;
 
 void Timer1_ClearRecord(void)
 {
-{TMR1ON = 0; TMR1 = (uint16_t)0x0000; TMR1ON = 1; };
+{TMR1ON = 0; TMR1 = (uint16_t)0xFFFF - 10UL; TMR1ON = 1; };
 cnts.SigmaDeltaCount= 0;
 cnts.SigmaCPM = 0;
 cnts.Num_of_Detect = 0;
@@ -4105,7 +4105,7 @@ uint8_t Timer1_DetectAssignCount(void)
 {
 static uint16_t PreviousTimer1;
 
-if((tcnt.Delta_t>50000)&&(TMR1==PreviousTimer1))
+if((tcnt.Delta_t>50000)&&((uint16_t)TMR1==PreviousTimer1))
 cnts.SigmaCPM = 0;
 PreviousTimer1 = (uint16_t)TMR1;
 
@@ -4120,7 +4120,7 @@ if(TMR1IF&&TMR1IE)
 {
 cnts.SigmaDeltaCount+= 10UL;
 
-cnts.SigmaCPM += (uint16_t)((10UL * 12000UL) / tcnt.Delta_t);
+cnts.SigmaCPM += (uint32_t)((10UL * 12000UL) / tcnt.Delta_t);
 cnts.Num_of_Detect++;
 
 tcnt.Delta_t = 0;

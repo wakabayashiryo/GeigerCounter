@@ -15,7 +15,7 @@ extern "C" {
 #include "main.h"
 
 void Timer4_Init(void);
-uint8_t Timer4_Handler(void);
+uint8_t Timer4_CheckFlag(void);
 
 #ifdef	__cplusplus
 }

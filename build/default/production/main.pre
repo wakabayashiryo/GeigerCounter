@@ -3941,7 +3941,7 @@ uint8_t Timer1_DetectAssignCount(void);
 
 # 17 "Timer4.h"
 void Timer4_Init(void);
-uint8_t Timer4_Handler(void);
+uint8_t Timer4_CheckFlag(void);
 
 # 7 "/opt/microchip/xc8/v1.41/include/stdarg.h"
 typedef void * va_list[1];
@@ -4079,7 +4079,7 @@ return 0;
 
 void interrupt Handler(void)
 {
-if(Timer4_Handler())
+if(Timer4_CheckFlag())
 Timer1_Count200us();
 
 if(Timer1_DetectAssignCount())
