@@ -3943,7 +3943,7 @@ uint8_t Timer1_DetectAssignCount(void);
 void Buzzer_Init(void);
 void Buzzer_SetDuty(uint16_t duty);
 void Buzzer_MiliSecond(uint16_t time);
-void Buzzer_Handler(void);
+void Buzzer_Count1ms(void);
 
 # 23 "I2C.h"
 typedef enum

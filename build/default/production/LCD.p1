@@ -2893,7 +2893,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Buzzer.h: 41: void Buzzer_Init(void);
 [; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
 [; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
-[; ;Buzzer.h: 44: void Buzzer_Handler(void);
+[; ;Buzzer.h: 44: void Buzzer_Count1ms(void);
 [; ;I2C.h: 23: typedef enum
 [; ;I2C.h: 24: {
 [; ;I2C.h: 25: I2C_MODE_MASTER,

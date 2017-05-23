@@ -41,7 +41,7 @@
 void Buzzer_Init(void);
 void Buzzer_SetDuty(uint16_t duty);
 void Buzzer_MiliSecond(uint16_t time);
-void Buzzer_Handler(void);//Set Function Repeat for 1 mili second
+void Buzzer_Count1ms(void);//Set Function Repeat for 1 mili second
 
 
 #endif	/* BUZER_H */

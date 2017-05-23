@@ -93,7 +93,7 @@ void interrupt Handler(void)
         mTouch_IntervalDecrement();
 
         mTouch_Read();
-        Buzzer_Handler();
+        Buzzer_Count1ms();
     }
     I2C_CommonInterrupt();
 }

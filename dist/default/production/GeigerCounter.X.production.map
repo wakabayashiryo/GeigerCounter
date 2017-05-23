@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=/opt/microchip/xc8/v1.41/dat/en_msgs.txt -cs \
   -h+dist/default/production/GeigerCounter.X.production.sym \
   --cmf=dist/default/production/GeigerCounter.X.production.cmf -z -Q16F1827 \
-  -o/tmp/xcXM3cfQJ -Mdist/default/production/GeigerCounter.X.production.map \
+  -o/tmp/xcXg0bE13 -Mdist/default/production/GeigerCounter.X.production.map \
   -E1 -ver=XC8 -ASTACK=02076h-0216fh -pstack=STACK -ACODE=00h-07FFhx2 \
   -ASTRCODE=00h-0FFFh -ASTRING=00h-0FFhx16 -ACONST=00h-0FFhx16 \
   -AENTRY=00h-0FFhx16 -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
@@ -27,7 +27,7 @@ Linker command line:
   -ppowerup=CODE -pcinit=CODE -pfunctab=CODE -ACONFIG=08007h-08008h \
   -pconfig=CONFIG -DCONFIG=2 -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 \
   -AEEDATA=00h-0FFh/0F000h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
-  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/xcXQYl3QL.obj \
+  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/xcXCKdr9i.obj \
   dist/default/production/GeigerCounter.X.production.obj 
 
 Object code version is 3.11
@@ -37,7 +37,7 @@ Machine type is 16F1827
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcXQYl3QL.obj
+/tmp/xcXCKdr9i.obj
                 end_init                             31       31        2        8       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        2    1000E       0
@@ -453,7 +453,7 @@ _BCL1IF                                 (abs)        00093
 _BCL2IE                                 (abs)        004A1
 _BCL2IF                                 (abs)        000A1
 _Basic_Init                             text32       00FB3
-_Buzzer_Handler                         text44       00FEA
+_Buzzer_Count1ms                        text44       00FEA
 _Buzzer_Init                            text31       0072E
 _Buzzer_MiliSecond                      text10       00F29
 _Buzzer_SetDuty                         text45       007D8
@@ -777,7 +777,7 @@ ___wmul@multiplicand                    cstackBANK0  0004A
 ___wmul@multiplier                      cstackBANK0  00048
 ___wmul@product                         cstackBANK0  0004C
 __end_of_Basic_Init                     text32       00FC4
-__end_of_Buzzer_Handler                 text44       01000
+__end_of_Buzzer_Count1ms                text44       01000
 __end_of_Buzzer_Init                    text31       00756
 __end_of_Buzzer_MiliSecond              text10       00F33
 __end_of_Buzzer_SetDuty                 text45       007F4
@@ -877,7 +877,7 @@ __ptext7                                text7        00FD7
 __ptext8                                text8        00F58
 __ptext9                                text9        00515
 __size_of_Basic_Init                    (abs)        00000
-__size_of_Buzzer_Handler                (abs)        00000
+__size_of_Buzzer_Count1ms               (abs)        00000
 __size_of_Buzzer_Init                   (abs)        00000
 __size_of_Buzzer_MiliSecond             (abs)        00000
 __size_of_Buzzer_SetDuty                (abs)        00000
@@ -2049,7 +2049,7 @@ Total ram usage:        1 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    2
  This function calls:
-		_Buzzer_Handler
+		_Buzzer_Count1ms
 		_I2C_CommonInterrupt
 		_Timer1_Count200us
 		_Timer1_DetectAssignCount
@@ -2357,7 +2357,7 @@ Total ram usage:        1 bytes
  This function uses a non-reentrant model
 
 
- *************** function _Buzzer_Handler *****************
+ *************** function _Buzzer_Count1ms *****************
  Defined at:
 		line 44 in file "Buzzer.c"
  Parameters:    Size  Location     Type
@@ -2412,7 +2412,7 @@ Total ram usage:        5 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_Buzzer_Handler
+		_Buzzer_Count1ms
  This function uses a non-reentrant model
 
 
@@ -2461,8 +2461,8 @@ I2C_Common.c estimated size: 94
 Buzzer.c
 		_Buzzer_Init   		CODE           	072E	0000	41
 		_Buzzer_MiliSecond		CODE           	0F29	0000	11
-		_Buzzer_Handler		CODE           	0FEA	0000	23
 		_Buzzer_SetDuty		CODE           	07D8	0000	29
+		_Buzzer_Count1ms		CODE           	0FEA	0000	23
 
 Buzzer.c estimated size: 104
 

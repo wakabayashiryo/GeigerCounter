@@ -90,7 +90,7 @@ PMTDEVICE 3
 "38
 [v _Buzzer_MiliSecond Buzzer_MiliSecond `(v  1 e 1 0 ]
 "44
-[v _Buzzer_Handler Buzzer_Handler `(v  1 e 1 0 ]
+[v _Buzzer_Count1ms Buzzer_Count1ms `(v  1 e 1 0 ]
 "9 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C1.c
 [v _I2C1_PinInit I2C1_PinInit `(v  1 e 1 0 ]
 "15
@@ -705,7 +705,7 @@ PMTDEVICE 3
 "198
 } 0
 "44 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Buzzer.c
-[v _Buzzer_Handler Buzzer_Handler `(v  1 e 1 0 ]
+[v _Buzzer_Count1ms Buzzer_Count1ms `(v  1 e 1 0 ]
 {
 "55
 } 0

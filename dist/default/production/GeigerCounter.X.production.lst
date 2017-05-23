@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.41 build -162212810 
-                                                                                               Tue May 23 12:29:35 2017
+                                                                                               Tue May 23 12:34:30 2017
 
 Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250102
      1                           	processor	16F1827
@@ -2236,7 +2236,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2222  0070                     ?_Buzzer_SetDuty:	
   2223                           ; 1 bytes @ 0x0
   2224                           
-  2225  0070                     ?_Buzzer_Handler:	
+  2225  0070                     ?_Buzzer_Count1ms:	
   2226                           ; 1 bytes @ 0x0
   2227                           
   2228  0070                     ?_I2C1_PinInit:	
@@ -2344,7 +2344,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2330                           
   2331                           ; 4 bytes @ 0x4
   2332  0074                     	ds	1
-  2333  0075                     ??_Buzzer_Handler:	
+  2333  0075                     ??_Buzzer_Count1ms:	
   2334                           
   2335                           ; 1 bytes @ 0x5
   2336  0075                     	ds	3
@@ -6573,7 +6573,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   6553 ;; Hardware stack levels used:    1
   6554 ;; Hardware stack levels required when called:    2
   6555 ;; This function calls:
-  6556 ;;		_Buzzer_Handler
+  6556 ;;		_Buzzer_Count1ms
   6557 ;;		_I2C_CommonInterrupt
   6558 ;;		_Timer1_Count200us
   6559 ;;		_Timer1_DetectAssignCount
@@ -6632,8 +6632,8 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   6612                           ;main.c: 95: mTouch_Read();
   6613  0024  3187  2756  3180   	fcall	_mTouch_Read
   6614                           
-  6615                           ;main.c: 96: Buzzer_Handler();
-  6616  0027  318F  27EA  3180   	fcall	_Buzzer_Handler
+  6615                           ;main.c: 96: Buzzer_Count1ms();
+  6616  0027  318F  27EA  3180   	fcall	_Buzzer_Count1ms
   6617  002A                     i1l635:	
   6618                           
   6619                           ;main.c: 97: }
@@ -7791,7 +7791,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   7770                           
   7771                           	psect	text44
   7772  0FEA                     __ptext44:	
-  7773 ;; *************** function _Buzzer_Handler *****************
+  7773 ;; *************** function _Buzzer_Count1ms *****************
   7774 ;; Defined at:
   7775 ;;		line 44 in file "Buzzer.c"
   7776 ;; Parameters:    Size  Location     Type
@@ -7822,13 +7822,13 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   7801 ;;
   7802                           
   7803                           
-  7804                           ;psect for function _Buzzer_Handler
-  7805  0FEA                     _Buzzer_Handler:	
+  7804                           ;psect for function _Buzzer_Count1ms
+  7805  0FEA                     _Buzzer_Count1ms:	
   7806                           
   7807                           ;Buzzer.c: 46: if(count>0)
   7808                           
   7809                           ;incstack = 0
-  7810                           ; Regs used in _Buzzer_Handler: [wreg+status,2+status,0+pclath+cstack]
+  7810                           ; Regs used in _Buzzer_Count1ms: [wreg+status,2+status,0+pclath+cstack]
   7811  0FEA  0020               	movlb	0	; select bank0
   7812  0FEB  0841               	movf	_count,w
   7813  0FEC  0442               	iorwf	_count+1,w
@@ -7861,7 +7861,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   7840  0FFC  00F1               	movwf	Buzzer_SetDuty@duty+1
   7841  0FFD  3187  27D8         	fcall	_Buzzer_SetDuty
   7842  0FFF  0008               	return
-  7843  1000                     __end_of_Buzzer_Handler:	
+  7843  1000                     __end_of_Buzzer_Count1ms:	
   7844                           
   7845                           	psect	text45
   7846  07D8                     __ptext45:	
@@ -7890,7 +7890,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   7869 ;; This function calls:
   7870 ;;		Nothing
   7871 ;; This function is called by:
-  7872 ;;		_Buzzer_Handler
+  7872 ;;		_Buzzer_Count1ms
   7873 ;; This function uses a non-reentrant model
   7874 ;;
   7875                           
@@ -8003,7 +8003,7 @@ Critical Paths under _Handler in COMMON
     _Timer1_DetectAssignCount->___lldiv
     _I2C_CommonInterrupt->_I2C1_Interrupt
     _I2C_CommonInterrupt->_I2C2_Interrupt
-    _Buzzer_Handler->_Buzzer_SetDuty
+    _Buzzer_Count1ms->_Buzzer_SetDuty
 
 Critical Paths under _main in BANK0
 
@@ -8204,7 +8204,7 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (5) _Handler                                              1     1      0     613
                                               0 BANK0      1     1      0
-                     _Buzzer_Handler
+                    _Buzzer_Count1ms
                 _I2C_CommonInterrupt
                   _Timer1_Count200us
            _Timer1_DetectAssignCount
@@ -8240,7 +8240,7 @@ Call Graph Tables:
  (7) _I2C1_Interrupt                                       1     1      0       0
                                               0 COMMON     1     1      0
  ---------------------------------------------------------------------------------
- (6) _Buzzer_Handler                                       0     0      0     195
+ (6) _Buzzer_Count1ms                                      0     0      0     195
                      _Buzzer_SetDuty
  ---------------------------------------------------------------------------------
  (7) _Buzzer_SetDuty                                       5     3      2     195
@@ -8292,7 +8292,7 @@ Call Graph Tables:
        _LCD_WriteData
 
  _Handler (ROOT)
-   _Buzzer_Handler
+   _Buzzer_Count1ms
      _Buzzer_SetDuty
    _I2C_CommonInterrupt
      _I2C1_Interrupt
@@ -8393,7 +8393,7 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.41 build -162212810 
-Symbol Table                                                                                   Tue May 23 12:29:35 2017
+Symbol Table                                                                                   Tue May 23 12:34:30 2017
 
                         _LCD_CursorHome 0F82                             __CFG_CP$OFF 0000  
                                     l74 05A9                                      l91 02AC  
@@ -8405,98 +8405,99 @@ Symbol Table                                                                    
                                    l246 01C3                                     l338 0703  
                                    l705 015B                                     l830 07C5  
                                    _GIE 005F                                     _PR2 001B  
-                                   _PR4 0416                            __CFG_CPD$OFF 0000  
-                                   _PR6 041D                            __CFG_BORV$LO 0000  
-                                   wreg 0009                              _Basic_Init 0FB3  
-                          __CFG_LVP$OFF 0000              ??_Timer1_DetectAssignCount 007E  
-                                  l3101 0557                                    l2311 05D1  
-                                  l3111 0067                                    l2401 0160  
-                                  l2307 05CF                                    l2315 028F  
-                                  l2403 016E                                    l3131 00C2  
-                                  l2341 02E3                                    l2317 029D  
-                                  l2413 0191                                    l3141 00D3  
-                                  l3125 00A7                                    l3117 0078  
-                                  l2351 02F8                                    l2327 02C0  
-                                  l2423 0189                                    l3151 010E  
-                                  l2353 030F                                    l2361 0320  
-                                  l2337 02B8                                    l2441 01E5  
-                                  l2425 018D                                    l2601 06D2  
-                                  l3153 0111                                    l3129 00AD  
-                                  l2355 0314                                    l2339 02BC  
-                                  l2427 01B4                                    l2603 06DA  
-                                  l3155 0115                                    l3147 00F2  
-                                  l3251 0360                                    l2381 057A  
-                                  l2437 01C9                                    l2445 01E8  
-                                  l3165 0126                                    l3253 0364  
-                                  l3245 0353                                    l2295 05BE  
-                                  l2383 057C                                    l2375 056F  
-                                  l2359 0317                                    l2439 01E0  
-                                  l2447 01F1                                    l2631 0F80  
-                                  l3159 0122                                    l3167 004B  
-                                  l3255 0381                                    l3263 039C  
-                                  l3239 0342                                    l2297 05C0  
-                                  l2289 05B3                                    l2393 058B  
-                                  l3089 051D                                    l2713 06A3  
-                                  l3257 038A                                    l2707 068B  
-                                  l3259 0393                                    l2397 058D  
-                                  l2709 0697                                    l2717 06AC  
-                                  l2637 07BF                                    l2591 06FA  
-                                  l2585 06DF                                    l2587 06EC  
-                                  l2595 06B4                                    l2691 0645  
-                                  l2683 0627                                    l2597 06C1  
-                                  l2685 0633                                    l2695 064E  
-                                  STR_1 0672                                    STR_2 065D  
-                                  STR_3 067C                                    STR_4 0668  
-                                  u2205 0634                                    u2215 063E  
-                                  u2225 0646                                    u2075 07C6  
-                                  u2085 07CB                                    u2255 068E  
-                                  u2185 062A                                    u2275 069D  
-                                  u2285 06A4                                    u2715 00E8  
-                                  u2655 053D                                    u2735 0101  
-                                  u1795 05EB                                    _PEIE 005E  
-                                  u2937 03B5                                    u2947 03CE  
-                                  u2957 03E3                                    u2967 03F8  
-                                  u2977 0F9C                                    u2987 0F8C  
-                                  u2997 05E4                   Buzzer_MiliSecond@time 0048  
-                                  _TMR0 0015                                    _TMR1 0016  
-                                  _TMR2 001A                                    _TMR4 0415  
-                                  _TMR6 041C                                    _WPUB 020D  
-                       ??_I2C1_Transmit 004A                            __CFG_WRT$OFF 0000  
-                                  _cnts 0020                                    _main 0323  
-                                  _mode 003D                        __end_of_I2C_Init 0706  
-                                  _tcnt 002E                                    fsr0h 0005  
-                                  fsr1h 0007                                    indf0 0000  
-                                  fsr0l 0004                                    indf1 0001  
-                                  fsr1l 0006                                    btemp 007E  
-                         __CFG_BOREN$ON 0000                         ??_I2C2_Transmit 004A  
-                      ??_I2C1_Interrupt 0070                                    start 0031  
-                         __CFG_IESO$OFF 0000                         __end_of_Handler 0031  
-                __end_of_LCD_CursorHome 0F92                           _LCD_WriteData 05E1  
-                         __CFG_MCLRE$ON 0000                        ??_I2C2_Interrupt 0070  
-              __end_of_LCD_DisplayClear 0FA2                   __size_of_I2C_Transmit 002B  
-                      __end_of_LCD_Init 041B                           __CFG_PLLEN$ON 0000  
-                                 ?_main 0070                           __CFG_WDTE$OFF 0000  
-                       __end_of___lldiv 0515                                   _T1CON 0018  
-                                 _T2CON 001C                                   _LATA3 0863  
-                                 _LATA4 0864                                   _LATA6 0866  
-                                 _T4CON 0417                                   _T6CON 041E  
-                       __end_of___lwdiv 0653             __size_of_Timer1_ClearRecord 0028  
-                                 i1l157 0492                         __end_of___lwmod 06B1  
-                                 i1l294 043E                                   i1l640 0FAD  
-                                 i1l635 002A                                   i1l468 0211  
-                                 i1l639 0FA8                                   _PORTA 000C  
-                                 _PORTB 000D                                   _TRISA 008C  
-                                 _TRISB 008D                       I2C2_Transmit@size 0049  
-                         __CFG_PWRTE$ON 0000                          __CFG_FCMEN$OFF 0000  
-                       __end_of_dpowers 065D                                   _count 0041  
-                       __end_of_isdigit 0F82                                   _putch 0F0C  
-                         ??_Buzzer_Init 0048                   __end_of_Timer1_GetCPM 0F06  
-           __size_of_Timer1_GetCountSum 000A                                   status 0003  
-                                 wtemp0 007E                       _Buzzer_MiliSecond 0F29  
-                          _I2C_Transmit 06B1                          ?_LCD_WriteData 0070  
-                    ?_Buzzer_MiliSecond 0048                        ??_DAC_Initialize 0058  
-                       ?_LCD_CursorHome 0070                         __initialization 0033  
-                          __end_of_main 03AC                     ??_Buzzer_MiliSecond 004A  
+                                   _PR4 0416                         _Buzzer_Count1ms 0FEA  
+                          __CFG_CPD$OFF 0000                                     _PR6 041D  
+                          __CFG_BORV$LO 0000                                     wreg 0009  
+                            _Basic_Init 0FB3                            __CFG_LVP$OFF 0000  
+            ??_Timer1_DetectAssignCount 007E                                    l3101 0557  
+                                  l2311 05D1                                    l3111 0067  
+                                  l2401 0160                                    l2307 05CF  
+                                  l2315 028F                                    l2403 016E  
+                                  l3131 00C2                                    l2341 02E3  
+                                  l2317 029D                                    l2413 0191  
+                                  l3141 00D3                                    l3125 00A7  
+                                  l3117 0078                                    l2351 02F8  
+                                  l2327 02C0                                    l2423 0189  
+                                  l3151 010E                                    l2353 030F  
+                                  l2361 0320                                    l2337 02B8  
+                                  l2441 01E5                                    l2425 018D  
+                                  l2601 06D2                                    l3153 0111  
+                                  l3129 00AD                                    l2355 0314  
+                                  l2339 02BC                                    l2427 01B4  
+                                  l2603 06DA                                    l3155 0115  
+                                  l3147 00F2                                    l3251 0360  
+                                  l2381 057A                                    l2437 01C9  
+                                  l2445 01E8                                    l3165 0126  
+                                  l3253 0364                                    l3245 0353  
+                                  l2295 05BE                                    l2383 057C  
+                                  l2375 056F                                    l2359 0317  
+                                  l2439 01E0                                    l2447 01F1  
+                                  l2631 0F80                                    l3159 0122  
+                                  l3167 004B                                    l3255 0381  
+                                  l3263 039C                                    l3239 0342  
+                                  l2297 05C0                                    l2289 05B3  
+                                  l2393 058B                                    l3089 051D  
+                                  l2713 06A3                                    l3257 038A  
+                                  l2707 068B                                    l3259 0393  
+                                  l2397 058D                                    l2709 0697  
+                                  l2717 06AC                                    l2637 07BF  
+                                  l2591 06FA                                    l2585 06DF  
+                                  l2587 06EC                                    l2595 06B4  
+                                  l2691 0645                                    l2683 0627  
+                                  l2597 06C1                                    l2685 0633  
+                                  l2695 064E                                    STR_1 0672  
+                                  STR_2 065D                                    STR_3 067C  
+                                  STR_4 0668                                    u2205 0634  
+                                  u2215 063E                                    u2225 0646  
+                                  u2075 07C6                                    u2085 07CB  
+                                  u2255 068E                                    u2185 062A  
+                                  u2275 069D                                    u2285 06A4  
+                                  u2715 00E8                                    u2655 053D  
+                                  u2735 0101                                    u1795 05EB  
+                                  _PEIE 005E                                    u2937 03B5  
+                                  u2947 03CE                                    u2957 03E3  
+                                  u2967 03F8                                    u2977 0F9C  
+                                  u2987 0F8C                                    u2997 05E4  
+                 Buzzer_MiliSecond@time 0048                                    _TMR0 0015  
+                                  _TMR1 0016                                    _TMR2 001A  
+                                  _TMR4 0415                                    _TMR6 041C  
+                                  _WPUB 020D                         ??_I2C1_Transmit 004A  
+                          __CFG_WRT$OFF 0000                                    _cnts 0020  
+                                  _main 0323                                    _mode 003D  
+                      __end_of_I2C_Init 0706                                    _tcnt 002E  
+                                  fsr0h 0005                                    fsr1h 0007  
+                                  indf0 0000                                    fsr0l 0004  
+                                  indf1 0001                                    fsr1l 0006  
+                                  btemp 007E                           __CFG_BOREN$ON 0000  
+                       ??_I2C2_Transmit 004A                        ??_I2C1_Interrupt 0070  
+                                  start 0031                           __CFG_IESO$OFF 0000  
+                       __end_of_Handler 0031                  __end_of_LCD_CursorHome 0F92  
+                         _LCD_WriteData 05E1                           __CFG_MCLRE$ON 0000  
+                      ??_I2C2_Interrupt 0070                __end_of_LCD_DisplayClear 0FA2  
+                 __size_of_I2C_Transmit 002B                        __end_of_LCD_Init 041B  
+                         __CFG_PLLEN$ON 0000                                   ?_main 0070  
+                         __CFG_WDTE$OFF 0000                         __end_of___lldiv 0515  
+                                 _T1CON 0018                                   _T2CON 001C  
+                                 _LATA3 0863                                   _LATA4 0864  
+                                 _LATA6 0866                                   _T4CON 0417  
+                                 _T6CON 041E                         __end_of___lwdiv 0653  
+           __size_of_Timer1_ClearRecord 0028                                   i1l157 0492  
+                       __end_of___lwmod 06B1                                   i1l294 043E  
+                                 i1l640 0FAD                                   i1l635 002A  
+                                 i1l468 0211                                   i1l639 0FA8  
+                                 _PORTA 000C                                   _PORTB 000D  
+                                 _TRISA 008C                                   _TRISB 008D  
+                     I2C2_Transmit@size 0049                           __CFG_PWRTE$ON 0000  
+                        __CFG_FCMEN$OFF 0000                         __end_of_dpowers 065D  
+                                 _count 0041                         __end_of_isdigit 0F82  
+                                 _putch 0F0C                           ??_Buzzer_Init 0048  
+                 __end_of_Timer1_GetCPM 0F06             __size_of_Timer1_GetCountSum 000A  
+                                 status 0003                                   wtemp0 007E  
+                     _Buzzer_MiliSecond 0F29                            _I2C_Transmit 06B1  
+                        ?_LCD_WriteData 0070                      ?_Buzzer_MiliSecond 0048  
+                      ??_DAC_Initialize 0058                         ?_LCD_CursorHome 0070  
+                       __initialization 0033                            __end_of_main 03AC  
+               __end_of_Buzzer_Count1ms 1000                     ??_Buzzer_MiliSecond 004A  
                                 ??_main 006A                    __end_of_mTouch_Check 0559  
                            ?_Basic_Init 0070                                  _BCL1IE 0493  
                                 _BCL1IF 0093                                  _BCL2IE 04A1  
@@ -8542,11 +8543,11 @@ Symbol Table                                                                    
                      ?_Timer6_CheckFlag 0070                              _VoltageReg 0044  
                     ??_Timer6_CheckFlag 0070                      Buzzer_SetDuty@duty 0070  
                         __pcstackCOMMON 0070                     __size_of_Basic_Init 0011  
-                         __end_of_putch 0F15                     __end_of_Timer1_Init 079C  
-                   __end_of_Timer4_Init 0F73                     __end_of_Timer6_Init 0FD7  
-             Buzzer_SetDuty@CCP2CON_Pre 0074                              ??_I2C_Init 0050  
-                   I2C1_Transmit@result 004F                                 ??_putch 004B  
-               __size_of_Buzzer_Handler 0016                 __end_of_mTouch_PortInit 0F65  
+                      ?_Buzzer_Count1ms 0070                           __end_of_putch 0F15  
+                   __end_of_Timer1_Init 079C                     __end_of_Timer4_Init 0F73  
+                   __end_of_Timer6_Init 0FD7               Buzzer_SetDuty@CCP2CON_Pre 0074  
+                            ??_I2C_Init 0050                     I2C1_Transmit@result 004F  
+                               ??_putch 004B                 __end_of_mTouch_PortInit 0F65  
                             __pbssBANK0 0020                              __pbssBANK1 00A0  
             __size_of_Buzzer_MiliSecond 000A                             _Buzzer_Init 072E  
                             ??_LCD_Init 004C                 __size_of_Buzzer_SetDuty 001C  
@@ -8591,25 +8592,24 @@ Symbol Table                                                                    
                 __size_of_Timer1_GetCPM 0006                        __CFG_FOSC$INTOSC 0000  
                          ??_mTouch_Init 0049                           ??_mTouch_Read 0070  
                __size_of_I2C2_Interrupt 0054                       __size_of_I2C_Init 002A  
-                   I2C1_Setting@address 004C                          _Buzzer_Handler 0FEA  
-                        ??_I2C1_PinInit 0048               __size_of_Timer4_CheckFlag 000B  
-                        ??_I2C2_PinInit 0048                          _Buzzer_SetDuty 07D8  
-                        ??_I2C1_Setting 004B                             printf@width 0067  
-                        ??_I2C2_Setting 004B                       __size_of_LCD_Init 006F  
-                     _Timer1_StartCount 0EF5                      ?_Timer1_StartCount 0070  
-                        __end_of___wmul 07D8                               _ConfigReg 0046  
-             __size_of_Timer6_CheckFlag 000B                     ??_Timer1_StartCount 0048  
-               __size_of_DAC_Initialize 0020                          __end_of_printf 015C  
-                   start_initialization 0033                  __end_of_Buzzer_Handler 1000  
+                   I2C1_Setting@address 004C                          ??_I2C1_PinInit 0048  
+             __size_of_Timer4_CheckFlag 000B                          ??_I2C2_PinInit 0048  
+                        _Buzzer_SetDuty 07D8                          ??_I2C1_Setting 004B  
+                           printf@width 0067                          ??_I2C2_Setting 004B  
+                     __size_of_LCD_Init 006F                       _Timer1_StartCount 0EF5  
+                    ?_Timer1_StartCount 0070                          __end_of___wmul 07D8  
+                             _ConfigReg 0046               __size_of_Timer6_CheckFlag 000B  
+                   ??_Timer1_StartCount 0048                 __size_of_DAC_Initialize 0020  
+                        __end_of_printf 015C                     start_initialization 0033  
                   I2C1_Transmit@address 004C                  __end_of_Buzzer_SetDuty 07F4  
                           ?_Buzzer_Init 0070                     __end_of_mTouch_Init 0FEA  
                    __end_of_mTouch_Read 077B                           _Timer1_GetCPM 0F00  
                    I2C2_Setting@address 004C              __size_of_Timer1_Count200us 000A  
              __end_of_Timer1_StartCount 0EFA                   __end_of_LCD_WriteData 061E  
                               ??___wmul 004C                                ??_printf 005E  
-                     I2C1_Setting@Speed 004A                               ___latbits 0001  
-                         __pcstackBANK0 0047        __end_of_mTouch_IntervalDecrement 0FB3  
-                       ?_Buzzer_Handler 0070                      I2C1_Transmit@i_172 004E  
+                     I2C1_Setting@Speed 004A                __size_of_Buzzer_Count1ms 0016  
+                             ___latbits 0001                           __pcstackBANK0 0047  
+      __end_of_mTouch_IntervalDecrement 0FB3                      I2C1_Transmit@i_172 004E  
                     I2C1_Transmit@pData 0048               __size_of_LCD_DisplayClear 0010  
                        ?_Buzzer_SetDuty 0070                          ?_Timer1_GetCPM 0048  
       __end_of_Timer1_DetectAssignCount 028C                         I2C_Init@address 004D  
@@ -8640,46 +8640,46 @@ Symbol Table                                                                    
                 __end_of_I2C2_Interrupt 046F                              printf@flag 0062  
                             printf@prec 0066                  __size_of_I2C1_Transmit 0097  
                 __size_of_I2C2_Transmit 0098                         ??_Timer1_GetCPM 004A  
-                           _CPS_PreData 003A                    ??_Timer1_GetCountSum 004C  
-                      __size_of_Handler 002D                    __size_of_Buzzer_Init 0028  
-              _Timer1_DetectAssignCount 01F4                __size_of_mTouch_PortInit 000D  
-     __size_of_mTouch_IntervalDecrement 0011               ?_mTouch_IntervalDecrement 0070  
-                       ?_I2C1_Interrupt 0070                 __size_of_LCD_CursorHome 0010  
-                __end_of_DAC_Initialize 07BC                        __size_of___lldiv 0052  
-                      __size_of___lwdiv 0035                        I2C1_Setting@mode 0049  
-                      __size_of___lwmod 002D                      LCD_WriteData@point 004A  
-                           _isdigit$891 0048                         ?_I2C2_Interrupt 0070  
-                     I2C1_Transmit@size 0049                        __size_of_isdigit 000F  
-                       ___lwdiv@divisor 0048                         ___lwdiv@counter 004F  
-                              __ptext10 0F29                                __ptext11 0FC4  
-                              __ptext20 0F82                                __ptext12 0F65  
-                              __ptext21 05E1                                __ptext13 0EF5  
-                              __ptext30 0F3E                                __ptext22 079C  
-                              __ptext14 0706                                __ptext31 072E  
-                              __ptext23 06B1                                __ptext15 077B  
-                              __ptext40 0F15                                __ptext32 0FB3  
-                              __ptext24 015C                                __ptext16 0F1F  
-                              __ptext41 0EFA                                __ptext25 028C  
-                              __ptext17 0F00                                __ptext42 041B  
-                              __ptext34 0756                                __ptext26 06DC  
-                              __ptext18 03AC                                __ptext43 046F  
-                              __ptext35 0FA2                                __ptext27 0559  
-                              __ptext19 0F92                                __ptext44 0FEA  
-                              __ptext36 07F4                                __ptext28 0F4B  
-                              __ptext45 07D8                                __ptext37 0F33  
-                              __ptext29 059D                                __ptext38 01F4  
-                              __ptext39 04C3                            _SSP1CON1bits 0215  
-                          _SSP1CON2bits 0216                        _LCD_DisplayClear 0F92  
-                          _SSP2CON1bits 021D                            _SSP2CON2bits 021E  
-                         __size_of_main 0089                           _I2C1_Transmit 028C  
-                         _I2C2_Transmit 015C                   __size_of_I2C1_PinInit 000D  
-                  __size_of_Timer1_Init 0021                                int$flags 007E  
-                 __size_of_I2C2_PinInit 000D                    __size_of_Timer4_Init 000E  
-                   I2C_Transmit@address 0050                    __size_of_Timer6_Init 0013  
-                 __size_of_I2C1_Setting 0044                         ?_DAC_Initialize 0070  
-                             printf@val 0064                            _SSP1STATbits 0214  
-                 __size_of_I2C2_Setting 0044                            _SSP2STATbits 021C  
-                      ??_Buzzer_Handler 0075                    __end_of_I2C_Transmit 06DC  
+                           _CPS_PreData 003A                       ??_Buzzer_Count1ms 0075  
+                  ??_Timer1_GetCountSum 004C                        __size_of_Handler 002D  
+                  __size_of_Buzzer_Init 0028                _Timer1_DetectAssignCount 01F4  
+              __size_of_mTouch_PortInit 000D       __size_of_mTouch_IntervalDecrement 0011  
+             ?_mTouch_IntervalDecrement 0070                         ?_I2C1_Interrupt 0070  
+               __size_of_LCD_CursorHome 0010                  __end_of_DAC_Initialize 07BC  
+                      __size_of___lldiv 0052                        __size_of___lwdiv 0035  
+                      I2C1_Setting@mode 0049                        __size_of___lwmod 002D  
+                    LCD_WriteData@point 004A                             _isdigit$891 0048  
+                       ?_I2C2_Interrupt 0070                       I2C1_Transmit@size 0049  
+                      __size_of_isdigit 000F                         ___lwdiv@divisor 0048  
+                       ___lwdiv@counter 004F                                __ptext10 0F29  
+                              __ptext11 0FC4                                __ptext20 0F82  
+                              __ptext12 0F65                                __ptext21 05E1  
+                              __ptext13 0EF5                                __ptext30 0F3E  
+                              __ptext22 079C                                __ptext14 0706  
+                              __ptext31 072E                                __ptext23 06B1  
+                              __ptext15 077B                                __ptext40 0F15  
+                              __ptext32 0FB3                                __ptext24 015C  
+                              __ptext16 0F1F                                __ptext41 0EFA  
+                              __ptext25 028C                                __ptext17 0F00  
+                              __ptext42 041B                                __ptext34 0756  
+                              __ptext26 06DC                                __ptext18 03AC  
+                              __ptext43 046F                                __ptext35 0FA2  
+                              __ptext27 0559                                __ptext19 0F92  
+                              __ptext44 0FEA                                __ptext36 07F4  
+                              __ptext28 0F4B                                __ptext45 07D8  
+                              __ptext37 0F33                                __ptext29 059D  
+                              __ptext38 01F4                                __ptext39 04C3  
+                          _SSP1CON1bits 0215                            _SSP1CON2bits 0216  
+                      _LCD_DisplayClear 0F92                            _SSP2CON1bits 021D  
+                          _SSP2CON2bits 021E                           __size_of_main 0089  
+                         _I2C1_Transmit 028C                           _I2C2_Transmit 015C  
+                 __size_of_I2C1_PinInit 000D                    __size_of_Timer1_Init 0021  
+                              int$flags 007E                   __size_of_I2C2_PinInit 000D  
+                  __size_of_Timer4_Init 000E                     I2C_Transmit@address 0050  
+                  __size_of_Timer6_Init 0013                   __size_of_I2C1_Setting 0044  
+                       ?_DAC_Initialize 0070                               printf@val 0064  
+                          _SSP1STATbits 0214                   __size_of_I2C2_Setting 0044  
+                          _SSP2STATbits 021C                    __end_of_I2C_Transmit 06DC  
                      I2C2_Setting@Speed 004A                        ??_Buzzer_SetDuty 0072  
                               isdigit@c 0049                                intlevel1 0000  
                       ___lwmod@dividend 0052                     _I2C_CommonInterrupt 0EFA  

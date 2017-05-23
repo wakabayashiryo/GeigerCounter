@@ -2897,7 +2897,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Buzzer.h: 41: void Buzzer_Init(void);
 [; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
 [; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
-[; ;Buzzer.h: 44: void Buzzer_Handler(void);
+[; ;Buzzer.h: 44: void Buzzer_Count1ms(void);
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void putch(char c);
