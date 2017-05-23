@@ -2981,7 +2981,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MCP4726.h: 81: void DAC_Initialize(void);
 [; ;MCP4726.h: 82: int8_t DAC_WriteVoltage(uint16_t volue);
 [; ;mTouch.h: 21: void mTouch_Init(void);
-[; ;mTouch.h: 22: void CPSx_Read(void);
+[; ;mTouch.h: 22: void mTouch_Read(void);
 [; ;Timer4.h: 17: void Timer4_Init(void);
 [; ;Timer4.h: 18: uint8_t Timer4_CheckFlag(void);
 [; ;Timer6.h: 17: void Timer6_Init(void);

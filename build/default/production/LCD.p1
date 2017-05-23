@@ -2983,7 +2983,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.h: 18: int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
 [; ;eeprom.h: 19: int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
 [; ;mTouch.h: 21: void mTouch_Init(void);
-[; ;mTouch.h: 22: void CPSx_Read(void);
+[; ;mTouch.h: 22: void mTouch_Read(void);
 [; ;Timer4.h: 17: void Timer4_Init(void);
 [; ;Timer4.h: 18: uint8_t Timer4_CheckFlag(void);
 [; ;Timer6.h: 17: void Timer6_Init(void);

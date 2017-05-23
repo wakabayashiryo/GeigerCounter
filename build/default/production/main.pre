@@ -4064,7 +4064,7 @@ int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
 
 # 21 "mTouch.h"
 void mTouch_Init(void);
-void CPSx_Read(void);
+void mTouch_Read(void);
 
 # 17 "Timer4.h"
 void Timer4_Init(void);
@@ -4176,7 +4176,7 @@ ModeConfig mode;
 uint8_t mTouch_Interval[3];
 
 void mTouch_IntervalDecrement(void);
-uint8_t mTouch_Read(uint8_t chan);
+uint8_t mTouch_Check(uint8_t chan);
 
 int8_t main(void)
 {
@@ -4196,9 +4196,9 @@ mode.ModeNum = 0;
 
 while(1)
 {
-if(mTouch_Read(2)&&(mode.ModeNum<4-1))
+if(mTouch_Check(2)&&(mode.ModeNum<4-1))
 mode.ModeNum++;
-else if(mTouch_Read(1)&&(mode.ModeNum>0))
+else if(mTouch_Check(1)&&(mode.ModeNum>0))
 mode.ModeNum--;
 
 LCD_CursorHome();
@@ -4253,9 +4253,9 @@ LATA6 = !LATA6;
 
 if(Timer6_CheckFlag())
 {
-CPSx_Read();
 mTouch_IntervalDecrement();
 
+mTouch_Read();
 Buzzer_Handler();
 }
 I2C_CommonInterrupt();
@@ -4271,7 +4271,7 @@ if(mTouch_Interval[2]>0)
 mTouch_Interval[2]--;
 }
 
-uint8_t mTouch_Read(uint8_t chan)
+uint8_t mTouch_Check(uint8_t chan)
 {
 if(chan>2)return 0;
 

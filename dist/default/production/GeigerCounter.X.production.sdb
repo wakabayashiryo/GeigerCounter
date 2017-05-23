@@ -136,7 +136,7 @@ PMTDEVICE 3
 "101
 [v _mTouch_IntervalDecrement mTouch_IntervalDecrement `(v  1 e 1 0 ]
 "111
-[v _mTouch_Read mTouch_Read `(uc  1 e 1 0 ]
+[v _mTouch_Check mTouch_Check `(uc  1 e 1 0 ]
 "14 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/MCP4726.c
 [v _DAC_Initialize DAC_Initialize `(v  1 e 1 0 ]
 "6 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/mTouch.c
@@ -144,7 +144,7 @@ PMTDEVICE 3
 "12
 [v _mTouch_Init mTouch_Init `(v  1 e 1 0 ]
 "29
-[v _CPSx_Read CPSx_Read `(v  1 e 1 0 ]
+[v _mTouch_Read mTouch_Read `(v  1 e 1 0 ]
 "6 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
 [v _Timer1_Init Timer1_Init `(v  1 e 1 0 ]
 "31
@@ -346,9 +346,9 @@ PMTDEVICE 3
 [v _CPS_Data CPS_Data `[3]uc  1 e 3 0 ]
 "11
 [v _CPS_PreData CPS_PreData `[3]uc  1 e 3 0 ]
-[s S565 . 2 `E3224 1 MODESTAT 1 0 `uc 1 ModeNum 1 1 ]
+[s S556 . 2 `E3224 1 MODESTAT 1 0 `uc 1 ModeNum 1 1 ]
 "12
-[v _mode mode `S565  1 e 2 0 ]
+[v _mode mode `S556  1 e 2 0 ]
 "13
 [v _mTouch_Interval mTouch_Interval `[3]uc  1 e 3 0 ]
 [s S413 . 1 `uc 1 Gain 1 0 :1:0 
@@ -447,21 +447,6 @@ PMTDEVICE 3
 [v ___lwdiv@dividend dividend `ui  1 p 2 3 ]
 "31
 } 0
-"111 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
-[v _mTouch_Read mTouch_Read `(uc  1 e 1 0 ]
-{
-[v mTouch_Read@chan chan `uc  1 a 1 wreg ]
-[v mTouch_Read@chan chan `uc  1 a 1 wreg ]
-"113
-[v mTouch_Read@chan chan `uc  1 a 1 8 ]
-"122
-} 0
-"38 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Buzzer.c
-[v _Buzzer_MiliSecond Buzzer_MiliSecond `(v  1 e 1 0 ]
-{
-[v Buzzer_MiliSecond@time time `ui  1 p 2 1 ]
-"42
-} 0
 "12 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/mTouch.c
 [v _mTouch_Init mTouch_Init `(v  1 e 1 0 ]
 {
@@ -471,6 +456,21 @@ PMTDEVICE 3
 [v _mTouch_PortInit mTouch_PortInit `(v  1 s 1 mTouch_PortInit ]
 {
 "10
+} 0
+"111 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+[v _mTouch_Check mTouch_Check `(uc  1 e 1 0 ]
+{
+[v mTouch_Check@chan chan `uc  1 a 1 wreg ]
+[v mTouch_Check@chan chan `uc  1 a 1 wreg ]
+"113
+[v mTouch_Check@chan chan `uc  1 a 1 8 ]
+"122
+} 0
+"38 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Buzzer.c
+[v _Buzzer_MiliSecond Buzzer_MiliSecond `(v  1 e 1 0 ]
+{
+[v Buzzer_MiliSecond@time time `ui  1 p 2 1 ]
+"42
 } 0
 "3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer6.c
 [v _Timer6_Init Timer6_Init `(v  1 e 1 0 ]
@@ -643,7 +643,14 @@ PMTDEVICE 3
 {
 "99
 } 0
-"101
+"29 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/mTouch.c
+[v _mTouch_Read mTouch_Read `(v  1 e 1 0 ]
+{
+"31
+[v mTouch_Read@channel channel `uc  1 s 1 channel ]
+"43
+} 0
+"101 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _mTouch_IntervalDecrement mTouch_IntervalDecrement `(v  1 e 1 0 ]
 {
 "109
@@ -696,13 +703,6 @@ PMTDEVICE 3
 [v _I2C1_Interrupt I2C1_Interrupt `(v  1 e 1 0 ]
 {
 "198
-} 0
-"29 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/mTouch.c
-[v _CPSx_Read CPSx_Read `(v  1 e 1 0 ]
-{
-"31
-[v CPSx_Read@channel channel `uc  1 s 1 channel ]
-"43
 } 0
 "44 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Buzzer.c
 [v _Buzzer_Handler Buzzer_Handler `(v  1 e 1 0 ]

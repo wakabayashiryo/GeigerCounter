@@ -27,7 +27,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "41 Timer1.h
 [v _Timer1_StartCount `(v ~T0 @X0 0 ef ]
 "16 main.c
-[v _mTouch_Read `(uc ~T0 @X0 0 ef1`uc ]
+[v _mTouch_Check `(uc ~T0 @X0 0 ef1`uc ]
 "36 LCD.h
 [v _LCD_CursorHome `(v ~T0 @X0 0 ef ]
 "195 /opt/microchip/xc8/v1.41/include/stdio.h
@@ -62,10 +62,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Timer1_DetectAssignCount `(uc ~T0 @X0 0 ef ]
 "18 Timer6.h
 [v _Timer6_CheckFlag `(uc ~T0 @X0 0 ef ]
-"22 mTouch.h
-[v _CPSx_Read `(v ~T0 @X0 0 ef ]
 "15 main.c
 [v _mTouch_IntervalDecrement `(v ~T0 @X0 0 ef ]
+"22 mTouch.h
+[v _mTouch_Read `(v ~T0 @X0 0 ef ]
 "44 Buzzer.h
 [v _Buzzer_Handler `(v ~T0 @X0 0 ef ]
 "64 I2C.h
@@ -3052,7 +3052,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.h: 18: int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
 [; ;eeprom.h: 19: int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
 [; ;mTouch.h: 21: void mTouch_Init(void);
-[; ;mTouch.h: 22: void CPSx_Read(void);
+[; ;mTouch.h: 22: void mTouch_Read(void);
 [; ;Timer4.h: 17: void Timer4_Init(void);
 [; ;Timer4.h: 18: uint8_t Timer4_CheckFlag(void);
 [; ;Timer6.h: 17: void Timer6_Init(void);
@@ -3141,7 +3141,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _mTouch_Interval `uc ~T0 @X0 -> 3 `i e ]
 [; ;main.c: 13: uint8_t mTouch_Interval[3];
 [; ;main.c: 15: void mTouch_IntervalDecrement(void);
-[; ;main.c: 16: uint8_t mTouch_Read(uint8_t chan);
+[; ;main.c: 16: uint8_t mTouch_Check(uint8_t chan);
 "18
 [v _main `(c ~T0 @X0 1 ef ]
 "19
@@ -3189,17 +3189,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 35: {
 "35
 {
-[; ;main.c: 36: if(mTouch_Read(2)&&(mode.ModeNum<4-1))
+[; ;main.c: 36: if(mTouch_Check(2)&&(mode.ModeNum<4-1))
 "36
-[e $ ! && != -> ( _mTouch_Read (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i < -> . _mode 1 `i - -> 4 `i -> 1 `i 370  ]
+[e $ ! && != -> ( _mTouch_Check (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i < -> . _mode 1 `i - -> 4 `i -> 1 `i 370  ]
 [; ;main.c: 37: mode.ModeNum++;
 "37
 [e ++ . _mode 1 -> -> 1 `i `uc ]
 [e $U 371  ]
 "38
 [e :U 370 ]
-[; ;main.c: 38: else if(mTouch_Read(1)&&(mode.ModeNum>0))
-[e $ ! && != -> ( _mTouch_Read (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i > -> . _mode 1 `i -> 0 `i 372  ]
+[; ;main.c: 38: else if(mTouch_Check(1)&&(mode.ModeNum>0))
+[e $ ! && != -> ( _mTouch_Check (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i > -> . _mode 1 `i -> 0 `i 372  ]
 [; ;main.c: 39: mode.ModeNum--;
 "39
 [e -- . _mode 1 -> -> 1 `i `uc ]
@@ -3350,12 +3350,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 92: {
 "92
 {
-[; ;main.c: 93: CPSx_Read();
+[; ;main.c: 93: mTouch_IntervalDecrement();
 "93
-[e ( _CPSx_Read ..  ]
-[; ;main.c: 94: mTouch_IntervalDecrement();
-"94
 [e ( _mTouch_IntervalDecrement ..  ]
+[; ;main.c: 95: mTouch_Read();
+"95
+[e ( _mTouch_Read ..  ]
 [; ;main.c: 96: Buzzer_Handler();
 "96
 [e ( _Buzzer_Handler ..  ]
@@ -3404,12 +3404,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 384 ]
 }
 "111
-[v _mTouch_Read `(uc ~T0 @X0 1 ef1`uc ]
+[v _mTouch_Check `(uc ~T0 @X0 1 ef1`uc ]
 "112
 {
-[; ;main.c: 111: uint8_t mTouch_Read(uint8_t chan)
+[; ;main.c: 111: uint8_t mTouch_Check(uint8_t chan)
 [; ;main.c: 112: {
-[e :U _mTouch_Read ]
+[e :U _mTouch_Check ]
 "111
 [v _chan `uc ~T0 @X0 1 r1 ]
 "112

@@ -3070,7 +3070,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.h: 73: }ModeConfig;
 [; ;main.h: 75: int8_t Basic_Init(void);
 [; ;mTouch.h: 21: void mTouch_Init(void);
-[; ;mTouch.h: 22: void CPSx_Read(void);
+[; ;mTouch.h: 22: void mTouch_Read(void);
 [; ;mTouch.c: 3: extern uint8_t CPS_Data[3];
 [; ;mTouch.c: 4: extern uint8_t CPS_PreData[3];
 "6 mTouch.c
@@ -3131,12 +3131,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 367 ]
 }
 "29
-[v _CPSx_Read `(v ~T0 @X0 1 ef ]
+[v _mTouch_Read `(v ~T0 @X0 1 ef ]
 "30
 {
-[; ;mTouch.c: 29: void CPSx_Read(void)
+[; ;mTouch.c: 29: void mTouch_Read(void)
 [; ;mTouch.c: 30: {
-[e :U _CPSx_Read ]
+[e :U _mTouch_Read ]
 [f ]
 "31
 [v F3241 `uc ~T0 @X0 1 s channel ]

@@ -4005,7 +4005,7 @@ int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
 
 # 21 "mTouch.h"
 void mTouch_Init(void);
-void CPSx_Read(void);
+void mTouch_Read(void);
 
 # 17 "Timer4.h"
 void Timer4_Init(void);

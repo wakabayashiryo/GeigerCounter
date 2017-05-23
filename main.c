@@ -13,7 +13,7 @@ ModeConfig mode;
 uint8_t mTouch_Interval[3];
 
 void mTouch_IntervalDecrement(void);
-uint8_t mTouch_Read(uint8_t chan);
+uint8_t mTouch_Check(uint8_t chan);
 
 int8_t main(void)
 {
@@ -33,9 +33,9 @@ int8_t main(void)
     
     while(1)
     {
-        if(mTouch_Read(2)&&(mode.ModeNum<NUM_OF_MODE-1))
+        if(mTouch_Check(2)&&(mode.ModeNum<NUM_OF_MODE-1))
             mode.ModeNum++;
-        else if(mTouch_Read(1)&&(mode.ModeNum>0))
+        else if(mTouch_Check(1)&&(mode.ModeNum>0))
             mode.ModeNum--;
         
         LCD_CursorHome();
@@ -90,9 +90,9 @@ void interrupt Handler(void)
 
     if(Timer6_CheckFlag())//every 1ms
     {
-        CPSx_Read();
         mTouch_IntervalDecrement();
 
+        mTouch_Read();
         Buzzer_Handler();
     }
     I2C_CommonInterrupt();
@@ -108,7 +108,7 @@ void mTouch_IntervalDecrement(void)
         mTouch_Interval[2]--;
 }
 
-uint8_t mTouch_Read(uint8_t chan)
+uint8_t mTouch_Check(uint8_t chan)
 {
     if(chan>2)return 0;
     
