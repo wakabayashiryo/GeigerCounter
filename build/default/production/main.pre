@@ -3887,7 +3887,7 @@ extern __bit __timeout;
 void Buzzer_Init(void);
 void Buzzer_SetDuty(uint16_t duty);
 void Buzzer_MiliSecond(uint16_t time);
-void Buzzer_Handler(void);
+void Buzzer_Count1ms(void);
 
 # 32 "LCD.h"
 void LCD_Init(void);

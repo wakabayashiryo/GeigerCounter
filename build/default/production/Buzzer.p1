@@ -2903,7 +2903,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Buzzer.h: 41: void Buzzer_Init(void);
 [; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
 [; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
-[; ;Buzzer.h: 44: void Buzzer_Handler(void);
+[; ;Buzzer.h: 44: void Buzzer_Count1ms(void);
 "9 Buzzer.c
 [v _count `ui ~T0 @X0 1 s ]
 [; ;Buzzer.c: 9: static uint16_t count;
@@ -3003,12 +3003,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 355 ]
 }
 "44
-[v _Buzzer_Handler `(v ~T0 @X0 1 ef ]
+[v _Buzzer_Count1ms `(v ~T0 @X0 1 ef ]
 "45
 {
-[; ;Buzzer.c: 44: void Buzzer_Handler(void)
+[; ;Buzzer.c: 44: void Buzzer_Count1ms(void)
 [; ;Buzzer.c: 45: {
-[e :U _Buzzer_Handler ]
+[e :U _Buzzer_Count1ms ]
 [f ]
 [; ;Buzzer.c: 46: if(count>0)
 "46
