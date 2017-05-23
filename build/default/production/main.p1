@@ -50,7 +50,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "18 Timer4.h
 [v _Timer4_Handler `(uc ~T0 @X0 0 ef ]
 "22 mTouch.h
-[v _CPSx_Read `(v ~T0 @X0 0 ef ]
+[v _mTouch_Read `(v ~T0 @X0 0 ef ]
 "44 Buzzer.h
 [v _Buzzer_Handler `(v ~T0 @X0 0 ef ]
 "30 Timer1.h
@@ -3005,7 +3005,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.h: 18: int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
 [; ;eeprom.h: 19: int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
 [; ;mTouch.h: 21: void mTouch_Init(void);
-[; ;mTouch.h: 22: void CPSx_Read(void);
+[; ;mTouch.h: 22: void mTouch_Read(void);
 [; ;Timer4.h: 17: void Timer4_Init(void);
 [; ;Timer4.h: 18: uint8_t Timer4_Handler(void);
 "33 main.h
@@ -3206,9 +3206,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 76: {
 "76
 {
-[; ;main.c: 77: CPSx_Read();
+[; ;main.c: 77: mTouch_Read();
 "77
-[e ( _CPSx_Read ..  ]
+[e ( _mTouch_Read ..  ]
 [; ;main.c: 78: Buzzer_Handler();
 "78
 [e ( _Buzzer_Handler ..  ]

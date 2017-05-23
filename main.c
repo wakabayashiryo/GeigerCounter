@@ -74,7 +74,7 @@ void interrupt Handler(void)
     static uint16_t count = 0;
     if(Timer4_Handler())
     {
-        CPSx_Read();
+        mTouch_Read();
         Buzzer_Handler();
         count++;
         if(count>1000)

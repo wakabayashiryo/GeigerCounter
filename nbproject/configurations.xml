@@ -10,10 +10,10 @@
       <itemPath>MCP4726.h</itemPath>
       <itemPath>Timer1.h</itemPath>
       <itemPath>Timer4.h</itemPath>
+      <itemPath>Timer6.h</itemPath>
       <itemPath>eeprom.h</itemPath>
       <itemPath>mTouch.h</itemPath>
       <itemPath>main.h</itemPath>
-      <itemPath>xprintf.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

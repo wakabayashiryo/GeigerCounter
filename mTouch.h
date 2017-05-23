@@ -19,7 +19,7 @@ extern "C" {
 #define CPS_DISABLE()  CPSCON0 &= ~(0x01<<7);      //CPS module is disabled
 
 void mTouch_Init(void);
-void CPSx_Read(void);
+void mTouch_Read(void);
 
 #ifdef	__cplusplus
 }

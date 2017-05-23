@@ -4024,7 +4024,7 @@ int8_t DAC_WriteVoltage(uint16_t volue);
 
 # 21 "mTouch.h"
 void mTouch_Init(void);
-void CPSx_Read(void);
+void mTouch_Read(void);
 
 # 17 "Timer4.h"
 void Timer4_Init(void);

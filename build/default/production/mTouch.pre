@@ -4055,7 +4055,7 @@ int8_t Basic_Init(void);
 
 # 21 "mTouch.h"
 void mTouch_Init(void);
-void CPSx_Read(void);
+void mTouch_Read(void);
 
 # 3 "mTouch.c"
 extern uint8_t CPS_Data[3];
@@ -4084,7 +4084,7 @@ CPSCON0 &= ~(0x01<<7);;
 CPSCON1 = (uint8_t)0x00;
 }
 
-void CPSx_Read(void)
+void mTouch_Read(void)
 {
 static uint8_t channel=0;
 

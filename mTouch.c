@@ -26,7 +26,7 @@ void mTouch_Init(void)
     CPS_CHANNEL(0x00);
 }
 
-void CPSx_Read(void)
+void mTouch_Read(void)
 {
     static uint8_t channel=0;
     
