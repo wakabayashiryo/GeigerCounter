@@ -68,7 +68,7 @@ uint8_t Timer1_DetectAssignCount(void)//put into interrupt function
 {
     static uint16_t PreviousTimer1;
     
-    if((tcnt.Delta_t>50000)&&(Timer1_Read()==PreviousTimer1))//If Counter did not detect between 1count and 10 counts. Reset CPM
+    if((tcnt.Delta_t>500000)&&(Timer1_Read()==PreviousTimer1))//If Counter did not detect between 1count and 10 counts. Reset CPM
         cnts.SigmaCPM = 0;
     PreviousTimer1 = Timer1_Read();
     
@@ -76,14 +76,14 @@ uint8_t Timer1_DetectAssignCount(void)//put into interrupt function
     if((tcnt.RenewalCPM>5000)&&cnts.Num_of_Detect)//Renewal Rersult Average of CPM every 1 second
     {
         tcnt.RenewalCPM = 0;  
-        cnts.AverageCPM = cnts.SigmaCPM/cnts.Num_of_Detect;
+        cnts.AverageCPM = (uint16_t)(cnts.SigmaCPM/cnts.Num_of_Detect);
     }
     
     if(TMR1IF&&TMR1IE)//Interrupt flag is rised by detected every 10 counts
     {
         cnts.SigmaDeltaCount+= DELTA_COUNT;
         
-        cnts.SigmaCPM += (uint32_t)((DELTA_COUNT * 12000UL) / tcnt.Delta_t);
+        cnts.SigmaCPM += (uint32_t)((DELTA_COUNT * 30000UL) / tcnt.Delta_t);
         cnts.Num_of_Detect++;//Number of Detected 10 counts
         
         tcnt.Delta_t = 0;

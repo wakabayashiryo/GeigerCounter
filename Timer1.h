@@ -42,7 +42,7 @@ void Timer1_StartCount(void);
 void Timer1_StopCount(void);
 void Timer1_ClearRecord(void);
 
-#define DELTA_COUNT 10UL
+#define DELTA_COUNT 100UL
 uint32_t Timer1_GetCountSum(void);
 uint16_t Timer1_GetCPM(void);
 

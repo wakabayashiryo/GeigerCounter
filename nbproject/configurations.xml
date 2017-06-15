@@ -30,10 +30,11 @@
       <itemPath>MCP4726.c</itemPath>
       <itemPath>Timer1.c</itemPath>
       <itemPath>Timer4.c</itemPath>
+      <itemPath>Timer6.c</itemPath>
       <itemPath>eeprom.c</itemPath>
       <itemPath>mTouch.c</itemPath>
       <itemPath>main.c</itemPath>
-      <itemPath>Timer6.c</itemPath>
+      <itemPath>table.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

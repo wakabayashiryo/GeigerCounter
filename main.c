@@ -7,6 +7,7 @@
 
 #include "main.h"
 
+const uint16_t DAC_DataTable[];
 uint8_t CPS_Data[3];
 uint8_t CPS_PreData[3];
 ModeConfig mode;
@@ -14,6 +15,10 @@ uint8_t mTouch_Interval[3];
 
 void mTouch_IntervalDecrement(void);
 uint8_t mTouch_Check(uint8_t chan);
+
+//TODO
+//Display time
+
 
 int8_t main(void)
 {
@@ -30,6 +35,8 @@ int8_t main(void)
     Timer1_StartCount();
 
     mode.ModeNum = 0;
+    
+    DAC_WriteVoltage(DAC_DataTable[6]);
     
     while(1)
     {

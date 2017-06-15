@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"12 main.c
+"13 main.c
 [c E3224 0 1 2 3 .. ]
 [n E3224 . COUNT SELECTFUNC ADJGAIN PMTDEVICE  ]
 "64 main.h
@@ -26,7 +26,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _DAC_Initialize `(v ~T0 @X0 0 ef ]
 "41 Timer1.h
 [v _Timer1_StartCount `(v ~T0 @X0 0 ef ]
-"16 main.c
+"82 MCP4726.h
+[v _DAC_WriteVoltage `(c ~T0 @X0 0 ef1`ui ]
+"17 main.c
 [v _mTouch_Check `(uc ~T0 @X0 0 ef1`uc ]
 "36 LCD.h
 [v _LCD_CursorHome `(v ~T0 @X0 0 ef ]
@@ -62,7 +64,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Timer1_DetectAssignCount `(uc ~T0 @X0 0 ef ]
 "18 Timer6.h
 [v _Timer6_CheckFlag `(uc ~T0 @X0 0 ef ]
-"15 main.c
+"16 main.c
 [v _mTouch_IntervalDecrement `(v ~T0 @X0 0 ef ]
 "22 mTouch.h
 [v _mTouch_Read `(v ~T0 @X0 0 ef ]
@@ -3129,323 +3131,333 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.h: 73: }ModeConfig;
 [; ;main.h: 75: int8_t Basic_Init(void);
 "10 main.c
-[v _CPS_Data `uc ~T0 @X0 -> 3 `i e ]
-[; ;main.c: 10: uint8_t CPS_Data[3];
+[v _DAC_DataTable `Cui ~T0 @X0 -> 0 `x e ]
+[i _DAC_DataTable
+:U ..
+..
+]
+[; ;main.c: 10: const uint16_t DAC_DataTable[];
 "11
-[v _CPS_PreData `uc ~T0 @X0 -> 3 `i e ]
-[; ;main.c: 11: uint8_t CPS_PreData[3];
+[v _CPS_Data `uc ~T0 @X0 -> 3 `i e ]
+[; ;main.c: 11: uint8_t CPS_Data[3];
 "12
-[v _mode `S365 ~T0 @X0 1 e ]
-[; ;main.c: 12: ModeConfig mode;
+[v _CPS_PreData `uc ~T0 @X0 -> 3 `i e ]
+[; ;main.c: 12: uint8_t CPS_PreData[3];
 "13
+[v _mode `S365 ~T0 @X0 1 e ]
+[; ;main.c: 13: ModeConfig mode;
+"14
 [v _mTouch_Interval `uc ~T0 @X0 -> 3 `i e ]
-[; ;main.c: 13: uint8_t mTouch_Interval[3];
-[; ;main.c: 15: void mTouch_IntervalDecrement(void);
-[; ;main.c: 16: uint8_t mTouch_Check(uint8_t chan);
-"18
+[; ;main.c: 14: uint8_t mTouch_Interval[3];
+[; ;main.c: 16: void mTouch_IntervalDecrement(void);
+[; ;main.c: 17: uint8_t mTouch_Check(uint8_t chan);
+"23
 [v _main `(c ~T0 @X0 1 ef ]
-"19
+"24
 {
-[; ;main.c: 18: int8_t main(void)
-[; ;main.c: 19: {
+[; ;main.c: 23: int8_t main(void)
+[; ;main.c: 24: {
 [e :U _main ]
 [f ]
-[; ;main.c: 20: Basic_Init();
-"20
-[e ( _Basic_Init ..  ]
-[; ;main.c: 21: LATA6 = 1;
-"21
-[e = _LATA6 -> -> 1 `i `b ]
-[; ;main.c: 22: Buzzer_Init();
-"22
-[e ( _Buzzer_Init ..  ]
-[; ;main.c: 23: LCD_Init();
-"23
-[e ( _LCD_Init ..  ]
-[; ;main.c: 24: Timer1_Init();
-"24
-[e ( _Timer1_Init ..  ]
-[; ;main.c: 25: mTouch_Init();
+[; ;main.c: 25: Basic_Init();
 "25
-[e ( _mTouch_Init ..  ]
-[; ;main.c: 26: Timer4_Init();
+[e ( _Basic_Init ..  ]
+[; ;main.c: 26: LATA6 = 1;
 "26
-[e ( _Timer4_Init ..  ]
-[; ;main.c: 27: Timer6_Init();
+[e = _LATA6 -> -> 1 `i `b ]
+[; ;main.c: 27: Buzzer_Init();
 "27
-[e ( _Timer6_Init ..  ]
-[; ;main.c: 28: DAC_Initialize();
+[e ( _Buzzer_Init ..  ]
+[; ;main.c: 28: LCD_Init();
 "28
-[e ( _DAC_Initialize ..  ]
-[; ;main.c: 30: Timer1_StartCount();
+[e ( _LCD_Init ..  ]
+[; ;main.c: 29: Timer1_Init();
+"29
+[e ( _Timer1_Init ..  ]
+[; ;main.c: 30: mTouch_Init();
 "30
-[e ( _Timer1_StartCount ..  ]
-[; ;main.c: 32: mode.ModeNum = 0;
+[e ( _mTouch_Init ..  ]
+[; ;main.c: 31: Timer4_Init();
+"31
+[e ( _Timer4_Init ..  ]
+[; ;main.c: 32: Timer6_Init();
 "32
-[e = . _mode 1 -> -> 0 `i `uc ]
-[; ;main.c: 34: while(1)
-"34
-[e :U 368 ]
-[; ;main.c: 35: {
+[e ( _Timer6_Init ..  ]
+[; ;main.c: 33: DAC_Initialize();
+"33
+[e ( _DAC_Initialize ..  ]
+[; ;main.c: 35: Timer1_StartCount();
 "35
-{
-[; ;main.c: 36: if(mTouch_Check(2)&&(mode.ModeNum<4-1))
-"36
-[e $ ! && != -> ( _mTouch_Check (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i < -> . _mode 1 `i - -> 4 `i -> 1 `i 370  ]
-[; ;main.c: 37: mode.ModeNum++;
+[e ( _Timer1_StartCount ..  ]
+[; ;main.c: 37: mode.ModeNum = 0;
 "37
+[e = . _mode 1 -> -> 0 `i `uc ]
+[; ;main.c: 39: DAC_WriteVoltage(DAC_DataTable[6]);
+"39
+[e ( _DAC_WriteVoltage (1 *U + &U _DAC_DataTable * -> -> -> 6 `i `ui `ux -> -> # *U &U _DAC_DataTable `ui `ux ]
+[; ;main.c: 41: while(1)
+"41
+[e :U 368 ]
+[; ;main.c: 42: {
+"42
+{
+[; ;main.c: 43: if(mTouch_Check(2)&&(mode.ModeNum<4-1))
+"43
+[e $ ! && != -> ( _mTouch_Check (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i < -> . _mode 1 `i - -> 4 `i -> 1 `i 370  ]
+[; ;main.c: 44: mode.ModeNum++;
+"44
 [e ++ . _mode 1 -> -> 1 `i `uc ]
 [e $U 371  ]
-"38
+"45
 [e :U 370 ]
-[; ;main.c: 38: else if(mTouch_Check(1)&&(mode.ModeNum>0))
+[; ;main.c: 45: else if(mTouch_Check(1)&&(mode.ModeNum>0))
 [e $ ! && != -> ( _mTouch_Check (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i > -> . _mode 1 `i -> 0 `i 372  ]
-[; ;main.c: 39: mode.ModeNum--;
-"39
+[; ;main.c: 46: mode.ModeNum--;
+"46
 [e -- . _mode 1 -> -> 1 `i `uc ]
 [e :U 372 ]
-"41
-[e :U 371 ]
-[; ;main.c: 41: LCD_CursorHome();
-[e ( _LCD_CursorHome ..  ]
-[; ;main.c: 42: switch(mode.ModeNum)
-"42
-[e $U 374  ]
-[; ;main.c: 43: {
-"43
-{
-[; ;main.c: 44: case COUNT:
-"44
-[e :U 375 ]
-[; ;main.c: 45: printf("%5ul %7ul", Timer1_GetCPM(),Timer1_GetCountSum());
-"45
-[e ( _printf , , (. :s 1C ( _Timer1_GetCPM ..  ( _Timer1_GetCountSum ..  ]
-[; ;main.c: 46: break;
-"46
-[e $U 373  ]
-[; ;main.c: 47: case SELECTFUNC:
-"47
-[e :U 376 ]
-[; ;main.c: 48: printf("SELECTFUNC");
 "48
-[e ( _printf :s 2C ]
-[; ;main.c: 49: break;
+[e :U 371 ]
+[; ;main.c: 48: LCD_CursorHome();
+[e ( _LCD_CursorHome ..  ]
+[; ;main.c: 49: switch(mode.ModeNum)
 "49
-[e $U 373  ]
-[; ;main.c: 50: case ADJGAIN:
+[e $U 374  ]
+[; ;main.c: 50: {
 "50
-[e :U 377 ]
-[; ;main.c: 51: printf("ADJGAIN");
+{
+[; ;main.c: 51: case COUNT:
 "51
-[e ( _printf :s 3C ]
-[; ;main.c: 52: break;
+[e :U 375 ]
+[; ;main.c: 52: printf("%5ul %7ul", Timer1_GetCPM(),Timer1_GetCountSum());
 "52
-[e $U 373  ]
-[; ;main.c: 53: case PMTDEVICE:
+[e ( _printf , , (. :s 1C ( _Timer1_GetCPM ..  ( _Timer1_GetCountSum ..  ]
+[; ;main.c: 53: break;
 "53
-[e :U 378 ]
-[; ;main.c: 54: printf("PMTDEVICE");
+[e $U 373  ]
+[; ;main.c: 54: case SELECTFUNC:
 "54
-[e ( _printf :s 4C ]
-[; ;main.c: 55: break;
+[e :U 376 ]
+[; ;main.c: 55: printf("SELECTFUNC");
 "55
-[e $U 373  ]
+[e ( _printf :s 2C ]
+[; ;main.c: 56: break;
 "56
-}
-[; ;main.c: 56: }
 [e $U 373  ]
-"42
+[; ;main.c: 57: case ADJGAIN:
+"57
+[e :U 377 ]
+[; ;main.c: 58: printf("ADJGAIN");
+"58
+[e ( _printf :s 3C ]
+[; ;main.c: 59: break;
+"59
+[e $U 373  ]
+[; ;main.c: 60: case PMTDEVICE:
+"60
+[e :U 378 ]
+[; ;main.c: 61: printf("PMTDEVICE");
+"61
+[e ( _printf :s 4C ]
+[; ;main.c: 62: break;
+"62
+[e $U 373  ]
+"63
+}
+[; ;main.c: 63: }
+[e $U 373  ]
+"49
 [e :U 374 ]
 [e [\ . _mode 1 , $ -> . `E3224 0 `uc 375
  , $ -> . `E3224 1 `uc 376
  , $ -> . `E3224 2 `uc 377
  , $ -> . `E3224 3 `uc 378
  373 ]
-"56
+"63
 [e :U 373 ]
-"57
+"64
 }
 [e :U 367 ]
-"34
+"41
 [e $U 368  ]
 [e :U 369 ]
-[; ;main.c: 57: }
-[; ;main.c: 59: return 0;
-"59
+[; ;main.c: 64: }
+[; ;main.c: 66: return 0;
+"66
 [e ) -> -> 0 `i `c ]
 [e $UE 366  ]
-[; ;main.c: 60: }
-"60
+[; ;main.c: 67: }
+"67
 [e :UE 366 ]
 }
-"62
+"69
 [v _Basic_Init `(c ~T0 @X0 1 ef ]
-"63
+"70
 {
-[; ;main.c: 62: int8_t Basic_Init(void)
-[; ;main.c: 63: {
+[; ;main.c: 69: int8_t Basic_Init(void)
+[; ;main.c: 70: {
 [e :U _Basic_Init ]
 [f ]
-[; ;main.c: 64: OSCCON = 0xF0;
-"64
-[e = _OSCCON -> -> 240 `i `uc ]
-[; ;main.c: 68: TRISA = 0x00;
-"68
-[e = _TRISA -> -> 0 `i `uc ]
-[; ;main.c: 69: ANSELA = 0x00;
-"69
-[e = _ANSELA -> -> 0 `i `uc ]
-[; ;main.c: 71: TRISB = 0x00;
+[; ;main.c: 71: OSCCON = 0xF0;
 "71
-[e = _TRISB -> -> 0 `i `uc ]
-[; ;main.c: 72: ANSELB = 0x00;
-"72
-[e = _ANSELB -> -> 0 `i `uc ]
-[; ;main.c: 74: APFCON0 = 0x00;
-"74
-[e = _APFCON0 -> -> 0 `i `uc ]
-[; ;main.c: 75: APFCON1 = 0x00;
+[e = _OSCCON -> -> 240 `i `uc ]
+[; ;main.c: 75: TRISA = 0x00;
 "75
-[e = _APFCON1 -> -> 0 `i `uc ]
-[; ;main.c: 77: PORTA = 0x00;
-"77
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 78: PORTB = 0x00;
+[e = _TRISA -> -> 0 `i `uc ]
+[; ;main.c: 76: ANSELA = 0x00;
+"76
+[e = _ANSELA -> -> 0 `i `uc ]
+[; ;main.c: 78: TRISB = 0x00;
 "78
+[e = _TRISB -> -> 0 `i `uc ]
+[; ;main.c: 79: ANSELB = 0x00;
+"79
+[e = _ANSELB -> -> 0 `i `uc ]
+[; ;main.c: 81: APFCON0 = 0x00;
+"81
+[e = _APFCON0 -> -> 0 `i `uc ]
+[; ;main.c: 82: APFCON1 = 0x00;
+"82
+[e = _APFCON1 -> -> 0 `i `uc ]
+[; ;main.c: 84: PORTA = 0x00;
+"84
+[e = _PORTA -> -> 0 `i `uc ]
+[; ;main.c: 85: PORTB = 0x00;
+"85
 [e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 80: return 0;
-"80
+[; ;main.c: 87: return 0;
+"87
 [e ) -> -> 0 `i `c ]
 [e $UE 379  ]
-[; ;main.c: 81: }
-"81
+[; ;main.c: 88: }
+"88
 [e :UE 379 ]
 }
-[v F3247 `(v ~T0 @X0 1 tf ]
-"83
-[v _Handler `IF3247 ~T0 @X0 1 e ]
-"84
+[v F3248 `(v ~T0 @X0 1 tf ]
+"90
+[v _Handler `IF3248 ~T0 @X0 1 e ]
+"91
 {
-[; ;main.c: 83: void interrupt Handler(void)
-[; ;main.c: 84: {
+[; ;main.c: 90: void interrupt Handler(void)
+[; ;main.c: 91: {
 [e :U _Handler ]
 [f ]
-[; ;main.c: 85: if(Timer4_CheckFlag())
-"85
+[; ;main.c: 92: if(Timer4_CheckFlag())
+"92
 [e $ ! != -> ( _Timer4_CheckFlag ..  `i -> -> -> 0 `i `uc `i 381  ]
-[; ;main.c: 86: Timer1_Count200us();
-"86
+[; ;main.c: 93: Timer1_Count200us();
+"93
 [e ( _Timer1_Count200us ..  ]
 [e :U 381 ]
-[; ;main.c: 88: if(Timer1_DetectAssignCount())
-"88
+[; ;main.c: 95: if(Timer1_DetectAssignCount())
+"95
 [e $ ! != -> ( _Timer1_DetectAssignCount ..  `i -> -> -> 0 `i `uc `i 382  ]
-[; ;main.c: 89: LATA6 = !LATA6;
-"89
+[; ;main.c: 96: LATA6 = !LATA6;
+"96
 [e = _LATA6 ! _LATA6 ]
 [e :U 382 ]
-[; ;main.c: 91: if(Timer6_CheckFlag())
-"91
+[; ;main.c: 98: if(Timer6_CheckFlag())
+"98
 [e $ ! != -> ( _Timer6_CheckFlag ..  `i -> -> -> 0 `i `uc `i 383  ]
-[; ;main.c: 92: {
-"92
+[; ;main.c: 99: {
+"99
 {
-[; ;main.c: 93: mTouch_IntervalDecrement();
-"93
+[; ;main.c: 100: mTouch_IntervalDecrement();
+"100
 [e ( _mTouch_IntervalDecrement ..  ]
-[; ;main.c: 95: mTouch_Read();
-"95
+[; ;main.c: 102: mTouch_Read();
+"102
 [e ( _mTouch_Read ..  ]
-[; ;main.c: 96: Buzzer_Count1ms();
-"96
+[; ;main.c: 103: Buzzer_Count1ms();
+"103
 [e ( _Buzzer_Count1ms ..  ]
-"97
+"104
 }
 [e :U 383 ]
-[; ;main.c: 97: }
-[; ;main.c: 98: I2C_CommonInterrupt();
-"98
+[; ;main.c: 104: }
+[; ;main.c: 105: I2C_CommonInterrupt();
+"105
 [e ( _I2C_CommonInterrupt ..  ]
-[; ;main.c: 99: }
-"99
+[; ;main.c: 106: }
+"106
 [e :UE 380 ]
 }
-"101
+"108
 [v _mTouch_IntervalDecrement `(v ~T0 @X0 1 ef ]
-"102
+"109
 {
-[; ;main.c: 101: void mTouch_IntervalDecrement(void)
-[; ;main.c: 102: {
+[; ;main.c: 108: void mTouch_IntervalDecrement(void)
+[; ;main.c: 109: {
 [e :U _mTouch_IntervalDecrement ]
 [f ]
-[; ;main.c: 103: if(mTouch_Interval[0]>0)
-"103
+[; ;main.c: 110: if(mTouch_Interval[0]>0)
+"110
 [e $ ! > -> *U + &U _mTouch_Interval * -> -> -> 0 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> 0 `i 385  ]
-[; ;main.c: 104: mTouch_Interval[0]--;
-"104
+[; ;main.c: 111: mTouch_Interval[0]--;
+"111
 [e -- *U + &U _mTouch_Interval * -> -> -> 0 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 1 `i `uc ]
 [e :U 385 ]
-[; ;main.c: 105: if(mTouch_Interval[1]>0)
-"105
+[; ;main.c: 112: if(mTouch_Interval[1]>0)
+"112
 [e $ ! > -> *U + &U _mTouch_Interval * -> -> -> 1 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> 0 `i 386  ]
-[; ;main.c: 106: mTouch_Interval[1]--;
-"106
+[; ;main.c: 113: mTouch_Interval[1]--;
+"113
 [e -- *U + &U _mTouch_Interval * -> -> -> 1 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 1 `i `uc ]
 [e :U 386 ]
-[; ;main.c: 107: if(mTouch_Interval[2]>0)
-"107
+[; ;main.c: 114: if(mTouch_Interval[2]>0)
+"114
 [e $ ! > -> *U + &U _mTouch_Interval * -> -> -> 2 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> 0 `i 387  ]
-[; ;main.c: 108: mTouch_Interval[2]--;
-"108
+[; ;main.c: 115: mTouch_Interval[2]--;
+"115
 [e -- *U + &U _mTouch_Interval * -> -> -> 2 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 1 `i `uc ]
 [e :U 387 ]
-[; ;main.c: 109: }
-"109
+[; ;main.c: 116: }
+"116
 [e :UE 384 ]
 }
-"111
+"118
 [v _mTouch_Check `(uc ~T0 @X0 1 ef1`uc ]
-"112
+"119
 {
-[; ;main.c: 111: uint8_t mTouch_Check(uint8_t chan)
-[; ;main.c: 112: {
+[; ;main.c: 118: uint8_t mTouch_Check(uint8_t chan)
+[; ;main.c: 119: {
 [e :U _mTouch_Check ]
-"111
+"118
 [v _chan `uc ~T0 @X0 1 r1 ]
-"112
+"119
 [f ]
-[; ;main.c: 113: if(chan>2)return 0;
-"113
+[; ;main.c: 120: if(chan>2)return 0;
+"120
 [e $ ! > -> _chan `i -> 2 `i 389  ]
 [e ) -> -> 0 `i `uc ]
 [e $UE 388  ]
 [e :U 389 ]
-[; ;main.c: 115: if(((CPS_PreData[chan]-CPS_Data[chan])>200)&&!mTouch_Interval[chan])
-"115
+[; ;main.c: 122: if(((CPS_PreData[chan]-CPS_Data[chan])>200)&&!mTouch_Interval[chan])
+"122
 [e $ ! && > - -> *U + &U _CPS_PreData * -> _chan `ux -> -> # *U &U _CPS_PreData `ui `ux `i -> *U + &U _CPS_Data * -> _chan `ux -> -> # *U &U _CPS_Data `ui `ux `i -> 200 `i ! != -> *U + &U _mTouch_Interval * -> _chan `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> -> -> 0 `i `uc `i 390  ]
-[; ;main.c: 116: {
-"116
+[; ;main.c: 123: {
+"123
 {
-[; ;main.c: 117: mTouch_Interval[chan] = 100;
-"117
+[; ;main.c: 124: mTouch_Interval[chan] = 100;
+"124
 [e = *U + &U _mTouch_Interval * -> _chan `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 100 `i `uc ]
-[; ;main.c: 118: Buzzer_MiliSecond(100);
-"118
+[; ;main.c: 125: Buzzer_MiliSecond(100);
+"125
 [e ( _Buzzer_MiliSecond (1 -> -> 100 `i `ui ]
-[; ;main.c: 119: return 1;
-"119
+[; ;main.c: 126: return 1;
+"126
 [e ) -> -> 1 `i `uc ]
 [e $UE 388  ]
-"120
+"127
 }
 [e :U 390 ]
-[; ;main.c: 120: }
-[; ;main.c: 121: return 0;
-"121
+[; ;main.c: 127: }
+[; ;main.c: 128: return 0;
+"128
 [e ) -> -> 0 `i `uc ]
 [e $UE 388  ]
-[; ;main.c: 122: }
-"122
+[; ;main.c: 129: }
+"129
 [e :UE 388 ]
 }
 [p f _printf 8422400 ]

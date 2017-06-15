@@ -4170,6 +4170,7 @@ uint8_t ModeNum;
 int8_t Basic_Init(void);
 
 # 10 "main.c"
+const uint16_t DAC_DataTable[];
 uint8_t CPS_Data[3];
 uint8_t CPS_PreData[3];
 ModeConfig mode;
@@ -4178,6 +4179,7 @@ uint8_t mTouch_Interval[3];
 void mTouch_IntervalDecrement(void);
 uint8_t mTouch_Check(uint8_t chan);
 
+# 23
 int8_t main(void)
 {
 Basic_Init();
@@ -4193,6 +4195,8 @@ DAC_Initialize();
 Timer1_StartCount();
 
 mode.ModeNum = 0;
+
+DAC_WriteVoltage(DAC_DataTable[6]);
 
 while(1)
 {

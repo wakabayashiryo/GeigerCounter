@@ -52,7 +52,7 @@ I2C_SPEED_STANDARD 0
 I2C_SPEED_HIGH 1
 I2C_SPEED_NONE 2
 ]
-"12 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+"13 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [e E3224 . `uc
 COUNT 0
 SELECTFUNC 1
@@ -127,18 +127,20 @@ PMTDEVICE 3
 [v _LCD_DisplayClear LCD_DisplayClear `(v  1 e 1 0 ]
 "84
 [v _LCD_CursorHome LCD_CursorHome `(v  1 e 1 0 ]
-"18 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+"23 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
-"62
+"69
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
-"83
+"90
 [v _Handler Handler `II(v  1 e 1 0 ]
-"101
+"108
 [v _mTouch_IntervalDecrement mTouch_IntervalDecrement `(v  1 e 1 0 ]
-"111
+"118
 [v _mTouch_Check mTouch_Check `(uc  1 e 1 0 ]
 "14 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/MCP4726.c
 [v _DAC_Initialize DAC_Initialize `(v  1 e 1 0 ]
+"27
+[v _DAC_WriteVoltage DAC_WriteVoltage `(c  1 e 1 0 ]
 "6 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/mTouch.c
 [v _mTouch_PortInit mTouch_PortInit `(v  1 s 1 mTouch_PortInit ]
 "12
@@ -342,14 +344,14 @@ PMTDEVICE 3
 [v _I2C1_Config I2C1_Config `S46  1 e 19 0 ]
 "4
 [v _I2C2_Config I2C2_Config `S46  1 e 19 0 ]
-"10 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+"11 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _CPS_Data CPS_Data `[3]uc  1 e 3 0 ]
-"11
-[v _CPS_PreData CPS_PreData `[3]uc  1 e 3 0 ]
-[s S556 . 2 `E3224 1 MODESTAT 1 0 `uc 1 ModeNum 1 1 ]
 "12
-[v _mode mode `S556  1 e 2 0 ]
+[v _CPS_PreData CPS_PreData `[3]uc  1 e 3 0 ]
+[s S565 . 2 `E3224 1 MODESTAT 1 0 `uc 1 ModeNum 1 1 ]
 "13
+[v _mode mode `S565  1 e 2 0 ]
+"14
 [v _mTouch_Interval mTouch_Interval `[3]uc  1 e 3 0 ]
 [s S413 . 1 `uc 1 Gain 1 0 :1:0 
 `uc 1 PowerDown 1 0 :2:1 
@@ -367,16 +369,18 @@ PMTDEVICE 3
 "11
 [u S426 . 2 `[2]uc 1 Voltage_Data 2 0 `S421 1 . 2 0 ]
 [v _VoltageReg VoltageReg `S426  1 s 2 VoltageReg ]
+"3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/table.c
+[v _DAC_DataTable DAC_DataTable `DCC[15]ui  1 e 30 0 ]
 [s S468 . 14 `ul 1 SigmaDeltaCount 4 0 `ul 1 SigmaCPM 4 4 `ui 1 AverageCPM 2 8 `ul 1 Num_of_Detect 4 10 ]
 "3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
 [v _cnts cnts `S468  1 s 14 cnts ]
 [s S473 . 6 `ul 1 Delta_t 4 0 `ui 1 RenewalCPM 2 4 ]
 "4
 [v _tcnt tcnt `S473  1 s 6 tcnt ]
-"18 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+"23 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
 {
-"60
+"67
 } 0
 "464 /opt/microchip/xc8/v1.41/sources/common/doprnt.c
 [v _printf printf `(i  1 e 2 0 ]
@@ -457,14 +461,14 @@ PMTDEVICE 3
 {
 "10
 } 0
-"111 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+"118 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _mTouch_Check mTouch_Check `(uc  1 e 1 0 ]
 {
 [v mTouch_Check@chan chan `uc  1 a 1 wreg ]
 [v mTouch_Check@chan chan `uc  1 a 1 wreg ]
-"113
+"120
 [v mTouch_Check@chan chan `uc  1 a 1 8 ]
-"122
+"129
 } 0
 "38 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Buzzer.c
 [v _Buzzer_MiliSecond Buzzer_MiliSecond `(v  1 e 1 0 ]
@@ -531,7 +535,13 @@ PMTDEVICE 3
 [v LCD_WriteData@point point `c  1 a 1 3 ]
 "22
 } 0
-"14 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/MCP4726.c
+"27 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/MCP4726.c
+[v _DAC_WriteVoltage DAC_WriteVoltage `(c  1 e 1 0 ]
+{
+[v DAC_WriteVoltage@volue volue `ui  1 p 2 17 ]
+"35
+} 0
+"14
 [v _DAC_Initialize DAC_Initialize `(v  1 e 1 0 ]
 {
 "25
@@ -633,15 +643,15 @@ PMTDEVICE 3
 {
 "29
 } 0
-"62 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+"69 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
 {
-"81
+"88
 } 0
-"83
+"90
 [v _Handler Handler `II(v  1 e 1 0 ]
 {
-"99
+"106
 } 0
 "29 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/mTouch.c
 [v _mTouch_Read mTouch_Read `(v  1 e 1 0 ]
@@ -650,10 +660,10 @@ PMTDEVICE 3
 [v mTouch_Read@channel channel `uc  1 s 1 channel ]
 "43
 } 0
-"101 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+"108 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _mTouch_IntervalDecrement mTouch_IntervalDecrement `(v  1 e 1 0 ]
 {
-"109
+"116
 } 0
 "17 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer6.c
 [v _Timer6_CheckFlag Timer6_CheckFlag `(uc  1 e 1 0 ]
