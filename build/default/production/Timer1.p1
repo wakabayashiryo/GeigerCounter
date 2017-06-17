@@ -3123,11 +3123,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.c: 17: T1GCON = 0x00;
 "17
 [e = _T1GCON -> -> 0 `i `uc ]
-[; ;Timer1.c: 19: {TMR1ON = 0; TMR1 = (uint16_t)0xFFFF - 100UL; TMR1ON = 1; };
+[; ;Timer1.c: 19: {TMR1ON = 0; TMR1 = (uint16_t)0xFFFF - 10UL; TMR1ON = 1; };
 "19
 {
 [e = _TMR1ON -> -> 0 `i `b ]
-[e = _TMR1 -> - -> -> 65535 `ui `ul -> 100 `ul `us ]
+[e = _TMR1 -> - -> -> 65535 `ui `ul -> 10 `ul `us ]
 [e = _TMR1ON -> -> 1 `i `b ]
 }
 [; ;Timer1.c: 21: TMR1IF = 0;
@@ -3190,11 +3190,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.c: 43: {
 [e :U _Timer1_ClearRecord ]
 [f ]
-[; ;Timer1.c: 44: {TMR1ON = 0; TMR1 = (uint16_t)0xFFFF - 100UL; TMR1ON = 1; };
+[; ;Timer1.c: 44: {TMR1ON = 0; TMR1 = (uint16_t)0xFFFF - 10UL; TMR1ON = 1; };
 "44
 {
 [e = _TMR1ON -> -> 0 `i `b ]
-[e = _TMR1 -> - -> -> 65535 `ui `ul -> 100 `ul `us ]
+[e = _TMR1 -> - -> -> 65535 `ui `ul -> 10 `ul `us ]
 [e = _TMR1ON -> -> 1 `i `b ]
 }
 [; ;Timer1.c: 45: cnts.SigmaDeltaCount= 0;
@@ -3271,22 +3271,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 "69
 [v F3246 `ui ~T0 @X0 1 s PreviousTimer1 ]
 [; ;Timer1.c: 69: static uint16_t PreviousTimer1;
-[; ;Timer1.c: 71: if((tcnt.Delta_t>500000)&&((uint16_t)TMR1==PreviousTimer1))
-"71
-[e $ ! && > . _tcnt 0 -> -> 500000 `l `ul == -> _TMR1 `ui F3246 374  ]
-[; ;Timer1.c: 72: cnts.SigmaCPM = 0;
-"72
-[e = . _cnts 1 -> -> -> 0 `i `l `ul ]
-[e :U 374 ]
-[; ;Timer1.c: 73: PreviousTimer1 = (uint16_t)TMR1;
-"73
-[e = F3246 -> _TMR1 `ui ]
 [; ;Timer1.c: 75: tcnt.RenewalCPM++;
 "75
 [e ++ . _tcnt 1 -> -> 1 `i `ui ]
 [; ;Timer1.c: 76: if((tcnt.RenewalCPM>5000)&&cnts.Num_of_Detect)
 "76
-[e $ ! && > . _tcnt 1 -> -> 5000 `i `ui != . _cnts 3 -> -> 0 `i `ul 375  ]
+[e $ ! && > . _tcnt 1 -> -> 5000 `i `ui != . _cnts 3 -> -> 0 `i `ul 374  ]
 [; ;Timer1.c: 77: {
 "77
 {
@@ -3298,31 +3288,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _cnts 2 -> / . _cnts 1 . _cnts 3 `ui ]
 "80
 }
-[e :U 375 ]
+[e :U 374 ]
 [; ;Timer1.c: 80: }
 [; ;Timer1.c: 82: if(TMR1IF&&TMR1IE)
 "82
-[e $ ! && _TMR1IF _TMR1IE 376  ]
+[e $ ! && _TMR1IF _TMR1IE 375  ]
 [; ;Timer1.c: 83: {
 "83
 {
-[; ;Timer1.c: 84: cnts.SigmaDeltaCount+= 100UL;
+[; ;Timer1.c: 84: cnts.SigmaDeltaCount+= 10UL;
 "84
-[e =+ . _cnts 0 -> 100 `ul ]
-[; ;Timer1.c: 86: cnts.SigmaCPM += (uint32_t)((100UL * 30000UL) / tcnt.Delta_t);
+[e =+ . _cnts 0 -> 10 `ul ]
+[; ;Timer1.c: 86: cnts.SigmaCPM += (uint32_t)((10UL * 30000UL) / tcnt.Delta_t);
 "86
-[e =+ . _cnts 1 / * -> 100 `ul -> 30000 `ul . _tcnt 0 ]
+[e =+ . _cnts 1 / * -> 10 `ul -> 30000 `ul . _tcnt 0 ]
 [; ;Timer1.c: 87: cnts.Num_of_Detect++;
 "87
 [e ++ . _cnts 3 -> -> -> 1 `i `l `ul ]
 [; ;Timer1.c: 89: tcnt.Delta_t = 0;
 "89
 [e = . _tcnt 0 -> -> -> 0 `i `l `ul ]
-[; ;Timer1.c: 90: {TMR1ON = 0; TMR1 = (uint16_t)0xFFFF-100UL; TMR1ON = 1; };
+[; ;Timer1.c: 90: {TMR1ON = 0; TMR1 = (uint16_t)0xFFFF-10UL; TMR1ON = 1; };
 "90
 {
 [e = _TMR1ON -> -> 0 `i `b ]
-[e = _TMR1 -> - -> -> 65535 `ui `ul -> 100 `ul `us ]
+[e = _TMR1 -> - -> -> 65535 `ui `ul -> 10 `ul `us ]
 [e = _TMR1ON -> -> 1 `i `b ]
 }
 [; ;Timer1.c: 91: TMR1IF = 0;
@@ -3334,7 +3324,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $UE 373  ]
 "93
 }
-[e :U 376 ]
+[e :U 375 ]
 [; ;Timer1.c: 93: }
 [; ;Timer1.c: 94: return 0;
 "94

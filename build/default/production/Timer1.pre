@@ -4186,7 +4186,7 @@ T1CON |= (0x02<<6);
 
 T1GCON = 0x00;
 
-{TMR1ON = 0; TMR1 = (uint16_t)0xFFFF - 100UL; TMR1ON = 1; };
+{TMR1ON = 0; TMR1 = (uint16_t)0xFFFF - 10UL; TMR1ON = 1; };
 
 TMR1IF = 0;
 TMR1IE = 1;
@@ -4211,7 +4211,7 @@ TMR1ON = 0;
 
 void Timer1_ClearRecord(void)
 {
-{TMR1ON = 0; TMR1 = (uint16_t)0xFFFF - 100UL; TMR1ON = 1; };
+{TMR1ON = 0; TMR1 = (uint16_t)0xFFFF - 10UL; TMR1ON = 1; };
 cnts.SigmaDeltaCount= 0;
 cnts.SigmaCPM = 0;
 cnts.Num_of_Detect = 0;
@@ -4238,10 +4238,7 @@ uint8_t Timer1_DetectAssignCount(void)
 {
 static uint16_t PreviousTimer1;
 
-if((tcnt.Delta_t>500000)&&((uint16_t)TMR1==PreviousTimer1))
-cnts.SigmaCPM = 0;
-PreviousTimer1 = (uint16_t)TMR1;
-
+# 75
 tcnt.RenewalCPM++;
 if((tcnt.RenewalCPM>5000)&&cnts.Num_of_Detect)
 {
@@ -4251,13 +4248,13 @@ cnts.AverageCPM = (uint16_t)(cnts.SigmaCPM/cnts.Num_of_Detect);
 
 if(TMR1IF&&TMR1IE)
 {
-cnts.SigmaDeltaCount+= 100UL;
+cnts.SigmaDeltaCount+= 10UL;
 
-cnts.SigmaCPM += (uint32_t)((100UL * 30000UL) / tcnt.Delta_t);
+cnts.SigmaCPM += (uint32_t)((10UL * 30000UL) / tcnt.Delta_t);
 cnts.Num_of_Detect++;
 
 tcnt.Delta_t = 0;
-{TMR1ON = 0; TMR1 = (uint16_t)0xFFFF-100UL; TMR1ON = 1; };
+{TMR1ON = 0; TMR1 = (uint16_t)0xFFFF-10UL; TMR1ON = 1; };
 TMR1IF = 0;
 return 1;
 }
