@@ -2870,26 +2870,59 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;math.h: 53: extern double fmod(double, double);
 [; ;math.h: 54: extern double trunc(double);
 [; ;math.h: 55: extern double round(double);
-[; ;Timer1.h: 19: typedef struct
-[; ;Timer1.h: 20: {
-[; ;Timer1.h: 21: uint32_t Delta_t;
-[; ;Timer1.h: 22: uint16_t RenewalCPM;
-[; ;Timer1.h: 23: }TimeCounter;
-[; ;Timer1.h: 25: typedef struct
-[; ;Timer1.h: 26: {
-[; ;Timer1.h: 27: uint32_t SigmaDeltaCount;
-[; ;Timer1.h: 28: uint32_t SigmaCPM;
-[; ;Timer1.h: 29: uint16_t AverageCPM;
-[; ;Timer1.h: 30: uint32_t Num_of_Detect;
-[; ;Timer1.h: 31: }Counters;
-[; ;Timer1.h: 40: void Timer1_Init(void);
-[; ;Timer1.h: 41: void Timer1_StartCount(void);
-[; ;Timer1.h: 42: void Timer1_StopCount(void);
-[; ;Timer1.h: 43: void Timer1_ClearRecord(void);
-[; ;Timer1.h: 46: uint32_t Timer1_GetCountSum(void);
-[; ;Timer1.h: 47: uint16_t Timer1_GetCPM(void);
-[; ;Timer1.h: 49: void Timer1_Count200us(void);
-[; ;Timer1.h: 50: uint8_t Timer1_DetectAssignCount(void);
+[; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 15: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 16: extern void * memset(void *, int, size_t);
+[; ;string.h: 20: extern void * __builtin_memcpy(void *, const void *, size_t);
+[; ;string.h: 34: extern char * strcat(char *, const char *);
+[; ;string.h: 35: extern char * strcpy(char *, const char *);
+[; ;string.h: 36: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 37: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 38: extern char * strdup(const char *);
+[; ;string.h: 39: extern char * strtok(char *, const char *);
+[; ;string.h: 42: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 43: extern int strcmp(const char *, const char *);
+[; ;string.h: 44: extern int stricmp(const char *, const char *);
+[; ;string.h: 45: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 46: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 47: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 48: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 49: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 50: extern size_t strspn(const char *, const char *);
+[; ;string.h: 51: extern char * strstr(const char *, const char *);
+[; ;string.h: 52: extern char * stristr(const char *, const char *);
+[; ;string.h: 53: extern char * strerror(int);
+[; ;string.h: 54: extern size_t strlen(const char *);
+[; ;string.h: 55: extern char * strchr(const char *, int);
+[; ;string.h: 56: extern char * strichr(const char *, int);
+[; ;string.h: 57: extern char * strrchr(const char *, int);
+[; ;string.h: 58: extern char * strrichr(const char *, int);
+[; ;Timer1.h: 20: typedef struct
+[; ;Timer1.h: 21: {
+[; ;Timer1.h: 22: uint8_t Second_t;
+[; ;Timer1.h: 23: uint8_t Minute_t;
+[; ;Timer1.h: 24: uint32_t Delta_t;
+[; ;Timer1.h: 25: uint16_t RenewalRersult;
+[; ;Timer1.h: 26: }TimeCounter;
+[; ;Timer1.h: 28: typedef struct
+[; ;Timer1.h: 29: {
+[; ;Timer1.h: 30: uint32_t SigmaDeltaCount;
+[; ;Timer1.h: 31: uint32_t SigmaCPS;
+[; ;Timer1.h: 32: uint32_t AverageCPS;
+[; ;Timer1.h: 33: uint32_t AverageCPM;
+[; ;Timer1.h: 34: uint32_t Num_of_Detect;
+[; ;Timer1.h: 35: }Counters;
+[; ;Timer1.h: 44: void Timer1_Init(void);
+[; ;Timer1.h: 45: void Timer1_StartCount(void);
+[; ;Timer1.h: 46: void Timer1_StopCount(void);
+[; ;Timer1.h: 47: void Timer1_ClearRecord(void);
+[; ;Timer1.h: 50: uint32_t Timer1_GetCountSum(void);
+[; ;Timer1.h: 51: uint32_t Timer1_GetCPM(void);
+[; ;Timer1.h: 52: uint32_t Timer1_GetCPS(void);
+[; ;Timer1.h: 53: uint8_t Timer1_GetSecond(void);
+[; ;Timer1.h: 54: uint8_t Timer1_GetMinute(void);
+[; ;Timer1.h: 56: void Timer1_Count1ms(void);
+[; ;Timer1.h: 57: uint8_t Timer1_DetectAssignCount(void);
 [; ;Buzzer.h: 41: void Buzzer_Init(void);
 [; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
 [; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);

@@ -262,9 +262,11 @@ extern double round(double);
 #pragma warning disable 350
 
 # 354
-const static unsigned int dpowers[] = {1, 10, 100, 1000, 10000,
+const static unsigned long dpowers[] = {1, 10, 100, 1000, 10000,
 
-# 359
+100000, 1000000, 10000000, 100000000,
+1000000000
+
 };
 
 # 455
@@ -281,10 +283,9 @@ signed char c;
 int width;
 
 
+int prec;
 
-
-signed char prec;
-
+# 508
 unsigned char flag;
 
 # 523
@@ -293,7 +294,7 @@ unsigned long vd;
 double integ;
 } tmpval;
 
-unsigned int val;
+unsigned long val;
 unsigned len;
 const char * cp;
 
@@ -326,11 +327,24 @@ width += *f++ - '0';
 # 608
 }
 
-# 635
+# 633
+loop:
+
 switch(c = *f++) {
 
 case 0:
 goto alldone;
+
+
+case 'l':
+
+flag |= 0x10;
+goto loop;
+
+# 697
+case 'd':
+case 'i':
+break;
 
 # 802
 default:
@@ -341,16 +355,43 @@ continue;
 
 
 case 'u':
-flag |= 0xC0;
+flag |= 0x40;
 break;
 
 
 }
 
-# 1273
+# 1251
+if((flag & 0x40) == 0x00)
+
 {
 
-# 1286
+if(flag & 0x10)
+val = (*(long *)__va_arg((*(long **)ap), (long)0));
+else
+
+val = (long)(*(int *)__va_arg((*(int **)ap), (int)0));
+
+if((long)val < 0) {
+flag |= 0x03;
+val = -val;
+}
+
+}
+
+else
+
+
+
+
+{
+
+# 1281
+if(flag & 0x10)
+val = (*(unsigned long *)__va_arg((*(unsigned long **)ap), (unsigned long)0));
+else
+
+
 val = (*(unsigned *)__va_arg((*(unsigned **)ap), (unsigned)0));
 }
 
@@ -358,6 +399,10 @@ val = (*(unsigned *)__va_arg((*(unsigned **)ap), (unsigned)0));
 for(c = 1 ; c != sizeof dpowers/sizeof dpowers[0] ; c++)
 if(val < dpowers[c])
 break;
+
+# 1345
+if(width && flag & 0x03)
+width--;
 
 # 1381
 if(width > c)
@@ -375,6 +420,10 @@ if(width
 do
 (putch(' ') );
 while(--width);
+
+# 1438
+if(flag & 0x03)
+(putch('-') );
 
 # 1469
 }

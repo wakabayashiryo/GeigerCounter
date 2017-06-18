@@ -1,17 +1,17 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "4 I2C_Common.c
-[c E3169 0 1 .. ]
-[n E3169 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
+[c E3266 0 1 .. ]
+[n E3266 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
 "43 I2C.h
-[s S365 `uc -> 8 `i `uc -> 8 `i `*uc 1 `*uc 1 `E3169 1 ]
+[s S365 `uc -> 8 `i `uc -> 8 `i `*uc 1 `*uc 1 `E3266 1 ]
 [n S365 . SlaveTransmitBuff SlaveReceiveBuff TransmitPoint ReceivePoint Mode ]
 "7 I2C_Common.c
-[c E3178 0 1 .. ]
-[n E3178 . I2C1_MODULE I2C2_MODULE  ]
-[c E3173 0 1 2 .. ]
-[n E3173 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
+[c E3275 0 1 .. ]
+[n E3275 . I2C1_MODULE I2C2_MODULE  ]
+[c E3270 0 1 2 .. ]
+[n E3270 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
 "56 I2C.h
-[v _I2C2_Setting `(v ~T0 @X0 0 ef3`uc`E3169`E3173 ]
+[v _I2C2_Setting `(v ~T0 @X0 0 ef3`uc`E3266`E3270 ]
 "7182 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [v _PEIE `Vb ~T0 @X0 0 e@94 ]
 "6960
@@ -2881,26 +2881,59 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;math.h: 53: extern double fmod(double, double);
 [; ;math.h: 54: extern double trunc(double);
 [; ;math.h: 55: extern double round(double);
-[; ;Timer1.h: 19: typedef struct
-[; ;Timer1.h: 20: {
-[; ;Timer1.h: 21: uint32_t Delta_t;
-[; ;Timer1.h: 22: uint16_t RenewalCPM;
-[; ;Timer1.h: 23: }TimeCounter;
-[; ;Timer1.h: 25: typedef struct
-[; ;Timer1.h: 26: {
-[; ;Timer1.h: 27: uint32_t SigmaDeltaCount;
-[; ;Timer1.h: 28: uint32_t SigmaCPM;
-[; ;Timer1.h: 29: uint16_t AverageCPM;
-[; ;Timer1.h: 30: uint32_t Num_of_Detect;
-[; ;Timer1.h: 31: }Counters;
-[; ;Timer1.h: 40: void Timer1_Init(void);
-[; ;Timer1.h: 41: void Timer1_StartCount(void);
-[; ;Timer1.h: 42: void Timer1_StopCount(void);
-[; ;Timer1.h: 43: void Timer1_ClearRecord(void);
-[; ;Timer1.h: 46: uint32_t Timer1_GetCountSum(void);
-[; ;Timer1.h: 47: uint16_t Timer1_GetCPM(void);
-[; ;Timer1.h: 49: void Timer1_Count200us(void);
-[; ;Timer1.h: 50: uint8_t Timer1_DetectAssignCount(void);
+[; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
+[; ;string.h: 15: extern void * memmove(void *, const void *, size_t);
+[; ;string.h: 16: extern void * memset(void *, int, size_t);
+[; ;string.h: 20: extern void * __builtin_memcpy(void *, const void *, size_t);
+[; ;string.h: 34: extern char * strcat(char *, const char *);
+[; ;string.h: 35: extern char * strcpy(char *, const char *);
+[; ;string.h: 36: extern char * strncat(char *, const char *, size_t);
+[; ;string.h: 37: extern char * strncpy(char *, const char *, size_t);
+[; ;string.h: 38: extern char * strdup(const char *);
+[; ;string.h: 39: extern char * strtok(char *, const char *);
+[; ;string.h: 42: extern int memcmp(const void *, const void *, size_t);
+[; ;string.h: 43: extern int strcmp(const char *, const char *);
+[; ;string.h: 44: extern int stricmp(const char *, const char *);
+[; ;string.h: 45: extern int strncmp(const char *, const char *, size_t);
+[; ;string.h: 46: extern int strnicmp(const char *, const char *, size_t);
+[; ;string.h: 47: extern void * memchr(const void *, int, size_t);
+[; ;string.h: 48: extern size_t strcspn(const char *, const char *);
+[; ;string.h: 49: extern char * strpbrk(const char *, const char *);
+[; ;string.h: 50: extern size_t strspn(const char *, const char *);
+[; ;string.h: 51: extern char * strstr(const char *, const char *);
+[; ;string.h: 52: extern char * stristr(const char *, const char *);
+[; ;string.h: 53: extern char * strerror(int);
+[; ;string.h: 54: extern size_t strlen(const char *);
+[; ;string.h: 55: extern char * strchr(const char *, int);
+[; ;string.h: 56: extern char * strichr(const char *, int);
+[; ;string.h: 57: extern char * strrchr(const char *, int);
+[; ;string.h: 58: extern char * strrichr(const char *, int);
+[; ;Timer1.h: 20: typedef struct
+[; ;Timer1.h: 21: {
+[; ;Timer1.h: 22: uint8_t Second_t;
+[; ;Timer1.h: 23: uint8_t Minute_t;
+[; ;Timer1.h: 24: uint32_t Delta_t;
+[; ;Timer1.h: 25: uint16_t RenewalRersult;
+[; ;Timer1.h: 26: }TimeCounter;
+[; ;Timer1.h: 28: typedef struct
+[; ;Timer1.h: 29: {
+[; ;Timer1.h: 30: uint32_t SigmaDeltaCount;
+[; ;Timer1.h: 31: uint32_t SigmaCPS;
+[; ;Timer1.h: 32: uint32_t AverageCPS;
+[; ;Timer1.h: 33: uint32_t AverageCPM;
+[; ;Timer1.h: 34: uint32_t Num_of_Detect;
+[; ;Timer1.h: 35: }Counters;
+[; ;Timer1.h: 44: void Timer1_Init(void);
+[; ;Timer1.h: 45: void Timer1_StartCount(void);
+[; ;Timer1.h: 46: void Timer1_StopCount(void);
+[; ;Timer1.h: 47: void Timer1_ClearRecord(void);
+[; ;Timer1.h: 50: uint32_t Timer1_GetCountSum(void);
+[; ;Timer1.h: 51: uint32_t Timer1_GetCPM(void);
+[; ;Timer1.h: 52: uint32_t Timer1_GetCPS(void);
+[; ;Timer1.h: 53: uint8_t Timer1_GetSecond(void);
+[; ;Timer1.h: 54: uint8_t Timer1_GetMinute(void);
+[; ;Timer1.h: 56: void Timer1_Count1ms(void);
+[; ;Timer1.h: 57: uint8_t Timer1_DetectAssignCount(void);
 [; ;Buzzer.h: 41: void Buzzer_Init(void);
 [; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
 [; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
@@ -3082,17 +3115,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _I2C2_Config `S365 ~T0 @X0 1 e ]
 [; ;I2C_Common.c: 4: I2Cx_Configuration I2C2_Config;
 "6
-[v _I2C_Init `(v ~T0 @X0 1 ef4`E3178`uc`E3169`E3173 ]
+[v _I2C_Init `(v ~T0 @X0 1 ef4`E3275`uc`E3266`E3270 ]
 "7
 {
 [; ;I2C_Common.c: 6: void I2C_Init(I2Cx_Module I2Cx,uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed)
 [; ;I2C_Common.c: 7: {
 [e :U _I2C_Init ]
 "6
-[v _I2Cx `E3178 ~T0 @X0 1 r1 ]
+[v _I2Cx `E3275 ~T0 @X0 1 r1 ]
 [v _address `uc ~T0 @X0 1 r2 ]
-[v _mode `E3169 ~T0 @X0 1 r3 ]
-[v _Speed `E3173 ~T0 @X0 1 r4 ]
+[v _mode `E3266 ~T0 @X0 1 r3 ]
+[v _Speed `E3270 ~T0 @X0 1 r4 ]
 "7
 [f ]
 [; ;I2C_Common.c: 8: switch(I2Cx)
@@ -3116,7 +3149,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 367  ]
 "8
 [e :U 368 ]
-[e [\ _I2Cx , $ . `E3178 1 369
+[e [\ _I2Cx , $ . `E3275 1 369
  367 ]
 "17
 [e :U 367 ]
@@ -3131,14 +3164,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 366 ]
 }
 "23
-[v _I2C_Transmit `(c ~T0 @X0 1 ef4`E3178`uc`*uc`uc ]
+[v _I2C_Transmit `(c ~T0 @X0 1 ef4`E3275`uc`*uc`uc ]
 "24
 {
 [; ;I2C_Common.c: 23: int8_t I2C_Transmit(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size)
 [; ;I2C_Common.c: 24: {
 [e :U _I2C_Transmit ]
 "23
-[v _I2Cx `E3178 ~T0 @X0 1 r1 ]
+[v _I2Cx `E3275 ~T0 @X0 1 r1 ]
 [v _address `uc ~T0 @X0 1 r2 ]
 [v _pData `*uc ~T0 @X0 1 r3 ]
 [v _size `uc ~T0 @X0 1 r4 ]
@@ -3168,7 +3201,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 371  ]
 "27
 [e :U 372 ]
-[e [\ _I2Cx , $ . `E3178 1 373
+[e [\ _I2Cx , $ . `E3275 1 373
  371 ]
 "36
 [e :U 371 ]
@@ -3181,14 +3214,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 370 ]
 }
 "40
-[v _I2C_Receive `(c ~T0 @X0 1 ef4`E3178`uc`*uc`uc ]
+[v _I2C_Receive `(c ~T0 @X0 1 ef4`E3275`uc`*uc`uc ]
 "41
 {
 [; ;I2C_Common.c: 40: int8_t I2C_Receive(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size)
 [; ;I2C_Common.c: 41: {
 [e :U _I2C_Receive ]
 "40
-[v _I2Cx `E3178 ~T0 @X0 1 r1 ]
+[v _I2Cx `E3275 ~T0 @X0 1 r1 ]
 [v _address `uc ~T0 @X0 1 r2 ]
 [v _pData `*uc ~T0 @X0 1 r3 ]
 [v _size `uc ~T0 @X0 1 r4 ]
@@ -3218,7 +3251,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 375  ]
 "44
 [e :U 376 ]
-[e [\ _I2Cx , $ . `E3178 1 377
+[e [\ _I2Cx , $ . `E3275 1 377
  375 ]
 "53
 [e :U 375 ]

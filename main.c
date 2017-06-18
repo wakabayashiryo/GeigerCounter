@@ -16,10 +16,6 @@ uint8_t mTouch_Interval[3];
 void mTouch_IntervalDecrement(void);
 uint8_t mTouch_Check(uint8_t chan);
 
-//TODO
-//Display time
-
-
 int8_t main(void)
 {
     Basic_Init();
@@ -28,7 +24,7 @@ int8_t main(void)
     LCD_Init();
     Timer1_Init();
     mTouch_Init();
-    Timer4_Init();
+//    Timer4_Init();
     Timer6_Init();
     DAC_Initialize();
     
@@ -49,8 +45,11 @@ int8_t main(void)
         switch(mode.ModeNum) 
         {
             case COUNT:
-                printf("%5ul %7ul", Timer1_GetCPM(),Timer1_GetCountSum());
-            break;
+                printf("%7lu %7lu", Timer1_GetCPM(),Timer1_GetCountSum());
+                LCD_CursorPosition(0,1);
+                printf("%6lu",Timer1_GetCPS());
+                printf("    %2d:%2d",Timer1_GetMinute(),Timer1_GetSecond());
+                break;
             case SELECTFUNC:
                 printf("SELECTFUNC");
             break;
@@ -89,15 +88,13 @@ int8_t Basic_Init(void)
 
 void interrupt Handler(void)
 {
-    if(Timer4_CheckFlag())
-        Timer1_Count200us();
-    
     if(Timer1_DetectAssignCount())
         LED_BLUE(LED_TOG);
 
     if(Timer6_CheckFlag())//every 1ms
     {
         mTouch_IntervalDecrement();
+        Timer1_Count1ms();
 
         mTouch_Read();
         Buzzer_Count1ms();

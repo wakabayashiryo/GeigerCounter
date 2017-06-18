@@ -3911,22 +3911,62 @@ extern double fmod(double, double);
 extern double trunc(double);
 extern double round(double);
 
-# 19 "Timer1.h"
+# 14 "/opt/microchip/xc8/v1.41/include/string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+
+
+extern void * __builtin_memcpy(void *, const void *, size_t);
+#pragma intrinsic(__builtin_memcpy)
+
+# 34
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
+# 20 "Timer1.h"
 typedef struct
 {
+uint8_t Second_t;
+uint8_t Minute_t;
 uint32_t Delta_t;
-uint16_t RenewalCPM;
+uint16_t RenewalRersult;
 }TimeCounter;
 
 typedef struct
 {
 uint32_t SigmaDeltaCount;
-uint32_t SigmaCPM;
-uint16_t AverageCPM;
+uint32_t SigmaCPS;
+uint32_t AverageCPS;
+uint32_t AverageCPM;
 uint32_t Num_of_Detect;
 }Counters;
 
-# 40
+# 44
 void Timer1_Init(void);
 void Timer1_StartCount(void);
 void Timer1_StopCount(void);
@@ -3934,9 +3974,12 @@ void Timer1_ClearRecord(void);
 
 
 uint32_t Timer1_GetCountSum(void);
-uint16_t Timer1_GetCPM(void);
+uint32_t Timer1_GetCPM(void);
+uint32_t Timer1_GetCPS(void);
+uint8_t Timer1_GetSecond(void);
+uint8_t Timer1_GetMinute(void);
 
-void Timer1_Count200us(void);
+void Timer1_Count1ms(void);
 uint8_t Timer1_DetectAssignCount(void);
 
 # 41 "Buzzer.h"
@@ -4179,7 +4222,6 @@ uint8_t mTouch_Interval[3];
 void mTouch_IntervalDecrement(void);
 uint8_t mTouch_Check(uint8_t chan);
 
-# 23
 int8_t main(void)
 {
 Basic_Init();
@@ -4188,7 +4230,7 @@ Buzzer_Init();
 LCD_Init();
 Timer1_Init();
 mTouch_Init();
-Timer4_Init();
+
 Timer6_Init();
 DAC_Initialize();
 
@@ -4209,7 +4251,10 @@ LCD_CursorHome();
 switch(mode.ModeNum)
 {
 case COUNT:
-printf("%5ul %7ul", Timer1_GetCPM(),Timer1_GetCountSum());
+printf("%7lu %7lu", Timer1_GetCPM(),Timer1_GetCountSum());
+LCD_CursorPosition(0,1);
+printf("%6lu",Timer1_GetCPS());
+printf("    %2d:%2d",Timer1_GetMinute(),Timer1_GetSecond());
 break;
 case SELECTFUNC:
 printf("SELECTFUNC");
@@ -4249,15 +4294,13 @@ return 0;
 
 void interrupt Handler(void)
 {
-if(Timer4_CheckFlag())
-Timer1_Count200us();
-
 if(Timer1_DetectAssignCount())
 LATA6 = !LATA6;
 
 if(Timer6_CheckFlag())
 {
 mTouch_IntervalDecrement();
+Timer1_Count1ms();
 
 mTouch_Read();
 Buzzer_Count1ms();

@@ -4141,22 +4141,62 @@ uint8_t ModeNum;
 
 int8_t Basic_Init(void);
 
-# 19 "Timer1.h"
+# 14 "/opt/microchip/xc8/v1.41/include/string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+
+
+
+extern void * __builtin_memcpy(void *, const void *, size_t);
+#pragma intrinsic(__builtin_memcpy)
+
+# 34
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+
+# 20 "Timer1.h"
 typedef struct
 {
+uint8_t Second_t;
+uint8_t Minute_t;
 uint32_t Delta_t;
-uint16_t RenewalCPM;
+uint16_t RenewalRersult;
 }TimeCounter;
 
 typedef struct
 {
 uint32_t SigmaDeltaCount;
-uint32_t SigmaCPM;
-uint16_t AverageCPM;
+uint32_t SigmaCPS;
+uint32_t AverageCPS;
+uint32_t AverageCPM;
 uint32_t Num_of_Detect;
 }Counters;
 
-# 40
+# 44
 void Timer1_Init(void);
 void Timer1_StartCount(void);
 void Timer1_StopCount(void);
@@ -4164,9 +4204,12 @@ void Timer1_ClearRecord(void);
 
 
 uint32_t Timer1_GetCountSum(void);
-uint16_t Timer1_GetCPM(void);
+uint32_t Timer1_GetCPM(void);
+uint32_t Timer1_GetCPS(void);
+uint8_t Timer1_GetSecond(void);
+uint8_t Timer1_GetMinute(void);
 
-void Timer1_Count200us(void);
+void Timer1_Count1ms(void);
 uint8_t Timer1_DetectAssignCount(void);
 
 # 3 "Timer1.c"
@@ -4186,7 +4229,7 @@ T1CON |= (0x02<<6);
 
 T1GCON = 0x00;
 
-{TMR1ON = 0; TMR1 = (uint16_t)0xFFFF - 10UL; TMR1ON = 1; };
+{TMR1ON = 0; TMR1 = (uint16_t)0xFFFF - 10UL+1; TMR1ON = 1; };
 
 TMR1IF = 0;
 TMR1IE = 1;
@@ -4211,11 +4254,15 @@ TMR1ON = 0;
 
 void Timer1_ClearRecord(void)
 {
-{TMR1ON = 0; TMR1 = (uint16_t)0xFFFF - 10UL; TMR1ON = 1; };
+{TMR1ON = 0; TMR1 = (uint16_t)0xFFFF - 10UL+1; TMR1ON = 1; };
 cnts.SigmaDeltaCount= 0;
-cnts.SigmaCPM = 0;
+cnts.SigmaCPS = 0;
+cnts.AverageCPS = 0;
+cnts.AverageCPM = 0;
 cnts.Num_of_Detect = 0;
 tcnt.Delta_t = 0;
+tcnt.Second_t = 0;
+tcnt.Minute_t = 0;
 }
 
 uint32_t Timer1_GetCountSum(void)
@@ -4223,38 +4270,70 @@ uint32_t Timer1_GetCountSum(void)
 return cnts.SigmaDeltaCount;
 }
 
-uint16_t Timer1_GetCPM(void)
+uint32_t Timer1_GetCPM(void)
 {
 return cnts.AverageCPM;
 }
 
+uint32_t Timer1_GetCPS(void)
+{
+return cnts.AverageCPS;
+}
 
-void Timer1_Count200us(void)
+uint8_t Timer1_GetSecond(void)
+{
+return tcnt.Second_t;
+}
+
+uint8_t Timer1_GetMinute(void)
+{
+return tcnt.Minute_t;
+}
+
+
+void Timer1_Count1ms(void)
 {
 tcnt.Delta_t++;
+tcnt.RenewalRersult++;
+if((tcnt.RenewalRersult>1000)&&cnts.Num_of_Detect)
+{
+tcnt.RenewalRersult = 0;
+cnts.AverageCPS = (uint32_t)(cnts.SigmaCPS/cnts.Num_of_Detect);
+cnts.AverageCPM = (uint32_t)(cnts.AverageCPS*60);
+
+tcnt.Second_t++;
+
+if((58==tcnt.Second_t)||(tcnt.Second_t==59))
+Buzzer_MiliSecond(100);
+else if(tcnt.Second_t==60)
+Buzzer_MiliSecond(500);
+
+if(tcnt.Second_t>59)
+{
+tcnt.Second_t = 0;
+tcnt.Minute_t++;
+}
+}
+
 }
 
 uint8_t Timer1_DetectAssignCount(void)
 {
 static uint16_t PreviousTimer1;
 
-# 75
-tcnt.RenewalCPM++;
-if((tcnt.RenewalCPM>5000)&&cnts.Num_of_Detect)
-{
-tcnt.RenewalCPM = 0;
-cnts.AverageCPM = (uint16_t)(cnts.SigmaCPM/cnts.Num_of_Detect);
-}
+if((tcnt.Delta_t>600000)&&((uint16_t)TMR1==PreviousTimer1))
+cnts.SigmaCPS = 0;
+PreviousTimer1 = (uint16_t)TMR1;
 
 if(TMR1IF&&TMR1IE)
 {
 cnts.SigmaDeltaCount+= 10UL;
 
-cnts.SigmaCPM += (uint32_t)((10UL * 30000UL) / tcnt.Delta_t);
+cnts.SigmaCPS += (uint32_t)((10UL * 1000UL) / tcnt.Delta_t);
 cnts.Num_of_Detect++;
 
 tcnt.Delta_t = 0;
-{TMR1ON = 0; TMR1 = (uint16_t)0xFFFF-10UL; TMR1ON = 1; };
+{TMR1ON = 0; TMR1 = (uint16_t)0xFFFF-10UL+1; TMR1ON = 1; };
 TMR1IF = 0;
 return 1;
 }
