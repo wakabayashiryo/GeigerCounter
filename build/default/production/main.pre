@@ -4212,7 +4212,7 @@ uint8_t ModeNum;
 
 int8_t Basic_Init(void);
 
-# 10 "main.c"
+# 14 "main.c"
 const uint16_t DAC_DataTable[];
 uint8_t CPS_Data[3];
 uint8_t CPS_PreData[3];
@@ -4254,7 +4254,7 @@ case COUNT:
 printf("%7lu %7lu", Timer1_GetCPM(),Timer1_GetCountSum());
 LCD_CursorPosition(0,1);
 printf("%6lu",Timer1_GetCPS());
-printf("    %2d:%2d",Timer1_GetMinute(),Timer1_GetSecond());
+printf("    %02d:%02d",Timer1_GetMinute(),Timer1_GetSecond());
 break;
 case SELECTFUNC:
 printf("SELECTFUNC");

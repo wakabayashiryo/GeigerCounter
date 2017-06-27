@@ -3363,117 +3363,101 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.c: 87: tcnt.RenewalRersult = 0;
 "87
 [e = . _tcnt 3 -> -> 0 `i `ui ]
-[; ;Timer1.c: 88: cnts.AverageCPS = (uint32_t)(cnts.SigmaCPS/cnts.Num_of_Detect);
-"88
-[e = . _cnts 2 / . _cnts 1 . _cnts 4 ]
-[; ;Timer1.c: 89: cnts.AverageCPM = (uint32_t)(cnts.AverageCPS*60);
+[; ;Timer1.c: 89: cnts.AverageCPS = (uint32_t)((cnts.SigmaDeltaCount * 1000UL)/tcnt.Delta_t);
 "89
+[e = . _cnts 2 / * . _cnts 0 -> 1000 `ul . _tcnt 2 ]
+[; ;Timer1.c: 90: cnts.AverageCPM = (uint32_t)(cnts.AverageCPS*60);
+"90
 [e = . _cnts 3 * . _cnts 2 -> -> -> 60 `i `l `ul ]
-[; ;Timer1.c: 91: tcnt.Second_t++;
-"91
+[; ;Timer1.c: 92: tcnt.Second_t++;
+"92
 [e ++ . _tcnt 0 -> -> 1 `i `uc ]
-[; ;Timer1.c: 93: if((58==tcnt.Second_t)||(tcnt.Second_t==59))
-"93
-[e $ ! || == -> 58 `i -> . _tcnt 0 `i == -> . _tcnt 0 `i -> 59 `i 377  ]
-[; ;Timer1.c: 94: Buzzer_MiliSecond(100);
+[; ;Timer1.c: 94: if((56<tcnt.Second_t)&&(tcnt.Second_t!=60))
 "94
-[e ( _Buzzer_MiliSecond (1 -> -> 100 `i `ui ]
-[e $U 378  ]
+[e $ ! && < -> 56 `i -> . _tcnt 0 `i != -> . _tcnt 0 `i -> 60 `i 377  ]
+[; ;Timer1.c: 95: Buzzer_MiliSecond(300);
 "95
-[e :U 377 ]
-[; ;Timer1.c: 95: else if(tcnt.Second_t==60)
-[e $ ! == -> . _tcnt 0 `i -> 60 `i 379  ]
-[; ;Timer1.c: 96: Buzzer_MiliSecond(500);
+[e ( _Buzzer_MiliSecond (1 -> -> 300 `i `ui ]
+[e $U 378  ]
 "96
-[e ( _Buzzer_MiliSecond (1 -> -> 500 `i `ui ]
+[e :U 377 ]
+[; ;Timer1.c: 96: else if(tcnt.Second_t==60)
+[e $ ! == -> . _tcnt 0 `i -> 60 `i 379  ]
+[; ;Timer1.c: 97: Buzzer_MiliSecond(600);
+"97
+[e ( _Buzzer_MiliSecond (1 -> -> 600 `i `ui ]
 [e :U 379 ]
-"98
-[e :U 378 ]
-[; ;Timer1.c: 98: if(tcnt.Second_t>59)
-[e $ ! > -> . _tcnt 0 `i -> 59 `i 380  ]
-[; ;Timer1.c: 99: {
 "99
-{
-[; ;Timer1.c: 100: tcnt.Second_t = 0;
+[e :U 378 ]
+[; ;Timer1.c: 99: if(tcnt.Second_t>59)
+[e $ ! > -> . _tcnt 0 `i -> 59 `i 380  ]
+[; ;Timer1.c: 100: {
 "100
-[e = . _tcnt 0 -> -> 0 `i `uc ]
-[; ;Timer1.c: 101: tcnt.Minute_t++;
+{
+[; ;Timer1.c: 101: tcnt.Second_t = 0;
 "101
-[e ++ . _tcnt 1 -> -> 1 `i `uc ]
+[e = . _tcnt 0 -> -> 0 `i `uc ]
+[; ;Timer1.c: 102: tcnt.Minute_t++;
 "102
-}
-[e :U 380 ]
+[e ++ . _tcnt 1 -> -> 1 `i `uc ]
 "103
 }
+[e :U 380 ]
+"104
+}
 [e :U 376 ]
-[; ;Timer1.c: 102: }
 [; ;Timer1.c: 103: }
-[; ;Timer1.c: 105: }
-"105
+[; ;Timer1.c: 104: }
+[; ;Timer1.c: 106: }
+"106
 [e :UE 375 ]
 }
-"107
-[v _Timer1_DetectAssignCount `(uc ~T0 @X0 1 ef ]
 "108
+[v _Timer1_DetectAssignCount `(uc ~T0 @X0 1 ef ]
+"109
 {
-[; ;Timer1.c: 107: uint8_t Timer1_DetectAssignCount(void)
-[; ;Timer1.c: 108: {
+[; ;Timer1.c: 108: uint8_t Timer1_DetectAssignCount(void)
+[; ;Timer1.c: 109: {
 [e :U _Timer1_DetectAssignCount ]
 [f ]
-"109
+"110
 [v F3348 `ui ~T0 @X0 1 s PreviousTimer1 ]
-[; ;Timer1.c: 109: static uint16_t PreviousTimer1;
-[; ;Timer1.c: 111: if((tcnt.Delta_t>600000)&&((uint16_t)TMR1==PreviousTimer1))
-"111
-[e $ ! && > . _tcnt 2 -> -> 600000 `l `ul == -> _TMR1 `ui F3348 382  ]
-[; ;Timer1.c: 112: cnts.SigmaCPS = 0;
-"112
-[e = . _cnts 1 -> -> -> 0 `i `l `ul ]
-[e :U 382 ]
-[; ;Timer1.c: 113: PreviousTimer1 = (uint16_t)TMR1;
-"113
-[e = F3348 -> _TMR1 `ui ]
-[; ;Timer1.c: 115: if(TMR1IF&&TMR1IE)
-"115
-[e $ ! && _TMR1IF _TMR1IE 383  ]
-[; ;Timer1.c: 116: {
+[; ;Timer1.c: 110: static uint16_t PreviousTimer1;
+[; ;Timer1.c: 116: if(TMR1IF&&TMR1IE)
 "116
-{
-[; ;Timer1.c: 117: cnts.SigmaDeltaCount+= 10UL;
+[e $ ! && _TMR1IF _TMR1IE 382  ]
+[; ;Timer1.c: 117: {
 "117
+{
+[; ;Timer1.c: 118: cnts.SigmaDeltaCount+= 10UL;
+"118
 [e =+ . _cnts 0 -> 10 `ul ]
-[; ;Timer1.c: 119: cnts.SigmaCPS += (uint32_t)((10UL * 1000UL) / tcnt.Delta_t);
-"119
-[e =+ . _cnts 1 / * -> 10 `ul -> 1000 `ul . _tcnt 2 ]
-[; ;Timer1.c: 120: cnts.Num_of_Detect++;
-"120
+[; ;Timer1.c: 121: cnts.Num_of_Detect++;
+"121
 [e ++ . _cnts 4 -> -> -> 1 `i `l `ul ]
-[; ;Timer1.c: 122: tcnt.Delta_t = 0;
-"122
-[e = . _tcnt 2 -> -> -> 0 `i `l `ul ]
-[; ;Timer1.c: 123: {TMR1ON = 0; TMR1 = (uint16_t)0xFFFF-10UL+1; TMR1ON = 1; };
-"123
+[; ;Timer1.c: 124: {TMR1ON = 0; TMR1 = (uint16_t)0xFFFF-10UL+1; TMR1ON = 1; };
+"124
 {
 [e = _TMR1ON -> -> 0 `i `b ]
 [e = _TMR1 -> + - -> -> 65535 `ui `ul -> 10 `ul -> -> -> 1 `i `l `ul `us ]
 [e = _TMR1ON -> -> 1 `i `b ]
 }
-[; ;Timer1.c: 124: TMR1IF = 0;
-"124
-[e = _TMR1IF -> -> 0 `i `b ]
-[; ;Timer1.c: 125: return 1;
+[; ;Timer1.c: 125: TMR1IF = 0;
 "125
+[e = _TMR1IF -> -> 0 `i `b ]
+[; ;Timer1.c: 126: return 1;
+"126
 [e ) -> -> 1 `i `uc ]
 [e $UE 381  ]
-"126
-}
-[e :U 383 ]
-[; ;Timer1.c: 126: }
-[; ;Timer1.c: 127: return 0;
 "127
+}
+[e :U 382 ]
+[; ;Timer1.c: 127: }
+[; ;Timer1.c: 128: return 0;
+"128
 [e ) -> -> 0 `i `uc ]
 [e $UE 381  ]
-[; ;Timer1.c: 128: }
-"128
+[; ;Timer1.c: 129: }
+"129
 [e :UE 381 ]
 }

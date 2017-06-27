@@ -3088,7 +3088,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.h: 72: uint8_t ModeNum;
 [; ;main.h: 73: }ModeConfig;
 [; ;main.h: 75: int8_t Basic_Init(void);
-"3 table.c
+"4 table.c
 [v _DAC_DataTable `Cui ~T0 @X0 -> 0 `x e ]
 [i _DAC_DataTable
 :U ..
@@ -3109,9 +3109,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 982 `i `ui
 ..
 ]
-[; ;table.c: 3: const uint16_t DAC_DataTable[]={ 409,450,491,532,573, 614,655,696,737,778, 819,859,900,941,982,
-[; ;table.c: 8: };
-"10
+[; ;table.c: 4: const uint16_t DAC_DataTable[]={ 409,450,491,532,573, 614,655,696,737,778, 819,859,900,941,982,
+[; ;table.c: 9: };
+"11
 [v _DAC_VoltageTable `*Cuc ~T0 @X0 -> 0 `x e ]
 [i _DAC_VoltageTable
 :U ..
@@ -3132,9 +3132,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 :s 15C
 ..
 ]
-[; ;table.c: 10: const uint8_t *DAC_VoltageTable[]={ "0.5V","0.55V","0.6V","0.65V","0.7V", "0.75V","0.8V","0.85V","0.9V","0.95V", "1.0V","1.05V","1.1V","1.15V","1.2V",
-[; ;table.c: 15: };
-"17
+[; ;table.c: 11: const uint8_t *DAC_VoltageTable[]={ "0.5V","0.55V","0.6V","0.65V","0.7V", "0.75V","0.8V","0.85V","0.9V","0.95V", "1.0V","1.05V","1.1V","1.15V","1.2V",
+[; ;table.c: 16: };
+"18
 [v _H7826_Gain `*Cuc ~T0 @X0 -> 0 `x e ]
 [i _H7826_Gain
 :U ..
@@ -3155,9 +3155,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 :s 30C
 ..
 ]
-[; ;table.c: 17: const uint8_t *H7826_Gain[]={ "1777","3957","8219","16099","30000", "53553","92088","153228","247647","389988", "600000","903899","1336006","1940673","2774562",
-[; ;table.c: 22: };
-"24
+[; ;table.c: 18: const uint8_t *H7826_Gain[]={ "1777","3957","8219","16099","30000", "53553","92088","153228","247647","389988", "600000","903899","1336006","1940673","2774562",
+[; ;table.c: 23: };
+"25
 [v _H7826_01_Gain `*Cuc ~T0 @X0 -> 0 `x e ]
 [i _H7826_01_Gain
 :U ..
@@ -3178,8 +3178,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 :s 45C
 ..
 ]
-[; ;table.c: 24: const uint8_t *H7826_01_Gain[]={"1250","2580","4998","9182","16125", "27238","44478","70500","108843","164139", "242364","351127","499999","700890","968472",
-[; ;table.c: 29: };
+[; ;table.c: 25: const uint8_t *H7826_01_Gain[]={"1250","2580","4998","9182","16125", "27238","44478","70500","108843","164139", "242364","351127","499999","700890","968472",
+[; ;table.c: 30: };
 [a 9C 48 46 57 86 0 ]
 [a 7C 48 46 56 86 0 ]
 [a 5C 48 46 55 86 0 ]

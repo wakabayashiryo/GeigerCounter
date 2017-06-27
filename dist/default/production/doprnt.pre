@@ -316,6 +316,19 @@ width = 0;
 
 flag = 0;
 
+for(;;) {
+switch(*f) {
+
+# 579
+case '0':
+flag |= 0x04;
+f++;
+continue;
+
+}
+break;
+}
+
 # 597
 if(isdigit((unsigned)*f)) {
 width = 0;
@@ -410,7 +423,23 @@ width -= c;
 else
 width = 0;
 
-# 1422
+
+if(flag & 0x04) {
+
+
+
+
+if(flag & 0x03)
+(putch('-') );
+
+# 1415
+if(width)
+do
+(putch('0') );
+while(--width);
+
+} else
+
 {
 
 if(width

@@ -7,6 +7,10 @@
 
 #include "main.h"
 
+//TODO
+//Display of CPS CPM measurement time after the user has stopped
+//Only Sum Count diplay on LCD always.
+
 const uint16_t DAC_DataTable[];
 uint8_t CPS_Data[3];
 uint8_t CPS_PreData[3];
@@ -48,7 +52,7 @@ int8_t main(void)
                 printf("%7lu %7lu", Timer1_GetCPM(),Timer1_GetCountSum());
                 LCD_CursorPosition(0,1);
                 printf("%6lu",Timer1_GetCPS());
-                printf("    %2d:%2d",Timer1_GetMinute(),Timer1_GetSecond());
+                printf("    %02d:%02d",Timer1_GetMinute(),Timer1_GetSecond());
                 break;
             case SELECTFUNC:
                 printf("SELECTFUNC");
