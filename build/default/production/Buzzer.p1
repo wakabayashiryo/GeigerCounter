@@ -2913,22 +2913,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.h: 28: typedef struct
 [; ;Timer1.h: 29: {
 [; ;Timer1.h: 30: uint32_t SigmaDeltaCount;
-[; ;Timer1.h: 31: uint32_t SigmaCPS;
-[; ;Timer1.h: 32: uint32_t AverageCPS;
-[; ;Timer1.h: 33: uint32_t AverageCPM;
-[; ;Timer1.h: 34: uint32_t Num_of_Detect;
-[; ;Timer1.h: 35: }Counters;
-[; ;Timer1.h: 44: void Timer1_Init(void);
-[; ;Timer1.h: 45: void Timer1_StartCount(void);
-[; ;Timer1.h: 46: void Timer1_StopCount(void);
-[; ;Timer1.h: 47: void Timer1_ClearRecord(void);
-[; ;Timer1.h: 50: uint32_t Timer1_GetCountSum(void);
-[; ;Timer1.h: 51: uint32_t Timer1_GetCPM(void);
-[; ;Timer1.h: 52: uint32_t Timer1_GetCPS(void);
-[; ;Timer1.h: 53: uint8_t Timer1_GetSecond(void);
-[; ;Timer1.h: 54: uint8_t Timer1_GetMinute(void);
-[; ;Timer1.h: 56: void Timer1_Count1ms(void);
-[; ;Timer1.h: 57: uint8_t Timer1_DetectAssignCount(void);
+[; ;Timer1.h: 31: uint32_t AverageCPS;
+[; ;Timer1.h: 32: uint32_t AverageCPM;
+[; ;Timer1.h: 33: }Counters;
+[; ;Timer1.h: 42: void Timer1_Init(void);
+[; ;Timer1.h: 43: void Timer1_StartCount(void);
+[; ;Timer1.h: 44: void Timer1_StopCount(void);
+[; ;Timer1.h: 45: void Timer1_ClearRecord(void);
+[; ;Timer1.h: 48: uint32_t Timer1_GetCountSum(void);
+[; ;Timer1.h: 49: uint32_t Timer1_GetCPM(void);
+[; ;Timer1.h: 50: uint32_t Timer1_GetCPS(void);
+[; ;Timer1.h: 51: uint8_t Timer1_GetSecond(void);
+[; ;Timer1.h: 52: uint8_t Timer1_GetMinute(void);
+[; ;Timer1.h: 54: void Timer1_Count1ms(void);
+[; ;Timer1.h: 55: uint8_t Timer1_DetectAssignCount(void);
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void putch(char c);
@@ -3027,8 +3025,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.h: 19: int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
 [; ;mTouch.h: 21: void mTouch_Init(void);
 [; ;mTouch.h: 22: void mTouch_Read(void);
-[; ;Timer4.h: 17: void Timer4_Init(void);
-[; ;Timer4.h: 18: uint8_t Timer4_CheckFlag(void);
 [; ;Timer6.h: 17: void Timer6_Init(void);
 [; ;Timer6.h: 18: uint8_t Timer6_CheckFlag(void);
 [; ;stdarg.h: 7: typedef void * va_list[1];
@@ -3060,48 +3056,48 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
 [; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 195: extern int printf(const char *, ...);
-"34 main.h
+"33 main.h
 [p x FOSC=INTOSC ]
-"35
+"34
 [p x WDTE=OFF ]
-"36
+"35
 [p x PWRTE=ON ]
-"37
+"36
 [p x MCLRE=ON ]
-"38
+"37
 [p x CP=OFF ]
-"39
+"38
 [p x CPD=OFF ]
-"40
+"39
 [p x BOREN=ON ]
-"41
+"40
 [p x CLKOUTEN=OFF ]
-"42
+"41
 [p x IESO=OFF ]
-"43
+"42
 [p x FCMEN=OFF ]
-"46
+"45
 [p x WRT=OFF ]
-"47
+"46
 [p x PLLEN=ON ]
-"48
+"47
 [p x STVREN=OFF ]
-"49
+"48
 [p x BORV=LO ]
-"50
+"49
 [p x LVP=OFF ]
-[; ;main.h: 63: typedef struct
-[; ;main.h: 64: {
-[; ;main.h: 65: enum
-[; ;main.h: 66: {
-[; ;main.h: 67: COUNT = 0,
-[; ;main.h: 68: SELECTFUNC = 1,
-[; ;main.h: 69: ADJGAIN = 2,
-[; ;main.h: 70: PMTDEVICE = 3
-[; ;main.h: 71: }MODESTAT;
-[; ;main.h: 72: uint8_t ModeNum;
-[; ;main.h: 73: }ModeConfig;
-[; ;main.h: 75: int8_t Basic_Init(void);
+[; ;main.h: 62: typedef struct
+[; ;main.h: 63: {
+[; ;main.h: 64: enum
+[; ;main.h: 65: {
+[; ;main.h: 66: COUNT = 0,
+[; ;main.h: 67: SELECTFUNC = 1,
+[; ;main.h: 68: ADJGAIN = 2,
+[; ;main.h: 69: PMTDEVICE = 3
+[; ;main.h: 70: }MODESTAT;
+[; ;main.h: 71: uint8_t ModeNum;
+[; ;main.h: 72: }ModeConfig;
+[; ;main.h: 74: int8_t Basic_Init(void);
 [; ;Buzzer.h: 41: void Buzzer_Init(void);
 [; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
 [; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);

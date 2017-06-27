@@ -3960,13 +3960,11 @@ uint16_t RenewalRersult;
 typedef struct
 {
 uint32_t SigmaDeltaCount;
-uint32_t SigmaCPS;
 uint32_t AverageCPS;
 uint32_t AverageCPM;
-uint32_t Num_of_Detect;
 }Counters;
 
-# 44
+# 42
 void Timer1_Init(void);
 void Timer1_StartCount(void);
 void Timer1_StopCount(void);
@@ -4099,10 +4097,6 @@ int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
 void mTouch_Init(void);
 void mTouch_Read(void);
 
-# 17 "Timer4.h"
-void Timer4_Init(void);
-uint8_t Timer4_CheckFlag(void);
-
 # 17 "Timer6.h"
 void Timer6_Init(void);
 uint8_t Timer6_CheckFlag(void);
@@ -4168,7 +4162,7 @@ extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
 
-# 34 "main.h"
+# 33 "main.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = OFF
 #pragma config PWRTE = ON
@@ -4187,7 +4181,7 @@ extern int printf(const char *, ...);
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 63
+# 62
 typedef struct
 {
 enum

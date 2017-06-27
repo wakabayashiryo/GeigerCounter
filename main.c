@@ -28,7 +28,6 @@ int8_t main(void)
     LCD_Init();
     Timer1_Init();
     mTouch_Init();
-//    Timer4_Init();
     Timer6_Init();
     DAC_Initialize();
     

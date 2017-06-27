@@ -43,10 +43,8 @@ void Timer1_ClearRecord(void)
 {
     Timer1_Reset();
     cnts.SigmaDeltaCount= 0;
-    cnts.SigmaCPS = 0;
     cnts.AverageCPS = 0;
     cnts.AverageCPM = 0;
-    cnts.Num_of_Detect = 0;
     tcnt.Delta_t = 0;
     tcnt.Second_t = 0;
     tcnt.Minute_t = 0;
@@ -82,10 +80,9 @@ void Timer1_Count1ms(void)
 {
     tcnt.Delta_t++;
     tcnt.RenewalRersult++;
-    if((tcnt.RenewalRersult>1000)&&cnts.Num_of_Detect)//Renewal Rersult Average of CPM every 1 second
+    if((tcnt.RenewalRersult>1000))//Renewal Rersult Average of CPM every 1 second
     {
         tcnt.RenewalRersult = 0;  
-//        cnts.AverageCPS = (uint32_t)(cnts.SigmaCPS/cnts.Num_of_Detect);
         cnts.AverageCPS = (uint32_t)((cnts.SigmaDeltaCount * 1000UL)/tcnt.Delta_t);
         cnts.AverageCPM = (uint32_t)(cnts.AverageCPS*60);
 
@@ -107,20 +104,10 @@ void Timer1_Count1ms(void)
 
 uint8_t Timer1_DetectAssignCount(void)//put into interrupt function
 {
-    static uint16_t PreviousTimer1;
-
-//    if((tcnt.Delta_t>600000)&&(Timer1_Read()==PreviousTimer1))//If Counter did not detect between 1count and 10 counts. Reset CPM
-//        cnts.SigmaCPS = 0;
-//    PreviousTimer1 = Timer1_Read();
-    
     if(TMR1IF&&TMR1IE)//Interrupt flag is rised by detected every 10 counts
     {
         cnts.SigmaDeltaCount+= DELTA_COUNT;
-        
-//        cnts.SigmaCPS += (uint32_t)((DELTA_COUNT * 1000UL) / tcnt.Delta_t);
-        cnts.Num_of_Detect++;//Number of Detected 10 counts
-        
-//        tcnt.Delta_t = 0;
+                
         Timer1_Write(0xFFFF-DELTA_COUNT+1);
         TMR1IF = 0;
         return 1;

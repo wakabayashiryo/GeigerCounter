@@ -4,12 +4,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 "2846
 [v _ANSELB `Vuc ~T0 @X0 0 e@397 ]
 "16 I2C2.c
-[c E3266 0 1 .. ]
-[n E3266 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
-[c E3270 0 1 2 .. ]
-[n E3270 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
+[c E3260 0 1 .. ]
+[n E3260 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
+[c E3264 0 1 2 .. ]
+[n E3264 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
 "43 I2C.h
-[s S365 `uc -> 8 `i `uc -> 8 `i `*uc 1 `*uc 1 `E3266 1 ]
+[s S365 `uc -> 8 `i `uc -> 8 `i `*uc 1 `*uc 1 `E3260 1 ]
 [n S365 . SlaveTransmitBuff SlaveReceiveBuff TransmitPoint ReceivePoint Mode ]
 "7 I2C2.c
 [v _I2C2_Config `S365 ~T0 @X0 0 e ]
@@ -2956,22 +2956,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.h: 28: typedef struct
 [; ;Timer1.h: 29: {
 [; ;Timer1.h: 30: uint32_t SigmaDeltaCount;
-[; ;Timer1.h: 31: uint32_t SigmaCPS;
-[; ;Timer1.h: 32: uint32_t AverageCPS;
-[; ;Timer1.h: 33: uint32_t AverageCPM;
-[; ;Timer1.h: 34: uint32_t Num_of_Detect;
-[; ;Timer1.h: 35: }Counters;
-[; ;Timer1.h: 44: void Timer1_Init(void);
-[; ;Timer1.h: 45: void Timer1_StartCount(void);
-[; ;Timer1.h: 46: void Timer1_StopCount(void);
-[; ;Timer1.h: 47: void Timer1_ClearRecord(void);
-[; ;Timer1.h: 50: uint32_t Timer1_GetCountSum(void);
-[; ;Timer1.h: 51: uint32_t Timer1_GetCPM(void);
-[; ;Timer1.h: 52: uint32_t Timer1_GetCPS(void);
-[; ;Timer1.h: 53: uint8_t Timer1_GetSecond(void);
-[; ;Timer1.h: 54: uint8_t Timer1_GetMinute(void);
-[; ;Timer1.h: 56: void Timer1_Count1ms(void);
-[; ;Timer1.h: 57: uint8_t Timer1_DetectAssignCount(void);
+[; ;Timer1.h: 31: uint32_t AverageCPS;
+[; ;Timer1.h: 32: uint32_t AverageCPM;
+[; ;Timer1.h: 33: }Counters;
+[; ;Timer1.h: 42: void Timer1_Init(void);
+[; ;Timer1.h: 43: void Timer1_StartCount(void);
+[; ;Timer1.h: 44: void Timer1_StopCount(void);
+[; ;Timer1.h: 45: void Timer1_ClearRecord(void);
+[; ;Timer1.h: 48: uint32_t Timer1_GetCountSum(void);
+[; ;Timer1.h: 49: uint32_t Timer1_GetCPM(void);
+[; ;Timer1.h: 50: uint32_t Timer1_GetCPS(void);
+[; ;Timer1.h: 51: uint8_t Timer1_GetSecond(void);
+[; ;Timer1.h: 52: uint8_t Timer1_GetMinute(void);
+[; ;Timer1.h: 54: void Timer1_Count1ms(void);
+[; ;Timer1.h: 55: uint8_t Timer1_DetectAssignCount(void);
 [; ;Buzzer.h: 41: void Buzzer_Init(void);
 [; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
 [; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
@@ -3038,8 +3036,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.h: 19: int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
 [; ;mTouch.h: 21: void mTouch_Init(void);
 [; ;mTouch.h: 22: void mTouch_Read(void);
-[; ;Timer4.h: 17: void Timer4_Init(void);
-[; ;Timer4.h: 18: uint8_t Timer4_CheckFlag(void);
 [; ;Timer6.h: 17: void Timer6_Init(void);
 [; ;Timer6.h: 18: uint8_t Timer6_CheckFlag(void);
 [; ;stdarg.h: 7: typedef void * va_list[1];
@@ -3071,48 +3067,48 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
 [; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 195: extern int printf(const char *, ...);
-"34 main.h
+"33 main.h
 [p x FOSC=INTOSC ]
-"35
+"34
 [p x WDTE=OFF ]
-"36
+"35
 [p x PWRTE=ON ]
-"37
+"36
 [p x MCLRE=ON ]
-"38
+"37
 [p x CP=OFF ]
-"39
+"38
 [p x CPD=OFF ]
-"40
+"39
 [p x BOREN=ON ]
-"41
+"40
 [p x CLKOUTEN=OFF ]
-"42
+"41
 [p x IESO=OFF ]
-"43
+"42
 [p x FCMEN=OFF ]
-"46
+"45
 [p x WRT=OFF ]
-"47
+"46
 [p x PLLEN=ON ]
-"48
+"47
 [p x STVREN=OFF ]
-"49
+"48
 [p x BORV=LO ]
-"50
+"49
 [p x LVP=OFF ]
-[; ;main.h: 63: typedef struct
-[; ;main.h: 64: {
-[; ;main.h: 65: enum
-[; ;main.h: 66: {
-[; ;main.h: 67: COUNT = 0,
-[; ;main.h: 68: SELECTFUNC = 1,
-[; ;main.h: 69: ADJGAIN = 2,
-[; ;main.h: 70: PMTDEVICE = 3
-[; ;main.h: 71: }MODESTAT;
-[; ;main.h: 72: uint8_t ModeNum;
-[; ;main.h: 73: }ModeConfig;
-[; ;main.h: 75: int8_t Basic_Init(void);
+[; ;main.h: 62: typedef struct
+[; ;main.h: 63: {
+[; ;main.h: 64: enum
+[; ;main.h: 65: {
+[; ;main.h: 66: COUNT = 0,
+[; ;main.h: 67: SELECTFUNC = 1,
+[; ;main.h: 68: ADJGAIN = 2,
+[; ;main.h: 69: PMTDEVICE = 3
+[; ;main.h: 70: }MODESTAT;
+[; ;main.h: 71: uint8_t ModeNum;
+[; ;main.h: 72: }ModeConfig;
+[; ;main.h: 74: int8_t Basic_Init(void);
 [; ;I2C.h: 23: typedef enum
 [; ;I2C.h: 24: {
 [; ;I2C.h: 25: I2C_MODE_MASTER,
@@ -3169,7 +3165,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 366 ]
 }
 "15
-[v _I2C2_Setting `(v ~T0 @X0 1 ef3`uc`E3266`E3270 ]
+[v _I2C2_Setting `(v ~T0 @X0 1 ef3`uc`E3260`E3264 ]
 "16
 {
 [; ;I2C2.c: 15: void I2C2_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed)
@@ -3177,8 +3173,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _I2C2_Setting ]
 "15
 [v _address `uc ~T0 @X0 1 r1 ]
-[v _mode `E3266 ~T0 @X0 1 r2 ]
-[v _Speed `E3270 ~T0 @X0 1 r3 ]
+[v _mode `E3260 ~T0 @X0 1 r2 ]
+[v _Speed `E3264 ~T0 @X0 1 r3 ]
 "16
 [f ]
 [; ;I2C2.c: 17: I2C2_PinInit();
@@ -3201,7 +3197,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =| _SSP2CON1 -> << -> 8 `i -> 0 `i `uc ]
 [; ;I2C2.c: 24: if(Speed==I2C_SPEED_STANDARD)
 "24
-[e $ ! == -> _Speed `i -> . `E3270 0 `i 371  ]
+[e $ ! == -> _Speed `i -> . `E3264 0 `i 371  ]
 [; ;I2C2.c: 25: {
 "25
 {
@@ -3218,7 +3214,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "29
 [e :U 371 ]
 [; ;I2C2.c: 29: else if(Speed==I2C_SPEED_HIGH)
-[e $ ! == -> _Speed `i -> . `E3270 1 `i 373  ]
+[e $ ! == -> _Speed `i -> . `E3264 1 `i 373  ]
 [; ;I2C2.c: 30: {
 "30
 {
@@ -3269,8 +3265,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 368  ]
 "20
 [e :U 369 ]
-[e [\ _mode , $ . `E3266 0 370
- , $ . `E3266 1 374
+[e [\ _mode , $ . `E3260 0 370
+ , $ . `E3260 1 374
  368 ]
 "45
 [e :U 368 ]
@@ -3474,8 +3470,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 376  ]
 "56
 [e :U 377 ]
-[e [\ . _I2C2_Config 4 , $ . `E3266 0 378
- , $ . `E3266 1 403
+[e [\ . _I2C2_Config 4 , $ . `E3260 0 378
+ , $ . `E3260 1 403
  376 ]
 "98
 [e :U 376 ]
@@ -3671,8 +3667,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 411  ]
 "107
 [e :U 412 ]
-[e [\ . _I2C2_Config 4 , $ . `E3266 0 413
- , $ . `E3266 1 442
+[e [\ . _I2C2_Config 4 , $ . `E3260 0 413
+ , $ . `E3260 1 442
  411 ]
 "147
 [e :U 411 ]

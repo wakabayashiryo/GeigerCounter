@@ -28,10 +28,8 @@ typedef struct
 typedef struct
 {
     uint32_t SigmaDeltaCount;
-    uint32_t SigmaCPS;
     uint32_t AverageCPS;
     uint32_t AverageCPM;
-    uint32_t Num_of_Detect;
 }Counters;
 
 #define Timer1_Read()   (uint16_t)TMR1

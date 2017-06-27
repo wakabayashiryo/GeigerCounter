@@ -18,7 +18,6 @@
 #include "MCP4726.h"
 #include "eeprom.h"
 #include "mTouch.h"
-#include "Timer4.h"
 #include "Timer6.h"
 #include <stdio.h>
 
