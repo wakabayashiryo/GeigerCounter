@@ -1,26 +1,26 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "4 I2C_Common.c
-[c E3260 0 1 .. ]
-[n E3260 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
-"43 I2C.h
-[s S365 `uc -> 8 `i `uc -> 8 `i `*uc 1 `*uc 1 `E3260 1 ]
+[c E3258 0 1 .. ]
+[n E3258 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
+"37 I2C.h
+[s S365 `uc -> 8 `i `uc -> 8 `i `*uc 1 `*uc 1 `E3258 1 ]
 [n S365 . SlaveTransmitBuff SlaveReceiveBuff TransmitPoint ReceivePoint Mode ]
 "7 I2C_Common.c
-[c E3269 0 1 .. ]
-[n E3269 . I2C1_MODULE I2C2_MODULE  ]
-[c E3264 0 1 2 .. ]
-[n E3264 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
-"56 I2C.h
-[v _I2C2_Setting `(v ~T0 @X0 0 ef3`uc`E3260`E3264 ]
+[c E3267 0 1 .. ]
+[n E3267 . I2C1_MODULE I2C2_MODULE  ]
+[c E3262 0 1 2 .. ]
+[n E3262 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
+"50 I2C.h
+[v _I2C2_Setting `(v ~T0 @X0 0 ef3`uc`E3258`E3262 ]
 "7182 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [v _PEIE `Vb ~T0 @X0 0 e@94 ]
 "6960
 [v _GIE `Vb ~T0 @X0 0 e@95 ]
-"58 I2C.h
+"52 I2C.h
 [v _I2C2_Transmit `(c ~T0 @X0 0 ef3`uc`*uc`uc ]
-"59
+"53
 [v _I2C2_Receive `(c ~T0 @X0 0 ef3`uc`*uc`uc ]
-"57
+"51
 [v _I2C2_Interrupt `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -2918,20 +2918,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.h: 28: typedef struct
 [; ;Timer1.h: 29: {
 [; ;Timer1.h: 30: uint32_t SigmaDeltaCount;
-[; ;Timer1.h: 31: uint32_t AverageCPS;
-[; ;Timer1.h: 32: uint32_t AverageCPM;
-[; ;Timer1.h: 33: }Counters;
-[; ;Timer1.h: 42: void Timer1_Init(void);
-[; ;Timer1.h: 43: void Timer1_StartCount(void);
-[; ;Timer1.h: 44: void Timer1_StopCount(void);
-[; ;Timer1.h: 45: void Timer1_ClearRecord(void);
-[; ;Timer1.h: 48: uint32_t Timer1_GetCountSum(void);
-[; ;Timer1.h: 49: uint32_t Timer1_GetCPM(void);
-[; ;Timer1.h: 50: uint32_t Timer1_GetCPS(void);
-[; ;Timer1.h: 51: uint8_t Timer1_GetSecond(void);
-[; ;Timer1.h: 52: uint8_t Timer1_GetMinute(void);
-[; ;Timer1.h: 54: void Timer1_Count1ms(void);
-[; ;Timer1.h: 55: uint8_t Timer1_DetectAssignCount(void);
+[; ;Timer1.h: 31: }Counters;
+[; ;Timer1.h: 40: void Timer1_Init(void);
+[; ;Timer1.h: 41: void Timer1_StartCount(void);
+[; ;Timer1.h: 42: void Timer1_StopCount(void);
+[; ;Timer1.h: 43: void Timer1_ClearRecord(void);
+[; ;Timer1.h: 46: uint32_t Timer1_GetCountSum(void);
+[; ;Timer1.h: 47: uint32_t Timer1_GetCPM(void);
+[; ;Timer1.h: 48: uint32_t Timer1_GetCPS(void);
+[; ;Timer1.h: 49: uint8_t Timer1_GetSecond(void);
+[; ;Timer1.h: 50: uint8_t Timer1_GetMinute(void);
+[; ;Timer1.h: 52: void Timer1_Count1ms(void);
+[; ;Timer1.h: 53: uint8_t Timer1_DetectAssignCount(void);
 [; ;Buzzer.h: 41: void Buzzer_Init(void);
 [; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
 [; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
@@ -3071,57 +3069,57 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.h: 71: uint8_t ModeNum;
 [; ;main.h: 72: }ModeConfig;
 [; ;main.h: 74: int8_t Basic_Init(void);
+[; ;I2C.h: 17: typedef enum
+[; ;I2C.h: 18: {
+[; ;I2C.h: 19: I2C_MODE_MASTER,
+[; ;I2C.h: 20: I2C_MODE_SLAVE
+[; ;I2C.h: 21: }I2Cx_Mode;
 [; ;I2C.h: 23: typedef enum
 [; ;I2C.h: 24: {
-[; ;I2C.h: 25: I2C_MODE_MASTER,
-[; ;I2C.h: 26: I2C_MODE_SLAVE
-[; ;I2C.h: 27: }I2Cx_Mode;
-[; ;I2C.h: 29: typedef enum
-[; ;I2C.h: 30: {
-[; ;I2C.h: 31: I2C_SPEED_STANDARD,
-[; ;I2C.h: 32: I2C_SPEED_HIGH,
-[; ;I2C.h: 33: I2C_SPEED_NONE
-[; ;I2C.h: 34: }I2Cx_Speed;
-[; ;I2C.h: 36: typedef enum
+[; ;I2C.h: 25: I2C_SPEED_STANDARD,
+[; ;I2C.h: 26: I2C_SPEED_HIGH,
+[; ;I2C.h: 27: I2C_SPEED_NONE
+[; ;I2C.h: 28: }I2Cx_Speed;
+[; ;I2C.h: 30: typedef enum
+[; ;I2C.h: 31: {
+[; ;I2C.h: 32: I2C1_MODULE,
+[; ;I2C.h: 33: I2C2_MODULE
+[; ;I2C.h: 34: }I2Cx_Module;
+[; ;I2C.h: 36: typedef struct
 [; ;I2C.h: 37: {
-[; ;I2C.h: 38: I2C1_MODULE,
-[; ;I2C.h: 39: I2C2_MODULE
-[; ;I2C.h: 40: }I2Cx_Module;
-[; ;I2C.h: 42: typedef struct
-[; ;I2C.h: 43: {
-[; ;I2C.h: 44: uint8_t SlaveTransmitBuff[8];
-[; ;I2C.h: 45: uint8_t SlaveReceiveBuff[8];
-[; ;I2C.h: 46: uint8_t *TransmitPoint;
-[; ;I2C.h: 47: uint8_t *ReceivePoint;
-[; ;I2C.h: 48: I2Cx_Mode Mode;
-[; ;I2C.h: 49: }I2Cx_Configuration;
-[; ;I2C.h: 51: void I2C1_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
-[; ;I2C.h: 52: void I2C1_Interrupt(void);
-[; ;I2C.h: 53: int8_t I2C1_Transmit(uint8_t address,uint8_t *pData,uint8_t size);
-[; ;I2C.h: 54: int8_t I2C1_Receive(uint8_t address,uint8_t *pData,uint8_t size);
-[; ;I2C.h: 56: void I2C2_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
-[; ;I2C.h: 57: void I2C2_Interrupt(void);
-[; ;I2C.h: 58: int8_t I2C2_Transmit(uint8_t address,uint8_t *pData,uint8_t size);
-[; ;I2C.h: 59: int8_t I2C2_Receive(uint8_t address,uint8_t *pData,uint8_t size);
-[; ;I2C.h: 61: void I2C_Init(I2Cx_Module I2Cx,uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
-[; ;I2C.h: 62: int8_t I2C_Transmit(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
-[; ;I2C.h: 63: int8_t I2C_Receive(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
-[; ;I2C.h: 64: void I2C_CommonInterrupt(void);
+[; ;I2C.h: 38: uint8_t SlaveTransmitBuff[8];
+[; ;I2C.h: 39: uint8_t SlaveReceiveBuff[8];
+[; ;I2C.h: 40: uint8_t *TransmitPoint;
+[; ;I2C.h: 41: uint8_t *ReceivePoint;
+[; ;I2C.h: 42: I2Cx_Mode Mode;
+[; ;I2C.h: 43: }I2Cx_Configuration;
+[; ;I2C.h: 45: void I2C1_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
+[; ;I2C.h: 46: void I2C1_Interrupt(void);
+[; ;I2C.h: 47: int8_t I2C1_Transmit(uint8_t address,uint8_t *pData,uint8_t size);
+[; ;I2C.h: 48: int8_t I2C1_Receive(uint8_t address,uint8_t *pData,uint8_t size);
+[; ;I2C.h: 50: void I2C2_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
+[; ;I2C.h: 51: void I2C2_Interrupt(void);
+[; ;I2C.h: 52: int8_t I2C2_Transmit(uint8_t address,uint8_t *pData,uint8_t size);
+[; ;I2C.h: 53: int8_t I2C2_Receive(uint8_t address,uint8_t *pData,uint8_t size);
+[; ;I2C.h: 55: void I2C_Init(I2Cx_Module I2Cx,uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
+[; ;I2C.h: 56: int8_t I2C_Transmit(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
+[; ;I2C.h: 57: int8_t I2C_Receive(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
+[; ;I2C.h: 58: void I2C_CommonInterrupt(void);
 "4 I2C_Common.c
 [v _I2C2_Config `S365 ~T0 @X0 1 e ]
 [; ;I2C_Common.c: 4: I2Cx_Configuration I2C2_Config;
 "6
-[v _I2C_Init `(v ~T0 @X0 1 ef4`E3269`uc`E3260`E3264 ]
+[v _I2C_Init `(v ~T0 @X0 1 ef4`E3267`uc`E3258`E3262 ]
 "7
 {
 [; ;I2C_Common.c: 6: void I2C_Init(I2Cx_Module I2Cx,uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed)
 [; ;I2C_Common.c: 7: {
 [e :U _I2C_Init ]
 "6
-[v _I2Cx `E3269 ~T0 @X0 1 r1 ]
+[v _I2Cx `E3267 ~T0 @X0 1 r1 ]
 [v _address `uc ~T0 @X0 1 r2 ]
-[v _mode `E3260 ~T0 @X0 1 r3 ]
-[v _Speed `E3264 ~T0 @X0 1 r4 ]
+[v _mode `E3258 ~T0 @X0 1 r3 ]
+[v _Speed `E3262 ~T0 @X0 1 r4 ]
 "7
 [f ]
 [; ;I2C_Common.c: 8: switch(I2Cx)
@@ -3145,7 +3143,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 367  ]
 "8
 [e :U 368 ]
-[e [\ _I2Cx , $ . `E3269 1 369
+[e [\ _I2Cx , $ . `E3267 1 369
  367 ]
 "17
 [e :U 367 ]
@@ -3160,14 +3158,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 366 ]
 }
 "23
-[v _I2C_Transmit `(c ~T0 @X0 1 ef4`E3269`uc`*uc`uc ]
+[v _I2C_Transmit `(c ~T0 @X0 1 ef4`E3267`uc`*uc`uc ]
 "24
 {
 [; ;I2C_Common.c: 23: int8_t I2C_Transmit(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size)
 [; ;I2C_Common.c: 24: {
 [e :U _I2C_Transmit ]
 "23
-[v _I2Cx `E3269 ~T0 @X0 1 r1 ]
+[v _I2Cx `E3267 ~T0 @X0 1 r1 ]
 [v _address `uc ~T0 @X0 1 r2 ]
 [v _pData `*uc ~T0 @X0 1 r3 ]
 [v _size `uc ~T0 @X0 1 r4 ]
@@ -3197,7 +3195,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 371  ]
 "27
 [e :U 372 ]
-[e [\ _I2Cx , $ . `E3269 1 373
+[e [\ _I2Cx , $ . `E3267 1 373
  371 ]
 "36
 [e :U 371 ]
@@ -3210,14 +3208,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 370 ]
 }
 "40
-[v _I2C_Receive `(c ~T0 @X0 1 ef4`E3269`uc`*uc`uc ]
+[v _I2C_Receive `(c ~T0 @X0 1 ef4`E3267`uc`*uc`uc ]
 "41
 {
 [; ;I2C_Common.c: 40: int8_t I2C_Receive(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size)
 [; ;I2C_Common.c: 41: {
 [e :U _I2C_Receive ]
 "40
-[v _I2Cx `E3269 ~T0 @X0 1 r1 ]
+[v _I2Cx `E3267 ~T0 @X0 1 r1 ]
 [v _address `uc ~T0 @X0 1 r2 ]
 [v _pData `*uc ~T0 @X0 1 r3 ]
 [v _size `uc ~T0 @X0 1 r4 ]
@@ -3247,7 +3245,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 375  ]
 "44
 [e :U 376 ]
-[e [\ _I2Cx , $ . `E3269 1 377
+[e [\ _I2Cx , $ . `E3267 1 377
  375 ]
 "53
 [e :U 375 ]

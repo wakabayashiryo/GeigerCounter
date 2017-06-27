@@ -43,8 +43,6 @@ void Timer1_ClearRecord(void)
 {
     Timer1_Reset();
     cnts.SigmaDeltaCount= 0;
-    cnts.AverageCPS = 0;
-    cnts.AverageCPM = 0;
     tcnt.Delta_t = 0;
     tcnt.Second_t = 0;
     tcnt.Minute_t = 0;
@@ -55,14 +53,14 @@ uint32_t Timer1_GetCountSum(void)
     return cnts.SigmaDeltaCount;
 }
 
-uint32_t Timer1_GetCPM(void)
-{
-    return cnts.AverageCPM;
-}
-
 uint32_t Timer1_GetCPS(void)
 {
-    return cnts.AverageCPS;
+    return (uint32_t)((cnts.SigmaDeltaCount * 1000UL)/tcnt.Delta_t);
+}
+
+uint32_t Timer1_GetCPM(void)
+{
+    return (uint32_t)(Timer1_GetCPS()*60);
 }
 
 uint8_t Timer1_GetSecond(void)
@@ -80,24 +78,24 @@ void Timer1_Count1ms(void)
 {
     tcnt.Delta_t++;
     tcnt.RenewalRersult++;
-    if((tcnt.RenewalRersult>1000))//Renewal Rersult Average of CPM every 1 second
+    
+    if(tcnt.RenewalRersult>1000)//Renewal Rersult Average of CPM every 1 second
     {
-        tcnt.RenewalRersult = 0;  
-        cnts.AverageCPS = (uint32_t)((cnts.SigmaDeltaCount * 1000UL)/tcnt.Delta_t);
-        cnts.AverageCPM = (uint32_t)(cnts.AverageCPS*60);
-
         tcnt.Second_t++;
         
-        if((56<tcnt.Second_t)&&(tcnt.Second_t!=60))
-                Buzzer_MiliSecond(300);
-        else if(tcnt.Second_t==60)
-                Buzzer_MiliSecond(600);
-
-        if(tcnt.Second_t>59)
+        if((56<tcnt.Second_t))
+        {
+            Buzzer_MiliSecond(300);
+        }
+        else if(tcnt.Second_t>59)
         {
             tcnt.Second_t = 0;
             tcnt.Minute_t++;
+            
+            Buzzer_MiliSecond(600);
         }
+        
+        tcnt.RenewalRersult = 0;
     }
 
 }
@@ -106,10 +104,12 @@ uint8_t Timer1_DetectAssignCount(void)//put into interrupt function
 {
     if(TMR1IF&&TMR1IE)//Interrupt flag is rised by detected every 10 counts
     {
-        cnts.SigmaDeltaCount+= DELTA_COUNT;
-                
-        Timer1_Write(0xFFFF-DELTA_COUNT+1);
+        cnts.SigmaDeltaCount+= DELTA_COUNT;//Count sum detected pulses
+               
+        Timer1_Reset();
+        
         TMR1IF = 0;
+        
         return 1;
     }
     return 0;

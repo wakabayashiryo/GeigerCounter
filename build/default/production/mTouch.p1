@@ -2911,20 +2911,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.h: 28: typedef struct
 [; ;Timer1.h: 29: {
 [; ;Timer1.h: 30: uint32_t SigmaDeltaCount;
-[; ;Timer1.h: 31: uint32_t AverageCPS;
-[; ;Timer1.h: 32: uint32_t AverageCPM;
-[; ;Timer1.h: 33: }Counters;
-[; ;Timer1.h: 42: void Timer1_Init(void);
-[; ;Timer1.h: 43: void Timer1_StartCount(void);
-[; ;Timer1.h: 44: void Timer1_StopCount(void);
-[; ;Timer1.h: 45: void Timer1_ClearRecord(void);
-[; ;Timer1.h: 48: uint32_t Timer1_GetCountSum(void);
-[; ;Timer1.h: 49: uint32_t Timer1_GetCPM(void);
-[; ;Timer1.h: 50: uint32_t Timer1_GetCPS(void);
-[; ;Timer1.h: 51: uint8_t Timer1_GetSecond(void);
-[; ;Timer1.h: 52: uint8_t Timer1_GetMinute(void);
-[; ;Timer1.h: 54: void Timer1_Count1ms(void);
-[; ;Timer1.h: 55: uint8_t Timer1_DetectAssignCount(void);
+[; ;Timer1.h: 31: }Counters;
+[; ;Timer1.h: 40: void Timer1_Init(void);
+[; ;Timer1.h: 41: void Timer1_StartCount(void);
+[; ;Timer1.h: 42: void Timer1_StopCount(void);
+[; ;Timer1.h: 43: void Timer1_ClearRecord(void);
+[; ;Timer1.h: 46: uint32_t Timer1_GetCountSum(void);
+[; ;Timer1.h: 47: uint32_t Timer1_GetCPM(void);
+[; ;Timer1.h: 48: uint32_t Timer1_GetCPS(void);
+[; ;Timer1.h: 49: uint8_t Timer1_GetSecond(void);
+[; ;Timer1.h: 50: uint8_t Timer1_GetMinute(void);
+[; ;Timer1.h: 52: void Timer1_Count1ms(void);
+[; ;Timer1.h: 53: uint8_t Timer1_DetectAssignCount(void);
 [; ;Buzzer.h: 41: void Buzzer_Init(void);
 [; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
 [; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
@@ -2937,42 +2935,42 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LCD.h: 37: void LCD_CursorPosition(uint8_t tx ,uint8_t ty);
 [; ;LCD.h: 38: void LCD_CursorShift(uint8_t shift,uint8_t RL);
 [; ;LCD.h: 39: void LCD_DispShift(uint8_t shift,uint8_t RL);
+[; ;I2C.h: 17: typedef enum
+[; ;I2C.h: 18: {
+[; ;I2C.h: 19: I2C_MODE_MASTER,
+[; ;I2C.h: 20: I2C_MODE_SLAVE
+[; ;I2C.h: 21: }I2Cx_Mode;
 [; ;I2C.h: 23: typedef enum
 [; ;I2C.h: 24: {
-[; ;I2C.h: 25: I2C_MODE_MASTER,
-[; ;I2C.h: 26: I2C_MODE_SLAVE
-[; ;I2C.h: 27: }I2Cx_Mode;
-[; ;I2C.h: 29: typedef enum
-[; ;I2C.h: 30: {
-[; ;I2C.h: 31: I2C_SPEED_STANDARD,
-[; ;I2C.h: 32: I2C_SPEED_HIGH,
-[; ;I2C.h: 33: I2C_SPEED_NONE
-[; ;I2C.h: 34: }I2Cx_Speed;
-[; ;I2C.h: 36: typedef enum
+[; ;I2C.h: 25: I2C_SPEED_STANDARD,
+[; ;I2C.h: 26: I2C_SPEED_HIGH,
+[; ;I2C.h: 27: I2C_SPEED_NONE
+[; ;I2C.h: 28: }I2Cx_Speed;
+[; ;I2C.h: 30: typedef enum
+[; ;I2C.h: 31: {
+[; ;I2C.h: 32: I2C1_MODULE,
+[; ;I2C.h: 33: I2C2_MODULE
+[; ;I2C.h: 34: }I2Cx_Module;
+[; ;I2C.h: 36: typedef struct
 [; ;I2C.h: 37: {
-[; ;I2C.h: 38: I2C1_MODULE,
-[; ;I2C.h: 39: I2C2_MODULE
-[; ;I2C.h: 40: }I2Cx_Module;
-[; ;I2C.h: 42: typedef struct
-[; ;I2C.h: 43: {
-[; ;I2C.h: 44: uint8_t SlaveTransmitBuff[8];
-[; ;I2C.h: 45: uint8_t SlaveReceiveBuff[8];
-[; ;I2C.h: 46: uint8_t *TransmitPoint;
-[; ;I2C.h: 47: uint8_t *ReceivePoint;
-[; ;I2C.h: 48: I2Cx_Mode Mode;
-[; ;I2C.h: 49: }I2Cx_Configuration;
-[; ;I2C.h: 51: void I2C1_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
-[; ;I2C.h: 52: void I2C1_Interrupt(void);
-[; ;I2C.h: 53: int8_t I2C1_Transmit(uint8_t address,uint8_t *pData,uint8_t size);
-[; ;I2C.h: 54: int8_t I2C1_Receive(uint8_t address,uint8_t *pData,uint8_t size);
-[; ;I2C.h: 56: void I2C2_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
-[; ;I2C.h: 57: void I2C2_Interrupt(void);
-[; ;I2C.h: 58: int8_t I2C2_Transmit(uint8_t address,uint8_t *pData,uint8_t size);
-[; ;I2C.h: 59: int8_t I2C2_Receive(uint8_t address,uint8_t *pData,uint8_t size);
-[; ;I2C.h: 61: void I2C_Init(I2Cx_Module I2Cx,uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
-[; ;I2C.h: 62: int8_t I2C_Transmit(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
-[; ;I2C.h: 63: int8_t I2C_Receive(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
-[; ;I2C.h: 64: void I2C_CommonInterrupt(void);
+[; ;I2C.h: 38: uint8_t SlaveTransmitBuff[8];
+[; ;I2C.h: 39: uint8_t SlaveReceiveBuff[8];
+[; ;I2C.h: 40: uint8_t *TransmitPoint;
+[; ;I2C.h: 41: uint8_t *ReceivePoint;
+[; ;I2C.h: 42: I2Cx_Mode Mode;
+[; ;I2C.h: 43: }I2Cx_Configuration;
+[; ;I2C.h: 45: void I2C1_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
+[; ;I2C.h: 46: void I2C1_Interrupt(void);
+[; ;I2C.h: 47: int8_t I2C1_Transmit(uint8_t address,uint8_t *pData,uint8_t size);
+[; ;I2C.h: 48: int8_t I2C1_Receive(uint8_t address,uint8_t *pData,uint8_t size);
+[; ;I2C.h: 50: void I2C2_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
+[; ;I2C.h: 51: void I2C2_Interrupt(void);
+[; ;I2C.h: 52: int8_t I2C2_Transmit(uint8_t address,uint8_t *pData,uint8_t size);
+[; ;I2C.h: 53: int8_t I2C2_Receive(uint8_t address,uint8_t *pData,uint8_t size);
+[; ;I2C.h: 55: void I2C_Init(I2Cx_Module I2Cx,uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed);
+[; ;I2C.h: 56: int8_t I2C_Transmit(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
+[; ;I2C.h: 57: int8_t I2C_Receive(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
+[; ;I2C.h: 58: void I2C_CommonInterrupt(void);
 [; ;MCP4726.h: 26: typedef union
 [; ;MCP4726.h: 27: {
 [; ;MCP4726.h: 28: uint8_t Voltage_Data[2];
@@ -3168,20 +3166,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _mTouch_Read ]
 [f ]
 "31
-[v F3332 `uc ~T0 @X0 1 s channel ]
-[i F3332
+[v F3330 `uc ~T0 @X0 1 s channel ]
+[i F3330
 -> -> 0 `i `uc
 ]
 [; ;mTouch.c: 31: static uint8_t channel=0;
 [; ;mTouch.c: 33: CPS_PreData[channel] = CPS_Data[channel];
 "33
-[e = *U + &U _CPS_PreData * -> F3332 `ux -> -> # *U &U _CPS_PreData `ui `ux *U + &U _CPS_Data * -> F3332 `ux -> -> # *U &U _CPS_Data `ui `ux ]
+[e = *U + &U _CPS_PreData * -> F3330 `ux -> -> # *U &U _CPS_PreData `ui `ux *U + &U _CPS_Data * -> F3330 `ux -> -> # *U &U _CPS_Data `ui `ux ]
 [; ;mTouch.c: 35: CPSCON0 &= ~(0x01<<7);;
 "35
 [e =& _CPSCON0 -> ~ << -> 1 `i -> 7 `i `uc ]
 [; ;mTouch.c: 36: CPS_Data[channel] = TMR0;
 "36
-[e = *U + &U _CPS_Data * -> F3332 `ux -> -> # *U &U _CPS_Data `ui `ux _TMR0 ]
+[e = *U + &U _CPS_Data * -> F3330 `ux -> -> # *U &U _CPS_Data `ui `ux _TMR0 ]
 [; ;mTouch.c: 37: TMR0 = 0x00;
 "37
 [e = _TMR0 -> -> 0 `i `uc ]
@@ -3190,12 +3188,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =| _CPSCON0 -> << -> 1 `i -> 7 `i `uc ]
 [; ;mTouch.c: 40: if(channel++>2)channel = 0;
 "40
-[e $ ! > -> ++ F3332 -> -> 1 `i `uc `i -> 2 `i 369  ]
-[e = F3332 -> -> 0 `i `uc ]
+[e $ ! > -> ++ F3330 -> -> 1 `i `uc `i -> 2 `i 369  ]
+[e = F3330 -> -> 0 `i `uc ]
 [e :U 369 ]
 [; ;mTouch.c: 41: CPSCON1 = (uint8_t)channel;
 "41
-[e = _CPSCON1 F3332 ]
+[e = _CPSCON1 F3330 ]
 [; ;mTouch.c: 43: }
 "43
 [e :UE 368 ]

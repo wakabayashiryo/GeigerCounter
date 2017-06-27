@@ -3960,11 +3960,9 @@ uint16_t RenewalRersult;
 typedef struct
 {
 uint32_t SigmaDeltaCount;
-uint32_t AverageCPS;
-uint32_t AverageCPM;
 }Counters;
 
-# 42
+# 40
 void Timer1_Init(void);
 void Timer1_StartCount(void);
 void Timer1_StopCount(void);
@@ -3986,7 +3984,7 @@ void Buzzer_SetDuty(uint16_t duty);
 void Buzzer_MiliSecond(uint16_t time);
 void Buzzer_Count1ms(void);
 
-# 23 "I2C.h"
+# 17 "I2C.h"
 typedef enum
 {
 I2C_MODE_MASTER,

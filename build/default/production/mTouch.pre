@@ -3960,11 +3960,9 @@ uint16_t RenewalRersult;
 typedef struct
 {
 uint32_t SigmaDeltaCount;
-uint32_t AverageCPS;
-uint32_t AverageCPM;
 }Counters;
 
-# 42
+# 40
 void Timer1_Init(void);
 void Timer1_StartCount(void);
 void Timer1_StopCount(void);
@@ -3996,7 +3994,7 @@ void LCD_CursorPosition(uint8_t tx ,uint8_t ty);
 void LCD_CursorShift(uint8_t shift,uint8_t RL);
 void LCD_DispShift(uint8_t shift,uint8_t RL);
 
-# 23 "I2C.h"
+# 17 "I2C.h"
 typedef enum
 {
 I2C_MODE_MASTER,

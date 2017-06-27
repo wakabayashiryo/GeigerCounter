@@ -27,9 +27,11 @@ int8_t main(void)
     Buzzer_Init();
     LCD_Init();
     Timer1_Init();
+    Timer1_StopCount();
     mTouch_Init();
     Timer6_Init();
     DAC_Initialize();
+    DAC_WriteVoltage(DAC_DataTable[0]);
     
     Timer1_StartCount();
 

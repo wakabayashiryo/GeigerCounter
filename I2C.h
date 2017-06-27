@@ -9,12 +9,6 @@
 
 #include "main.h"
 
-/*TODO
- * test i2C2
- * copy i2c1
- * test all function
- */
-
 #define I2C1_NOT_USE 0
 #define I2C2_NOT_USE 0
 
