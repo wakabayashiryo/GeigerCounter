@@ -11,10 +11,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _CPSCON0 `Vuc ~T0 @X0 0 e@30 ]
 "1073
 [v _CPSCON1 `Vuc ~T0 @X0 0 e@31 ]
-"4 mTouch.c
-[v _CPS_PreData `uc ~T0 @X0 -> 0 `x e ]
-"3
-[v _CPS_Data `uc ~T0 @X0 -> 0 `x e ]
+"43 Buzzer.h
+[v _Buzzer_MiliSecond `(v ~T0 @X0 0 ef1`ui ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2848,6 +2846,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 43: struct __prbuf
+[; ;stdio.h: 44: {
+[; ;stdio.h: 45: char * ptr;
+[; ;stdio.h: 46: void (* func)(char);
+[; ;stdio.h: 47: };
+[; ;errno.h: 29: extern int errno;
+[; ;conio.h: 12: extern void init_uart(void);
+[; ;conio.h: 14: extern char getch(void);
+[; ;conio.h: 15: extern char getche(void);
+[; ;conio.h: 16: extern void putch(char);
+[; ;conio.h: 17: extern void ungetch(char);
+[; ;conio.h: 19: extern __bit kbhit(void);
+[; ;conio.h: 23: extern char * cgets(char *);
+[; ;conio.h: 24: extern void cputs(const char *);
+[; ;stdio.h: 88: extern int cprintf(char *, ...);
+[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 183: extern char * gets(char *);
+[; ;stdio.h: 184: extern int puts(const char *);
+[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;math.h: 30: extern double fabs(double);
 [; ;math.h: 31: extern double floor(double);
 [; ;math.h: 32: extern double ceil(double);
@@ -2923,10 +2950,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.h: 50: uint8_t Timer1_GetMinute(void);
 [; ;Timer1.h: 52: void Timer1_Count1ms(void);
 [; ;Timer1.h: 53: uint8_t Timer1_DetectAssignCount(void);
-[; ;Buzzer.h: 41: void Buzzer_Init(void);
-[; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
-[; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
-[; ;Buzzer.h: 44: void Buzzer_Count1ms(void);
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void putch(char c);
@@ -3025,35 +3048,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.h: 19: int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
 [; ;Timer6.h: 17: void Timer6_Init(void);
 [; ;Timer6.h: 18: uint8_t Timer6_CheckFlag(void);
-[; ;stdarg.h: 7: typedef void * va_list[1];
-[; ;stdarg.h: 10: extern void * __va_start(void);
-[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 43: struct __prbuf
-[; ;stdio.h: 44: {
-[; ;stdio.h: 45: char * ptr;
-[; ;stdio.h: 46: void (* func)(char);
-[; ;stdio.h: 47: };
-[; ;errno.h: 29: extern int errno;
-[; ;conio.h: 12: extern void init_uart(void);
-[; ;conio.h: 14: extern char getch(void);
-[; ;conio.h: 15: extern char getche(void);
-[; ;conio.h: 16: extern void putch(char);
-[; ;conio.h: 17: extern void ungetch(char);
-[; ;conio.h: 19: extern __bit kbhit(void);
-[; ;conio.h: 23: extern char * cgets(char *);
-[; ;conio.h: 24: extern void cputs(const char *);
-[; ;stdio.h: 88: extern int cprintf(char *, ...);
-[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 183: extern char * gets(char *);
-[; ;stdio.h: 184: extern int puts(const char *);
-[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 195: extern int printf(const char *, ...);
+[; ;Buzzer.h: 41: void Buzzer_Init(void);
+[; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
+[; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
+[; ;Buzzer.h: 44: void Buzzer_Count1ms(void);
 "33 main.h
 [p x FOSC=INTOSC ]
 "34
@@ -3084,117 +3082,216 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x BORV=LO ]
 "49
 [p x LVP=OFF ]
-[; ;main.h: 62: typedef struct
-[; ;main.h: 63: {
-[; ;main.h: 64: enum
-[; ;main.h: 65: {
-[; ;main.h: 66: COUNT = 0,
-[; ;main.h: 67: SELECTFUNC = 1,
-[; ;main.h: 68: ADJGAIN = 2,
-[; ;main.h: 69: PMTDEVICE = 3
-[; ;main.h: 70: }MODESTAT;
-[; ;main.h: 71: uint8_t ModeNum;
-[; ;main.h: 72: }ModeConfig;
-[; ;main.h: 74: int8_t Basic_Init(void);
-[; ;mTouch.h: 21: void mTouch_Init(void);
-[; ;mTouch.h: 22: void mTouch_Read(void);
-[; ;mTouch.c: 3: extern uint8_t CPS_Data[3];
-[; ;mTouch.c: 4: extern uint8_t CPS_PreData[3];
-"6 mTouch.c
-[v _mTouch_PortInit `(v ~T0 @X0 1 sf ]
+[; ;main.h: 56: typedef enum
+[; ;main.h: 57: {
+[; ;main.h: 58: STOPPING = 0x00,
+[; ;main.h: 59: COUNTING = 0x01,
+[; ;main.h: 60: RESULT = 0x02,
+[; ;main.h: 61: }STATE_OF_MODE;
+[; ;main.h: 68: int8_t Basic_Init(void);
+[; ;mTouch.h: 29: void mTouch_Init(void);
+[; ;mTouch.h: 30: void mTouch_Read(void);
+[; ;mTouch.h: 31: void mTouch_IntervalDecrement(void);
+[; ;mTouch.h: 32: uint8_t mTouch_Check(uint8_t chan);
+"3 mTouch.c
+[v _CPS_Data `uc ~T0 @X0 -> 3 `i e ]
+[; ;mTouch.c: 3: uint8_t CPS_Data[3];
+"4
+[v _CPS_PreData `uc ~T0 @X0 -> 3 `i e ]
+[; ;mTouch.c: 4: uint8_t CPS_PreData[3];
+"5
+[v _mTouch_Interval `uc ~T0 @X0 -> 3 `i e ]
+[; ;mTouch.c: 5: uint8_t mTouch_Interval[3];
 "7
+[v _sense_parameter `Cuc ~T0 @X0 -> 0 `x s ]
+[i _sense_parameter
+:U ..
+"8
+-> -> 80 `i `uc
+"9
+-> -> 130 `i `uc
+"11
+-> -> 130 `i `uc
+..
+]
+[; ;mTouch.c: 7: static const uint8_t sense_parameter[] = {
+[; ;mTouch.c: 8: 80,
+[; ;mTouch.c: 9: 130,
+[; ;mTouch.c: 10: 130
+[; ;mTouch.c: 11: };
+"13
+[v _mTouch_PortInit `(v ~T0 @X0 1 sf ]
+"14
 {
-[; ;mTouch.c: 6: static void mTouch_PortInit(void)
-[; ;mTouch.c: 7: {
+[; ;mTouch.c: 13: static void mTouch_PortInit(void)
+[; ;mTouch.c: 14: {
 [e :U _mTouch_PortInit ]
 [f ]
-[; ;mTouch.c: 8: TRISA |= (0x07);
-"8
+[; ;mTouch.c: 15: TRISA |= (0x07);
+"15
 [e =| _TRISA -> -> 7 `i `uc ]
-[; ;mTouch.c: 9: ANSELA |= (0x07);
-"9
+[; ;mTouch.c: 16: ANSELA |= (0x07);
+"16
 [e =| _ANSELA -> -> 7 `i `uc ]
-[; ;mTouch.c: 10: }
-"10
-[e :UE 366 ]
+[; ;mTouch.c: 17: }
+"17
+[e :UE 365 ]
 }
-"12
+"19
 [v _mTouch_Init `(v ~T0 @X0 1 ef ]
-"13
+"20
 {
-[; ;mTouch.c: 12: void mTouch_Init(void)
-[; ;mTouch.c: 13: {
+[; ;mTouch.c: 19: void mTouch_Init(void)
+[; ;mTouch.c: 20: {
 [e :U _mTouch_Init ]
 [f ]
-[; ;mTouch.c: 14: mTouch_PortInit();
-"14
+[; ;mTouch.c: 21: mTouch_PortInit();
+"21
 [e ( _mTouch_PortInit ..  ]
-[; ;mTouch.c: 17: OPTION_REG |= (0x0<<0);
-"17
-[e =| _OPTION_REG -> << -> 0 `i -> 0 `i `uc ]
-[; ;mTouch.c: 18: OPTION_REG |= (0x1<<3);
-"18
-[e =| _OPTION_REG -> << -> 1 `i -> 3 `i `uc ]
-[; ;mTouch.c: 19: OPTION_REG |= (0x1<<5);
-"19
-[e =| _OPTION_REG -> << -> 1 `i -> 5 `i `uc ]
-[; ;mTouch.c: 20: TMR0 = 0x00;
-"20
-[e = _TMR0 -> -> 0 `i `uc ]
-[; ;mTouch.c: 23: CPSCON0 |= (0x01<<0);
-"23
-[e =| _CPSCON0 -> << -> 1 `i -> 0 `i `uc ]
-[; ;mTouch.c: 24: CPSCON0 |= (0x03<<2);
+[; ;mTouch.c: 24: OPTION_REG |= (0x0<<0);
 "24
-[e =| _CPSCON0 -> << -> 3 `i -> 2 `i `uc ]
-[; ;mTouch.c: 25: CPSCON0 &= ~(0x01<<7);;
+[e =| _OPTION_REG -> << -> 0 `i -> 0 `i `uc ]
+[; ;mTouch.c: 25: OPTION_REG |= (0x1<<3);
 "25
-[e =& _CPSCON0 -> ~ << -> 1 `i -> 7 `i `uc ]
-[; ;mTouch.c: 26: CPSCON1 = (uint8_t)0x00;
+[e =| _OPTION_REG -> << -> 1 `i -> 3 `i `uc ]
+[; ;mTouch.c: 26: OPTION_REG |= (0x1<<5);
 "26
-[e = _CPSCON1 -> -> 0 `i `uc ]
-[; ;mTouch.c: 27: }
+[e =| _OPTION_REG -> << -> 1 `i -> 5 `i `uc ]
+[; ;mTouch.c: 27: TMR0 = 0x00;
 "27
-[e :UE 367 ]
-}
-"29
-[v _mTouch_Read `(v ~T0 @X0 1 ef ]
+[e = _TMR0 -> -> 0 `i `uc ]
+[; ;mTouch.c: 30: CPSCON0 |= (0x01<<0);
 "30
+[e =| _CPSCON0 -> << -> 1 `i -> 0 `i `uc ]
+[; ;mTouch.c: 31: CPSCON0 |= (0x03<<2);
+"31
+[e =| _CPSCON0 -> << -> 3 `i -> 2 `i `uc ]
+[; ;mTouch.c: 32: CPSCON0 &= ~(0x01<<7);;
+"32
+[e =& _CPSCON0 -> ~ << -> 1 `i -> 7 `i `uc ]
+[; ;mTouch.c: 33: CPSCON1 = (uint8_t)0x00;
+"33
+[e = _CPSCON1 -> -> 0 `i `uc ]
+[; ;mTouch.c: 34: }
+"34
+[e :UE 366 ]
+}
+"36
+[v _mTouch_Read `(v ~T0 @X0 1 ef ]
+"37
 {
-[; ;mTouch.c: 29: void mTouch_Read(void)
-[; ;mTouch.c: 30: {
+[; ;mTouch.c: 36: void mTouch_Read(void)
+[; ;mTouch.c: 37: {
 [e :U _mTouch_Read ]
 [f ]
-"31
-[v F3330 `uc ~T0 @X0 1 s channel ]
-[i F3330
+"38
+[v F3332 `uc ~T0 @X0 1 s channel ]
+[i F3332
 -> -> 0 `i `uc
 ]
-[; ;mTouch.c: 31: static uint8_t channel=0;
-[; ;mTouch.c: 33: CPS_PreData[channel] = CPS_Data[channel];
-"33
-[e = *U + &U _CPS_PreData * -> F3330 `ux -> -> # *U &U _CPS_PreData `ui `ux *U + &U _CPS_Data * -> F3330 `ux -> -> # *U &U _CPS_Data `ui `ux ]
-[; ;mTouch.c: 35: CPSCON0 &= ~(0x01<<7);;
-"35
-[e =& _CPSCON0 -> ~ << -> 1 `i -> 7 `i `uc ]
-[; ;mTouch.c: 36: CPS_Data[channel] = TMR0;
-"36
-[e = *U + &U _CPS_Data * -> F3330 `ux -> -> # *U &U _CPS_Data `ui `ux _TMR0 ]
-[; ;mTouch.c: 37: TMR0 = 0x00;
-"37
-[e = _TMR0 -> -> 0 `i `uc ]
-[; ;mTouch.c: 38: CPSCON0 |= (0x01<<7);;
-"38
-[e =| _CPSCON0 -> << -> 1 `i -> 7 `i `uc ]
-[; ;mTouch.c: 40: if(channel++>2)channel = 0;
+[; ;mTouch.c: 38: static uint8_t channel=0;
+[; ;mTouch.c: 40: CPS_PreData[channel] = CPS_Data[channel];
 "40
-[e $ ! > -> ++ F3330 -> -> 1 `i `uc `i -> 2 `i 369  ]
-[e = F3330 -> -> 0 `i `uc ]
-[e :U 369 ]
-[; ;mTouch.c: 41: CPSCON1 = (uint8_t)channel;
-"41
-[e = _CPSCON1 F3330 ]
-[; ;mTouch.c: 43: }
+[e = *U + &U _CPS_PreData * -> F3332 `ux -> -> # *U &U _CPS_PreData `ui `ux *U + &U _CPS_Data * -> F3332 `ux -> -> # *U &U _CPS_Data `ui `ux ]
+[; ;mTouch.c: 42: CPSCON0 &= ~(0x01<<7);;
+"42
+[e =& _CPSCON0 -> ~ << -> 1 `i -> 7 `i `uc ]
+[; ;mTouch.c: 43: CPS_Data[channel] = TMR0;
 "43
-[e :UE 368 ]
+[e = *U + &U _CPS_Data * -> F3332 `ux -> -> # *U &U _CPS_Data `ui `ux _TMR0 ]
+[; ;mTouch.c: 44: TMR0 = 0x00;
+"44
+[e = _TMR0 -> -> 0 `i `uc ]
+[; ;mTouch.c: 45: CPSCON0 |= (0x01<<7);;
+"45
+[e =| _CPSCON0 -> << -> 1 `i -> 7 `i `uc ]
+[; ;mTouch.c: 47: if(++channel>2)channel = 0;
+"47
+[e $ ! > -> =+ F3332 -> -> 1 `i `uc `i -> 2 `i 368  ]
+[e = F3332 -> -> 0 `i `uc ]
+[e :U 368 ]
+[; ;mTouch.c: 48: CPSCON1 = (uint8_t)channel;
+"48
+[e = _CPSCON1 F3332 ]
+[; ;mTouch.c: 49: }
+"49
+[e :UE 367 ]
+}
+"51
+[v _mTouch_IntervalDecrement `(v ~T0 @X0 1 ef ]
+"52
+{
+[; ;mTouch.c: 51: void mTouch_IntervalDecrement(void)
+[; ;mTouch.c: 52: {
+[e :U _mTouch_IntervalDecrement ]
+[f ]
+[; ;mTouch.c: 53: if(mTouch_Interval[0]>0)
+"53
+[e $ ! > -> *U + &U _mTouch_Interval * -> -> -> 0 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> 0 `i 370  ]
+[; ;mTouch.c: 54: mTouch_Interval[0]--;
+"54
+[e -- *U + &U _mTouch_Interval * -> -> -> 0 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 1 `i `uc ]
+[e :U 370 ]
+[; ;mTouch.c: 55: if(mTouch_Interval[1]>0)
+"55
+[e $ ! > -> *U + &U _mTouch_Interval * -> -> -> 1 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> 0 `i 371  ]
+[; ;mTouch.c: 56: mTouch_Interval[1]--;
+"56
+[e -- *U + &U _mTouch_Interval * -> -> -> 1 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 1 `i `uc ]
+[e :U 371 ]
+[; ;mTouch.c: 57: if(mTouch_Interval[2]>0)
+"57
+[e $ ! > -> *U + &U _mTouch_Interval * -> -> -> 2 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> 0 `i 372  ]
+[; ;mTouch.c: 58: mTouch_Interval[2]--;
+"58
+[e -- *U + &U _mTouch_Interval * -> -> -> 2 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 1 `i `uc ]
+[e :U 372 ]
+[; ;mTouch.c: 59: }
+"59
+[e :UE 369 ]
+}
+"61
+[v _mTouch_Check `(uc ~T0 @X0 1 ef1`uc ]
+"62
+{
+[; ;mTouch.c: 61: uint8_t mTouch_Check(uint8_t chan)
+[; ;mTouch.c: 62: {
+[e :U _mTouch_Check ]
+"61
+[v _chan `uc ~T0 @X0 1 r1 ]
+"62
+[f ]
+[; ;mTouch.c: 63: if(2<chan)return 0;
+"63
+[e $ ! < -> 2 `i -> _chan `i 374  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 373  ]
+[e :U 374 ]
+[; ;mTouch.c: 65: if(((CPS_PreData[chan]-CPS_Data[chan])>sense_parameter[chan])&&!mTouch_Interval[chan])
+"65
+[e $ ! && > - -> *U + &U _CPS_PreData * -> _chan `ux -> -> # *U &U _CPS_PreData `ui `ux `i -> *U + &U _CPS_Data * -> _chan `ux -> -> # *U &U _CPS_Data `ui `ux `i -> *U + &U _sense_parameter * -> _chan `ux -> -> # *U &U _sense_parameter `ui `ux `i ! != -> *U + &U _mTouch_Interval * -> _chan `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> -> -> 0 `i `uc `i 375  ]
+[; ;mTouch.c: 66: {
+"66
+{
+[; ;mTouch.c: 67: mTouch_Interval[chan] = 100;
+"67
+[e = *U + &U _mTouch_Interval * -> _chan `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 100 `i `uc ]
+[; ;mTouch.c: 68: Buzzer_MiliSecond(100);
+"68
+[e ( _Buzzer_MiliSecond (1 -> -> 100 `i `ui ]
+[; ;mTouch.c: 69: return 1;
+"69
+[e ) -> -> 1 `i `uc ]
+[e $UE 373  ]
+"70
+}
+[e :U 375 ]
+[; ;mTouch.c: 70: }
+[; ;mTouch.c: 71: return 0;
+"71
+[e ) -> -> 0 `i `uc ]
+[e $UE 373  ]
+[; ;mTouch.c: 72: }
+"72
+[e :UE 373 ]
 }

@@ -3,8 +3,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [c E3258 0 1 .. ]
 [n E3258 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
 "37 I2C.h
-[s S365 `uc -> 8 `i `uc -> 8 `i `*uc 1 `*uc 1 `E3258 1 ]
-[n S365 . SlaveTransmitBuff SlaveReceiveBuff TransmitPoint ReceivePoint Mode ]
+[s S364 `uc -> 8 `i `uc -> 8 `i `*uc 1 `*uc 1 `E3258 1 ]
+[n S364 . SlaveTransmitBuff SlaveReceiveBuff TransmitPoint ReceivePoint Mode ]
 "7 I2C_Common.c
 [c E3267 0 1 .. ]
 [n E3267 . I2C1_MODULE I2C2_MODULE  ]
@@ -2855,6 +2855,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 43: struct __prbuf
+[; ;stdio.h: 44: {
+[; ;stdio.h: 45: char * ptr;
+[; ;stdio.h: 46: void (* func)(char);
+[; ;stdio.h: 47: };
+[; ;errno.h: 29: extern int errno;
+[; ;conio.h: 12: extern void init_uart(void);
+[; ;conio.h: 14: extern char getch(void);
+[; ;conio.h: 15: extern char getche(void);
+[; ;conio.h: 16: extern void putch(char);
+[; ;conio.h: 17: extern void ungetch(char);
+[; ;conio.h: 19: extern __bit kbhit(void);
+[; ;conio.h: 23: extern char * cgets(char *);
+[; ;conio.h: 24: extern void cputs(const char *);
+[; ;stdio.h: 88: extern int cprintf(char *, ...);
+[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 183: extern char * gets(char *);
+[; ;stdio.h: 184: extern int puts(const char *);
+[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;math.h: 30: extern double fabs(double);
 [; ;math.h: 31: extern double floor(double);
 [; ;math.h: 32: extern double ceil(double);
@@ -2930,10 +2959,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.h: 50: uint8_t Timer1_GetMinute(void);
 [; ;Timer1.h: 52: void Timer1_Count1ms(void);
 [; ;Timer1.h: 53: uint8_t Timer1_DetectAssignCount(void);
-[; ;Buzzer.h: 41: void Buzzer_Init(void);
-[; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
-[; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
-[; ;Buzzer.h: 44: void Buzzer_Count1ms(void);
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void putch(char c);
@@ -2994,39 +3019,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MCP4726.h: 82: int8_t DAC_WriteVoltage(uint16_t volue);
 [; ;eeprom.h: 18: int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
 [; ;eeprom.h: 19: int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
-[; ;mTouch.h: 21: void mTouch_Init(void);
-[; ;mTouch.h: 22: void mTouch_Read(void);
+[; ;mTouch.h: 29: void mTouch_Init(void);
+[; ;mTouch.h: 30: void mTouch_Read(void);
+[; ;mTouch.h: 31: void mTouch_IntervalDecrement(void);
+[; ;mTouch.h: 32: uint8_t mTouch_Check(uint8_t chan);
 [; ;Timer6.h: 17: void Timer6_Init(void);
 [; ;Timer6.h: 18: uint8_t Timer6_CheckFlag(void);
-[; ;stdarg.h: 7: typedef void * va_list[1];
-[; ;stdarg.h: 10: extern void * __va_start(void);
-[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 43: struct __prbuf
-[; ;stdio.h: 44: {
-[; ;stdio.h: 45: char * ptr;
-[; ;stdio.h: 46: void (* func)(char);
-[; ;stdio.h: 47: };
-[; ;errno.h: 29: extern int errno;
-[; ;conio.h: 12: extern void init_uart(void);
-[; ;conio.h: 14: extern char getch(void);
-[; ;conio.h: 15: extern char getche(void);
-[; ;conio.h: 16: extern void putch(char);
-[; ;conio.h: 17: extern void ungetch(char);
-[; ;conio.h: 19: extern __bit kbhit(void);
-[; ;conio.h: 23: extern char * cgets(char *);
-[; ;conio.h: 24: extern void cputs(const char *);
-[; ;stdio.h: 88: extern int cprintf(char *, ...);
-[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 183: extern char * gets(char *);
-[; ;stdio.h: 184: extern int puts(const char *);
-[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 195: extern int printf(const char *, ...);
+[; ;Buzzer.h: 41: void Buzzer_Init(void);
+[; ;Buzzer.h: 42: void Buzzer_SetDuty(uint16_t duty);
+[; ;Buzzer.h: 43: void Buzzer_MiliSecond(uint16_t time);
+[; ;Buzzer.h: 44: void Buzzer_Count1ms(void);
 "33 main.h
 [p x FOSC=INTOSC ]
 "34
@@ -3057,18 +3059,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x BORV=LO ]
 "49
 [p x LVP=OFF ]
-[; ;main.h: 62: typedef struct
-[; ;main.h: 63: {
-[; ;main.h: 64: enum
-[; ;main.h: 65: {
-[; ;main.h: 66: COUNT = 0,
-[; ;main.h: 67: SELECTFUNC = 1,
-[; ;main.h: 68: ADJGAIN = 2,
-[; ;main.h: 69: PMTDEVICE = 3
-[; ;main.h: 70: }MODESTAT;
-[; ;main.h: 71: uint8_t ModeNum;
-[; ;main.h: 72: }ModeConfig;
-[; ;main.h: 74: int8_t Basic_Init(void);
+[; ;main.h: 56: typedef enum
+[; ;main.h: 57: {
+[; ;main.h: 58: STOPPING = 0x00,
+[; ;main.h: 59: COUNTING = 0x01,
+[; ;main.h: 60: RESULT = 0x02,
+[; ;main.h: 61: }STATE_OF_MODE;
+[; ;main.h: 68: int8_t Basic_Init(void);
 [; ;I2C.h: 17: typedef enum
 [; ;I2C.h: 18: {
 [; ;I2C.h: 19: I2C_MODE_MASTER,
@@ -3106,7 +3103,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;I2C.h: 57: int8_t I2C_Receive(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
 [; ;I2C.h: 58: void I2C_CommonInterrupt(void);
 "4 I2C_Common.c
-[v _I2C2_Config `S365 ~T0 @X0 1 e ]
+[v _I2C2_Config `S364 ~T0 @X0 1 e ]
 [; ;I2C_Common.c: 4: I2Cx_Configuration I2C2_Config;
 "6
 [v _I2C_Init `(v ~T0 @X0 1 ef4`E3267`uc`E3258`E3262 ]
@@ -3124,29 +3121,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;I2C_Common.c: 8: switch(I2Cx)
 "8
-[e $U 368  ]
+[e $U 367  ]
 [; ;I2C_Common.c: 9: {
 "9
 {
 [; ;I2C_Common.c: 14: case I2C2_MODULE:
 "14
-[e :U 369 ]
+[e :U 368 ]
 [; ;I2C_Common.c: 15: I2C2_Setting(address,mode,Speed);
 "15
 [e ( _I2C2_Setting (3 , , _address _mode _Speed ]
 [; ;I2C_Common.c: 16: break;
 "16
-[e $U 367  ]
+[e $U 366  ]
 "17
 }
 [; ;I2C_Common.c: 17: }
-[e $U 367  ]
+[e $U 366  ]
 "8
-[e :U 368 ]
-[e [\ _I2Cx , $ . `E3267 1 369
- 367 ]
-"17
 [e :U 367 ]
+[e [\ _I2Cx , $ . `E3267 1 368
+ 366 ]
+"17
+[e :U 366 ]
 [; ;I2C_Common.c: 19: PEIE = 1;
 "19
 [e = _PEIE -> -> 1 `i `b ]
@@ -3155,7 +3152,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _GIE -> -> 1 `i `b ]
 [; ;I2C_Common.c: 21: }
 "21
-[e :UE 366 ]
+[e :UE 365 ]
 }
 "23
 [v _I2C_Transmit `(c ~T0 @X0 1 ef4`E3267`uc`*uc`uc ]
@@ -3176,36 +3173,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;I2C_Common.c: 25: int8_t result;
 [; ;I2C_Common.c: 27: switch(I2Cx)
 "27
-[e $U 372  ]
+[e $U 371  ]
 [; ;I2C_Common.c: 28: {
 "28
 {
 [; ;I2C_Common.c: 33: case I2C2_MODULE:
 "33
-[e :U 373 ]
+[e :U 372 ]
 [; ;I2C_Common.c: 34: result = I2C2_Transmit(address,pData,size);
 "34
 [e = _result ( _I2C2_Transmit (3 , , _address _pData _size ]
 [; ;I2C_Common.c: 35: break;
 "35
-[e $U 371  ]
+[e $U 370  ]
 "36
 }
 [; ;I2C_Common.c: 36: }
-[e $U 371  ]
+[e $U 370  ]
 "27
-[e :U 372 ]
-[e [\ _I2Cx , $ . `E3267 1 373
- 371 ]
-"36
 [e :U 371 ]
+[e [\ _I2Cx , $ . `E3267 1 372
+ 370 ]
+"36
+[e :U 370 ]
 [; ;I2C_Common.c: 37: return result;
 "37
 [e ) _result ]
-[e $UE 370  ]
+[e $UE 369  ]
 [; ;I2C_Common.c: 38: }
 "38
-[e :UE 370 ]
+[e :UE 369 ]
 }
 "40
 [v _I2C_Receive `(c ~T0 @X0 1 ef4`E3267`uc`*uc`uc ]
@@ -3226,36 +3223,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;I2C_Common.c: 42: int8_t result;
 [; ;I2C_Common.c: 44: switch(I2Cx)
 "44
-[e $U 376  ]
+[e $U 375  ]
 [; ;I2C_Common.c: 45: {
 "45
 {
 [; ;I2C_Common.c: 50: case I2C2_MODULE:
 "50
-[e :U 377 ]
+[e :U 376 ]
 [; ;I2C_Common.c: 51: result = I2C2_Receive(address,pData,size);
 "51
 [e = _result ( _I2C2_Receive (3 , , _address _pData _size ]
 [; ;I2C_Common.c: 52: break;
 "52
-[e $U 375  ]
+[e $U 374  ]
 "53
 }
 [; ;I2C_Common.c: 53: }
-[e $U 375  ]
+[e $U 374  ]
 "44
-[e :U 376 ]
-[e [\ _I2Cx , $ . `E3267 1 377
- 375 ]
-"53
 [e :U 375 ]
+[e [\ _I2Cx , $ . `E3267 1 376
+ 374 ]
+"53
+[e :U 374 ]
 [; ;I2C_Common.c: 55: return result;
 "55
 [e ) _result ]
-[e $UE 374  ]
+[e $UE 373  ]
 [; ;I2C_Common.c: 56: }
 "56
-[e :UE 374 ]
+[e :UE 373 ]
 }
 "58
 [v _I2C_CommonInterrupt `(v ~T0 @X0 1 ef ]
@@ -3270,5 +3267,5 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _I2C2_Interrupt ..  ]
 [; ;I2C_Common.c: 62: }
 "62
-[e :UE 378 ]
+[e :UE 377 ]
 }

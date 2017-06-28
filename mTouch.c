@@ -1,7 +1,14 @@
 #include "mTouch.h"
 
-extern uint8_t CPS_Data[3];
-extern uint8_t CPS_PreData[3];
+uint8_t CPS_Data[3];
+uint8_t CPS_PreData[3];
+uint8_t mTouch_Interval[3];
+
+static const uint8_t sense_parameter[] = {
+    START_SYMBOL_PARAM,
+    RESET_SYMBOL_PARAM,
+    STOP_SYMBOL_PARAM 
+};
 
 static void mTouch_PortInit(void)
 {
@@ -37,7 +44,29 @@ void mTouch_Read(void)
     TMR0 = 0x00;
     CPS_ENABLE();
 
-    if(channel++>2)channel = 0;    
+    if(++channel>2)channel = 0;    
     CPS_CHANNEL(channel);
-    
+}
+
+void mTouch_IntervalDecrement(void)
+{    
+    if(mTouch_Interval[0]>0)
+        mTouch_Interval[0]--;
+    if(mTouch_Interval[1]>0)
+        mTouch_Interval[1]--;
+    if(mTouch_Interval[2]>0)
+        mTouch_Interval[2]--;
+}
+
+uint8_t mTouch_Check(uint8_t chan)
+{
+    if(2<chan)return 0;
+
+    if(((CPS_PreData[chan]-CPS_Data[chan])>sense_parameter[chan])&&!mTouch_Interval[chan])
+    {
+        mTouch_Interval[chan] = 100;
+        Buzzer_MiliSecond(100);
+        return 1;
+    }
+    return 0;
 }

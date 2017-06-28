@@ -8,65 +8,81 @@
 #include "main.h"
 
 //TODO
-//Display of CPS CPM measurement time after the user has stopped
-//Only Sum Count diplay on LCD always.
+//add start menu
 
 const uint16_t DAC_DataTable[];
-uint8_t CPS_Data[3];
-uint8_t CPS_PreData[3];
-ModeConfig mode;
-uint8_t mTouch_Interval[3];
-
-void mTouch_IntervalDecrement(void);
-uint8_t mTouch_Check(uint8_t chan);
+static STATE_OF_MODE state_mode = STOPPING;
 
 int8_t main(void)
 {
     Basic_Init();
+    
     LED_BLUE(LED_OFF);      //Clear Bule LED    
+    
     Buzzer_Init();
+    
     LCD_Init();
+    
     Timer1_Init();
     Timer1_StopCount();
+    
     mTouch_Init();
+    
     Timer6_Init();
+    
     DAC_Initialize();
-    DAC_WriteVoltage(DAC_DataTable[0]);
-    
-    Timer1_StartCount();
-
-    mode.ModeNum = 0;
-    
+    DAC_WriteVoltage(DAC_DataTable[0]);    
     DAC_WriteVoltage(DAC_DataTable[6]);
     
     while(1)
     {
-        if(mTouch_Check(2)&&(mode.ModeNum<NUM_OF_MODE-1))
-            mode.ModeNum++;
-        else if(mTouch_Check(1)&&(mode.ModeNum>0))
-            mode.ModeNum--;
-        
         LCD_CursorHome();
-        switch(mode.ModeNum) 
+        if(mTouch_Check(START_SYMBOL)&&(state_mode==STOPPING))
         {
-            case COUNT:
-                printf("%7lu %7lu", Timer1_GetCPM(),Timer1_GetCountSum());
-                LCD_CursorPosition(0,1);
-                printf("%6lu",Timer1_GetCPS());
-                printf("    %02d:%02d",Timer1_GetMinute(),Timer1_GetSecond());
-                break;
-            case SELECTFUNC:
-                printf("SELECTFUNC");
-            break;
-            case ADJGAIN:
-                printf("ADJGAIN");
-            break;
-            case PMTDEVICE:
-                printf("PMTDEVICE");
-            break;
+            Timer1_StartCount();
+            LCD_DisplayClear();
+            state_mode = COUNTING;
         }
-    }
+        else if(mTouch_Check(STOP_SYMBOL))
+        {
+            Timer1_StopCount();
+            LCD_DisplayClear();
+            if(state_mode==STOPPING)
+                state_mode = RESULT;
+            else
+                state_mode = STOPPING;
+        }
+        else if(mTouch_Check(RESET_SYMBOL)&&(state_mode!=COUNTING))
+        {
+            Timer1_ClearRecord();
+        }
+
+        switch(state_mode)
+        {
+            case COUNTING:
+                LCD_CursorPosition(0,0);
+                printf("  Countting...  ");
+                LCD_CursorPosition(0,1);
+                printf(" %7lu  %02d:%02d",Timer1_GetCountSum(),Timer1_GetMinute(),Timer1_GetSecond()); 
+                break;
+                
+            case STOPPING:
+                LCD_CursorPosition(0,0);
+                printf(" Count Stopped ");
+                LCD_CursorPosition(0,1);
+                printf(" %7lu  %02d:%02d",Timer1_GetCountSum(),Timer1_GetMinute(),Timer1_GetSecond()); 
+                break;
+                
+            case RESULT:
+                LCD_CursorPosition(0,0);
+                printf("%7lu",Timer1_GetCPS());
+                printf("%7lu",Timer1_GetCPM());
+                LCD_CursorPosition(0,1);
+                printf(" %7lu  %02d:%02d",Timer1_GetCountSum(),Timer1_GetMinute(),Timer1_GetSecond()); 
+                break;
+        }
     
+    }
     return EXIT_SUCCESS;
 }
 
@@ -106,27 +122,3 @@ void interrupt Handler(void)
     }
     I2C_CommonInterrupt();
 }
-
-void mTouch_IntervalDecrement(void)
-{
-    if(mTouch_Interval[0]>0)
-        mTouch_Interval[0]--;
-    if(mTouch_Interval[1]>0)
-        mTouch_Interval[1]--;
-    if(mTouch_Interval[2]>0)
-        mTouch_Interval[2]--;
-}
-
-uint8_t mTouch_Check(uint8_t chan)
-{
-    if(chan>2)return 0;
-    
-    if(((CPS_PreData[chan]-CPS_Data[chan])>200)&&!mTouch_Interval[chan])
-    {
-        mTouch_Interval[chan] = 100;
-        Buzzer_MiliSecond(100);
-        return 1;
-    }
-    return 0;
-}
-

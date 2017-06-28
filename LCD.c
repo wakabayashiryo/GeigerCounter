@@ -41,8 +41,8 @@ void LCD_Init(void)
     LCD_BUS(0x02);          // Fuction Set Mode = 4bit	
     LCD_STROBO();
 
-    LCD_WriteData(0x28);    // Mode=4bit / Line=2 /Font=5x7dot	
-    LCD_WriteData(0x0c);    // Display=on / Cursol=on / Blink=on
+    LCD_WriteData(0x28);    // Mode=4bit / Line=2 /Font=5x8dot	
+    LCD_WriteData(0x0c);    // Display=on / Cursol=off / Blink of Cursol=off
     LCD_DisplayClear();  
     LCD_WriteData(0x06);    // Cursor=incriment /Display_shift=off	
 }
@@ -128,6 +128,5 @@ void LCD_DispShift(uint8_t shift,uint8_t RL)
     for(i=0;i<shift;i++)
     {
         LCD_WriteData(0x18|((RL&0x01)<<2));
-        __delay_us(40);
     }
 }

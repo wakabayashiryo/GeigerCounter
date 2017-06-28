@@ -41,7 +41,6 @@ void Timer1_StopCount(void)
 
 void Timer1_ClearRecord(void)
 {
-    Timer1_Reset();
     cnts.SigmaDeltaCount= 0;
     tcnt.Delta_t = 0;
     tcnt.Second_t = 0;
@@ -76,26 +75,29 @@ uint8_t Timer1_GetMinute(void)
 /***Put this function in interrupt function every 200us ***/
 void Timer1_Count1ms(void)
 {
-    tcnt.Delta_t++;
-    tcnt.RenewalRersult++;
-    
-    if(tcnt.RenewalRersult>1000)//Renewal Rersult Average of CPM every 1 second
+    if(TMR1ON==1)
     {
-        tcnt.Second_t++;
-        
-        if((56<tcnt.Second_t))
+        tcnt.Delta_t++;
+        tcnt.RenewalRersult++;
+
+        if(tcnt.RenewalRersult>1000)//Renewal Rersult Average of CPM every 1 second
         {
-            Buzzer_MiliSecond(300);
+            tcnt.Second_t++;
+
+            if((56<tcnt.Second_t)&&(tcnt.Second_t<60))
+            {
+                Buzzer_MiliSecond(300);
+            }
+            else if(tcnt.Second_t>59)
+            {
+                tcnt.Second_t = 0;
+                tcnt.Minute_t++;
+
+                Buzzer_MiliSecond(600);
+            }
+
+            tcnt.RenewalRersult = 0;
         }
-        else if(tcnt.Second_t>59)
-        {
-            tcnt.Second_t = 0;
-            tcnt.Minute_t++;
-            
-            Buzzer_MiliSecond(600);
-        }
-        
-        tcnt.RenewalRersult = 0;
     }
 
 }
