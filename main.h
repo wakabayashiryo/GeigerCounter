@@ -58,6 +58,7 @@ typedef enum
     STOPPING = 0x00,
     COUNTING = 0x01,
     RESULT = 0x02,
+    SETUP = 0x03,
 }STATE_OF_MODE;
 
 #define LED_ON      0

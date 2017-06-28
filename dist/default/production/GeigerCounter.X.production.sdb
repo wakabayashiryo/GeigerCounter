@@ -4,26 +4,26 @@
 [d chip 16F1827 ]
 [d frameptr 6 ]
 "16 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C2.c
-[e E3258 . `uc
+[e E3259 . `uc
 I2C_MODE_MASTER 0
 I2C_MODE_SLAVE 1
 ]
-[e E3262 . `uc
+[e E3263 . `uc
 I2C_SPEED_STANDARD 0
 I2C_SPEED_HIGH 1
 I2C_SPEED_NONE 2
 ]
 "4 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C_Common.c
-[e E3258 . `uc
+[e E3259 . `uc
 I2C_MODE_MASTER 0
 I2C_MODE_SLAVE 1
 ]
 "7
-[e E3267 . `uc
+[e E3268 . `uc
 I2C1_MODULE 0
 I2C2_MODULE 1
 ]
-[e E3262 . `uc
+[e E3263 . `uc
 I2C_SPEED_STANDARD 0
 I2C_SPEED_HIGH 1
 I2C_SPEED_NONE 2
@@ -47,6 +47,7 @@ I2C_SPEED_NONE 2
 STOPPING 0
 COUNTING 1
 RESULT 2
+SETUP 3
 ]
 "464 /opt/microchip/xc8/v1.41/sources/common/doprnt.c
 [v _printf printf `(i  1 e 2 0 ]
@@ -105,15 +106,13 @@ RESULT 2
 [v _putch putch `(v  1 e 1 0 ]
 "73
 [v _LCD_DisplayClear LCD_DisplayClear `(v  1 e 1 0 ]
-"84
-[v _LCD_CursorHome LCD_CursorHome `(v  1 e 1 0 ]
 "95
 [v _LCD_CursorPosition LCD_CursorPosition `(v  1 e 1 0 ]
 "16 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
-"89
+"86
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
-"110
+"107
 [v _Handler Handler `II(v  1 e 1 0 ]
 "14 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/MCP4726.c
 [v _DAC_Initialize DAC_Initialize `(v  1 e 1 0 ]
@@ -289,7 +288,7 @@ RESULT 2
 [v _dpowers dpowers `DCC[10]ul  1 s 40 dpowers ]
 "9 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Buzzer.c
 [v _count count `ui  1 s 2 count ]
-[s S46 . 19 `[8]uc 1 SlaveTransmitBuff 8 0 `[8]uc 1 SlaveReceiveBuff 8 8 `*.4uc 1 TransmitPoint 1 16 `*.4uc 1 ReceivePoint 1 17 `E3258 1 Mode 1 18 ]
+[s S46 . 19 `[8]uc 1 SlaveTransmitBuff 8 0 `[8]uc 1 SlaveReceiveBuff 8 8 `*.4uc 1 TransmitPoint 1 16 `*.4uc 1 ReceivePoint 1 17 `E3259 1 Mode 1 18 ]
 "4 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C_Common.c
 [v _I2C2_Config I2C2_Config `S46  1 e 19 0 ]
 "14 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
@@ -329,7 +328,7 @@ RESULT 2
 "16 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
 {
-"87
+"84
 } 0
 "464 /opt/microchip/xc8/v1.41/sources/common/doprnt.c
 [v _printf printf `(i  1 e 2 0 ]
@@ -505,11 +504,6 @@ RESULT 2
 [v LCD_CursorPosition@tx tx `uc  1 a 1 5 ]
 "100
 } 0
-"84
-[v _LCD_CursorHome LCD_CursorHome `(v  1 e 1 0 ]
-{
-"89
-} 0
 "15
 [v _LCD_WriteData LCD_WriteData `(v  1 s 1 LCD_WriteData ]
 {
@@ -533,15 +527,15 @@ RESULT 2
 "23 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C_Common.c
 [v _I2C_Transmit I2C_Transmit `(c  1 e 1 0 ]
 {
-[v I2C_Transmit@I2Cx I2Cx `E3267  1 a 1 wreg ]
+[v I2C_Transmit@I2Cx I2Cx `E3268  1 a 1 wreg ]
 "25
 [v I2C_Transmit@result result `c  1 a 1 15 ]
 "23
-[v I2C_Transmit@I2Cx I2Cx `E3267  1 a 1 wreg ]
+[v I2C_Transmit@I2Cx I2Cx `E3268  1 a 1 wreg ]
 [v I2C_Transmit@address address `uc  1 p 1 8 ]
 [v I2C_Transmit@pData pData `*.4uc  1 p 1 9 ]
 [v I2C_Transmit@size size `uc  1 p 1 10 ]
-[v I2C_Transmit@I2Cx I2Cx `E3267  1 a 1 14 ]
+[v I2C_Transmit@I2Cx I2Cx `E3268  1 a 1 14 ]
 "38
 } 0
 "52 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C2.c
@@ -565,12 +559,12 @@ RESULT 2
 "6 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C_Common.c
 [v _I2C_Init I2C_Init `(v  1 e 1 0 ]
 {
-[v I2C_Init@I2Cx I2Cx `E3267  1 a 1 wreg ]
-[v I2C_Init@I2Cx I2Cx `E3267  1 a 1 wreg ]
+[v I2C_Init@I2Cx I2Cx `E3268  1 a 1 wreg ]
+[v I2C_Init@I2Cx I2Cx `E3268  1 a 1 wreg ]
 [v I2C_Init@address address `uc  1 p 1 5 ]
-[v I2C_Init@mode mode `E3258  1 p 1 6 ]
-[v I2C_Init@Speed Speed `E3262  1 p 1 7 ]
-[v I2C_Init@I2Cx I2Cx `E3267  1 a 1 10 ]
+[v I2C_Init@mode mode `E3259  1 p 1 6 ]
+[v I2C_Init@Speed Speed `E3263  1 p 1 7 ]
+[v I2C_Init@I2Cx I2Cx `E3268  1 a 1 10 ]
 "21
 } 0
 "15 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C2.c
@@ -578,8 +572,8 @@ RESULT 2
 {
 [v I2C2_Setting@address address `uc  1 a 1 wreg ]
 [v I2C2_Setting@address address `uc  1 a 1 wreg ]
-[v I2C2_Setting@mode mode `E3258  1 p 1 1 ]
-[v I2C2_Setting@Speed Speed `E3262  1 p 1 2 ]
+[v I2C2_Setting@mode mode `E3259  1 p 1 1 ]
+[v I2C2_Setting@Speed Speed `E3263  1 p 1 2 ]
 "17
 [v I2C2_Setting@address address `uc  1 a 1 4 ]
 "50
@@ -594,15 +588,15 @@ RESULT 2
 {
 "29
 } 0
-"89 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
+"86 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _Basic_Init Basic_Init `(c  1 e 1 0 ]
 {
-"108
+"105
 } 0
-"110
+"107
 [v _Handler Handler `II(v  1 e 1 0 ]
 {
-"124
+"121
 } 0
 "36 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/mTouch.c
 [v _mTouch_Read mTouch_Read `(v  1 e 1 0 ]

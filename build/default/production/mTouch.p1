@@ -3087,8 +3087,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.h: 58: STOPPING = 0x00,
 [; ;main.h: 59: COUNTING = 0x01,
 [; ;main.h: 60: RESULT = 0x02,
-[; ;main.h: 61: }STATE_OF_MODE;
-[; ;main.h: 68: int8_t Basic_Init(void);
+[; ;main.h: 61: SETUP = 0x03,
+[; ;main.h: 62: }STATE_OF_MODE;
+[; ;main.h: 69: int8_t Basic_Init(void);
 [; ;mTouch.h: 29: void mTouch_Init(void);
 [; ;mTouch.h: 30: void mTouch_Read(void);
 [; ;mTouch.h: 31: void mTouch_IntervalDecrement(void);
@@ -3107,17 +3108,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _sense_parameter
 :U ..
 "8
--> -> 80 `i `uc
+-> -> 100 `i `uc
 "9
--> -> 130 `i `uc
+-> -> 100 `i `uc
 "11
--> -> 130 `i `uc
+-> -> 100 `i `uc
 ..
 ]
 [; ;mTouch.c: 7: static const uint8_t sense_parameter[] = {
-[; ;mTouch.c: 8: 80,
-[; ;mTouch.c: 9: 130,
-[; ;mTouch.c: 10: 130
+[; ;mTouch.c: 8: 100,
+[; ;mTouch.c: 9: 100,
+[; ;mTouch.c: 10: 100
 [; ;mTouch.c: 11: };
 "13
 [v _mTouch_PortInit `(v ~T0 @X0 1 sf ]
@@ -3185,20 +3186,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _mTouch_Read ]
 [f ]
 "38
-[v F3332 `uc ~T0 @X0 1 s channel ]
-[i F3332
+[v F3333 `uc ~T0 @X0 1 s channel ]
+[i F3333
 -> -> 0 `i `uc
 ]
 [; ;mTouch.c: 38: static uint8_t channel=0;
 [; ;mTouch.c: 40: CPS_PreData[channel] = CPS_Data[channel];
 "40
-[e = *U + &U _CPS_PreData * -> F3332 `ux -> -> # *U &U _CPS_PreData `ui `ux *U + &U _CPS_Data * -> F3332 `ux -> -> # *U &U _CPS_Data `ui `ux ]
+[e = *U + &U _CPS_PreData * -> F3333 `ux -> -> # *U &U _CPS_PreData `ui `ux *U + &U _CPS_Data * -> F3333 `ux -> -> # *U &U _CPS_Data `ui `ux ]
 [; ;mTouch.c: 42: CPSCON0 &= ~(0x01<<7);;
 "42
 [e =& _CPSCON0 -> ~ << -> 1 `i -> 7 `i `uc ]
 [; ;mTouch.c: 43: CPS_Data[channel] = TMR0;
 "43
-[e = *U + &U _CPS_Data * -> F3332 `ux -> -> # *U &U _CPS_Data `ui `ux _TMR0 ]
+[e = *U + &U _CPS_Data * -> F3333 `ux -> -> # *U &U _CPS_Data `ui `ux _TMR0 ]
 [; ;mTouch.c: 44: TMR0 = 0x00;
 "44
 [e = _TMR0 -> -> 0 `i `uc ]
@@ -3207,12 +3208,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =| _CPSCON0 -> << -> 1 `i -> 7 `i `uc ]
 [; ;mTouch.c: 47: if(++channel>2)channel = 0;
 "47
-[e $ ! > -> =+ F3332 -> -> 1 `i `uc `i -> 2 `i 368  ]
-[e = F3332 -> -> 0 `i `uc ]
+[e $ ! > -> =+ F3333 -> -> 1 `i `uc `i -> 2 `i 368  ]
+[e = F3333 -> -> 0 `i `uc ]
 [e :U 368 ]
 [; ;mTouch.c: 48: CPSCON1 = (uint8_t)channel;
 "48
-[e = _CPSCON1 F3332 ]
+[e = _CPSCON1 F3333 ]
 [; ;mTouch.c: 49: }
 "49
 [e :UE 367 ]

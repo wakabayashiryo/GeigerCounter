@@ -3077,8 +3077,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.h: 58: STOPPING = 0x00,
 [; ;main.h: 59: COUNTING = 0x01,
 [; ;main.h: 60: RESULT = 0x02,
-[; ;main.h: 61: }STATE_OF_MODE;
-[; ;main.h: 68: int8_t Basic_Init(void);
+[; ;main.h: 61: SETUP = 0x03,
+[; ;main.h: 62: }STATE_OF_MODE;
+[; ;main.h: 69: int8_t Basic_Init(void);
 "4 table.c
 [v _DAC_DataTable `Cui ~T0 @X0 -> 0 `x e ]
 [i _DAC_DataTable

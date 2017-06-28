@@ -36,7 +36,6 @@ int8_t main(void)
     
     while(1)
     {
-        LCD_CursorHome();
         if(mTouch_Check(START_SYMBOL)&&(state_mode==STOPPING))
         {
             Timer1_StartCount();
@@ -52,7 +51,7 @@ int8_t main(void)
             else
                 state_mode = STOPPING;
         }
-        else if(mTouch_Check(RESET_SYMBOL)&&(state_mode!=COUNTING))
+        else if(mTouch_Check(RESET_SYMBOL)&&(state_mode==STOPPING))
         {
             Timer1_ClearRecord();
         }
@@ -75,13 +74,11 @@ int8_t main(void)
                 
             case RESULT:
                 LCD_CursorPosition(0,0);
-                printf("%7lu",Timer1_GetCPS());
-                printf("%7lu",Timer1_GetCPM());
+                printf("%7lu %7lu",Timer1_GetCPS(),Timer1_GetCPM());
                 LCD_CursorPosition(0,1);
                 printf(" %7lu  %02d:%02d",Timer1_GetCountSum(),Timer1_GetMinute(),Timer1_GetSecond()); 
                 break;
         }
-    
     }
     return EXIT_SUCCESS;
 }

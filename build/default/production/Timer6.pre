@@ -4193,9 +4193,10 @@ typedef enum
 STOPPING = 0x00,
 COUNTING = 0x01,
 RESULT = 0x02,
+SETUP = 0x03,
 }STATE_OF_MODE;
 
-# 68
+# 69
 int8_t Basic_Init(void);
 
 # 17 "Timer6.h"

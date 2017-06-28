@@ -4191,9 +4191,10 @@ typedef enum
 STOPPING = 0x00,
 COUNTING = 0x01,
 RESULT = 0x02,
+SETUP = 0x03,
 }STATE_OF_MODE;
 
-# 68
+# 69
 int8_t Basic_Init(void);
 
 # 29 "mTouch.h"
@@ -4208,9 +4209,9 @@ uint8_t CPS_PreData[3];
 uint8_t mTouch_Interval[3];
 
 static const uint8_t sense_parameter[] = {
-80,
-130,
-130
+100,
+100,
+100
 };
 
 static void mTouch_PortInit(void)

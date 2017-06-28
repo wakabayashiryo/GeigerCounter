@@ -18,9 +18,9 @@ extern "C" {
 #define RESET_SYMBOL 0x01
 #define STOP_SYMBOL  0x02
     
-#define START_SYMBOL_PARAM 80        
-#define RESET_SYMBOL_PARAM 130
-#define STOP_SYMBOL_PARAM  130
+#define START_SYMBOL_PARAM 100        
+#define RESET_SYMBOL_PARAM 100
+#define STOP_SYMBOL_PARAM  100
 
 #define CPS_CHANNEL(x) CPSCON1 = (uint8_t)x
 #define CPS_ENABLE()   CPSCON0 |= (0x01<<7);       //CPS module is enabled
