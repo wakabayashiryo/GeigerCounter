@@ -21,9 +21,9 @@
 #include "Timer6.h"
 #include "Buzzer.h"
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
+
+#define SERIAL_NO   0x01
+#define SOFTWARE_VER "1.00"
 
 // PIC16F1827 Configuration Bit Settings
 
@@ -58,8 +58,25 @@ typedef enum
     STOPPING = 0x00,
     COUNTING = 0x01,
     RESULT = 0x02,
-    SETUP = 0x03,
+    SETTING = 0x03,
+    SHOW_CONFIG = 0x04,
 }STATE_OF_MODE;
+
+
+#define NUM_OF_DATA 3 
+typedef struct
+{
+    union
+    {
+        uint8_t Eeprom_table[NUM_OF_DATA]; 
+        struct
+        {
+            uint8_t SerialNum;
+            uint8_t GainElements;
+            uint8_t DeviceNum;
+        };
+    };
+}PMT_CONFIGURATION;
 
 #define LED_ON      0
 #define LED_OFF     1
@@ -67,6 +84,7 @@ typedef enum
 #define LED_BLUE(x) LATA6 = x    
     
 int8_t Basic_Init(void);
+#include "User_Interface.h"
 
 #ifdef	__cplusplus
 }

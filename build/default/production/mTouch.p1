@@ -3087,9 +3087,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.h: 58: STOPPING = 0x00,
 [; ;main.h: 59: COUNTING = 0x01,
 [; ;main.h: 60: RESULT = 0x02,
-[; ;main.h: 61: SETUP = 0x03,
-[; ;main.h: 62: }STATE_OF_MODE;
-[; ;main.h: 69: int8_t Basic_Init(void);
+[; ;main.h: 61: SETTING = 0x03,
+[; ;main.h: 62: SHOW_CONFIG = 0x04,
+[; ;main.h: 63: }STATE_OF_MODE;
+[; ;main.h: 67: typedef struct
+[; ;main.h: 68: {
+[; ;main.h: 69: union
+[; ;main.h: 70: {
+[; ;main.h: 71: uint8_t Eeprom_table[3];
+[; ;main.h: 72: struct
+[; ;main.h: 73: {
+[; ;main.h: 74: uint8_t SerialNum;
+[; ;main.h: 75: uint8_t GainElements;
+[; ;main.h: 76: uint8_t DeviceNum;
+[; ;main.h: 77: };
+[; ;main.h: 78: };
+[; ;main.h: 79: }PMT_CONFIGURATION;
+[; ;main.h: 86: int8_t Basic_Init(void);
+[; ;User_Interface.h: 17: void StartUp_Menu(PMT_CONFIGURATION *data);
+[; ;User_Interface.h: 18: void Ssetting_PMT_Config(PMT_CONFIGURATION *data);
+[; ;User_Interface.h: 19: void Show_PMT_Config(PMT_CONFIGURATION *data);
 [; ;mTouch.h: 29: void mTouch_Init(void);
 [; ;mTouch.h: 30: void mTouch_Read(void);
 [; ;mTouch.h: 31: void mTouch_IntervalDecrement(void);
@@ -3136,7 +3153,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =| _ANSELA -> -> 7 `i `uc ]
 [; ;mTouch.c: 17: }
 "17
-[e :UE 365 ]
+[e :UE 368 ]
 }
 "19
 [v _mTouch_Init `(v ~T0 @X0 1 ef ]
@@ -3175,7 +3192,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _CPSCON1 -> -> 0 `i `uc ]
 [; ;mTouch.c: 34: }
 "34
-[e :UE 366 ]
+[e :UE 369 ]
 }
 "36
 [v _mTouch_Read `(v ~T0 @X0 1 ef ]
@@ -3186,20 +3203,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _mTouch_Read ]
 [f ]
 "38
-[v F3333 `uc ~T0 @X0 1 s channel ]
-[i F3333
+[v F3350 `uc ~T0 @X0 1 s channel ]
+[i F3350
 -> -> 0 `i `uc
 ]
 [; ;mTouch.c: 38: static uint8_t channel=0;
 [; ;mTouch.c: 40: CPS_PreData[channel] = CPS_Data[channel];
 "40
-[e = *U + &U _CPS_PreData * -> F3333 `ux -> -> # *U &U _CPS_PreData `ui `ux *U + &U _CPS_Data * -> F3333 `ux -> -> # *U &U _CPS_Data `ui `ux ]
+[e = *U + &U _CPS_PreData * -> F3350 `ux -> -> # *U &U _CPS_PreData `ui `ux *U + &U _CPS_Data * -> F3350 `ux -> -> # *U &U _CPS_Data `ui `ux ]
 [; ;mTouch.c: 42: CPSCON0 &= ~(0x01<<7);;
 "42
 [e =& _CPSCON0 -> ~ << -> 1 `i -> 7 `i `uc ]
 [; ;mTouch.c: 43: CPS_Data[channel] = TMR0;
 "43
-[e = *U + &U _CPS_Data * -> F3333 `ux -> -> # *U &U _CPS_Data `ui `ux _TMR0 ]
+[e = *U + &U _CPS_Data * -> F3350 `ux -> -> # *U &U _CPS_Data `ui `ux _TMR0 ]
 [; ;mTouch.c: 44: TMR0 = 0x00;
 "44
 [e = _TMR0 -> -> 0 `i `uc ]
@@ -3208,15 +3225,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =| _CPSCON0 -> << -> 1 `i -> 7 `i `uc ]
 [; ;mTouch.c: 47: if(++channel>2)channel = 0;
 "47
-[e $ ! > -> =+ F3333 -> -> 1 `i `uc `i -> 2 `i 368  ]
-[e = F3333 -> -> 0 `i `uc ]
-[e :U 368 ]
+[e $ ! > -> =+ F3350 -> -> 1 `i `uc `i -> 2 `i 371  ]
+[e = F3350 -> -> 0 `i `uc ]
+[e :U 371 ]
 [; ;mTouch.c: 48: CPSCON1 = (uint8_t)channel;
 "48
-[e = _CPSCON1 F3333 ]
+[e = _CPSCON1 F3350 ]
 [; ;mTouch.c: 49: }
 "49
-[e :UE 367 ]
+[e :UE 370 ]
 }
 "51
 [v _mTouch_IntervalDecrement `(v ~T0 @X0 1 ef ]
@@ -3228,28 +3245,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;mTouch.c: 53: if(mTouch_Interval[0]>0)
 "53
-[e $ ! > -> *U + &U _mTouch_Interval * -> -> -> 0 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> 0 `i 370  ]
+[e $ ! > -> *U + &U _mTouch_Interval * -> -> -> 0 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> 0 `i 373  ]
 [; ;mTouch.c: 54: mTouch_Interval[0]--;
 "54
 [e -- *U + &U _mTouch_Interval * -> -> -> 0 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 1 `i `uc ]
-[e :U 370 ]
+[e :U 373 ]
 [; ;mTouch.c: 55: if(mTouch_Interval[1]>0)
 "55
-[e $ ! > -> *U + &U _mTouch_Interval * -> -> -> 1 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> 0 `i 371  ]
+[e $ ! > -> *U + &U _mTouch_Interval * -> -> -> 1 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> 0 `i 374  ]
 [; ;mTouch.c: 56: mTouch_Interval[1]--;
 "56
 [e -- *U + &U _mTouch_Interval * -> -> -> 1 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 1 `i `uc ]
-[e :U 371 ]
+[e :U 374 ]
 [; ;mTouch.c: 57: if(mTouch_Interval[2]>0)
 "57
-[e $ ! > -> *U + &U _mTouch_Interval * -> -> -> 2 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> 0 `i 372  ]
+[e $ ! > -> *U + &U _mTouch_Interval * -> -> -> 2 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> 0 `i 375  ]
 [; ;mTouch.c: 58: mTouch_Interval[2]--;
 "58
 [e -- *U + &U _mTouch_Interval * -> -> -> 2 `i `ui `ux -> -> # *U &U _mTouch_Interval `ui `ux -> -> 1 `i `uc ]
-[e :U 372 ]
+[e :U 375 ]
 [; ;mTouch.c: 59: }
 "59
-[e :UE 369 ]
+[e :UE 372 ]
 }
 "61
 [v _mTouch_Check `(uc ~T0 @X0 1 ef1`uc ]
@@ -3264,13 +3281,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;mTouch.c: 63: if(2<chan)return 0;
 "63
-[e $ ! < -> 2 `i -> _chan `i 374  ]
+[e $ ! < -> 2 `i -> _chan `i 377  ]
 [e ) -> -> 0 `i `uc ]
-[e $UE 373  ]
-[e :U 374 ]
+[e $UE 376  ]
+[e :U 377 ]
 [; ;mTouch.c: 65: if(((CPS_PreData[chan]-CPS_Data[chan])>sense_parameter[chan])&&!mTouch_Interval[chan])
 "65
-[e $ ! && > - -> *U + &U _CPS_PreData * -> _chan `ux -> -> # *U &U _CPS_PreData `ui `ux `i -> *U + &U _CPS_Data * -> _chan `ux -> -> # *U &U _CPS_Data `ui `ux `i -> *U + &U _sense_parameter * -> _chan `ux -> -> # *U &U _sense_parameter `ui `ux `i ! != -> *U + &U _mTouch_Interval * -> _chan `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> -> -> 0 `i `uc `i 375  ]
+[e $ ! && > - -> *U + &U _CPS_PreData * -> _chan `ux -> -> # *U &U _CPS_PreData `ui `ux `i -> *U + &U _CPS_Data * -> _chan `ux -> -> # *U &U _CPS_Data `ui `ux `i -> *U + &U _sense_parameter * -> _chan `ux -> -> # *U &U _sense_parameter `ui `ux `i ! != -> *U + &U _mTouch_Interval * -> _chan `ux -> -> # *U &U _mTouch_Interval `ui `ux `i -> -> -> 0 `i `uc `i 378  ]
 [; ;mTouch.c: 66: {
 "66
 {
@@ -3283,16 +3300,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mTouch.c: 69: return 1;
 "69
 [e ) -> -> 1 `i `uc ]
-[e $UE 373  ]
+[e $UE 376  ]
 "70
 }
-[e :U 375 ]
+[e :U 378 ]
 [; ;mTouch.c: 70: }
 [; ;mTouch.c: 71: return 0;
 "71
 [e ) -> -> 0 `i `uc ]
-[e $UE 373  ]
+[e $UE 376  ]
 [; ;mTouch.c: 72: }
 "72
-[e :UE 373 ]
+[e :UE 376 ]
 }

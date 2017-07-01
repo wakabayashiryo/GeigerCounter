@@ -4130,11 +4130,33 @@ typedef enum
 STOPPING = 0x00,
 COUNTING = 0x01,
 RESULT = 0x02,
-SETUP = 0x03,
+SETTING = 0x03,
+SHOW_CONFIG = 0x04,
 }STATE_OF_MODE;
 
-# 69
+
+
+typedef struct
+{
+union
+{
+uint8_t Eeprom_table[3];
+struct
+{
+uint8_t SerialNum;
+uint8_t GainElements;
+uint8_t DeviceNum;
+};
+};
+}PMT_CONFIGURATION;
+
+# 86
 int8_t Basic_Init(void);
+
+# 17 "User_Interface.h"
+void StartUp_Menu(PMT_CONFIGURATION *data);
+void Ssetting_PMT_Config(PMT_CONFIGURATION *data);
+void Show_PMT_Config(PMT_CONFIGURATION *data);
 
 # 14 "/opt/microchip/xc8/v1.41/include/string.h"
 extern void * memcpy(void *, const void *, size_t);

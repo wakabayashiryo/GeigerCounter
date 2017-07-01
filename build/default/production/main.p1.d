@@ -4,6 +4,7 @@
 I2C.h  \
 main.h  \
 MCP4726.h  \
+User_Interface.h  \
 LCD.h  \
 mTouch.h  \
 Timer1.h  \

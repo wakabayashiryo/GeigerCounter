@@ -3089,9 +3089,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.h: 58: STOPPING = 0x00,
 [; ;main.h: 59: COUNTING = 0x01,
 [; ;main.h: 60: RESULT = 0x02,
-[; ;main.h: 61: SETUP = 0x03,
-[; ;main.h: 62: }STATE_OF_MODE;
-[; ;main.h: 69: int8_t Basic_Init(void);
+[; ;main.h: 61: SETTING = 0x03,
+[; ;main.h: 62: SHOW_CONFIG = 0x04,
+[; ;main.h: 63: }STATE_OF_MODE;
+[; ;main.h: 67: typedef struct
+[; ;main.h: 68: {
+[; ;main.h: 69: union
+[; ;main.h: 70: {
+[; ;main.h: 71: uint8_t Eeprom_table[3];
+[; ;main.h: 72: struct
+[; ;main.h: 73: {
+[; ;main.h: 74: uint8_t SerialNum;
+[; ;main.h: 75: uint8_t GainElements;
+[; ;main.h: 76: uint8_t DeviceNum;
+[; ;main.h: 77: };
+[; ;main.h: 78: };
+[; ;main.h: 79: }PMT_CONFIGURATION;
+[; ;main.h: 86: int8_t Basic_Init(void);
+[; ;User_Interface.h: 17: void StartUp_Menu(PMT_CONFIGURATION *data);
+[; ;User_Interface.h: 18: void Ssetting_PMT_Config(PMT_CONFIGURATION *data);
+[; ;User_Interface.h: 19: void Show_PMT_Config(PMT_CONFIGURATION *data);
 [; ;Timer6.h: 17: void Timer6_Init(void);
 [; ;Timer6.h: 18: uint8_t Timer6_CheckFlag(void);
 "3 Timer6.c
@@ -3131,7 +3148,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _GIE -> -> 1 `i `b ]
 [; ;Timer6.c: 15: }
 "15
-[e :UE 365 ]
+[e :UE 368 ]
 }
 "17
 [v _Timer6_CheckFlag `(uc ~T0 @X0 1 ef ]
@@ -3143,7 +3160,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;Timer6.c: 19: if(TMR6IE&&TMR6IF)
 "19
-[e $ ! && _TMR6IE _TMR6IF 367  ]
+[e $ ! && _TMR6IE _TMR6IF 370  ]
 [; ;Timer6.c: 20: {
 "20
 {
@@ -3153,16 +3170,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer6.c: 22: return 1;
 "22
 [e ) -> -> 1 `i `uc ]
-[e $UE 366  ]
+[e $UE 369  ]
 "23
 }
-[e :U 367 ]
+[e :U 370 ]
 [; ;Timer6.c: 23: }
 [; ;Timer6.c: 24: return 0;
 "24
 [e ) -> -> 0 `i `uc ]
-[e $UE 366  ]
+[e $UE 369  ]
 [; ;Timer6.c: 25: }
 "25
-[e :UE 366 ]
+[e :UE 369 ]
 }

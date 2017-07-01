@@ -1,10 +1,10 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "29 Timer1.h
-[s S364 `ul 1 ]
-[n S364 . SigmaDeltaCount ]
+[s S367 `ul 1 ]
+[n S367 . SigmaDeltaCount ]
 "21
-[s S363 `uc 1 `uc 1 `ul 1 `ui 1 ]
-[n S363 . Second_t Minute_t Delta_t RenewalRersult ]
+[s S366 `uc 1 `uc 1 `ul 1 `ui 1 ]
+[n S366 . Second_t Minute_t Delta_t RenewalRersult ]
 "1179 /opt/microchip/xc8/v1.41/include/pic16f1827.h
 [v _TRISB `Vuc ~T0 @X0 0 e@141 ]
 "2846
@@ -3060,9 +3060,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.h: 58: STOPPING = 0x00,
 [; ;main.h: 59: COUNTING = 0x01,
 [; ;main.h: 60: RESULT = 0x02,
-[; ;main.h: 61: SETUP = 0x03,
-[; ;main.h: 62: }STATE_OF_MODE;
-[; ;main.h: 69: int8_t Basic_Init(void);
+[; ;main.h: 61: SETTING = 0x03,
+[; ;main.h: 62: SHOW_CONFIG = 0x04,
+[; ;main.h: 63: }STATE_OF_MODE;
+[; ;main.h: 67: typedef struct
+[; ;main.h: 68: {
+[; ;main.h: 69: union
+[; ;main.h: 70: {
+[; ;main.h: 71: uint8_t Eeprom_table[3];
+[; ;main.h: 72: struct
+[; ;main.h: 73: {
+[; ;main.h: 74: uint8_t SerialNum;
+[; ;main.h: 75: uint8_t GainElements;
+[; ;main.h: 76: uint8_t DeviceNum;
+[; ;main.h: 77: };
+[; ;main.h: 78: };
+[; ;main.h: 79: }PMT_CONFIGURATION;
+[; ;main.h: 86: int8_t Basic_Init(void);
+[; ;User_Interface.h: 17: void StartUp_Menu(PMT_CONFIGURATION *data);
+[; ;User_Interface.h: 18: void Ssetting_PMT_Config(PMT_CONFIGURATION *data);
+[; ;User_Interface.h: 19: void Show_PMT_Config(PMT_CONFIGURATION *data);
 [; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
 [; ;string.h: 15: extern void * memmove(void *, const void *, size_t);
 [; ;string.h: 16: extern void * memset(void *, int, size_t);
@@ -3113,10 +3130,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.h: 52: void Timer1_Count1ms(void);
 [; ;Timer1.h: 53: uint8_t Timer1_DetectAssignCount(void);
 "3 Timer1.c
-[v _cnts `S364 ~T0 @X0 1 s ]
+[v _cnts `S367 ~T0 @X0 1 s ]
 [; ;Timer1.c: 3: static Counters cnts;
 "4
-[v _tcnt `S363 ~T0 @X0 1 s ]
+[v _tcnt `S366 ~T0 @X0 1 s ]
 [; ;Timer1.c: 4: static TimeCounter tcnt;
 "6
 [v _Timer1_Init `(v ~T0 @X0 1 ef ]
@@ -3174,7 +3191,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _TMR1ON -> -> 0 `i `b ]
 [; ;Timer1.c: 27: }
 "27
-[e :UE 365 ]
+[e :UE 368 ]
 }
 "31
 [v _Timer1_StartCount `(v ~T0 @X0 1 ef ]
@@ -3192,7 +3209,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _TMR1ON -> -> 1 `i `b ]
 [; ;Timer1.c: 35: }
 "35
-[e :UE 366 ]
+[e :UE 369 ]
 }
 "37
 [v _Timer1_StopCount `(v ~T0 @X0 1 ef ]
@@ -3207,7 +3224,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _TMR1ON -> -> 0 `i `b ]
 [; ;Timer1.c: 40: }
 "40
-[e :UE 367 ]
+[e :UE 370 ]
 }
 "42
 [v _Timer1_ClearRecord `(v ~T0 @X0 1 ef ]
@@ -3231,7 +3248,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _tcnt 1 -> -> 0 `i `uc ]
 [; ;Timer1.c: 48: }
 "48
-[e :UE 368 ]
+[e :UE 371 ]
 }
 "50
 [v _Timer1_GetCountSum `(ul ~T0 @X0 1 ef ]
@@ -3244,10 +3261,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.c: 52: return cnts.SigmaDeltaCount;
 "52
 [e ) . _cnts 0 ]
-[e $UE 369  ]
+[e $UE 372  ]
 [; ;Timer1.c: 53: }
 "53
-[e :UE 369 ]
+[e :UE 372 ]
 }
 "55
 [v _Timer1_GetCPS `(ul ~T0 @X0 1 ef ]
@@ -3260,10 +3277,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.c: 57: return (uint32_t)((cnts.SigmaDeltaCount * 1000UL)/tcnt.Delta_t);
 "57
 [e ) / * . _cnts 0 -> 1000 `ul . _tcnt 2 ]
-[e $UE 370  ]
+[e $UE 373  ]
 [; ;Timer1.c: 58: }
 "58
-[e :UE 370 ]
+[e :UE 373 ]
 }
 "60
 [v _Timer1_GetCPM `(ul ~T0 @X0 1 ef ]
@@ -3276,10 +3293,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.c: 62: return (uint32_t)(Timer1_GetCPS()*60);
 "62
 [e ) * ( _Timer1_GetCPS ..  -> -> -> 60 `i `l `ul ]
-[e $UE 371  ]
+[e $UE 374  ]
 [; ;Timer1.c: 63: }
 "63
-[e :UE 371 ]
+[e :UE 374 ]
 }
 "65
 [v _Timer1_GetSecond `(uc ~T0 @X0 1 ef ]
@@ -3292,10 +3309,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.c: 67: return tcnt.Second_t;
 "67
 [e ) . _tcnt 0 ]
-[e $UE 372  ]
+[e $UE 375  ]
 [; ;Timer1.c: 68: }
 "68
-[e :UE 372 ]
+[e :UE 375 ]
 }
 "70
 [v _Timer1_GetMinute `(uc ~T0 @X0 1 ef ]
@@ -3308,10 +3325,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.c: 72: return tcnt.Minute_t;
 "72
 [e ) . _tcnt 1 ]
-[e $UE 373  ]
+[e $UE 376  ]
 [; ;Timer1.c: 73: }
 "73
-[e :UE 373 ]
+[e :UE 376 ]
 }
 "76
 [v _Timer1_Count1ms `(v ~T0 @X0 1 ef ]
@@ -3323,7 +3340,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;Timer1.c: 78: if(TMR1ON==1)
 "78
-[e $ ! == -> _TMR1ON `i -> 1 `i 375  ]
+[e $ ! == -> _TMR1ON `i -> 1 `i 378  ]
 [; ;Timer1.c: 79: {
 "79
 {
@@ -3335,7 +3352,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ . _tcnt 3 -> -> 1 `i `ui ]
 [; ;Timer1.c: 83: if(tcnt.RenewalRersult>1000)
 "83
-[e $ ! > . _tcnt 3 -> -> 1000 `i `ui 376  ]
+[e $ ! > . _tcnt 3 -> -> 1000 `i `ui 379  ]
 [; ;Timer1.c: 84: {
 "84
 {
@@ -3344,7 +3361,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ . _tcnt 0 -> -> 1 `i `uc ]
 [; ;Timer1.c: 87: if((56<tcnt.Second_t)&&(tcnt.Second_t<60))
 "87
-[e $ ! && < -> 56 `i -> . _tcnt 0 `i < -> . _tcnt 0 `i -> 60 `i 377  ]
+[e $ ! && < -> 56 `i -> . _tcnt 0 `i < -> . _tcnt 0 `i -> 60 `i 380  ]
 [; ;Timer1.c: 88: {
 "88
 {
@@ -3354,11 +3371,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "90
 }
 [; ;Timer1.c: 90: }
-[e $U 378  ]
+[e $U 381  ]
 "91
-[e :U 377 ]
+[e :U 380 ]
 [; ;Timer1.c: 91: else if(tcnt.Second_t>59)
-[e $ ! > -> . _tcnt 0 `i -> 59 `i 379  ]
+[e $ ! > -> . _tcnt 0 `i -> 59 `i 382  ]
 [; ;Timer1.c: 92: {
 "92
 {
@@ -3373,23 +3390,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _Buzzer_MiliSecond (1 -> -> 600 `i `ui ]
 "97
 }
-[e :U 379 ]
+[e :U 382 ]
 "99
-[e :U 378 ]
+[e :U 381 ]
 [; ;Timer1.c: 97: }
 [; ;Timer1.c: 99: tcnt.RenewalRersult = 0;
 [e = . _tcnt 3 -> -> 0 `i `ui ]
 "100
 }
-[e :U 376 ]
+[e :U 379 ]
 "101
 }
-[e :U 375 ]
+[e :U 378 ]
 [; ;Timer1.c: 100: }
 [; ;Timer1.c: 101: }
 [; ;Timer1.c: 103: }
 "103
-[e :UE 374 ]
+[e :UE 377 ]
 }
 "105
 [v _Timer1_DetectAssignCount `(uc ~T0 @X0 1 ef ]
@@ -3401,7 +3418,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;Timer1.c: 107: if(TMR1IF&&TMR1IE)
 "107
-[e $ ! && _TMR1IF _TMR1IE 381  ]
+[e $ ! && _TMR1IF _TMR1IE 384  ]
 [; ;Timer1.c: 108: {
 "108
 {
@@ -3421,16 +3438,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.c: 115: return 1;
 "115
 [e ) -> -> 1 `i `uc ]
-[e $UE 380  ]
+[e $UE 383  ]
 "116
 }
-[e :U 381 ]
+[e :U 384 ]
 [; ;Timer1.c: 116: }
 [; ;Timer1.c: 117: return 0;
 "117
 [e ) -> -> 0 `i `uc ]
-[e $UE 380  ]
+[e $UE 383  ]
 [; ;Timer1.c: 118: }
 "118
-[e :UE 380 ]
+[e :UE 383 ]
 }

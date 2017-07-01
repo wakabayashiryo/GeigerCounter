@@ -13,6 +13,7 @@
       <itemPath>eeprom.h</itemPath>
       <itemPath>mTouch.h</itemPath>
       <itemPath>main.h</itemPath>
+      <itemPath>User_Interface.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -32,6 +33,7 @@
       <itemPath>mTouch.c</itemPath>
       <itemPath>main.c</itemPath>
       <itemPath>table.c</itemPath>
+      <itemPath>User_Interface.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

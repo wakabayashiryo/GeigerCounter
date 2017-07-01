@@ -8,13 +8,18 @@
 #include "main.h"
 
 //TODO
-//add start menu
+//Never finish to Optimize code and be sipmlify.
+//Unit of gain string change to db unit.
+//Redue Code size
 
-const uint16_t DAC_DataTable[];
-static STATE_OF_MODE state_mode = STOPPING;
+__EEPROM_DATA(SERIAL_NO,0x00,0x00,0x00,0x00,0x00,0x00,0x00);
 
 int8_t main(void)
 {
+
+    static STATE_OF_MODE state_mode = STOPPING;
+    static PMT_CONFIGURATION pmt_config;
+
     Basic_Init();
     
     LED_BLUE(LED_OFF);      //Clear Bule LED    
@@ -31,31 +36,63 @@ int8_t main(void)
     Timer6_Init();
     
     DAC_Initialize();
-    DAC_WriteVoltage(DAC_DataTable[0]);    
-    DAC_WriteVoltage(DAC_DataTable[6]);
-    
+
+    StartUp_Menu(&pmt_config);
+
     while(1)
     {
-        if(mTouch_Check(START_SYMBOL)&&(state_mode==STOPPING))
+        switch(state_mode)
         {
-            Timer1_StartCount();
-            LCD_DisplayClear();
-            state_mode = COUNTING;
+            case COUNTING:
+                if(mTouch_Check(STOP_SYMBOL))
+                {
+                    Timer1_StopCount();
+                    LCD_DisplayClear();
+                    state_mode = STOPPING;
+                }
+                break;
+ 
+            case STOPPING:
+                if(mTouch_Check(START_SYMBOL))
+                {
+                    Timer1_StartCount();
+                    LCD_DisplayClear();
+                    state_mode = COUNTING;
+                }
+                else if(mTouch_Check(RESET_SYMBOL))
+                {
+                    Timer1_ClearRecord();
+                }
+                else if(mTouch_Check(STOP_SYMBOL))
+                {
+                    Timer1_StopCount();
+                    LCD_DisplayClear();
+                    state_mode = RESULT;
+                }
+                break;
+                
+            case RESULT:
+                if(mTouch_Check(START_SYMBOL))
+                {
+                    LCD_DisplayClear();
+                    state_mode = SETTING;
+                }
+                else if(mTouch_Check(STOP_SYMBOL))
+                {
+                    LCD_DisplayClear();
+                    state_mode = STOPPING;
+                }
+                else if(mTouch_Check(RESET_SYMBOL))
+                {
+                    LCD_DisplayClear();
+                    state_mode = SHOW_CONFIG;
+                }
+                break;
+                
+            default:
+                break;
         }
-        else if(mTouch_Check(STOP_SYMBOL))
-        {
-            Timer1_StopCount();
-            LCD_DisplayClear();
-            if(state_mode==STOPPING)
-                state_mode = RESULT;
-            else
-                state_mode = STOPPING;
-        }
-        else if(mTouch_Check(RESET_SYMBOL)&&(state_mode==STOPPING))
-        {
-            Timer1_ClearRecord();
-        }
-
+        
         switch(state_mode)
         {
             case COUNTING:
@@ -77,6 +114,18 @@ int8_t main(void)
                 printf("%7lu %7lu",Timer1_GetCPS(),Timer1_GetCPM());
                 LCD_CursorPosition(0,1);
                 printf(" %7lu  %02d:%02d",Timer1_GetCountSum(),Timer1_GetMinute(),Timer1_GetSecond()); 
+                break;
+                
+            case SETTING:
+                Ssetting_PMT_Config(&pmt_config);
+                state_mode = RESULT;
+                break;
+                
+            case SHOW_CONFIG:
+                Show_PMT_Config(&pmt_config);
+                state_mode = RESULT;
+                break;
+            default:
                 break;
         }
     }

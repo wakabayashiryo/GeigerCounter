@@ -3079,9 +3079,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.h: 58: STOPPING = 0x00,
 [; ;main.h: 59: COUNTING = 0x01,
 [; ;main.h: 60: RESULT = 0x02,
-[; ;main.h: 61: SETUP = 0x03,
-[; ;main.h: 62: }STATE_OF_MODE;
-[; ;main.h: 69: int8_t Basic_Init(void);
+[; ;main.h: 61: SETTING = 0x03,
+[; ;main.h: 62: SHOW_CONFIG = 0x04,
+[; ;main.h: 63: }STATE_OF_MODE;
+[; ;main.h: 67: typedef struct
+[; ;main.h: 68: {
+[; ;main.h: 69: union
+[; ;main.h: 70: {
+[; ;main.h: 71: uint8_t Eeprom_table[3];
+[; ;main.h: 72: struct
+[; ;main.h: 73: {
+[; ;main.h: 74: uint8_t SerialNum;
+[; ;main.h: 75: uint8_t GainElements;
+[; ;main.h: 76: uint8_t DeviceNum;
+[; ;main.h: 77: };
+[; ;main.h: 78: };
+[; ;main.h: 79: }PMT_CONFIGURATION;
+[; ;main.h: 86: int8_t Basic_Init(void);
+[; ;User_Interface.h: 17: void StartUp_Menu(PMT_CONFIGURATION *data);
+[; ;User_Interface.h: 18: void Ssetting_PMT_Config(PMT_CONFIGURATION *data);
+[; ;User_Interface.h: 19: void Show_PMT_Config(PMT_CONFIGURATION *data);
 [; ;eeprom.h: 18: int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
 [; ;eeprom.h: 19: int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
 "12 eeprom.c
@@ -3104,19 +3121,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 16: for(;i<size;i++)
 "16
 {
-[e $U 369  ]
+[e $U 372  ]
 "17
-[e :U 366 ]
+[e :U 369 ]
 [; ;eeprom.c: 17: {
 {
 [; ;eeprom.c: 18: if((addr+i)>256-1)
 "18
-[e $ ! > + -> _addr `i -> _i `i - -> 256 `i -> 1 `i 370  ]
+[e $ ! > + -> _addr `i -> _i `i - -> 256 `i -> 1 `i 373  ]
 [; ;eeprom.c: 19: return 1;
 "19
 [e ) -> -> 1 `i `c ]
-[e $UE 365  ]
-[e :U 370 ]
+[e $UE 368  ]
+[e :U 373 ]
 [; ;eeprom.c: 20: eeprom_write(addr+i,pData[i]);
 "20
 [e ( _eeprom_write (2 , -> + -> _addr `i -> _i `i `uc *U + _pData * -> _i `ux -> -> # *U _pData `ui `ux ]
@@ -3124,19 +3141,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "16
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 369 ]
-[e $ < -> _i `i -> _size `i 366  ]
-[e :U 367 ]
+[e :U 372 ]
+[e $ < -> _i `i -> _size `i 369  ]
+[e :U 370 ]
 "21
 }
 [; ;eeprom.c: 21: }
 [; ;eeprom.c: 23: return 0;
 "23
 [e ) -> -> 0 `i `c ]
-[e $UE 365  ]
+[e $UE 368  ]
 [; ;eeprom.c: 24: }
 "24
-[e :UE 365 ]
+[e :UE 368 ]
 }
 "30
 [v _EEPROM_MultiRead `(c ~T0 @X0 1 ef3`*uc`uc`uc ]
@@ -3158,19 +3175,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 34: for(;i<size;i++)
 "34
 {
-[e $U 375  ]
+[e $U 378  ]
 "35
-[e :U 372 ]
+[e :U 375 ]
 [; ;eeprom.c: 35: {
 {
 [; ;eeprom.c: 36: if((addr+i)>256-1)
 "36
-[e $ ! > + -> _addr `i -> _i `i - -> 256 `i -> 1 `i 376  ]
+[e $ ! > + -> _addr `i -> _i `i - -> 256 `i -> 1 `i 379  ]
 [; ;eeprom.c: 37: return 1;
 "37
 [e ) -> -> 1 `i `c ]
-[e $UE 371  ]
-[e :U 376 ]
+[e $UE 374  ]
+[e :U 379 ]
 [; ;eeprom.c: 38: pData[i] = eeprom_read(addr+i);
 "38
 [e = *U + _pData * -> _i `ux -> -> # *U _pData `ui `ux ( _eeprom_read (1 -> + -> _addr `i -> _i `i `uc ]
@@ -3178,17 +3195,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "34
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 375 ]
-[e $ < -> _i `i -> _size `i 372  ]
-[e :U 373 ]
+[e :U 378 ]
+[e $ < -> _i `i -> _size `i 375  ]
+[e :U 376 ]
 "39
 }
 [; ;eeprom.c: 39: }
 [; ;eeprom.c: 41: return 0;
 "41
 [e ) -> -> 0 `i `c ]
-[e $UE 371  ]
+[e $UE 374  ]
 [; ;eeprom.c: 42: }
 "42
-[e :UE 371 ]
+[e :UE 374 ]
 }

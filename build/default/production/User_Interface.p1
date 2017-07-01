@@ -1,27 +1,33 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"73 MCP4726.h
-[s S367 :1 `uc 1 :2 `uc 1 :2 `uc 1 :3 `uc 1 ]
-[n S367 . Gain PowerDown Voltage_Ref Command ]
+"73 main.h
+[s S367 `uc 1 `uc 1 `uc 1 ]
+[n S367 . SerialNum GainElements DeviceNum ]
 "70
-[u S366 `uc -> -> 1 `i `ux `S367 1 ]
-[n S366 . Config_Data . ]
-"30
-[s S361 :4 `uc 1 :2 `uc 1 :2 `uc 1 :8 `uc 1 ]
-[n S361 . Voltage4bits PowerDown Command Voltage8bits ]
-"27
-[u S360 `uc -> 2 `i `S361 1 ]
-[n S360 . Voltage_Data . ]
-"16 MCP4726.c
-[c E3188 0 1 .. ]
-[n E3188 . I2C1_MODULE I2C2_MODULE  ]
-[c E3179 0 1 .. ]
-[n E3179 . I2C_MODE_MASTER I2C_MODE_SLAVE  ]
-[c E3183 0 1 2 .. ]
-[n E3183 . I2C_SPEED_STANDARD I2C_SPEED_HIGH I2C_SPEED_NONE  ]
-"55 I2C.h
-[v _I2C_Init `(v ~T0 @X0 0 ef4`E3188`uc`E3179`E3183 ]
-"56
-[v _I2C_Transmit `(c ~T0 @X0 0 ef4`E3188`uc`*uc`uc ]
+[u S366 `uc -> 3 `i `S367 1 ]
+[n S366 . Eeprom_table . ]
+"68
+[s S365 `S366 1 ]
+[n S365 . . ]
+"18 eeprom.h
+[v _EEPROM_MultiWrite `(c ~T0 @X0 0 ef3`*uc`uc`uc ]
+"19
+[v _EEPROM_MultiRead `(c ~T0 @X0 0 ef3`*uc`uc`uc ]
+"82 MCP4726.h
+[v _DAC_WriteVoltage `(c ~T0 @X0 0 ef1`ui ]
+"36 LCD.h
+[v _LCD_CursorHome `(v ~T0 @X0 0 ef ]
+"195 /opt/microchip/xc8/v1.41/include/stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"37 LCD.h
+[v _LCD_CursorPosition `(v ~T0 @X0 0 ef2`uc`uc ]
+[v F2764 `(v ~T0 @X0 1 tf1`ul ]
+"152 /opt/microchip/xc8/v1.41/include/pic.h
+[v __delay `JF2764 ~T0 @X0 0 e ]
+[p i __delay ]
+"35 LCD.h
+[v _LCD_DisplayClear `(v ~T0 @X0 0 ef ]
+"32 mTouch.h
+[v _mTouch_Check `(uc ~T0 @X0 0 ef1`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3003,6 +3009,56 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;I2C.h: 56: int8_t I2C_Transmit(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
 [; ;I2C.h: 57: int8_t I2C_Receive(I2Cx_Module I2Cx,uint8_t address,uint8_t *pData,uint8_t size);
 [; ;I2C.h: 58: void I2C_CommonInterrupt(void);
+[; ;MCP4726.h: 26: typedef union
+[; ;MCP4726.h: 27: {
+[; ;MCP4726.h: 28: uint8_t Voltage_Data[2];
+[; ;MCP4726.h: 29: struct
+[; ;MCP4726.h: 30: {
+[; ;MCP4726.h: 31: uint8_t Voltage4bits:4;
+[; ;MCP4726.h: 32: uint8_t PowerDown :2;
+[; ;MCP4726.h: 33: uint8_t Command :2;
+[; ;MCP4726.h: 34: uint8_t Voltage8bits:8;
+[; ;MCP4726.h: 35: };
+[; ;MCP4726.h: 37: }Voltage_Reg;
+[; ;MCP4726.h: 39: typedef union
+[; ;MCP4726.h: 40: {
+[; ;MCP4726.h: 41: uint8_t Memory_Data[3];
+[; ;MCP4726.h: 42: struct
+[; ;MCP4726.h: 43: {
+[; ;MCP4726.h: 44: uint8_t Command :3;
+[; ;MCP4726.h: 45: uint8_t Voltage_Ref :2;
+[; ;MCP4726.h: 46: uint8_t PowerDown :2;
+[; ;MCP4726.h: 47: uint8_t Gain :1;
+[; ;MCP4726.h: 48: uint8_t DataHigher :8;
+[; ;MCP4726.h: 49: uint8_t DataLower :8;
+[; ;MCP4726.h: 50: };
+[; ;MCP4726.h: 52: }Memory_Reg;
+[; ;MCP4726.h: 54: typedef union
+[; ;MCP4726.h: 55: {
+[; ;MCP4726.h: 56: uint8_t AllMemory_Data[3];
+[; ;MCP4726.h: 57: struct
+[; ;MCP4726.h: 58: {
+[; ;MCP4726.h: 59: uint8_t Command :3;
+[; ;MCP4726.h: 60: uint8_t Voltage_Ref :2;
+[; ;MCP4726.h: 61: uint8_t PowerDown :2;
+[; ;MCP4726.h: 62: uint8_t Gain :1;
+[; ;MCP4726.h: 63: uint8_t DataHigher :8;
+[; ;MCP4726.h: 64: uint8_t DataLower :8;
+[; ;MCP4726.h: 65: };
+[; ;MCP4726.h: 67: }AllMemory_Reg;
+[; ;MCP4726.h: 69: typedef union
+[; ;MCP4726.h: 70: {
+[; ;MCP4726.h: 71: uint8_t Config_Data[1];
+[; ;MCP4726.h: 72: struct
+[; ;MCP4726.h: 73: {
+[; ;MCP4726.h: 74: uint8_t Gain :1;
+[; ;MCP4726.h: 75: uint8_t PowerDown :2;
+[; ;MCP4726.h: 76: uint8_t Voltage_Ref :2;
+[; ;MCP4726.h: 77: uint8_t Command :3;
+[; ;MCP4726.h: 78: };
+[; ;MCP4726.h: 79: }Config_Reg;
+[; ;MCP4726.h: 81: void DAC_Initialize(void);
+[; ;MCP4726.h: 82: int8_t DAC_WriteVoltage(uint16_t volue);
 [; ;eeprom.h: 18: int8_t EEPROM_MultiWrite(uint8_t *pData,uint8_t size,uint8_t addr);
 [; ;eeprom.h: 19: int8_t EEPROM_MultiRead(uint8_t *pData,uint8_t size,uint8_t addr);
 [; ;mTouch.h: 29: void mTouch_Init(void);
@@ -3070,120 +3126,373 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;User_Interface.h: 17: void StartUp_Menu(PMT_CONFIGURATION *data);
 [; ;User_Interface.h: 18: void Ssetting_PMT_Config(PMT_CONFIGURATION *data);
 [; ;User_Interface.h: 19: void Show_PMT_Config(PMT_CONFIGURATION *data);
-[; ;MCP4726.h: 26: typedef union
-[; ;MCP4726.h: 27: {
-[; ;MCP4726.h: 28: uint8_t Voltage_Data[2];
-[; ;MCP4726.h: 29: struct
-[; ;MCP4726.h: 30: {
-[; ;MCP4726.h: 31: uint8_t Voltage4bits:4;
-[; ;MCP4726.h: 32: uint8_t PowerDown :2;
-[; ;MCP4726.h: 33: uint8_t Command :2;
-[; ;MCP4726.h: 34: uint8_t Voltage8bits:8;
-[; ;MCP4726.h: 35: };
-[; ;MCP4726.h: 37: }Voltage_Reg;
-[; ;MCP4726.h: 39: typedef union
-[; ;MCP4726.h: 40: {
-[; ;MCP4726.h: 41: uint8_t Memory_Data[3];
-[; ;MCP4726.h: 42: struct
-[; ;MCP4726.h: 43: {
-[; ;MCP4726.h: 44: uint8_t Command :3;
-[; ;MCP4726.h: 45: uint8_t Voltage_Ref :2;
-[; ;MCP4726.h: 46: uint8_t PowerDown :2;
-[; ;MCP4726.h: 47: uint8_t Gain :1;
-[; ;MCP4726.h: 48: uint8_t DataHigher :8;
-[; ;MCP4726.h: 49: uint8_t DataLower :8;
-[; ;MCP4726.h: 50: };
-[; ;MCP4726.h: 52: }Memory_Reg;
-[; ;MCP4726.h: 54: typedef union
-[; ;MCP4726.h: 55: {
-[; ;MCP4726.h: 56: uint8_t AllMemory_Data[3];
-[; ;MCP4726.h: 57: struct
-[; ;MCP4726.h: 58: {
-[; ;MCP4726.h: 59: uint8_t Command :3;
-[; ;MCP4726.h: 60: uint8_t Voltage_Ref :2;
-[; ;MCP4726.h: 61: uint8_t PowerDown :2;
-[; ;MCP4726.h: 62: uint8_t Gain :1;
-[; ;MCP4726.h: 63: uint8_t DataHigher :8;
-[; ;MCP4726.h: 64: uint8_t DataLower :8;
-[; ;MCP4726.h: 65: };
-[; ;MCP4726.h: 67: }AllMemory_Reg;
-[; ;MCP4726.h: 69: typedef union
-[; ;MCP4726.h: 70: {
-[; ;MCP4726.h: 71: uint8_t Config_Data[1];
-[; ;MCP4726.h: 72: struct
-[; ;MCP4726.h: 73: {
-[; ;MCP4726.h: 74: uint8_t Gain :1;
-[; ;MCP4726.h: 75: uint8_t PowerDown :2;
-[; ;MCP4726.h: 76: uint8_t Voltage_Ref :2;
-[; ;MCP4726.h: 77: uint8_t Command :3;
-[; ;MCP4726.h: 78: };
-[; ;MCP4726.h: 79: }Config_Reg;
-[; ;MCP4726.h: 81: void DAC_Initialize(void);
-[; ;MCP4726.h: 82: int8_t DAC_WriteVoltage(uint16_t volue);
-"10 MCP4726.c
-[v _ConfigReg `S366 ~T0 @X0 1 s ]
-[; ;MCP4726.c: 10: static Config_Reg ConfigReg;
-"11
-[v _VoltageReg `S360 ~T0 @X0 1 s ]
-[; ;MCP4726.c: 11: static Voltage_Reg VoltageReg;
-"14
-[v _DAC_Initialize `(v ~T0 @X0 1 ef ]
-"15
+"3 User_Interface.c
+[v _DAC_DataTable `ui ~T0 @X0 -> 0 `x e ]
+[; ;User_Interface.c: 3: uint16_t DAC_DataTable[];
+"4
+[v _H7826_Gain `*uc ~T0 @X0 -> 0 `x e ]
+[; ;User_Interface.c: 4: uint8_t *H7826_Gain[];
+"5
+[v _H7826_01_Gain `*uc ~T0 @X0 -> 0 `x e ]
+[; ;User_Interface.c: 5: uint8_t *H7826_01_Gain[];
+"7
+[v _Save_PMTConfig `(uc ~T0 @X0 1 sf1`*S365 ]
+"8
 {
-[; ;MCP4726.c: 14: void DAC_Initialize(void)
-[; ;MCP4726.c: 15: {
-[e :U _DAC_Initialize ]
+[; ;User_Interface.c: 7: static uint8_t Save_PMTConfig(PMT_CONFIGURATION *data)
+[; ;User_Interface.c: 8: {
+[e :U _Save_PMTConfig ]
+"7
+[v _data `*S365 ~T0 @X0 1 r1 ]
+"8
 [f ]
-[; ;MCP4726.c: 16: I2C_Init(I2C2_MODULE,0x00,I2C_MODE_MASTER,I2C_SPEED_STANDARD);
-"16
-[e ( _I2C_Init (4 , , , . `E3188 1 -> -> 0 `i `uc . `E3179 0 . `E3183 0 ]
-[; ;MCP4726.c: 18: ConfigReg.Command = (uint8_t)(0x4);
-"18
-[e = . . _ConfigReg 1 3 -> -> 4 `i `uc ]
-[; ;MCP4726.c: 19: ConfigReg.Gain = 0x00;
-"19
-[e = . . _ConfigReg 1 0 -> -> 0 `i `uc ]
-[; ;MCP4726.c: 20: ConfigReg.PowerDown = 0x00;
-"20
-[e = . . _ConfigReg 1 1 -> -> 0 `i `uc ]
-[; ;MCP4726.c: 21: ConfigReg.Voltage_Ref = 0x00;
-"21
-[e = . . _ConfigReg 1 2 -> -> 0 `i `uc ]
-[; ;MCP4726.c: 23: I2C_Transmit(I2C2_MODULE,0x60,ConfigReg.Config_Data,1);
-"23
-[e ( _I2C_Transmit (4 , , , . `E3188 1 -> -> 96 `i `uc &U . _ConfigReg 0 -> -> 1 `i `uc ]
-[; ;MCP4726.c: 25: }
-"25
+[; ;User_Interface.c: 9: return EEPROM_MultiWrite(data->Eeprom_table,3,0);
+"9
+[e ) -> ( _EEPROM_MultiWrite (3 , , &U . . *U _data 0 0 -> -> 3 `i `uc -> -> 0 `i `uc `uc ]
+[e $UE 368  ]
+[; ;User_Interface.c: 10: }
+"10
 [e :UE 368 ]
 }
-"27
-[v _DAC_WriteVoltage `(c ~T0 @X0 1 ef1`ui ]
-"28
+"12
+[v _Load_PMTConfing `(uc ~T0 @X0 1 sf1`*S365 ]
+"13
 {
-[; ;MCP4726.c: 27: int8_t DAC_WriteVoltage(uint16_t volue)
-[; ;MCP4726.c: 28: {
-[e :U _DAC_WriteVoltage ]
-"27
-[v _volue `ui ~T0 @X0 1 r1 ]
-"28
+[; ;User_Interface.c: 12: static uint8_t Load_PMTConfing(PMT_CONFIGURATION *data)
+[; ;User_Interface.c: 13: {
+[e :U _Load_PMTConfing ]
+"12
+[v _data `*S365 ~T0 @X0 1 r1 ]
+"13
 [f ]
-[; ;MCP4726.c: 29: VoltageReg.Command = (uint8_t)(0x0);
-"29
-[e = . . _VoltageReg 1 2 -> -> 0 `i `uc ]
-[; ;MCP4726.c: 30: VoltageReg.PowerDown = ConfigReg.PowerDown;
-"30
-[e = . . _VoltageReg 1 1 . . _ConfigReg 1 1 ]
-[; ;MCP4726.c: 31: VoltageReg.Voltage4bits = (uint8_t)((volue&0x0F00)>>8);
-"31
-[e = . . _VoltageReg 1 0 -> >> & _volue -> -> 3840 `i `ui -> 8 `i `uc ]
-[; ;MCP4726.c: 32: VoltageReg.Voltage8bits = (uint8_t)(volue&0x00FF);
-"32
-[e = . . _VoltageReg 1 3 -> & _volue -> -> 255 `i `ui `uc ]
-[; ;MCP4726.c: 34: return I2C_Transmit(I2C2_MODULE,0x60,VoltageReg.Voltage_Data,2);
-"34
-[e ) ( _I2C_Transmit (4 , , , . `E3188 1 -> -> 96 `i `uc &U . _VoltageReg 0 -> -> 2 `i `uc ]
+[; ;User_Interface.c: 14: return EEPROM_MultiRead(data->Eeprom_table,3,0);
+"14
+[e ) -> ( _EEPROM_MultiRead (3 , , &U . . *U _data 0 0 -> -> 3 `i `uc -> -> 0 `i `uc `uc ]
 [e $UE 369  ]
-[; ;MCP4726.c: 35: }
-"35
+[; ;User_Interface.c: 15: }
+"15
 [e :UE 369 ]
 }
+"17
+[v _StartUp_Menu `(v ~T0 @X0 1 ef1`*S365 ]
+"18
+{
+[; ;User_Interface.c: 17: void StartUp_Menu(PMT_CONFIGURATION *data)
+[; ;User_Interface.c: 18: {
+[e :U _StartUp_Menu ]
+"17
+[v _data `*S365 ~T0 @X0 1 r1 ]
+"18
+[f ]
+[; ;User_Interface.c: 19: Load_PMTConfing(data);
+"19
+[e ( _Load_PMTConfing (1 _data ]
+[; ;User_Interface.c: 20: DAC_WriteVoltage(DAC_DataTable[data->GainElements]);
+"20
+[e ( _DAC_WriteVoltage (1 *U + &U _DAC_DataTable * -> . . . *U _data 0 1 1 `ux -> -> # *U &U _DAC_DataTable `ui `ux ]
+[; ;User_Interface.c: 22: LCD_CursorHome();
+"22
+[e ( _LCD_CursorHome ..  ]
+[; ;User_Interface.c: 23: printf(" Geiger Counter ");
+"23
+[e ( _printf :s 1C ]
+[; ;User_Interface.c: 24: LCD_CursorPosition(0,1);
+"24
+[e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;User_Interface.c: 25: printf("    with PIC    ");
+"25
+[e ( _printf :s 2C ]
+[; ;User_Interface.c: 26: _delay((unsigned long)((2000)*(32000000/4000.0)));
+"26
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+[; ;User_Interface.c: 28: LCD_DisplayClear();
+"28
+[e ( _LCD_DisplayClear ..  ]
+[; ;User_Interface.c: 30: LCD_CursorHome();
+"30
+[e ( _LCD_CursorHome ..  ]
+[; ;User_Interface.c: 31: printf("SotWare ver%s","1.00");
+"31
+[e ( _printf , (. :s 3C :s 4C ]
+[; ;User_Interface.c: 32: LCD_CursorPosition(0,1);
+"32
+[e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;User_Interface.c: 33: printf("   Ser.No.%0003d   ",data->SerialNum);
+"33
+[e ( _printf , (. :s 5C -> . . . *U _data 0 1 0 `i ]
+[; ;User_Interface.c: 34: _delay((unsigned long)((2000)*(32000000/4000.0)));
+"34
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+[; ;User_Interface.c: 36: LCD_DisplayClear();
+"36
+[e ( _LCD_DisplayClear ..  ]
+[; ;User_Interface.c: 38: LCD_CursorHome();
+"38
+[e ( _LCD_CursorHome ..  ]
+[; ;User_Interface.c: 39: printf("Created By");
+"39
+[e ( _printf :s 6C ]
+[; ;User_Interface.c: 40: LCD_CursorPosition(0,1);
+"40
+[e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;User_Interface.c: 41: printf("  Ryo Wakabayshi");
+"41
+[e ( _printf :s 7C ]
+[; ;User_Interface.c: 42: _delay((unsigned long)((2000)*(32000000/4000.0)));
+"42
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+[; ;User_Interface.c: 44: LCD_DisplayClear();
+"44
+[e ( _LCD_DisplayClear ..  ]
+[; ;User_Interface.c: 45: }
+"45
+[e :UE 370 ]
+}
+"47
+[v _Ssetting_PMT_Config `(v ~T0 @X0 1 ef1`*S365 ]
+"48
+{
+[; ;User_Interface.c: 47: void Ssetting_PMT_Config(PMT_CONFIGURATION *data)
+[; ;User_Interface.c: 48: {
+[e :U _Ssetting_PMT_Config ]
+"47
+[v _data `*S365 ~T0 @X0 1 r1 ]
+"48
+[f ]
+[; ;User_Interface.c: 49: LCD_CursorHome();
+"49
+[e ( _LCD_CursorHome ..  ]
+[; ;User_Interface.c: 50: printf("   PMT Device   ");
+"50
+[e ( _printf :s 8C ]
+[; ;User_Interface.c: 52: while(!mTouch_Check(0x00))
+"52
+[e $U 372  ]
+[e :U 373 ]
+[; ;User_Interface.c: 53: {
+"53
+{
+[; ;User_Interface.c: 54: if(mTouch_Check(0x01)&&(data->DeviceNum==0))
+"54
+[e $ ! && != -> ( _mTouch_Check (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i == -> . . . *U _data 0 1 2 `i -> 0 `i 375  ]
+[; ;User_Interface.c: 55: data->DeviceNum = 1;
+"55
+[e = . . . *U _data 0 1 2 -> -> 1 `i `uc ]
+[e $U 376  ]
+"56
+[e :U 375 ]
+[; ;User_Interface.c: 56: else if(mTouch_Check(0x02)&&(data->DeviceNum==1))
+[e $ ! && != -> ( _mTouch_Check (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i == -> . . . *U _data 0 1 2 `i -> 1 `i 377  ]
+[; ;User_Interface.c: 57: data->DeviceNum = 0;
+"57
+[e = . . . *U _data 0 1 2 -> -> 0 `i `uc ]
+[e :U 377 ]
+"59
+[e :U 376 ]
+[; ;User_Interface.c: 59: LCD_CursorPosition(0,1);
+[e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;User_Interface.c: 60: if(data->DeviceNum==0)
+"60
+[e $ ! == -> . . . *U _data 0 1 2 `i -> 0 `i 378  ]
+[; ;User_Interface.c: 61: printf("<--  H7826   -->");
+"61
+[e ( _printf :s 9C ]
+[e $U 379  ]
+"62
+[e :U 378 ]
+[; ;User_Interface.c: 62: else if(data->DeviceNum==1)
+[e $ ! == -> . . . *U _data 0 1 2 `i -> 1 `i 380  ]
+[; ;User_Interface.c: 63: printf("<-- H7826_01 -->");
+"63
+[e ( _printf :s 10C ]
+[e :U 380 ]
+"64
+[e :U 379 ]
+}
+[e :U 372 ]
+"52
+[e $ ! != -> ( _mTouch_Check (1 -> -> 0 `i `uc `i -> -> -> 0 `i `uc `i 373  ]
+[e :U 374 ]
+[; ;User_Interface.c: 64: }
+[; ;User_Interface.c: 66: LCD_CursorHome();
+"66
+[e ( _LCD_CursorHome ..  ]
+[; ;User_Interface.c: 67: printf("  Set PMT Gain  ");
+"67
+[e ( _printf :s 11C ]
+[; ;User_Interface.c: 69: while(!mTouch_Check(0x00))
+"69
+[e $U 381  ]
+[e :U 382 ]
+[; ;User_Interface.c: 70: {
+"70
+{
+[; ;User_Interface.c: 71: if(mTouch_Check(0x01)&&(data->GainElements<11))
+"71
+[e $ ! && != -> ( _mTouch_Check (1 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i < -> . . . *U _data 0 1 1 `i -> 11 `i 384  ]
+[; ;User_Interface.c: 72: data->GainElements++;
+"72
+[e ++ . . . *U _data 0 1 1 -> -> 1 `i `uc ]
+[e $U 385  ]
+"73
+[e :U 384 ]
+[; ;User_Interface.c: 73: else if(mTouch_Check(0x02)&&(0<data->GainElements))
+[e $ ! && != -> ( _mTouch_Check (1 -> -> 2 `i `uc `i -> -> -> 0 `i `uc `i < -> 0 `i -> . . . *U _data 0 1 1 `i 386  ]
+[; ;User_Interface.c: 74: data->GainElements--;
+"74
+[e -- . . . *U _data 0 1 1 -> -> 1 `i `uc ]
+[e :U 386 ]
+"76
+[e :U 385 ]
+[; ;User_Interface.c: 76: LCD_CursorPosition(0,1);
+[e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;User_Interface.c: 77: if(data->DeviceNum==0)
+"77
+[e $ ! == -> . . . *U _data 0 1 2 `i -> 0 `i 387  ]
+[; ;User_Interface.c: 78: printf("<-- %8s -->",H7826_Gain[data->GainElements]);
+"78
+[e ( _printf , (. :s 12C -> *U + &U _H7826_Gain * -> . . . *U _data 0 1 1 `ux -> -> # *U &U _H7826_Gain `ui `ux `*Cuc ]
+[e $U 388  ]
+"79
+[e :U 387 ]
+[; ;User_Interface.c: 79: else if(data->DeviceNum==1)
+[e $ ! == -> . . . *U _data 0 1 2 `i -> 1 `i 389  ]
+[; ;User_Interface.c: 80: printf("<-- %8s -->",H7826_01_Gain[data->GainElements]);
+"80
+[e ( _printf , (. :s 13C -> *U + &U _H7826_01_Gain * -> . . . *U _data 0 1 1 `ux -> -> # *U &U _H7826_01_Gain `ui `ux `*Cuc ]
+[e :U 389 ]
+"81
+[e :U 388 ]
+}
+[e :U 381 ]
+"69
+[e $ ! != -> ( _mTouch_Check (1 -> -> 0 `i `uc `i -> -> -> 0 `i `uc `i 382  ]
+[e :U 383 ]
+[; ;User_Interface.c: 81: }
+[; ;User_Interface.c: 83: LCD_DisplayClear();
+"83
+[e ( _LCD_DisplayClear ..  ]
+[; ;User_Interface.c: 85: Save_PMTConfig(data);
+"85
+[e ( _Save_PMTConfig (1 _data ]
+[; ;User_Interface.c: 86: }
+"86
+[e :UE 371 ]
+}
+"88
+[v _Show_PMT_Config `(v ~T0 @X0 1 ef1`*S365 ]
+"89
+{
+[; ;User_Interface.c: 88: void Show_PMT_Config(PMT_CONFIGURATION *data)
+[; ;User_Interface.c: 89: {
+[e :U _Show_PMT_Config ]
+"88
+[v _data `*S365 ~T0 @X0 1 r1 ]
+"89
+[f ]
+[; ;User_Interface.c: 90: while(!mTouch_Check(0x00))
+"90
+[e $U 391  ]
+[e :U 392 ]
+[; ;User_Interface.c: 91: {
+"91
+{
+[; ;User_Interface.c: 92: LCD_CursorHome();
+"92
+[e ( _LCD_CursorHome ..  ]
+[; ;User_Interface.c: 93: printf("SotWare ver%s","1.00");
+"93
+[e ( _printf , (. :s 14C :s 15C ]
+[; ;User_Interface.c: 94: LCD_CursorPosition(0,1);
+"94
+[e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;User_Interface.c: 95: printf("   Ser.No.%0003d   ",data->SerialNum);
+"95
+[e ( _printf , (. :s 16C -> . . . *U _data 0 1 0 `i ]
+"96
+}
+[e :U 391 ]
+"90
+[e $ ! != -> ( _mTouch_Check (1 -> -> 0 `i `uc `i -> -> -> 0 `i `uc `i 392  ]
+[e :U 393 ]
+[; ;User_Interface.c: 96: }
+[; ;User_Interface.c: 97: while(!mTouch_Check(0x00))
+"97
+[e $U 394  ]
+[e :U 395 ]
+[; ;User_Interface.c: 98: {
+"98
+{
+[; ;User_Interface.c: 99: LCD_CursorHome();
+"99
+[e ( _LCD_CursorHome ..  ]
+[; ;User_Interface.c: 100: if(data->DeviceNum==0)
+"100
+[e $ ! == -> . . . *U _data 0 1 2 `i -> 0 `i 397  ]
+[; ;User_Interface.c: 101: printf("Deveice:H7826   ");
+"101
+[e ( _printf :s 17C ]
+[e $U 398  ]
+"102
+[e :U 397 ]
+[; ;User_Interface.c: 102: else if(data->DeviceNum==1)
+[e $ ! == -> . . . *U _data 0 1 2 `i -> 1 `i 399  ]
+[; ;User_Interface.c: 103: printf("Deveice:H7826_01");
+"103
+[e ( _printf :s 18C ]
+[e :U 399 ]
+"104
+[e :U 398 ]
+[; ;User_Interface.c: 104: LCD_CursorPosition(0,1);
+[e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;User_Interface.c: 105: if(data->DeviceNum==0)
+"105
+[e $ ! == -> . . . *U _data 0 1 2 `i -> 0 `i 400  ]
+[; ;User_Interface.c: 106: printf(" Gain: %8s ",H7826_Gain[data->GainElements]);
+"106
+[e ( _printf , (. :s 19C -> *U + &U _H7826_Gain * -> . . . *U _data 0 1 1 `ux -> -> # *U &U _H7826_Gain `ui `ux `*Cuc ]
+[e $U 401  ]
+"107
+[e :U 400 ]
+[; ;User_Interface.c: 107: else if(data->DeviceNum==1)
+[e $ ! == -> . . . *U _data 0 1 2 `i -> 1 `i 402  ]
+[; ;User_Interface.c: 108: printf(" Gain: %8s ",H7826_01_Gain[data->GainElements]);
+"108
+[e ( _printf , (. :s 20C -> *U + &U _H7826_01_Gain * -> . . . *U _data 0 1 1 `ux -> -> # *U &U _H7826_01_Gain `ui `ux `*Cuc ]
+[e :U 402 ]
+"109
+[e :U 401 ]
+}
+[e :U 394 ]
+"97
+[e $ ! != -> ( _mTouch_Check (1 -> -> 0 `i `uc `i -> -> -> 0 `i `uc `i 395  ]
+[e :U 396 ]
+[; ;User_Interface.c: 109: }
+[; ;User_Interface.c: 110: LCD_DisplayClear();
+"110
+[e ( _LCD_DisplayClear ..  ]
+[; ;User_Interface.c: 111: }
+"111
+[e :UE 390 ]
+}
+[p f _printf 8683652 ]
+[a 6C 67 114 101 97 116 101 100 32 66 121 0 ]
+[a 3C 83 111 116 87 97 114 101 32 118 101 114 37 115 0 ]
+[a 14C 83 111 116 87 97 114 101 32 118 101 114 37 115 0 ]
+[a 7C 32 32 82 121 111 32 87 97 107 97 98 97 121 115 104 105 0 ]
+[a 12C 60 45 45 32 37 56 115 32 45 45 62 0 ]
+[a 13C 60 45 45 32 37 56 115 32 45 45 62 0 ]
+[a 10C 60 45 45 32 72 55 56 50 54 95 48 49 32 45 45 62 0 ]
+[a 9C 60 45 45 32 32 72 55 56 50 54 32 32 32 45 45 62 0 ]
+[a 18C 68 101 118 101 105 99 101 58 72 55 56 50 54 95 48 49 0 ]
+[a 4C 49 46 48 48 0 ]
+[a 15C 49 46 48 48 0 ]
+[a 19C 32 71 97 105 110 58 32 37 56 115 32 0 ]
+[a 20C 32 71 97 105 110 58 32 37 56 115 32 0 ]
+[a 1C 32 71 101 105 103 101 114 32 67 111 117 110 116 101 114 32 0 ]
+[a 11C 32 32 83 101 116 32 80 77 84 32 71 97 105 110 32 32 0 ]
+[a 8C 32 32 32 80 77 84 32 68 101 118 105 99 101 32 32 32 0 ]
+[a 5C 32 32 32 83 101 114 46 78 111 46 37 48 48 48 51 100 32 32 32 0 ]
+[a 16C 32 32 32 83 101 114 46 78 111 46 37 48 48 48 51 100 32 32 32 0 ]
+[a 17C 68 101 118 101 105 99 101 58 72 55 56 50 54 32 32 32 0 ]
+[a 2C 32 32 32 32 119 105 116 104 32 80 73 67 32 32 32 32 0 ]
