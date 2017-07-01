@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=/opt/microchip/xc8/v1.41/dat/en_msgs.txt -cs \
   -h+dist/default/production/GeigerCounter.X.production.sym \
   --cmf=dist/default/production/GeigerCounter.X.production.cmf -z -Q16F1827 \
-  -o/tmp/xcX2RdtQj -Mdist/default/production/GeigerCounter.X.production.map \
+  -o/tmp/xcXYTuazg -Mdist/default/production/GeigerCounter.X.production.map \
   -E1 -ver=XC8 -ASTACK=020DCh-0216fh -pstack=STACK -ACODE=00h-07FFhx2 \
   -ASTRCODE=00h-0FFFh -ASTRING=00h-0FFhx16 -ACONST=00h-0FFhx16 \
   -AENTRY=00h-0FFhx16 -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
@@ -27,7 +27,7 @@ Linker command line:
   -ppowerup=CODE -pcinit=CODE -pfunctab=CODE -ACONFIG=08007h-08008h \
   -pconfig=CONFIG -DCONFIG=2 -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 \
   -AEEDATA=00h-0FFh/0F000h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
-  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/xcX0r86j3.obj \
+  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k /tmp/xcXYHwT5k.obj \
   dist/default/production/GeigerCounter.X.production.obj 
 
 Object code version is 3.11
@@ -37,7 +37,7 @@ Machine type is 16F1827
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcX0r86j3.obj
+/tmp/xcXYHwT5k.obj
                 end_init                             2B       2B        2        8       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        2    1000E       0
@@ -500,7 +500,7 @@ I2C2_Setting@address               cstackBANK0  00024
 I2C2_Setting@mode                  cstackBANK0  00021
 I2C2_Transmit@address              cstackBANK0  00024
 I2C2_Transmit@i                    cstackBANK0  00025
-I2C2_Transmit@i_172                cstackBANK0  00026
+I2C2_Transmit@i_560                cstackBANK0  00026
 I2C2_Transmit@pData                cstackBANK0  00020
 I2C2_Transmit@result               cstackBANK0  00027
 I2C2_Transmit@size                 cstackBANK0  00021
@@ -613,7 +613,7 @@ _Timer1_ClearRecord                text6        007EC
 _Timer1_Count1ms                   text50       00C6B
 _Timer1_DetectAssignCount          text49       00A1C
 _Timer1_GetCPM                     text11       00B57
-_Timer1_GetCPM$1180                cstackBANK0  00042
+_Timer1_GetCPM$1189                cstackBANK0  00042
 _Timer1_GetCPS                     text12       00D1F
 _Timer1_GetCountSum                text10       009A0
 _Timer1_GetMinute                  text9        008DF
@@ -1138,7 +1138,7 @@ _dpowers                           stringtext   0027E
 _eeprom_read                       text17       00AC7
 _eeprom_write                      text22       00B7F
 _isdigit                           text26       00950
-_isdigit$887                       cstackBANK0  00020
+_isdigit$904                       cstackBANK0  00020
 _mTouch_Check                      text30       00DE3
 _mTouch_Init                       text1        009C4
 _mTouch_Interval                   bssCOMMON    00070

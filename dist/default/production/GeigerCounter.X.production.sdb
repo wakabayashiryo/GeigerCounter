@@ -3,16 +3,6 @@
 [d edition pro ]
 [d chip 16F1827 ]
 [d frameptr 6 ]
-"16 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C2.c
-[e E3276 . `uc
-I2C_MODE_MASTER 0
-I2C_MODE_SLAVE 1
-]
-[e E3280 . `uc
-I2C_SPEED_STANDARD 0
-I2C_SPEED_HIGH 1
-I2C_SPEED_NONE 2
-]
 "4 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C_Common.c
 [e E3276 . `uc
 I2C_MODE_MASTER 0
@@ -49,6 +39,16 @@ COUNTING 1
 RESULT 2
 SETTING 3
 SHOW_CONFIG 4
+]
+"16 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C2.c
+[e E3276 . `uc
+I2C_MODE_MASTER 0
+I2C_MODE_SLAVE 1
+]
+[e E3280 . `uc
+I2C_SPEED_STANDARD 0
+I2C_SPEED_HIGH 1
+I2C_SPEED_NONE 2
 ]
 "464 /opt/microchip/xc8/v1.41/sources/common/doprnt.c
 [v _printf printf `(i  1 e 2 0 ]
@@ -227,7 +227,7 @@ SHOW_CONFIG 4
 [v _SSP2MSK SSP2MSK `VEuc  1 e 1 @539 ]
 "4234
 [v _SSP2STAT SSP2STAT `VEuc  1 e 1 @540 ]
-[s S115 . 1 `uc 1 BF 1 0 :1:0 
+[s S503 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -237,11 +237,11 @@ SHOW_CONFIG 4
 `uc 1 SMP 1 0 :1:7 
 ]
 "4251
-[u S124 . 1 `S115 1 . 1 0 ]
-[v _SSP2STATbits SSP2STATbits `VES124  1 e 1 @540 ]
+[u S512 . 1 `S503 1 . 1 0 ]
+[v _SSP2STATbits SSP2STATbits `VES512  1 e 1 @540 ]
 "4295
 [v _SSP2CON1 SSP2CON1 `VEuc  1 e 1 @541 ]
-[s S61 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S449 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
@@ -251,13 +251,13 @@ SHOW_CONFIG 4
 `uc 1 WCOL 1 0 :1:7 
 ]
 "4315
-[s S70 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S458 . 1 `uc 1 SSPM 1 0 :4:0 
 ]
-[u S72 . 1 `S61 1 . 1 0 `S70 1 . 1 0 ]
-[v _SSP2CON1bits SSP2CON1bits `VES72  1 e 1 @541 ]
+[u S460 . 1 `S449 1 . 1 0 `S458 1 . 1 0 ]
+[v _SSP2CON1bits SSP2CON1bits `VES460  1 e 1 @541 ]
 "4364
 [v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @542 ]
-[s S87 . 1 `uc 1 SEN 1 0 :1:0 
+[s S475 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -267,8 +267,8 @@ SHOW_CONFIG 4
 `uc 1 GCEN 1 0 :1:7 
 ]
 "4381
-[u S96 . 1 `S87 1 . 1 0 ]
-[v _SSP2CON2bits SSP2CON2bits `VES96  1 e 1 @542 ]
+[u S484 . 1 `S475 1 . 1 0 ]
+[v _SSP2CON2bits SSP2CON2bits `VES484  1 e 1 @542 ]
 "4890
 [v _CCPR2L CCPR2L `VEuc  1 e 1 @664 ]
 "4928
@@ -321,25 +321,25 @@ SHOW_CONFIG 4
 [v _dpowers dpowers `DCC[10]ul  1 s 40 dpowers ]
 "9 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Buzzer.c
 [v _count count `ui  1 s 2 count ]
-[s S46 . 19 `[8]uc 1 SlaveTransmitBuff 8 0 `[8]uc 1 SlaveReceiveBuff 8 8 `*.4uc 1 TransmitPoint 1 16 `*.4uc 1 ReceivePoint 1 17 `E3276 1 Mode 1 18 ]
+[s S40 . 19 `[8]uc 1 SlaveTransmitBuff 8 0 `[8]uc 1 SlaveReceiveBuff 8 8 `*.4uc 1 TransmitPoint 1 16 `*.4uc 1 ReceivePoint 1 17 `E3276 1 Mode 1 18 ]
 "4 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/I2C_Common.c
-[v _I2C2_Config I2C2_Config `S46  1 e 19 0 ]
-[s S260 . 1 `uc 1 Gain 1 0 :1:0 
+[v _I2C2_Config I2C2_Config `S40  1 e 19 0 ]
+[s S138 . 1 `uc 1 Gain 1 0 :1:0 
 `uc 1 PowerDown 1 0 :2:1 
 `uc 1 Voltage_Ref 1 0 :2:3 
 `uc 1 Command 1 0 :3:5 
 ]
 "10 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/MCP4726.c
-[u S265 . 1 `[1]uc 1 Config_Data 1 0 `S260 1 . 1 0 ]
-[v _ConfigReg ConfigReg `S265  1 s 1 ConfigReg ]
-[s S268 . 2 `uc 1 Voltage4bits 1 0 :4:0 
+[u S143 . 1 `[1]uc 1 Config_Data 1 0 `S138 1 . 1 0 ]
+[v _ConfigReg ConfigReg `S143  1 s 1 ConfigReg ]
+[s S146 . 2 `uc 1 Voltage4bits 1 0 :4:0 
 `uc 1 PowerDown 1 0 :2:4 
 `uc 1 Command 1 0 :2:6 
 `uc 1 Voltage8bits 1 1 :8:0 
 ]
 "11
-[u S273 . 2 `[2]uc 1 Voltage_Data 2 0 `S268 1 . 2 0 ]
-[v _VoltageReg VoltageReg `S273  1 s 2 VoltageReg ]
+[u S151 . 2 `[2]uc 1 Voltage_Data 2 0 `S146 1 . 2 0 ]
+[v _VoltageReg VoltageReg `S151  1 s 2 VoltageReg ]
 "3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/mTouch.c
 [v _CPS_Data CPS_Data `[3]uc  1 e 3 0 ]
 "4
@@ -354,22 +354,22 @@ SHOW_CONFIG 4
 [v _H7826_Gain H7826_Gain `[15]*.25uc  1 e 30 0 ]
 "22
 [v _H7826_01_Gain H7826_01_Gain `[15]*.25uc  1 e 30 0 ]
-[s S315 . 4 `ul 1 SigmaDeltaCount 4 0 ]
+[s S193 . 4 `ul 1 SigmaDeltaCount 4 0 ]
 "3 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/Timer1.c
-[v _cnts cnts `S315  1 s 4 cnts ]
-[s S317 . 8 `uc 1 Second_t 1 0 `uc 1 Minute_t 1 1 `ul 1 Delta_t 4 2 `ui 1 RenewalRersult 2 6 ]
+[v _cnts cnts `S193  1 s 4 cnts ]
+[s S195 . 8 `uc 1 Second_t 1 0 `uc 1 Minute_t 1 1 `ul 1 Delta_t 4 2 `ui 1 RenewalRersult 2 6 ]
 "4
-[v _tcnt tcnt `S317  1 s 8 tcnt ]
+[v _tcnt tcnt `S195  1 s 8 tcnt ]
 "17 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/main.c
 [v _main main `(c  1 e 1 0 ]
 {
 "20
 [v main@state_mode state_mode `E3316  1 s 1 state_mode ]
-[s S413 . 3 `uc 1 SerialNum 1 0 `uc 1 GainElements 1 1 `uc 1 DeviceNum 1 2 ]
+[s S291 . 3 `uc 1 SerialNum 1 0 `uc 1 GainElements 1 1 `uc 1 DeviceNum 1 2 ]
 "21
-[u S417 . 3 `[3]uc 1 Eeprom_table 3 0 `S413 1 . 3 0 ]
-[s S420 . 3 `S417 1 . 3 0 ]
-[v main@pmt_config pmt_config `S420  1 s 3 pmt_config ]
+[u S295 . 3 `[3]uc 1 Eeprom_table 3 0 `S291 1 . 3 0 ]
+[s S298 . 3 `S295 1 . 3 0 ]
+[v main@pmt_config pmt_config `S298  1 s 3 pmt_config ]
 "133
 } 0
 "19 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/mTouch.c
@@ -445,27 +445,27 @@ SHOW_CONFIG 4
 "17 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/User_Interface.c
 [v _StartUp_Menu StartUp_Menu `(v  1 e 1 0 ]
 {
-[s S413 . 3 `uc 1 SerialNum 1 0 `uc 1 GainElements 1 1 `uc 1 DeviceNum 1 2 ]
-[u S417 . 3 `[3]uc 1 Eeprom_table 3 0 `S413 1 . 3 0 ]
-[s S420 . 3 `S417 1 . 3 0 ]
-[v StartUp_Menu@data data `*.4S420  1 a 1 wreg ]
-[v StartUp_Menu@data data `*.4S420  1 a 1 wreg ]
+[s S291 . 3 `uc 1 SerialNum 1 0 `uc 1 GainElements 1 1 `uc 1 DeviceNum 1 2 ]
+[u S295 . 3 `[3]uc 1 Eeprom_table 3 0 `S291 1 . 3 0 ]
+[s S298 . 3 `S295 1 . 3 0 ]
+[v StartUp_Menu@data data `*.4S298  1 a 1 wreg ]
+[v StartUp_Menu@data data `*.4S298  1 a 1 wreg ]
 "19
 "17
-[v StartUp_Menu@data data `*.4S420  1 a 1 71 ]
+[v StartUp_Menu@data data `*.4S298  1 a 1 71 ]
 "45
 } 0
 "12
 [v _Load_PMTConfing Load_PMTConfing `(uc  1 s 1 Load_PMTConfing ]
 {
-[s S413 . 3 `uc 1 SerialNum 1 0 `uc 1 GainElements 1 1 `uc 1 DeviceNum 1 2 ]
-[u S417 . 3 `[3]uc 1 Eeprom_table 3 0 `S413 1 . 3 0 ]
-[s S420 . 3 `S417 1 . 3 0 ]
-[v Load_PMTConfing@data data `*.4S420  1 a 1 wreg ]
-[v Load_PMTConfing@data data `*.4S420  1 a 1 wreg ]
+[s S291 . 3 `uc 1 SerialNum 1 0 `uc 1 GainElements 1 1 `uc 1 DeviceNum 1 2 ]
+[u S295 . 3 `[3]uc 1 Eeprom_table 3 0 `S291 1 . 3 0 ]
+[s S298 . 3 `S295 1 . 3 0 ]
+[v Load_PMTConfing@data data `*.4S298  1 a 1 wreg ]
+[v Load_PMTConfing@data data `*.4S298  1 a 1 wreg ]
 "14
 "12
-[v Load_PMTConfing@data data `*.4S420  1 a 1 12 ]
+[v Load_PMTConfing@data data `*.4S298  1 a 1 12 ]
 "15
 } 0
 "30 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/eeprom.c
@@ -500,27 +500,27 @@ SHOW_CONFIG 4
 "47 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/User_Interface.c
 [v _Ssetting_PMT_Config Ssetting_PMT_Config `(v  1 e 1 0 ]
 {
-[s S413 . 3 `uc 1 SerialNum 1 0 `uc 1 GainElements 1 1 `uc 1 DeviceNum 1 2 ]
-[u S417 . 3 `[3]uc 1 Eeprom_table 3 0 `S413 1 . 3 0 ]
-[s S420 . 3 `S417 1 . 3 0 ]
-[v Ssetting_PMT_Config@data data `*.4S420  1 a 1 wreg ]
-[v Ssetting_PMT_Config@data data `*.4S420  1 a 1 wreg ]
+[s S291 . 3 `uc 1 SerialNum 1 0 `uc 1 GainElements 1 1 `uc 1 DeviceNum 1 2 ]
+[u S295 . 3 `[3]uc 1 Eeprom_table 3 0 `S291 1 . 3 0 ]
+[s S298 . 3 `S295 1 . 3 0 ]
+[v Ssetting_PMT_Config@data data `*.4S298  1 a 1 wreg ]
+[v Ssetting_PMT_Config@data data `*.4S298  1 a 1 wreg ]
 "49
 "47
-[v Ssetting_PMT_Config@data data `*.4S420  1 a 1 70 ]
+[v Ssetting_PMT_Config@data data `*.4S298  1 a 1 70 ]
 "86
 } 0
 "7
 [v _Save_PMTConfig Save_PMTConfig `(uc  1 s 1 Save_PMTConfig ]
 {
-[s S413 . 3 `uc 1 SerialNum 1 0 `uc 1 GainElements 1 1 `uc 1 DeviceNum 1 2 ]
-[u S417 . 3 `[3]uc 1 Eeprom_table 3 0 `S413 1 . 3 0 ]
-[s S420 . 3 `S417 1 . 3 0 ]
-[v Save_PMTConfig@data data `*.4S420  1 a 1 wreg ]
-[v Save_PMTConfig@data data `*.4S420  1 a 1 wreg ]
+[s S291 . 3 `uc 1 SerialNum 1 0 `uc 1 GainElements 1 1 `uc 1 DeviceNum 1 2 ]
+[u S295 . 3 `[3]uc 1 Eeprom_table 3 0 `S291 1 . 3 0 ]
+[s S298 . 3 `S295 1 . 3 0 ]
+[v Save_PMTConfig@data data `*.4S298  1 a 1 wreg ]
+[v Save_PMTConfig@data data `*.4S298  1 a 1 wreg ]
 "9
 "7
-[v Save_PMTConfig@data data `*.4S420  1 a 1 12 ]
+[v Save_PMTConfig@data data `*.4S298  1 a 1 12 ]
 "10
 } 0
 "12 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/eeprom.c
@@ -549,12 +549,12 @@ SHOW_CONFIG 4
 "88 /home/evaota/MPLABXProjects/Product_project/GeigerCounter.X/User_Interface.c
 [v _Show_PMT_Config Show_PMT_Config `(v  1 e 1 0 ]
 {
-[s S413 . 3 `uc 1 SerialNum 1 0 `uc 1 GainElements 1 1 `uc 1 DeviceNum 1 2 ]
-[u S417 . 3 `[3]uc 1 Eeprom_table 3 0 `S413 1 . 3 0 ]
-[s S420 . 3 `S417 1 . 3 0 ]
-[v Show_PMT_Config@data data `*.4S420  1 a 1 wreg ]
-[v Show_PMT_Config@data data `*.4S420  1 a 1 wreg ]
-[v Show_PMT_Config@data data `*.4S420  1 a 1 71 ]
+[s S291 . 3 `uc 1 SerialNum 1 0 `uc 1 GainElements 1 1 `uc 1 DeviceNum 1 2 ]
+[u S295 . 3 `[3]uc 1 Eeprom_table 3 0 `S291 1 . 3 0 ]
+[s S298 . 3 `S295 1 . 3 0 ]
+[v Show_PMT_Config@data data `*.4S298  1 a 1 wreg ]
+[v Show_PMT_Config@data data `*.4S298  1 a 1 wreg ]
+[v Show_PMT_Config@data data `*.4S298  1 a 1 71 ]
 "111
 } 0
 "464 /opt/microchip/xc8/v1.41/sources/common/doprnt.c
@@ -703,7 +703,7 @@ SHOW_CONFIG 4
 {
 [v I2C2_Transmit@address address `uc  1 a 1 wreg ]
 "91
-[v I2C2_Transmit@i_172 i `uc  1 a 1 6 ]
+[v I2C2_Transmit@i_560 i `uc  1 a 1 6 ]
 "69
 [v I2C2_Transmit@i i `uc  1 a 1 5 ]
 "54

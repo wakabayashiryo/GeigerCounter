@@ -399,7 +399,7 @@ __end_of_Timer1_GetCPM B7F 0 CODE 0
 __end_of_Timer1_GetCPS D5C 0 CODE 0
 __end_of_Timer1_GetSecond 8E5 0 CODE 0
 _LCD_CursorPosition 9EC 0 CODE 0
-_Timer1_GetCPM$1180 42 0 BANK0 1
+_Timer1_GetCPM$1189 42 0 BANK0 1
 __end_of_Buzzer_Count1ms 9EC 0 CODE 0
 __end_of_I2C2_Interrupt ED5 0 CODE 0
 main@pmt_config C5 0 BANK1 1
@@ -452,6 +452,7 @@ __size_of_Timer6_Init 0 0 ABS 0
 _mTouch_Check DE3 0 CODE 0
 eeprom_write@value 20 0 BANK0 1
 clear_ram0 8ED 0 CODE 0
+_isdigit$904 20 0 BANK0 1
 __BbssBANK0 1E010 1E000 ABS 0
 __HbssBANK0 10 1E000 ABS 0
 ?_Timer1_GetCountSum 20 0 BANK0 1
@@ -473,7 +474,7 @@ __Hbank30 10 1E000 BANK30 1
 __Hbank11 10 1E000 BANK11 1
 __Lbank30 10 1E000 BANK30 1
 __Lbank11 10 1E000 BANK11 1
-I2C2_Transmit@i_172 26 0 BANK0 1
+I2C2_Transmit@i_560 26 0 BANK0 1
 __Bbank21 1E010 1E000 BANK21 1
 __Hbank21 10 1E000 BANK21 1
 __Lbank21 10 1E000 BANK21 1
@@ -690,7 +691,6 @@ __end_ofi1_Buzzer_MiliSecond 902 0 CODE 0
 __end_of_mTouch_IntervalDecrement 96F 0 CODE 0
 I2C_Transmit@I2Cx 2E 0 BANK0 1
 __initialization 2D 0 CODE 0
-_isdigit$887 20 0 BANK0 1
 __end_of_eeprom_write BAB 0 CODE 0
 _LCD_CursorHome 97F 0 CODE 0
 EEPROM_MultiRead@pData 29 0 BANK0 1
@@ -777,7 +777,7 @@ text9 11BE 11C3 CODE 11BE 0
 text52 11B8 11BD CODE 11B8 0
 %locals
 dist/default/production/GeigerCounter.X.production.obj
-/tmp/xcXGslxme
+/tmp/xcXe5BAe6
 4936 2D 0 CODE 0
 4939 2D 0 CODE 0
 5022 2D 0 CODE 0

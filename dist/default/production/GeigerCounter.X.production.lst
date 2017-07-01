@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.41 build -162212810 
-                                                                                               Sat Jul  1 16:31:01 2017
+                                                                                               Sat Jul  1 16:38:48 2017
 
 Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250102
      1                           	processor	16F1827
@@ -1544,167 +1544,167 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   1530  0FED                     	;# 
   1531  0FEE                     	;# 
   1532  0FEF                     	;# 
-  1533  0000                     	;# 
-  1534  0001                     	;# 
-  1535  0002                     	;# 
-  1536  0003                     	;# 
-  1537  0004                     	;# 
-  1538  0005                     	;# 
-  1539  0006                     	;# 
-  1540  0007                     	;# 
-  1541  0008                     	;# 
-  1542  0009                     	;# 
-  1543  000A                     	;# 
-  1544  000B                     	;# 
-  1545  000C                     	;# 
-  1546  000D                     	;# 
-  1547  0011                     	;# 
-  1548  0012                     	;# 
-  1549  0013                     	;# 
-  1550  0014                     	;# 
-  1551  0015                     	;# 
-  1552  0016                     	;# 
-  1553  0016                     	;# 
-  1554  0017                     	;# 
-  1555  0018                     	;# 
-  1556  0019                     	;# 
-  1557  001A                     	;# 
-  1558  001B                     	;# 
-  1559  001C                     	;# 
-  1560  001E                     	;# 
-  1561  001F                     	;# 
-  1562  008C                     	;# 
-  1563  008D                     	;# 
-  1564  0091                     	;# 
-  1565  0092                     	;# 
-  1566  0093                     	;# 
-  1567  0094                     	;# 
-  1568  0095                     	;# 
-  1569  0096                     	;# 
-  1570  0097                     	;# 
-  1571  0098                     	;# 
-  1572  0099                     	;# 
-  1573  009A                     	;# 
-  1574  009B                     	;# 
-  1575  009B                     	;# 
-  1576  009C                     	;# 
-  1577  009D                     	;# 
-  1578  009E                     	;# 
-  1579  010C                     	;# 
-  1580  010D                     	;# 
-  1581  0111                     	;# 
-  1582  0112                     	;# 
-  1583  0113                     	;# 
-  1584  0114                     	;# 
-  1585  0115                     	;# 
-  1586  0116                     	;# 
-  1587  0117                     	;# 
-  1588  0118                     	;# 
-  1589  0119                     	;# 
-  1590  011A                     	;# 
-  1591  011B                     	;# 
-  1592  011D                     	;# 
-  1593  011E                     	;# 
-  1594  018C                     	;# 
-  1595  018D                     	;# 
-  1596  0191                     	;# 
-  1597  0191                     	;# 
-  1598  0192                     	;# 
-  1599  0193                     	;# 
-  1600  0193                     	;# 
-  1601  0193                     	;# 
-  1602  0194                     	;# 
-  1603  0195                     	;# 
-  1604  0196                     	;# 
-  1605  0199                     	;# 
-  1606  019A                     	;# 
-  1607  019B                     	;# 
-  1608  019B                     	;# 
-  1609  019B                     	;# 
+  1533                           
+  1534                           	psect	eeprom_data
+  1535  0000  0001 0000 0000 0000 0000 0000 0000 0000 	db	1,0,0,0,0,0,0,0	;# 
+  1536  0000                     	;# 
+  1537  0001                     	;# 
+  1538  0002                     	;# 
+  1539  0003                     	;# 
+  1540  0004                     	;# 
+  1541  0005                     	;# 
+  1542  0006                     	;# 
+  1543  0007                     	;# 
+  1544  0008                     	;# 
+  1545  0009                     	;# 
+  1546  000A                     	;# 
+  1547  000B                     	;# 
+  1548  000C                     	;# 
+  1549  000D                     	;# 
+  1550  0011                     	;# 
+  1551  0012                     	;# 
+  1552  0013                     	;# 
+  1553  0014                     	;# 
+  1554  0015                     	;# 
+  1555  0016                     	;# 
+  1556  0016                     	;# 
+  1557  0017                     	;# 
+  1558  0018                     	;# 
+  1559  0019                     	;# 
+  1560  001A                     	;# 
+  1561  001B                     	;# 
+  1562  001C                     	;# 
+  1563  001E                     	;# 
+  1564  001F                     	;# 
+  1565  008C                     	;# 
+  1566  008D                     	;# 
+  1567  0091                     	;# 
+  1568  0092                     	;# 
+  1569  0093                     	;# 
+  1570  0094                     	;# 
+  1571  0095                     	;# 
+  1572  0096                     	;# 
+  1573  0097                     	;# 
+  1574  0098                     	;# 
+  1575  0099                     	;# 
+  1576  009A                     	;# 
+  1577  009B                     	;# 
+  1578  009B                     	;# 
+  1579  009C                     	;# 
+  1580  009D                     	;# 
+  1581  009E                     	;# 
+  1582  010C                     	;# 
+  1583  010D                     	;# 
+  1584  0111                     	;# 
+  1585  0112                     	;# 
+  1586  0113                     	;# 
+  1587  0114                     	;# 
+  1588  0115                     	;# 
+  1589  0116                     	;# 
+  1590  0117                     	;# 
+  1591  0118                     	;# 
+  1592  0119                     	;# 
+  1593  011A                     	;# 
+  1594  011B                     	;# 
+  1595  011D                     	;# 
+  1596  011E                     	;# 
+  1597  018C                     	;# 
+  1598  018D                     	;# 
+  1599  0191                     	;# 
+  1600  0191                     	;# 
+  1601  0192                     	;# 
+  1602  0193                     	;# 
+  1603  0193                     	;# 
+  1604  0193                     	;# 
+  1605  0194                     	;# 
+  1606  0195                     	;# 
+  1607  0196                     	;# 
+  1608  0199                     	;# 
+  1609  019A                     	;# 
   1610  019B                     	;# 
-  1611  019C                     	;# 
-  1612  019C                     	;# 
-  1613  019D                     	;# 
-  1614  019E                     	;# 
-  1615  019F                     	;# 
-  1616  020C                     	;# 
-  1617  020D                     	;# 
-  1618  0211                     	;# 
-  1619  0211                     	;# 
-  1620  0212                     	;# 
-  1621  0212                     	;# 
-  1622  0213                     	;# 
-  1623  0213                     	;# 
-  1624  0214                     	;# 
-  1625  0214                     	;# 
-  1626  0215                     	;# 
-  1627  0215                     	;# 
-  1628  0215                     	;# 
-  1629  0216                     	;# 
-  1630  0216                     	;# 
-  1631  0217                     	;# 
-  1632  0217                     	;# 
-  1633  0219                     	;# 
-  1634  021A                     	;# 
-  1635  021B                     	;# 
-  1636  021C                     	;# 
-  1637  021D                     	;# 
-  1638  021E                     	;# 
-  1639  021F                     	;# 
-  1640  0291                     	;# 
-  1641  0291                     	;# 
-  1642  0292                     	;# 
-  1643  0293                     	;# 
-  1644  0294                     	;# 
-  1645  0295                     	;# 
-  1646  0295                     	;# 
-  1647  0296                     	;# 
-  1648  0298                     	;# 
-  1649  0298                     	;# 
-  1650  0299                     	;# 
-  1651  029A                     	;# 
-  1652  029B                     	;# 
-  1653  029C                     	;# 
-  1654  029C                     	;# 
-  1655  029D                     	;# 
-  1656  029E                     	;# 
-  1657  029E                     	;# 
-  1658  0311                     	;# 
-  1659  0311                     	;# 
-  1660  0312                     	;# 
-  1661  0313                     	;# 
-  1662  0318                     	;# 
-  1663  0318                     	;# 
-  1664  0319                     	;# 
-  1665  031A                     	;# 
-  1666  0394                     	;# 
-  1667  0395                     	;# 
-  1668  0396                     	;# 
-  1669  039A                     	;# 
-  1670  039C                     	;# 
-  1671  039D                     	;# 
-  1672  039E                     	;# 
-  1673  039F                     	;# 
-  1674  0415                     	;# 
-  1675  0416                     	;# 
-  1676  0417                     	;# 
-  1677  041C                     	;# 
-  1678  041D                     	;# 
-  1679  041E                     	;# 
-  1680  0FE4                     	;# 
-  1681  0FE5                     	;# 
-  1682  0FE6                     	;# 
-  1683  0FE7                     	;# 
-  1684  0FE8                     	;# 
-  1685  0FE9                     	;# 
-  1686  0FEA                     	;# 
-  1687  0FEB                     	;# 
-  1688  0FED                     	;# 
-  1689  0FEE                     	;# 
-  1690  0FEF                     	;# 
-  1691                           
-  1692                           	psect	eeprom_data
-  1693  0000  0001 0000 0000 0000 0000 0000 0000 0000 	db	1,0,0,0,0,0,0,0	;# 
+  1611  019B                     	;# 
+  1612  019B                     	;# 
+  1613  019B                     	;# 
+  1614  019C                     	;# 
+  1615  019C                     	;# 
+  1616  019D                     	;# 
+  1617  019E                     	;# 
+  1618  019F                     	;# 
+  1619  020C                     	;# 
+  1620  020D                     	;# 
+  1621  0211                     	;# 
+  1622  0211                     	;# 
+  1623  0212                     	;# 
+  1624  0212                     	;# 
+  1625  0213                     	;# 
+  1626  0213                     	;# 
+  1627  0214                     	;# 
+  1628  0214                     	;# 
+  1629  0215                     	;# 
+  1630  0215                     	;# 
+  1631  0215                     	;# 
+  1632  0216                     	;# 
+  1633  0216                     	;# 
+  1634  0217                     	;# 
+  1635  0217                     	;# 
+  1636  0219                     	;# 
+  1637  021A                     	;# 
+  1638  021B                     	;# 
+  1639  021C                     	;# 
+  1640  021D                     	;# 
+  1641  021E                     	;# 
+  1642  021F                     	;# 
+  1643  0291                     	;# 
+  1644  0291                     	;# 
+  1645  0292                     	;# 
+  1646  0293                     	;# 
+  1647  0294                     	;# 
+  1648  0295                     	;# 
+  1649  0295                     	;# 
+  1650  0296                     	;# 
+  1651  0298                     	;# 
+  1652  0298                     	;# 
+  1653  0299                     	;# 
+  1654  029A                     	;# 
+  1655  029B                     	;# 
+  1656  029C                     	;# 
+  1657  029C                     	;# 
+  1658  029D                     	;# 
+  1659  029E                     	;# 
+  1660  029E                     	;# 
+  1661  0311                     	;# 
+  1662  0311                     	;# 
+  1663  0312                     	;# 
+  1664  0313                     	;# 
+  1665  0318                     	;# 
+  1666  0318                     	;# 
+  1667  0319                     	;# 
+  1668  031A                     	;# 
+  1669  0394                     	;# 
+  1670  0395                     	;# 
+  1671  0396                     	;# 
+  1672  039A                     	;# 
+  1673  039C                     	;# 
+  1674  039D                     	;# 
+  1675  039E                     	;# 
+  1676  039F                     	;# 
+  1677  0415                     	;# 
+  1678  0416                     	;# 
+  1679  0417                     	;# 
+  1680  041C                     	;# 
+  1681  041D                     	;# 
+  1682  041E                     	;# 
+  1683  0FE4                     	;# 
+  1684  0FE5                     	;# 
+  1685  0FE6                     	;# 
+  1686  0FE7                     	;# 
+  1687  0FE8                     	;# 
+  1688  0FE9                     	;# 
+  1689  0FEA                     	;# 
+  1690  0FEB                     	;# 
+  1691  0FED                     	;# 
+  1692  0FEE                     	;# 
+  1693  0FEF                     	;# 
   1694  0000                     	;# 
   1695  0001                     	;# 
   1696  0002                     	;# 
@@ -2185,21 +2185,21 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2171  001A                     _TMR2	set	26
   2172  001C                     _T2CON	set	28
   2173  0018                     _CARRY	set	24
-  2174  009B                     _TMR6IF	set	155
-  2175  0088                     _TMR1IF	set	136
-  2176  00C0                     _TMR1ON	set	192
-  2177  005F                     _GIE	set	95
-  2178  005E                     _PEIE	set	94
-  2179  00A1                     _BCL2IF	set	161
-  2180  00A0                     _SSP2IF	set	160
+  2174  00A1                     _BCL2IF	set	161
+  2175  00A0                     _SSP2IF	set	160
+  2176  009B                     _TMR6IF	set	155
+  2177  0088                     _TMR1IF	set	136
+  2178  00C0                     _TMR1ON	set	192
+  2179  005F                     _GIE	set	95
+  2180  005E                     _PEIE	set	94
   2181  0099                     _OSCCON	set	153
   2182  0095                     _OPTION_REG	set	149
   2183  008D                     _TRISB	set	141
   2184  008C                     _TRISA	set	140
-  2185  049B                     _TMR6IE	set	1179
-  2186  0488                     _TMR1IE	set	1160
-  2187  04A1                     _BCL2IE	set	1185
-  2188  04A0                     _SSP2IE	set	1184
+  2185  04A1                     _BCL2IE	set	1185
+  2186  04A0                     _SSP2IE	set	1184
+  2187  049B                     _TMR6IE	set	1179
+  2188  0488                     _TMR1IE	set	1160
   2189  011E                     _APFCON1	set	286
   2190  011D                     _APFCON0	set	285
   2191  0866                     _LATA6	set	2150
@@ -2214,16 +2214,16 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2200  0CAA                     _WREN	set	3242
   2201  0CA8                     _RD	set	3240
   2202  0CA9                     _WR	set	3241
-  2203  020D                     _WPUB	set	525
-  2204  021C                     _SSP2STATbits	set	540
-  2205  0219                     _SSP2BUF	set	537
-  2206  021E                     _SSP2CON2	set	542
-  2207  021B                     _SSP2MSK	set	539
-  2208  021E                     _SSP2CON2bits	set	542
-  2209  021D                     _SSP2CON1bits	set	541
-  2210  021A                     _SSP2ADD	set	538
-  2211  021C                     _SSP2STAT	set	540
-  2212  021D                     _SSP2CON1	set	541
+  2203  021C                     _SSP2STATbits	set	540
+  2204  0219                     _SSP2BUF	set	537
+  2205  021E                     _SSP2CON2	set	542
+  2206  021B                     _SSP2MSK	set	539
+  2207  021E                     _SSP2CON2bits	set	542
+  2208  021D                     _SSP2CON1bits	set	541
+  2209  021A                     _SSP2ADD	set	538
+  2210  021C                     _SSP2STAT	set	540
+  2211  021D                     _SSP2CON1	set	541
+  2212  020D                     _WPUB	set	525
   2213  0298                     _CCPR2L	set	664
   2214  029E                     _CCPTMRS	set	670
   2215  029A                     _CCP2CON	set	666
@@ -2896,121 +2896,121 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   2882                           	psect	cstackCOMMON
   2883  0076                     __pcstackCOMMON:	
   2884  0076                     ?_isdigit:	
-  2885  0076                     ?_LCD_DisplayClear:	
+  2885  0076                     ?_I2C2_Interrupt:	
   2886                           ; 1 bit 
   2887                           
-  2888  0076                     ?_Timer1_ClearRecord:	
+  2888  0076                     ??_I2C2_Interrupt:	
   2889                           ; 1 bytes @ 0x0
   2890                           
-  2891  0076                     ?_eeprom_read:	
+  2891  0076                     ?_LCD_DisplayClear:	
   2892                           ; 1 bytes @ 0x0
   2893                           
-  2894  0076                     ?_Basic_Init:	
+  2894  0076                     ?_Timer1_ClearRecord:	
   2895                           ; 1 bytes @ 0x0
   2896                           
-  2897  0076                     ?_StartUp_Menu:	
+  2897  0076                     ?_eeprom_read:	
   2898                           ; 1 bytes @ 0x0
   2899                           
-  2900  0076                     ?_Ssetting_PMT_Config:	
+  2900  0076                     ?_Basic_Init:	
   2901                           ; 1 bytes @ 0x0
   2902                           
-  2903  0076                     ?_Show_PMT_Config:	
+  2903  0076                     ?_StartUp_Menu:	
   2904                           ; 1 bytes @ 0x0
   2905                           
-  2906  0076                     ?_Buzzer_Init:	
+  2906  0076                     ?_Ssetting_PMT_Config:	
   2907                           ; 1 bytes @ 0x0
   2908                           
-  2909  0076                     ?_Buzzer_SetDuty:	
+  2909  0076                     ?_Show_PMT_Config:	
   2910                           ; 1 bytes @ 0x0
   2911                           
-  2912  0076                     ?_Buzzer_Count1ms:	
+  2912  0076                     ?_Buzzer_Init:	
   2913                           ; 1 bytes @ 0x0
   2914                           
-  2915  0076                     ?_I2C2_PinInit:	
+  2915  0076                     ?_Buzzer_SetDuty:	
   2916                           ; 1 bytes @ 0x0
   2917                           
-  2918  0076                     ?_I2C2_Interrupt:	
+  2918  0076                     ?_Buzzer_Count1ms:	
   2919                           ; 1 bytes @ 0x0
   2920                           
-  2921  0076                     ??_I2C2_Interrupt:	
+  2921  0076                     ?_I2C_CommonInterrupt:	
   2922                           ; 1 bytes @ 0x0
   2923                           
-  2924  0076                     ?_I2C_CommonInterrupt:	
+  2924  0076                     ?_LCD_WriteData:	
   2925                           ; 1 bytes @ 0x0
   2926                           
-  2927  0076                     ?_LCD_WriteData:	
+  2927  0076                     ?_LCD_Init:	
   2928                           ; 1 bytes @ 0x0
   2929                           
-  2930  0076                     ?_LCD_Init:	
+  2930  0076                     ?_putch:	
   2931                           ; 1 bytes @ 0x0
   2932                           
-  2933  0076                     ?_putch:	
+  2933  0076                     ?_LCD_CursorHome:	
   2934                           ; 1 bytes @ 0x0
   2935                           
-  2936  0076                     ?_LCD_CursorHome:	
+  2936  0076                     ?_DAC_Initialize:	
   2937                           ; 1 bytes @ 0x0
   2938                           
-  2939  0076                     ?_DAC_Initialize:	
+  2939  0076                     ?_Timer1_Init:	
   2940                           ; 1 bytes @ 0x0
   2941                           
-  2942  0076                     ?_Timer1_Init:	
+  2942  0076                     ?_Timer1_StartCount:	
   2943                           ; 1 bytes @ 0x0
   2944                           
-  2945  0076                     ?_Timer1_StartCount:	
+  2945  0076                     ?_Timer1_StopCount:	
   2946                           ; 1 bytes @ 0x0
   2947                           
-  2948  0076                     ?_Timer1_StopCount:	
+  2948  0076                     ?_Timer1_GetSecond:	
   2949                           ; 1 bytes @ 0x0
   2950                           
-  2951  0076                     ?_Timer1_GetSecond:	
+  2951  0076                     ?_Timer1_GetMinute:	
   2952                           ; 1 bytes @ 0x0
   2953                           
-  2954  0076                     ?_Timer1_GetMinute:	
+  2954  0076                     ?_Timer1_Count1ms:	
   2955                           ; 1 bytes @ 0x0
   2956                           
-  2957  0076                     ?_Timer1_Count1ms:	
+  2957  0076                     ?_Timer1_DetectAssignCount:	
   2958                           ; 1 bytes @ 0x0
   2959                           
-  2960  0076                     ?_Timer1_DetectAssignCount:	
+  2960  0076                     ??_Timer1_DetectAssignCount:	
   2961                           ; 1 bytes @ 0x0
   2962                           
-  2963  0076                     ??_Timer1_DetectAssignCount:	
+  2963  0076                     ?_Timer6_Init:	
   2964                           ; 1 bytes @ 0x0
   2965                           
-  2966  0076                     ?_Timer6_Init:	
+  2966  0076                     ?_Timer6_CheckFlag:	
   2967                           ; 1 bytes @ 0x0
   2968                           
-  2969  0076                     ?_Timer6_CheckFlag:	
+  2969  0076                     ??_Timer6_CheckFlag:	
   2970                           ; 1 bytes @ 0x0
   2971                           
-  2972  0076                     ??_Timer6_CheckFlag:	
+  2972  0076                     ?_mTouch_PortInit:	
   2973                           ; 1 bytes @ 0x0
   2974                           
-  2975  0076                     ?_mTouch_PortInit:	
+  2975  0076                     ?_mTouch_Init:	
   2976                           ; 1 bytes @ 0x0
   2977                           
-  2978  0076                     ?_mTouch_Init:	
+  2978  0076                     ?_mTouch_Read:	
   2979                           ; 1 bytes @ 0x0
   2980                           
-  2981  0076                     ?_mTouch_Read:	
+  2981  0076                     ??_mTouch_Read:	
   2982                           ; 1 bytes @ 0x0
   2983                           
-  2984  0076                     ??_mTouch_Read:	
+  2984  0076                     ?_mTouch_IntervalDecrement:	
   2985                           ; 1 bytes @ 0x0
   2986                           
-  2987  0076                     ?_mTouch_IntervalDecrement:	
+  2987  0076                     ??_mTouch_IntervalDecrement:	
   2988                           ; 1 bytes @ 0x0
   2989                           
-  2990  0076                     ??_mTouch_IntervalDecrement:	
+  2990  0076                     ?_mTouch_Check:	
   2991                           ; 1 bytes @ 0x0
   2992                           
-  2993  0076                     ?_mTouch_Check:	
+  2993  0076                     ?_main:	
   2994                           ; 1 bytes @ 0x0
   2995                           
-  2996  0076                     ?_main:	
+  2996  0076                     ?_Handler:	
   2997                           ; 1 bytes @ 0x0
   2998                           
-  2999  0076                     ?_Handler:	
+  2999  0076                     ?_I2C2_PinInit:	
   3000                           ; 1 bytes @ 0x0
   3001                           
   3002  0076                     ?_Save_PMTConfig:	
@@ -3059,53 +3059,53 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   3045                           
   3046                           	psect	cstackBANK0
   3047  0020                     __pcstackBANK0:	
-  3048  0020                     ??_Timer1_ClearRecord:	
-  3049  0020                     ?_eeprom_write:	
+  3048  0020                     ?_I2C2_Transmit:	
+  3049  0020                     ??_Timer1_ClearRecord:	
   3050                           ; 1 bytes @ 0x0
   3051                           
-  3052  0020                     ??_eeprom_read:	
+  3052  0020                     ?_eeprom_write:	
   3053                           ; 1 bytes @ 0x0
   3054                           
-  3055  0020                     ??_Basic_Init:	
+  3055  0020                     ??_eeprom_read:	
   3056                           ; 1 bytes @ 0x0
   3057                           
-  3058  0020                     ??_isdigit:	
+  3058  0020                     ??_Basic_Init:	
   3059                           ; 1 bytes @ 0x0
   3060                           
-  3061  0020                     ??_Buzzer_Init:	
+  3061  0020                     ??_isdigit:	
   3062                           ; 1 bytes @ 0x0
   3063                           
-  3064  0020                     ?_Buzzer_MiliSecond:	
+  3064  0020                     ??_Buzzer_Init:	
   3065                           ; 1 bytes @ 0x0
   3066                           
-  3067  0020                     ??_I2C2_PinInit:	
+  3067  0020                     ?_Buzzer_MiliSecond:	
   3068                           ; 1 bytes @ 0x0
   3069                           
-  3070  0020                     ?_I2C2_Transmit:	
+  3070  0020                     ??_LCD_WriteData:	
   3071                           ; 1 bytes @ 0x0
   3072                           
-  3073  0020                     ??_LCD_WriteData:	
+  3073  0020                     ??_Timer1_Init:	
   3074                           ; 1 bytes @ 0x0
   3075                           
-  3076  0020                     ??_Timer1_Init:	
+  3076  0020                     ??_Timer1_StartCount:	
   3077                           ; 1 bytes @ 0x0
   3078                           
-  3079  0020                     ??_Timer1_StartCount:	
+  3079  0020                     ??_Timer1_StopCount:	
   3080                           ; 1 bytes @ 0x0
   3081                           
-  3082  0020                     ??_Timer1_StopCount:	
+  3082  0020                     ??_Timer1_GetSecond:	
   3083                           ; 1 bytes @ 0x0
   3084                           
-  3085  0020                     ??_Timer1_GetSecond:	
+  3085  0020                     ??_Timer1_GetMinute:	
   3086                           ; 1 bytes @ 0x0
   3087                           
-  3088  0020                     ??_Timer1_GetMinute:	
+  3088  0020                     ??_Timer6_Init:	
   3089                           ; 1 bytes @ 0x0
   3090                           
-  3091  0020                     ??_Timer6_Init:	
+  3091  0020                     ??_mTouch_PortInit:	
   3092                           ; 1 bytes @ 0x0
   3093                           
-  3094  0020                     ??_mTouch_PortInit:	
+  3094  0020                     ??_I2C2_PinInit:	
   3095                           ; 1 bytes @ 0x0
   3096                           
   3097  0020                     ?___wmul:	
@@ -3123,7 +3123,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   3109  0020                     eeprom_write@value:	
   3110                           ; 1 bytes @ 0x0
   3111                           
-  3112  0020                     _isdigit$887:	
+  3112  0020                     _isdigit$904:	
   3113                           ; 1 bytes @ 0x0
   3114                           
   3115  0020                     Buzzer_MiliSecond@time:	
@@ -3138,8 +3138,8 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   3124                           
   3125                           ; 4 bytes @ 0x0
   3126  0020                     	ds	1
-  3127  0021                     ??_eeprom_write:	
-  3128  0021                     ?_I2C2_Setting:	
+  3127  0021                     ?_I2C2_Setting:	
+  3128  0021                     ??_eeprom_write:	
   3129                           ; 1 bytes @ 0x1
   3130                           
   3131  0021                     ??_mTouch_Init:	
@@ -3157,17 +3157,17 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   3143                           
   3144                           ; 1 bytes @ 0x1
   3145  0021                     	ds	1
-  3146  0022                     ??_Buzzer_MiliSecond:	
-  3147  0022                     ??_I2C2_Transmit:	
+  3146  0022                     ??_I2C2_Transmit:	
+  3147  0022                     ??_Buzzer_MiliSecond:	
   3148                           ; 1 bytes @ 0x2
   3149                           
   3150  0022                     ??_mTouch_Check:	
   3151                           ; 1 bytes @ 0x2
   3152                           
-  3153  0022                     I2C2_Setting@Speed:	
+  3153  0022                     LCD_WriteData@point:	
   3154                           ; 1 bytes @ 0x2
   3155                           
-  3156  0022                     LCD_WriteData@point:	
+  3156  0022                     I2C2_Setting@Speed:	
   3157                           ; 1 bytes @ 0x2
   3158                           
   3159  0022                     ___wmul@multiplicand:	
@@ -3176,8 +3176,8 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   3162                           
   3163                           ; 2 bytes @ 0x2
   3164  0022                     	ds	1
-  3165  0023                     ??_LCD_DisplayClear:	
-  3166  0023                     ??_I2C2_Setting:	
+  3165  0023                     ??_I2C2_Setting:	
+  3166  0023                     ??_LCD_DisplayClear:	
   3167                           ; 1 bytes @ 0x3
   3168                           
   3169  0023                     ??_putch:	
@@ -3220,16 +3220,16 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   3206  0024                     ??___wmul:	
   3207                           ; 1 bytes @ 0x4
   3208                           
-  3209  0024                     I2C2_Setting@address:	
+  3209  0024                     EEPROM_MultiWrite@size:	
   3210                           ; 1 bytes @ 0x4
   3211                           
-  3212  0024                     I2C2_Transmit@address:	
+  3212  0024                     EEPROM_MultiRead@size:	
   3213                           ; 1 bytes @ 0x4
   3214                           
-  3215  0024                     EEPROM_MultiWrite@size:	
+  3215  0024                     I2C2_Setting@address:	
   3216                           ; 1 bytes @ 0x4
   3217                           
-  3218  0024                     EEPROM_MultiRead@size:	
+  3218  0024                     I2C2_Transmit@address:	
   3219                           ; 1 bytes @ 0x4
   3220                           
   3221  0024                     ___wmul@product:	
@@ -3242,19 +3242,19 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   3228                           ; 4 bytes @ 0x4
   3229  0024                     	ds	1
   3230  0025                     ?_I2C_Init:	
-  3231  0025                     I2C2_Transmit@i:	
+  3231  0025                     I2C_Init@address:	
   3232                           ; 1 bytes @ 0x5
   3233                           
-  3234  0025                     I2C_Init@address:	
+  3234  0025                     LCD_CursorPosition@tx:	
   3235                           ; 1 bytes @ 0x5
   3236                           
-  3237  0025                     LCD_CursorPosition@tx:	
+  3237  0025                     EEPROM_MultiWrite@addr:	
   3238                           ; 1 bytes @ 0x5
   3239                           
-  3240  0025                     EEPROM_MultiWrite@addr:	
+  3240  0025                     EEPROM_MultiRead@addr:	
   3241                           ; 1 bytes @ 0x5
   3242                           
-  3243  0025                     EEPROM_MultiRead@addr:	
+  3243  0025                     I2C2_Transmit@i:	
   3244                           ; 1 bytes @ 0x5
   3245                           
   3246                           
@@ -3264,20 +3264,20 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   3250  0026                     ??_EEPROM_MultiRead:	
   3251                           ; 1 bytes @ 0x6
   3252                           
-  3253  0026                     I2C2_Transmit@i_172:	
+  3253  0026                     I2C_Init@mode:	
   3254                           ; 1 bytes @ 0x6
   3255                           
-  3256  0026                     I2C_Init@mode:	
+  3256  0026                     I2C2_Transmit@i_560:	
   3257                           ; 1 bytes @ 0x6
   3258                           
   3259                           
   3260                           ; 1 bytes @ 0x6
   3261  0026                     	ds	1
-  3262  0027                     I2C2_Transmit@result:	
-  3263  0027                     I2C_Init@Speed:	
+  3262  0027                     I2C_Init@Speed:	
+  3263  0027                     mTouch_Check@chan:	
   3264                           ; 1 bytes @ 0x7
   3265                           
-  3266  0027                     mTouch_Check@chan:	
+  3266  0027                     I2C2_Transmit@result:	
   3267                           ; 1 bytes @ 0x7
   3268                           
   3269                           
@@ -3406,7 +3406,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   3392  0042                     ??___llmod:	
   3393                           ; 1 bytes @ 0x22
   3394                           
-  3395  0042                     _Timer1_GetCPM$1180:	
+  3395  0042                     _Timer1_GetCPM$1189:	
   3396                           ; 1 bytes @ 0x22
   3397                           
   3398                           
@@ -4709,22 +4709,22 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   4692  0B57  318D  251F  318B   	fcall	_Timer1_GetCPS
   4693  0B5A  0020               	movlb	0	; select bank0
   4694  0B5B  083D               	movf	?_Timer1_GetCPS+3,w
-  4695  0B5C  00C5               	movwf	_Timer1_GetCPM$1180+3
+  4695  0B5C  00C5               	movwf	_Timer1_GetCPM$1189+3
   4696  0B5D  083C               	movf	?_Timer1_GetCPS+2,w
-  4697  0B5E  00C4               	movwf	_Timer1_GetCPM$1180+2
+  4697  0B5E  00C4               	movwf	_Timer1_GetCPM$1189+2
   4698  0B5F  083B               	movf	?_Timer1_GetCPS+1,w
-  4699  0B60  00C3               	movwf	_Timer1_GetCPM$1180+1
+  4699  0B60  00C3               	movwf	_Timer1_GetCPM$1189+1
   4700  0B61  083A               	movf	?_Timer1_GetCPS,w
-  4701  0B62  00C2               	movwf	_Timer1_GetCPM$1180
+  4701  0B62  00C2               	movwf	_Timer1_GetCPM$1189
   4702                           
   4703                           ;Timer1.c: 62: return (uint32_t)(Timer1_GetCPS()*60);
-  4704  0B63  0845               	movf	_Timer1_GetCPM$1180+3,w
+  4704  0B63  0845               	movf	_Timer1_GetCPM$1189+3,w
   4705  0B64  00A3               	movwf	___lmul@multiplier+3
-  4706  0B65  0844               	movf	_Timer1_GetCPM$1180+2,w
+  4706  0B65  0844               	movf	_Timer1_GetCPM$1189+2,w
   4707  0B66  00A2               	movwf	___lmul@multiplier+2
-  4708  0B67  0843               	movf	_Timer1_GetCPM$1180+1,w
+  4708  0B67  0843               	movf	_Timer1_GetCPM$1189+1,w
   4709  0B68  00A1               	movwf	___lmul@multiplier+1
-  4710  0B69  0842               	movf	_Timer1_GetCPM$1180,w
+  4710  0B69  0842               	movf	_Timer1_GetCPM$1189,w
   4711  0B6A  00A0               	movwf	___lmul@multiplier
   4712  0B6B  3000               	movlw	0
   4713  0B6C  00A7               	movwf	___lmul@multiplicand+3
@@ -7243,7 +7243,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   7224                           ;isdigit@c stored from wreg
   7225  0950  0020               	movlb	0	; select bank0
   7226  0951  00A1               	movwf	isdigit@c
-  7227  0952  01A0               	clrf	_isdigit$887
+  7227  0952  01A0               	clrf	_isdigit$904
   7228  0953  303A               	movlw	58
   7229  0954  0221               	subwf	isdigit@c,w
   7230  0955  1803               	skipnc
@@ -7252,10 +7252,10 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   7233  0958  0221               	subwf	isdigit@c,w
   7234  0959  1C03               	skipc
   7235  095A  295D               	goto	l3698
-  7236  095B  01A0               	clrf	_isdigit$887
-  7237  095C  0AA0               	incf	_isdigit$887,f
+  7236  095B  01A0               	clrf	_isdigit$904
+  7237  095C  0AA0               	incf	_isdigit$904,f
   7238  095D                     l3698:	
-  7239  095D  0C20               	rrf	_isdigit$887,w
+  7239  095D  0C20               	rrf	_isdigit$904,w
   7240  095E  0008               	return
   7241  095F                     __end_of_isdigit:	
   7242                           
@@ -8512,8 +8512,8 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   8486  0F6A  01A7               	clrf	I2C2_Transmit@result
   8487                           
   8488                           ;I2C2.c: 56: switch(I2C2_Config.Mode)
-  8489  0F6B  2FF4               	goto	l3548
-  8490  0F6C                     l3504:	
+  8489  0F6B  2FF4               	goto	l3546
+  8490  0F6C                     l3502:	
   8491                           ;I2C2.c: 59: while((SSP2CON2&0x1F)|(SSP2STAT&0x05));
   8492                           
   8493                           ;I2C2.c: 57: {
@@ -8530,12 +8530,12 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   8504  0F74  0020               	movlb	0	; select bank0
   8505  0F75  0422               	iorwf	??_I2C2_Transmit,w
   8506  0F76  1D03               	btfss	3,2
-  8507  0F77  2F6C               	goto	l3504
+  8507  0F77  2F6C               	goto	l3502
   8508                           
   8509                           ;I2C2.c: 60: SSP2CON2bits.SEN = 1;
   8510  0F78  0024               	movlb	4	; select bank4
   8511  0F79  141E               	bsf	30,0	;volatile
-  8512  0F7A                     l3506:	
+  8512  0F7A                     l3504:	
   8513                           ;I2C2.c: 62: while((SSP2CON2&0x1F)|(SSP2STAT&0x05));
   8514                           
   8515  0F7A  3005               	movlw	5
@@ -8549,17 +8549,17 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   8523  0F82  0020               	movlb	0	; select bank0
   8524  0F83  0422               	iorwf	??_I2C2_Transmit,w
   8525  0F84  1D03               	btfss	3,2
-  8526  0F85  2F7A               	goto	l3506
+  8526  0F85  2F7A               	goto	l3504
   8527                           
   8528                           ;I2C2.c: 63: SSP2BUF = address << 1;
   8529  0F86  3524               	lslf	I2C2_Transmit@address,w
   8530  0F87  0024               	movlb	4	; select bank4
   8531  0F88  0099               	movwf	25	;volatile
-  8532  0F89                     l91:	
+  8532  0F89                     l463:	
   8533                           ;I2C2.c: 64: while(SSP2STATbits.R_nW);
   8534                           
   8535  0F89  191C               	btfsc	28,2	;volatile
-  8536  0F8A  2F89               	goto	l91
+  8536  0F8A  2F89               	goto	l463
   8537                           
   8538                           ;I2C2.c: 66: result = SSP2CON2bits.ACKSTAT;
   8539  0F8B  3000               	movlw	0
@@ -8571,25 +8571,25 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   8545                           ;I2C2.c: 67: if (!result)
   8546  0F90  0827               	movf	I2C2_Transmit@result,w
   8547  0F91  1D03               	btfss	3,2
-  8548  0F92  2FC0               	goto	l3530
+  8548  0F92  2FC0               	goto	l3528
   8549                           
   8550                           ;I2C2.c: 68: {
   8551                           ;I2C2.c: 69: for(uint8_t i=0;i<size;i++)
   8552  0F93  01A5               	clrf	I2C2_Transmit@i
-  8553  0F94  2F99               	goto	l3528
-  8554  0F95                     l3526:	
+  8553  0F94  2F99               	goto	l3526
+  8554  0F95                     l3524:	
   8555                           ;I2C2.c: 79: break;
   8556                           
   8557  0F95  3001               	movlw	1
   8558  0F96  00A2               	movwf	??_I2C2_Transmit
   8559  0F97  0822               	movf	??_I2C2_Transmit,w
   8560  0F98  07A5               	addwf	I2C2_Transmit@i,f
-  8561  0F99                     l3528:	
+  8561  0F99                     l3526:	
   8562  0F99  0821               	movf	I2C2_Transmit@size,w
   8563  0F9A  0225               	subwf	I2C2_Transmit@i,w
   8564  0F9B  1803               	btfsc	3,0
-  8565  0F9C  2FC0               	goto	l3530
-  8566  0F9D                     l3516:	
+  8565  0F9C  2FC0               	goto	l3528
+  8566  0F9D                     l3514:	
   8567                           ;I2C2.c: 70: {
   8568                           ;I2C2.c: 71: while((SSP2CON2&0x1F)|(SSP2STAT&0x05));
   8569                           
@@ -8604,7 +8604,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   8578  0FA5  0020               	movlb	0	; select bank0
   8579  0FA6  0422               	iorwf	??_I2C2_Transmit,w
   8580  0FA7  1D03               	btfss	3,2
-  8581  0FA8  2F9D               	goto	l3516
+  8581  0FA8  2F9D               	goto	l3514
   8582                           
   8583                           ;I2C2.c: 72: SSP2BUF = *(pData+i);
   8584  0FA9  0825               	movf	I2C2_Transmit@i,w
@@ -8616,11 +8616,11 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   8590  0FAF  0801               	movf	1,w
   8591  0FB0  0024               	movlb	4	; select bank4
   8592  0FB1  0099               	movwf	25	;volatile
-  8593  0FB2                     l100:	
+  8593  0FB2                     l472:	
   8594                           ;I2C2.c: 73: while(SSP2STATbits.R_nW);
   8595                           
   8596  0FB2  191C               	btfsc	28,2	;volatile
-  8597  0FB3  2FB2               	goto	l100
+  8597  0FB3  2FB2               	goto	l472
   8598                           
   8599                           ;I2C2.c: 75: result = SSP2CON2bits.ACKSTAT;
   8600  0FB4  3000               	movlw	0
@@ -8632,7 +8632,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   8606                           ;I2C2.c: 76: if (result)
   8607  0FB9  0827               	movf	I2C2_Transmit@result,w
   8608  0FBA  1903               	btfsc	3,2
-  8609  0FBB  2F95               	goto	l3526
+  8609  0FBB  2F95               	goto	l3524
   8610                           
   8611                           ;I2C2.c: 77: {
   8612                           ;I2C2.c: 78: result = 2;
@@ -8640,7 +8640,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   8614  0FBD  00A2               	movwf	??_I2C2_Transmit
   8615  0FBE  0822               	movf	??_I2C2_Transmit,w
   8616  0FBF  00A7               	movwf	I2C2_Transmit@result
-  8617  0FC0                     l3530:	
+  8617  0FC0                     l3528:	
   8618                           ;I2C2.c: 80: }
   8619                           ;I2C2.c: 81: }
   8620                           ;I2C2.c: 82: }
@@ -8657,15 +8657,15 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   8631  0FC8  0020               	movlb	0	; select bank0
   8632  0FC9  0422               	iorwf	??_I2C2_Transmit,w
   8633  0FCA  1D03               	btfss	3,2
-  8634  0FCB  2FC0               	goto	l3530
+  8634  0FCB  2FC0               	goto	l3528
   8635                           
   8636                           ;I2C2.c: 85: SSP2CON2bits.PEN = 1;
   8637  0FCC  0024               	movlb	4	; select bank4
   8638  0FCD  151E               	bsf	30,2	;volatile
   8639                           
   8640                           ;I2C2.c: 86: break;
-  8641  0FCE  2FFD               	goto	l3550
-  8642  0FCF                     l109:	
+  8641  0FCE  2FFD               	goto	l3548
+  8642  0FCF                     l481:	
   8643                           ;I2C2.c: 88: case I2C_MODE_SLAVE:
   8644                           
   8645                           
@@ -8673,20 +8673,20 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   8647  0FCF  0024               	movlb	4	; select bank4
   8648  0FD0  1D9C               	btfss	28,3	;volatile
   8649  0FD1  1E1C               	btfss	28,4	;volatile
-  8650  0FD2  2FF1               	goto	l3544
+  8650  0FD2  2FF1               	goto	l3542
   8651                           
   8652                           ;I2C2.c: 90: {
   8653                           ;I2C2.c: 91: for(uint8_t i = 0;i<size;i++)
   8654  0FD3  0020               	movlb	0	; select bank0
-  8655  0FD4  01A6               	clrf	I2C2_Transmit@i_172
-  8656  0FD5                     l3540:	
+  8655  0FD4  01A6               	clrf	I2C2_Transmit@i_560
+  8656  0FD5                     l3538:	
   8657  0FD5  0821               	movf	I2C2_Transmit@size,w
-  8658  0FD6  0226               	subwf	I2C2_Transmit@i_172,w
+  8658  0FD6  0226               	subwf	I2C2_Transmit@i_560,w
   8659  0FD7  1803               	btfsc	3,0
-  8660  0FD8  2FEC               	goto	l3542
+  8660  0FD8  2FEC               	goto	l3540
   8661                           
   8662                           ;I2C2.c: 92: I2C2_Config.SlaveTransmitBuff[i] = pData[i];
-  8663  0FD9  0826               	movf	I2C2_Transmit@i_172,w
+  8663  0FD9  0826               	movf	I2C2_Transmit@i_560,w
   8664  0FDA  0720               	addwf	I2C2_Transmit@pData,w
   8665  0FDB  00A2               	movwf	??_I2C2_Transmit
   8666  0FDC  0822               	movf	??_I2C2_Transmit,w
@@ -8694,7 +8694,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   8668  0FDE  0187               	clrf	7
   8669  0FDF  0801               	movf	1,w
   8670  0FE0  00A3               	movwf	??_I2C2_Transmit+1
-  8671  0FE1  0826               	movf	I2C2_Transmit@i_172,w
+  8671  0FE1  0826               	movf	I2C2_Transmit@i_560,w
   8672  0FE2  3EB2               	addlw	(low (_I2C2_Config| 0))& (0+255)
   8673  0FE3  0086               	movwf	6
   8674  0FE4  0187               	clrf	7
@@ -8703,9 +8703,9 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   8677  0FE7  3001               	movlw	1
   8678  0FE8  00A2               	movwf	??_I2C2_Transmit
   8679  0FE9  0822               	movf	??_I2C2_Transmit,w
-  8680  0FEA  07A6               	addwf	I2C2_Transmit@i_172,f
-  8681  0FEB  2FD5               	goto	l3540
-  8682  0FEC                     l3542:	
+  8680  0FEA  07A6               	addwf	I2C2_Transmit@i_560,f
+  8681  0FEB  2FD5               	goto	l3538
+  8682  0FEC                     l3540:	
   8683                           
   8684                           ;I2C2.c: 93: result = size;
   8685  0FEC  0821               	movf	I2C2_Transmit@size,w
@@ -8714,8 +8714,8 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   8688  0FEF  00A7               	movwf	I2C2_Transmit@result
   8689                           
   8690                           ;I2C2.c: 94: }
-  8691  0FF0  2FFD               	goto	l3550
-  8692  0FF1                     l3544:	
+  8691  0FF0  2FFD               	goto	l3548
+  8692  0FF1                     l3542:	
   8693                           
   8694                           ;I2C2.c: 95: else
   8695                           ;I2C2.c: 96: result = 0;
@@ -8725,8 +8725,8 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   8699                           ;I2C2.c: 98: }
   8700                           
   8701                           ;I2C2.c: 97: break;
-  8702  0FF3  2FFD               	goto	l3550
-  8703  0FF4                     l3548:	
+  8702  0FF3  2FFD               	goto	l3548
+  8703  0FF4                     l3546:	
   8704  0FF4  0021               	movlb	1	; select bank1
   8705  0FF5  0844               	movf	(_I2C2_Config^(0+128)+18),w
   8706                           
@@ -8740,12 +8740,12 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   8714                           ;	Chosen strategy is simple_byte
   8715  0FF6  3A00               	xorlw	0	; case 0
   8716  0FF7  1903               	skipnz
-  8717  0FF8  2F6C               	goto	l3504
+  8717  0FF8  2F6C               	goto	l3502
   8718  0FF9  3A01               	xorlw	1	; case 1
   8719  0FFA  1903               	skipnz
-  8720  0FFB  2FCF               	goto	l109
-  8721  0FFC  2FFD               	goto	l3550
-  8722  0FFD                     l3550:	
+  8720  0FFB  2FCF               	goto	l481
+  8721  0FFC  2FFD               	goto	l3548
+  8722  0FFD                     l3548:	
   8723                           
   8724                           ;I2C2.c: 100: return result;
   8725  0FFD  0020               	movlb	0	; select bank0
@@ -8820,7 +8820,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   8794                           ;I2C_Common.c: 17: }
   8795                           
   8796                           ;I2C_Common.c: 16: break;
-  8797  0A12  2A19               	goto	l191
+  8797  0A12  2A19               	goto	l54
   8798  0A13                     l3780:	
   8799  0A13  0020               	movlb	0	; select bank0
   8800  0A14  082A               	movf	I2C_Init@I2Cx,w
@@ -8836,8 +8836,8 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   8810  0A15  3A01               	xorlw	1	; case 1
   8811  0A16  1903               	skipnz
   8812  0A17  2A06               	goto	l3776
-  8813  0A18  2A19               	goto	l191
-  8814  0A19                     l191:	
+  8813  0A18  2A19               	goto	l54
+  8814  0A19                     l54:	
   8815                           
   8816                           ;I2C_Common.c: 19: PEIE = 1;
   8817  0A19  170B               	bsf	11,6	;volatile
@@ -8904,7 +8904,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   8878                           
   8879                           ;I2C2.c: 20: switch(mode)
   8880  0DAA  2DD3               	goto	l3636
-  8881  0DAB                     l74:	
+  8881  0DAB                     l446:	
   8882                           ;I2C2.c: 21: {
   8883                           ;I2C2.c: 22: case I2C_MODE_MASTER:
   8884                           
@@ -8993,7 +8993,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   8967                           ;I2C2.c: 45: }
   8968                           
   8969                           ;I2C2.c: 44: break;
-  8970  0DD2  2DDC               	goto	l78
+  8970  0DD2  2DDC               	goto	l450
   8971  0DD3                     l3636:	
   8972  0DD3  0020               	movlb	0	; select bank0
   8973  0DD4  0821               	movf	I2C2_Setting@mode,w
@@ -9008,12 +9008,12 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   8982                           ;	Chosen strategy is simple_byte
   8983  0DD5  3A00               	xorlw	0	; case 0
   8984  0DD6  1903               	skipnz
-  8985  0DD7  2DAB               	goto	l74
+  8985  0DD7  2DAB               	goto	l446
   8986  0DD8  3A01               	xorlw	1	; case 1
   8987  0DD9  1903               	skipnz
   8988  0DDA  2DC2               	goto	l3622
-  8989  0DDB  2DDC               	goto	l78
-  8990  0DDC                     l78:	
+  8989  0DDB  2DDC               	goto	l450
+  8990  0DDC                     l450:	
   8991                           
   8992                           ;I2C2.c: 46: SSP2IE = 1;
   8993  0DDC  0021               	movlb	1	; select bank1
@@ -9335,7 +9335,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   9309  0012  3189  2115  3180   	fcall	_Timer6_CheckFlag
   9310  0015  3A00               	xorlw	0
   9311  0016  1903               	skipnz
-  9312  0017  2824               	goto	i1l537
+  9312  0017  2824               	goto	i1l400
   9313                           
   9314                           ;main.c: 162: {
   9315                           ;main.c: 163: mTouch_IntervalDecrement();
@@ -9349,7 +9349,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   9323                           
   9324                           ;main.c: 167: Buzzer_Count1ms();
   9325  0021  3189  21D7  3180   	fcall	_Buzzer_Count1ms
-  9326  0024                     i1l537:	
+  9326  0024                     i1l400:	
   9327                           
   9328                           ;main.c: 168: }
   9329                           ;main.c: 169: I2C_CommonInterrupt();
@@ -9494,22 +9494,22 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   9468                           ; Regs used in _mTouch_IntervalDecrement: [wreg+status,2+status,0]
   9469  095F  0870               	movf	_mTouch_Interval,w
   9470  0960  1903               	btfsc	3,2
-  9471  0961  2964               	goto	i1l409
+  9471  0961  2964               	goto	i1l272
   9472                           
   9473                           ;mTouch.c: 54: mTouch_Interval[0]--;
   9474  0962  3001               	movlw	1
   9475  0963  02F0               	subwf	_mTouch_Interval,f
-  9476  0964                     i1l409:	
+  9476  0964                     i1l272:	
   9477                           
   9478                           ;mTouch.c: 55: if(mTouch_Interval[1]>0)
   9479  0964  0871               	movf	_mTouch_Interval+1,w
   9480  0965  1903               	btfsc	3,2
-  9481  0966  2969               	goto	i1l410
+  9481  0966  2969               	goto	i1l273
   9482                           
   9483                           ;mTouch.c: 56: mTouch_Interval[1]--;
   9484  0967  3001               	movlw	1
   9485  0968  02F1               	subwf	_mTouch_Interval+1,f
-  9486  0969                     i1l410:	
+  9486  0969                     i1l273:	
   9487                           
   9488                           ;mTouch.c: 57: if(mTouch_Interval[2]>0)
   9489  0969  0872               	movf	_mTouch_Interval+2,w
@@ -9563,10 +9563,10 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   9537                           ; Regs used in _Timer6_CheckFlag: [wreg]
   9538  0915  0021               	movlb	1	; select bank1
   9539  0916  1D93               	btfss	19,3	;volatile
-  9540  0917  291E               	goto	i1l2012
+  9540  0917  291E               	goto	i1l1964
   9541  0918  0020               	movlb	0	; select bank0
   9542  0919  1D93               	btfss	19,3	;volatile
-  9543  091A  291E               	goto	i1l2012
+  9543  091A  291E               	goto	i1l1964
   9544                           
   9545                           ;Timer6.c: 20: {
   9546                           ;Timer6.c: 21: TMR6IF = 0;
@@ -9575,7 +9575,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   9549                           ;Timer6.c: 22: return 1;
   9550  091C  3001               	movlw	1
   9551  091D  0008               	return
-  9552  091E                     i1l2012:	
+  9552  091E                     i1l1964:	
   9553                           
   9554                           ;Timer6.c: 23: }
   9555                           ;Timer6.c: 24: return 0;
@@ -9624,10 +9624,10 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   9598                           ; Regs used in _Timer1_DetectAssignCount: [wreg]
   9599  0A1C  0020               	movlb	0	; select bank0
   9600  0A1D  1C11               	btfss	17,0	;volatile
-  9601  0A1E  2A34               	goto	i1l3138
+  9601  0A1E  2A34               	goto	i1l3090
   9602  0A1F  0021               	movlb	1	; select bank1
   9603  0A20  1C11               	btfss	17,0	;volatile
-  9604  0A21  2A34               	goto	i1l3138
+  9604  0A21  2A34               	goto	i1l3090
   9605                           
   9606                           ;Timer1.c: 108: {
   9607                           ;Timer1.c: 109: cnts.SigmaDeltaCount+= 10UL;
@@ -9655,7 +9655,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   9629                           ;Timer1.c: 115: return 1;
   9630  0A32  3001               	movlw	1
   9631  0A33  0008               	return
-  9632  0A34                     i1l3138:	
+  9632  0A34                     i1l3090:	
   9633                           
   9634                           ;Timer1.c: 116: }
   9635                           ;Timer1.c: 117: return 0;
@@ -9745,11 +9745,11 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   9719  0C86  3039               	movlw	57
   9720  0C87  0220               	subwf	_tcnt^(0+128),w
   9721  0C88  1C03               	skipc
-  9722  0C89  2C92               	goto	i1l3112
+  9722  0C89  2C92               	goto	i1l3064
   9723  0C8A  303C               	movlw	60
   9724  0C8B  0220               	subwf	_tcnt^(0+128),w
   9725  0C8C  1803               	skipnc
-  9726  0C8D  2C92               	goto	i1l3112
+  9726  0C8D  2C92               	goto	i1l3064
   9727                           
   9728                           ;Timer1.c: 88: {
   9729                           ;Timer1.c: 89: Buzzer_MiliSecond(300);
@@ -9757,7 +9757,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   9731  0C8F  00F6               	movwf	i1Buzzer_MiliSecond@time
   9732  0C90  3001               	movlw	1
   9733  0C91  2C9F               	goto	L13
-  9734  0C92                     i1l3112:	
+  9734  0C92                     i1l3064:	
   9735                           ;Timer1.c: 90: }
   9736                           
   9737                           
@@ -9766,7 +9766,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   9740  0C93  0021               	movlb	1	; select bank1
   9741  0C94  0220               	subwf	_tcnt^(0+128),w
   9742  0C95  1C03               	skipc
-  9743  0C96  2CA2               	goto	i1l3120
+  9743  0C96  2CA2               	goto	i1l3072
   9744                           
   9745                           ;Timer1.c: 92: {
   9746                           ;Timer1.c: 93: tcnt.Second_t = 0;
@@ -9785,7 +9785,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   9759  0C9F                     L13:	
   9760  0C9F  00F7               	movwf	i1Buzzer_MiliSecond@time+1
   9761  0CA0  3188  20F9         	fcall	i1_Buzzer_MiliSecond
-  9762  0CA2                     i1l3120:	
+  9762  0CA2                     i1l3072:	
   9763                           
   9764                           ;Timer1.c: 97: }
   9765                           ;Timer1.c: 99: tcnt.RenewalRersult = 0;
@@ -9932,27 +9932,27 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   9906                           ; Regs used in _I2C2_Interrupt: [wreg+fsr1l+fsr1h+status,2+status,0]
   9907  0E81  0020               	movlb	0	; select bank0
   9908  0E82  1C14               	btfss	20,0	;volatile
-  9909  0E83  2ECD               	goto	i1l2688
+  9909  0E83  2ECD               	goto	i1l2696
   9910  0E84  0021               	movlb	1	; select bank1
   9911  0E85  1C14               	btfss	20,0	;volatile
-  9912  0E86  2ECD               	goto	i1l2688
+  9912  0E86  2ECD               	goto	i1l2696
   9913                           
   9914                           ;I2C2.c: 155: {
   9915                           ;I2C2.c: 156: if(SSP2STATbits.D_nA)
   9916  0E87  0024               	movlb	4	; select bank4
   9917  0E88  1E9C               	btfss	28,5	;volatile
-  9918  0E89  2EA4               	goto	i1l157
+  9918  0E89  2EA4               	goto	i1l529
   9919                           
   9920                           ;I2C2.c: 157: {
   9921                           ;I2C2.c: 158: if(SSP2STATbits.R_nW)
   9922  0E8A  1D1C               	btfss	28,2	;volatile
-  9923  0E8B  2E97               	goto	i1l2664
+  9923  0E8B  2E97               	goto	i1l2672
   9924                           
   9925                           ;I2C2.c: 159: {
   9926                           ;I2C2.c: 160: if(!SSP2CON2bits.ACKSTAT)
   9927  0E8C  1B1E               	btfsc	30,6	;volatile
-  9928  0E8D  2ECB               	goto	i1l2686
-  9929  0E8E                     i1l2656:	
+  9928  0E8D  2ECB               	goto	i1l2694
+  9929  0E8E                     i1l2664:	
   9930                           ;I2C2.c: 161: {
   9931                           ;I2C2.c: 162: while((SSP2CON1bits.CKP)|(SSP2STATbits.BF));
   9932                           
@@ -9963,9 +9963,9 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   9937  0E92  3901               	andlw	1
   9938  0E93  0476               	iorwf	??_I2C2_Interrupt,w
   9939  0E94  1D03               	btfss	3,2
-  9940  0E95  2E8E               	goto	i1l2656
+  9940  0E95  2E8E               	goto	i1l2664
   9941  0E96  2EB7               	goto	L14
-  9942  0E97                     i1l2664:	
+  9942  0E97                     i1l2672:	
   9943                           ;I2C2.c: 166: }
   9944                           ;I2C2.c: 167: }
   9945                           
@@ -9993,8 +9993,8 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   9967  0EA0  00F6               	movwf	??_I2C2_Interrupt
   9968  0EA1  0876               	movf	??_I2C2_Interrupt,w
   9969  0EA2  07C3               	addwf	(low ((_I2C2_Config| 0+17)))^(0+128),f
-  9970  0EA3  2EC9               	goto	i1l2684
-  9971  0EA4                     i1l157:	
+  9970  0EA3  2EC9               	goto	i1l2692
+  9971  0EA4                     i1l529:	
   9972                           ;I2C2.c: 173: }
   9973                           ;I2C2.c: 174: }
   9974                           
@@ -10003,7 +10003,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   9977                           
   9978                           ;I2C2.c: 175: else if(!SSP2STATbits.D_nA)
   9979  0EA4  1A9C               	btfsc	28,5	;volatile
-  9980  0EA5  2ECB               	goto	i1l2686
+  9980  0EA5  2ECB               	goto	i1l2694
   9981                           
   9982                           ;I2C2.c: 176: {
   9983                           ;I2C2.c: 177: SSP2BUF;
@@ -10011,7 +10011,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   9985                           
   9986                           ;I2C2.c: 179: if(SSP2STATbits.R_nW)
   9987  0EA7  1D1C               	btfss	28,2	;volatile
-  9988  0EA8  2EC4               	goto	i1l2682
+  9988  0EA8  2EC4               	goto	i1l2690
   9989                           
   9990                           ;I2C2.c: 180: {
   9991                           ;I2C2.c: 181: I2C2_Config.TransmitPoint = I2C2_Config.SlaveTransmitBuff;
@@ -10020,7 +10020,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
   9994  0EAB  0876               	movf	??_I2C2_Interrupt,w
   9995  0EAC  0021               	movlb	1	; select bank1
   9996  0EAD  00C2               	movwf	(low ((_I2C2_Config| 0+16)))^(0+128)
-  9997  0EAE                     i1l2676:	
+  9997  0EAE                     i1l2684:	
   9998                           ;I2C2.c: 183: while((SSP2CON1bits.CKP)|(SSP2STATbits.BF));
   9999                           
  10000  0EAE  0024               	movlb	4	; select bank4
@@ -10031,7 +10031,7 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
  10005  0EB3  3901               	andlw	1
  10006  0EB4  0476               	iorwf	??_I2C2_Interrupt,w
  10007  0EB5  1D03               	btfss	3,2
- 10008  0EB6  2EAE               	goto	i1l2676
+ 10008  0EB6  2EAE               	goto	i1l2684
  10009  0EB7                     L14:	
  10010                           
  10011                           ;I2C2.c: 184: SSP2BUF = *I2C2_Config.TransmitPoint;
@@ -10051,8 +10051,8 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
  10025  0EC2  07C2               	addwf	(low ((_I2C2_Config| 0+16)))^(0+128),f
  10026                           
  10027                           ;I2C2.c: 186: }
- 10028  0EC3  2EC9               	goto	i1l2684
- 10029  0EC4                     i1l2682:	
+ 10028  0EC3  2EC9               	goto	i1l2692
+ 10029  0EC4                     i1l2690:	
  10030                           
  10031                           ;I2C2.c: 187: else
  10032                           ;I2C2.c: 188: {
@@ -10062,19 +10062,19 @@ Microchip Technology Omniscient Code Generator v1.41 (Free mode) build 201701250
  10036  0EC6  0876               	movf	??_I2C2_Interrupt,w
  10037  0EC7  0021               	movlb	1	; select bank1
  10038  0EC8  00C3               	movwf	(low ((_I2C2_Config| 0+17)))^(0+128)
- 10039  0EC9                     i1l2684:	
+ 10039  0EC9                     i1l2692:	
  10040                           
  10041                           ;I2C2.c: 190: }
  10042                           ;I2C2.c: 191: SSP2CON1bits.CKP = 1;
  10043  0EC9  0024               	movlb	4	; select bank4
  10044  0ECA  161D               	bsf	29,4	;volatile
- 10045  0ECB                     i1l2686:	
+ 10045  0ECB                     i1l2694:	
  10046                           
  10047                           ;I2C2.c: 192: }
  10048                           ;I2C2.c: 193: SSP2IF = 0;
  10049  0ECB  0020               	movlb	0	; select bank0
  10050  0ECC  1014               	bcf	20,0	;volatile
- 10051  0ECD                     i1l2688:	
+ 10051  0ECD                     i1l2696:	
  10052                           
  10053                           ;I2C2.c: 194: }
  10054                           ;I2C2.c: 196: if(BCL2IE&&BCL2IF)
@@ -10260,7 +10260,7 @@ Auto Spaces:
 
 Pointer List with Targets:
 
-    Show_PMT_Config$1182	PTR const unsigned char  size(2) Largest target is 8
+    Show_PMT_Config$1191	PTR const unsigned char  size(2) Largest target is 8
 		 -> STR_36(CODE[7]), STR_35(CODE[7]), STR_34(CODE[7]), STR_33(CODE[7]), 
 		 -> STR_32(CODE[7]), STR_31(CODE[7]), STR_30(CODE[7]), STR_29(CODE[6]), 
 		 -> STR_28(CODE[6]), STR_27(CODE[6]), STR_26(CODE[6]), STR_25(CODE[5]), 
@@ -10270,7 +10270,7 @@ Pointer List with Targets:
 		 -> STR_12(CODE[6]), STR_11(CODE[6]), STR_10(CODE[6]), STR_9(CODE[5]), 
 		 -> STR_8(CODE[5]), STR_7(CODE[5]), 
 
-    Ssetting_PMT_Config$1181	PTR const unsigned char  size(2) Largest target is 8
+    Ssetting_PMT_Config$1190	PTR const unsigned char  size(2) Largest target is 8
 		 -> STR_36(CODE[7]), STR_35(CODE[7]), STR_34(CODE[7]), STR_33(CODE[7]), 
 		 -> STR_32(CODE[7]), STR_31(CODE[7]), STR_30(CODE[7]), STR_29(CODE[6]), 
 		 -> STR_28(CODE[6]), STR_27(CODE[6]), STR_26(CODE[6]), STR_25(CODE[5]), 
@@ -10317,6 +10317,9 @@ Pointer List with Targets:
     Save_PMTConfig@data	PTR struct . size(1) Largest target is 3
 		 -> main@pmt_config(BANK1[3]), 
 
+    I2C2_Transmit@pData	PTR unsigned char  size(1) Largest target is 2
+		 -> VoltageReg(BANK0[2]), ConfigReg(BANK0[1]), 
+
     H7826_01_Gain	PTR unsigned char [15] size(2) Largest target is 7
 		 -> STR_36(CODE[7]), STR_35(CODE[7]), STR_34(CODE[7]), STR_33(CODE[7]), 
 		 -> STR_32(CODE[7]), STR_31(CODE[7]), STR_30(CODE[7]), STR_29(CODE[6]), 
@@ -10338,16 +10341,13 @@ Pointer List with Targets:
     I2C_Transmit@pData	PTR unsigned char  size(1) Largest target is 2
 		 -> VoltageReg(BANK0[2]), ConfigReg(BANK0[1]), 
 
-    I2C2_Transmit@pData	PTR unsigned char  size(1) Largest target is 2
-		 -> VoltageReg(BANK0[2]), ConfigReg(BANK0[1]), 
-
-    S46$ReceivePoint	PTR unsigned char  size(1) Largest target is 21
+    S40$ReceivePoint	PTR unsigned char  size(1) Largest target is 21
 		 -> I2C2_Config(BANK1[19]), 
 
     I2C2_Config.ReceivePoint	PTR unsigned char  size(1) Largest target is 21
 		 -> I2C2_Config.SlaveReceiveBuff(BANK1[8]), I2C2_Config(BANK1[19]), 
 
-    S46$TransmitPoint	PTR unsigned char  size(1) Largest target is 21
+    S40$TransmitPoint	PTR unsigned char  size(1) Largest target is 21
 		 -> I2C2_Config(BANK1[19]), 
 
     I2C2_Config.TransmitPoint	PTR unsigned char  size(1) Largest target is 21
@@ -10951,19 +10951,19 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.41 build -162212810 
-Symbol Table                                                                                   Sat Jul  1 16:31:01 2017
+Symbol Table                                                                                   Sat Jul  1 16:38:48 2017
 
                   _Load_PMTConfing 092B                     _LCD_CursorHome 097F  
          __end_of_Timer1_StopCount 08E8                                  pc 0002  
-                      __CFG_CP$OFF 0000                                 l74 0DAB  
-                               l91 0F89                                 l78 0DDC  
+                      __CFG_CP$OFF 0000                                 l54 0A19  
                    I2C2_Transmit@i 0025                                 _RD 0CA8  
                                _WR 0CA9              ??_I2C_CommonInterrupt 0077  
               ___wmul@multiplicand 0022                _Ssetting_PMT_Config 0603  
-                              l100 0FB2                                l109 0FCF  
-                              l191 0A19                                l601 0ED7  
+                              l601 0ED7                                l450 0DDC  
                               l604 0F5E                                l701 0ACB  
-                              l631 0080                                l642 00CA  
+                              l446 0DAB                                l463 0F89  
+                              l631 0080                                l472 0FB2  
+                              l481 0FCF                                l642 00CA  
                               l723 0B81                                l660 0125  
                               l580 0610                                l813 0A76  
                               l661 017F                                l645 0148  
@@ -10974,23 +10974,23 @@ Symbol Table                                                                    
                      __CFG_BORV$LO 0000                                wreg 0009  
                        _Basic_Init 098F                               S4440 0800  
                      __CFG_LVP$OFF 0000         ??_Timer1_DetectAssignCount 0076  
-                             l4230 0641                               l3504 0F6C  
-                             l4240 0660                               l4224 062D  
-                             l3530 0FC0                               l3506 0F7A  
+                             l3502 0F6C                               l4230 0641  
+                             l3504 0F7A                               l4240 0660  
+                             l4224 062D                               l3514 0F9D  
                              l4250 0689                               l4410 05FD  
-                             l3620 0DC0                               l3540 0FD5  
-                             l3516 0F9D                               l4236 0654  
+                             l3620 0DC0                               l3540 0FEC  
+                             l3524 0F95                               l4236 0654  
                              l4404 05F4                               l4340 04AD  
                              l3622 0DC2                               l3614 0DB5  
-                             l3542 0FEC                               l3550 0FFD  
-                             l3526 0F95                               l4262 06BA  
-                             l4414 050B                               l3632 0DD1  
-                             l3544 0FF1                               l3528 0F99  
+                             l3542 0FF1                               l3526 0F99  
+                             l4262 06BA                               l4414 050B  
+                             l3632 0DD1                               l3528 0FC0  
                              l3640 0A39                               l3704 0A70  
                              l4256 069C                               l4408 05F9  
+                             l3538 0FD5                               l3546 0FF4  
                              l4266 06D3                               l3722 0C1D  
                              l4370 04EF                               l4354 04C9  
-                             l3636 0DD3                               l3548 0FF4  
+                             l3636 0DD3                               l3548 0FFD  
                              l3644 0A4A                               l3900 0127  
                              l4284 0F16                               l4372 04F6  
                              l4364 04E3                               l4348 04B8  
@@ -11093,8 +11093,8 @@ Symbol Table                                                                    
                             _T2CON 001C                              _LATA3 0863  
                             _LATA4 0864                              _LATA6 0866  
                             _T6CON 041E        __size_of_Timer1_ClearRecord 0014  
-                            i1l410 0969                              i1l157 0EA4  
-                            i1l409 0964                              i1l537 0024  
+                            i1l400 0024                              i1l272 0964  
+                            i1l273 0969                              i1l529 0EA4  
                             _PORTA 000C                              _PORTB 000D  
                             _TRISA 008C                              _TRISB 008D  
                 I2C2_Transmit@size 0021                ___lmul@multiplicand 0024  
@@ -11123,14 +11123,14 @@ Symbol Table                                                                    
                            _EECON2 0196               ??_LCD_CursorPosition 0024  
                            _ANSELA 018C                             ?_putch 0076  
                            _ANSELB 018D                             _T1GCON 0019  
-                           i1l2012 091E                             i1l3120 0CA2  
-                           i1l3112 0C92                             i1l3138 0A34  
-                           i1l2656 0E8E                             i1l2664 0E97  
-                           i1l3472 0012                             i1l2682 0EC4  
-                           i1l2684 0EC9                             i1l2676 0EAE  
-               I2C2_Transmit@i_172 0026                             i1l2686 0ECB  
-                           i1l2688 0ECD                             i1l2938 09E6  
-                  _mTouch_Interval 0070          __end_of_Buzzer_MiliSecond 0915  
+                           i1l3072 0CA2                             i1l3064 0C92  
+                           i1l3090 0A34                             i1l2664 0E8E  
+                           i1l2672 0E97                             i1l3472 0012  
+                           i1l2690 0EC4                             i1l2692 0EC9  
+                           i1l2684 0EAE                             i1l1964 091E  
+                           i1l2694 0ECB                             i1l2696 0ECD  
+                           i1l2938 09E6                    _mTouch_Interval 0070  
+               I2C2_Transmit@i_560 0026          __end_of_Buzzer_MiliSecond 0915  
                            u199_25 0A65                             _OSCCON 0099  
                I2C2_Transmit@pData 0020                             _TMR1IE 0488  
                            _TMR1IF 0088                          ??_Handler 007B  
@@ -11237,7 +11237,7 @@ __size_of_Timer1_DetectAssignCount 001A                    __size_of___lmul 0030
                       __pbssCOMMON 0070                          ___latbits 0001  
                     __pcstackBANK0 0020   __end_of_mTouch_IntervalDecrement 096F  
         __size_of_LCD_DisplayClear 0010                    ?_Buzzer_SetDuty 0076  
-               _Timer1_GetCPM$1180 0042                     ?_Timer1_GetCPM 003E  
+               _Timer1_GetCPM$1189 0042                     ?_Timer1_GetCPM 003E  
                    ?_Timer1_GetCPS 003A                   eeprom_write@addr 0023  
  __end_of_Timer1_DetectAssignCount 0A36                    I2C_Init@address 0025  
                          ?_Handler 0076                   StartUp_Menu@data 0067  
@@ -11276,7 +11276,7 @@ __size_of_Timer1_DetectAssignCount 001A                    __size_of___lmul 0030
         ?_mTouch_IntervalDecrement 0076                   ?_Show_PMT_Config 0076  
           __size_of_LCD_CursorHome 0010             __end_of_DAC_Initialize 0AC7  
                  __size_of___lldiv 0053                   __size_of___llmod 0043  
-               LCD_WriteData@point 0022                        _isdigit$887 0020  
+               LCD_WriteData@point 0022                        _isdigit$904 0020  
                   ?_I2C2_Interrupt 0076                   __size_of_isdigit 000F  
        __end_of_LCD_CursorPosition 0A03                           __ptext10 09A0  
                          __ptext11 0B57                           __ptext20 0920  
