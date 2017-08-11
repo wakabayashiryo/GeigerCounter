@@ -4029,6 +4029,7 @@ void Timer1_StopCount(void);
 void Timer1_ClearRecord(void);
 
 
+
 uint32_t Timer1_GetCountSum(void);
 uint32_t Timer1_GetCPM(void);
 uint32_t Timer1_GetCPS(void);

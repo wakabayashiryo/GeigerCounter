@@ -23,7 +23,7 @@
 
 
 #define SERIAL_NO   0x01
-#define SOFTWARE_VER "1.00"
+#define SOFTWARE_VER "1.01"
 
 // PIC16F1827 Configuration Bit Settings
 

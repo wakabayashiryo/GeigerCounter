@@ -4029,6 +4029,7 @@ void Timer1_StopCount(void);
 void Timer1_ClearRecord(void);
 
 
+
 uint32_t Timer1_GetCountSum(void);
 uint32_t Timer1_GetCPM(void);
 uint32_t Timer1_GetCPS(void);
@@ -4225,7 +4226,7 @@ void StartUp_Menu(PMT_CONFIGURATION *data);
 void Ssetting_PMT_Config(PMT_CONFIGURATION *data);
 void Show_PMT_Config(PMT_CONFIGURATION *data);
 
-# 15 "main.c"
+# 21 "main.c"
 asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x01" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
 
 int8_t main(void)

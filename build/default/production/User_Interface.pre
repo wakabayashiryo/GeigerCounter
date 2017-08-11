@@ -4029,6 +4029,7 @@ void Timer1_StopCount(void);
 void Timer1_ClearRecord(void);
 
 
+
 uint32_t Timer1_GetCountSum(void);
 uint32_t Timer1_GetCPM(void);
 uint32_t Timer1_GetCPS(void);
@@ -4254,7 +4255,7 @@ _delay((unsigned long)((2000)*(32000000/4000.0)));
 LCD_DisplayClear();
 
 LCD_CursorHome();
-printf("SotWare ver%s","1.00");
+printf("SotWare ver%s","1.01");
 LCD_CursorPosition(0,1);
 printf("   Ser.No.%0003d   ",data->SerialNum);
 _delay((unsigned long)((2000)*(32000000/4000.0)));
@@ -4306,6 +4307,8 @@ else if(data->DeviceNum==1)
 printf("<-- %8s -->",H7826_01_Gain[data->GainElements]);
 }
 
+DAC_WriteVoltage(DAC_DataTable[data->GainElements]);
+
 LCD_DisplayClear();
 
 Save_PMTConfig(data);
@@ -4316,7 +4319,7 @@ void Show_PMT_Config(PMT_CONFIGURATION *data)
 while(!mTouch_Check(0x00))
 {
 LCD_CursorHome();
-printf("SotWare ver%s","1.00");
+printf("SotWare ver%s","1.01");
 LCD_CursorPosition(0,1);
 printf("   Ser.No.%0003d   ",data->SerialNum);
 }

@@ -3122,13 +3122,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.h: 41: void Timer1_StartCount(void);
 [; ;Timer1.h: 42: void Timer1_StopCount(void);
 [; ;Timer1.h: 43: void Timer1_ClearRecord(void);
-[; ;Timer1.h: 46: uint32_t Timer1_GetCountSum(void);
-[; ;Timer1.h: 47: uint32_t Timer1_GetCPM(void);
-[; ;Timer1.h: 48: uint32_t Timer1_GetCPS(void);
-[; ;Timer1.h: 49: uint8_t Timer1_GetSecond(void);
-[; ;Timer1.h: 50: uint8_t Timer1_GetMinute(void);
-[; ;Timer1.h: 52: void Timer1_Count1ms(void);
-[; ;Timer1.h: 53: uint8_t Timer1_DetectAssignCount(void);
+[; ;Timer1.h: 47: uint32_t Timer1_GetCountSum(void);
+[; ;Timer1.h: 48: uint32_t Timer1_GetCPM(void);
+[; ;Timer1.h: 49: uint32_t Timer1_GetCPS(void);
+[; ;Timer1.h: 50: uint8_t Timer1_GetSecond(void);
+[; ;Timer1.h: 51: uint8_t Timer1_GetMinute(void);
+[; ;Timer1.h: 53: void Timer1_Count1ms(void);
+[; ;Timer1.h: 54: uint8_t Timer1_DetectAssignCount(void);
 "3 Timer1.c
 [v _cnts `S367 ~T0 @X0 1 s ]
 [; ;Timer1.c: 3: static Counters cnts;
@@ -3167,11 +3167,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.c: 17: T1GCON = 0x00;
 "17
 [e = _T1GCON -> -> 0 `i `uc ]
-[; ;Timer1.c: 19: {TMR1ON = 0; TMR1 = (uint16_t)0xFFFF - 10UL+1; TMR1ON = 1; };
+[; ;Timer1.c: 19: {TMR1ON = 0; TMR1 = (uint16_t)0xFFFF-2UL+1; TMR1ON = 1; };
 "19
 {
 [e = _TMR1ON -> -> 0 `i `b ]
-[e = _TMR1 -> + - -> -> 65535 `ui `ul -> 10 `ul -> -> -> 1 `i `l `ul `us ]
+[e = _TMR1 -> + - -> -> 65535 `ui `ul -> 2 `ul -> -> -> 1 `i `l `ul `us ]
 [e = _TMR1ON -> -> 1 `i `b ]
 }
 [; ;Timer1.c: 21: TMR1IF = 0;
@@ -3422,14 +3422,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.c: 108: {
 "108
 {
-[; ;Timer1.c: 109: cnts.SigmaDeltaCount+= 10UL;
+[; ;Timer1.c: 109: cnts.SigmaDeltaCount+= 2UL;
 "109
-[e =+ . _cnts 0 -> 10 `ul ]
-[; ;Timer1.c: 111: {TMR1ON = 0; TMR1 = (uint16_t)0xFFFF - 10UL+1; TMR1ON = 1; };
+[e =+ . _cnts 0 -> 2 `ul ]
+[; ;Timer1.c: 111: {TMR1ON = 0; TMR1 = (uint16_t)0xFFFF-2UL+1; TMR1ON = 1; };
 "111
 {
 [e = _TMR1ON -> -> 0 `i `b ]
-[e = _TMR1 -> + - -> -> 65535 `ui `ul -> 10 `ul -> -> -> 1 `i `l `ul `us ]
+[e = _TMR1 -> + - -> -> 65535 `ui `ul -> 2 `ul -> -> -> 1 `i `l `ul `us ]
 [e = _TMR1ON -> -> 1 `i `b ]
 }
 [; ;Timer1.c: 113: TMR1IF = 0;

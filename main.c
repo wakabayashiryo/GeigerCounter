@@ -7,10 +7,16 @@
 
 #include "main.h"
 
+
+/*---Version Information---
+ * 1.01:fixed to set PMT's Gain
+ * 1.10:changed count parameter rised interrupt flag
+ */
+
 //TODO
-//Never finish to Optimize code and be sipmlify.
-//Unit of gain string change to db unit.
-//Redue Code size
+//Optimize code and be sipmlify Never finish.
+//Reduce Code size and wornings
+
 
 __EEPROM_DATA(SERIAL_NO,0x00,0x00,0x00,0x00,0x00,0x00,0x00);
 

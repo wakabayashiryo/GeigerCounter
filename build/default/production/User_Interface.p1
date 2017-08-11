@@ -2958,13 +2958,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Timer1.h: 41: void Timer1_StartCount(void);
 [; ;Timer1.h: 42: void Timer1_StopCount(void);
 [; ;Timer1.h: 43: void Timer1_ClearRecord(void);
-[; ;Timer1.h: 46: uint32_t Timer1_GetCountSum(void);
-[; ;Timer1.h: 47: uint32_t Timer1_GetCPM(void);
-[; ;Timer1.h: 48: uint32_t Timer1_GetCPS(void);
-[; ;Timer1.h: 49: uint8_t Timer1_GetSecond(void);
-[; ;Timer1.h: 50: uint8_t Timer1_GetMinute(void);
-[; ;Timer1.h: 52: void Timer1_Count1ms(void);
-[; ;Timer1.h: 53: uint8_t Timer1_DetectAssignCount(void);
+[; ;Timer1.h: 47: uint32_t Timer1_GetCountSum(void);
+[; ;Timer1.h: 48: uint32_t Timer1_GetCPM(void);
+[; ;Timer1.h: 49: uint32_t Timer1_GetCPS(void);
+[; ;Timer1.h: 50: uint8_t Timer1_GetSecond(void);
+[; ;Timer1.h: 51: uint8_t Timer1_GetMinute(void);
+[; ;Timer1.h: 53: void Timer1_Count1ms(void);
+[; ;Timer1.h: 54: uint8_t Timer1_DetectAssignCount(void);
 [; ;LCD.h: 32: void LCD_Init(void);
 [; ;LCD.h: 33: void LCD_Put(int8_t word);
 [; ;LCD.h: 34: void putch(char c);
@@ -3211,7 +3211,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;User_Interface.c: 30: LCD_CursorHome();
 "30
 [e ( _LCD_CursorHome ..  ]
-[; ;User_Interface.c: 31: printf("SotWare ver%s","1.00");
+[; ;User_Interface.c: 31: printf("SotWare ver%s","1.01");
 "31
 [e ( _printf , (. :s 3C :s 4C ]
 [; ;User_Interface.c: 32: LCD_CursorPosition(0,1);
@@ -3369,110 +3369,113 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ ! != -> ( _mTouch_Check (1 -> -> 0 `i `uc `i -> -> -> 0 `i `uc `i 382  ]
 [e :U 383 ]
 [; ;User_Interface.c: 81: }
-[; ;User_Interface.c: 83: LCD_DisplayClear();
+[; ;User_Interface.c: 83: DAC_WriteVoltage(DAC_DataTable[data->GainElements]);
 "83
-[e ( _LCD_DisplayClear ..  ]
-[; ;User_Interface.c: 85: Save_PMTConfig(data);
+[e ( _DAC_WriteVoltage (1 *U + &U _DAC_DataTable * -> . . . *U _data 0 1 1 `ux -> -> # *U &U _DAC_DataTable `ui `ux ]
+[; ;User_Interface.c: 85: LCD_DisplayClear();
 "85
+[e ( _LCD_DisplayClear ..  ]
+[; ;User_Interface.c: 87: Save_PMTConfig(data);
+"87
 [e ( _Save_PMTConfig (1 _data ]
-[; ;User_Interface.c: 86: }
-"86
+[; ;User_Interface.c: 88: }
+"88
 [e :UE 371 ]
 }
-"88
-[v _Show_PMT_Config `(v ~T0 @X0 1 ef1`*S365 ]
-"89
-{
-[; ;User_Interface.c: 88: void Show_PMT_Config(PMT_CONFIGURATION *data)
-[; ;User_Interface.c: 89: {
-[e :U _Show_PMT_Config ]
-"88
-[v _data `*S365 ~T0 @X0 1 r1 ]
-"89
-[f ]
-[; ;User_Interface.c: 90: while(!mTouch_Check(0x00))
 "90
-[e $U 391  ]
-[e :U 392 ]
-[; ;User_Interface.c: 91: {
+[v _Show_PMT_Config `(v ~T0 @X0 1 ef1`*S365 ]
 "91
 {
-[; ;User_Interface.c: 92: LCD_CursorHome();
+[; ;User_Interface.c: 90: void Show_PMT_Config(PMT_CONFIGURATION *data)
+[; ;User_Interface.c: 91: {
+[e :U _Show_PMT_Config ]
+"90
+[v _data `*S365 ~T0 @X0 1 r1 ]
+"91
+[f ]
+[; ;User_Interface.c: 92: while(!mTouch_Check(0x00))
 "92
-[e ( _LCD_CursorHome ..  ]
-[; ;User_Interface.c: 93: printf("SotWare ver%s","1.00");
+[e $U 391  ]
+[e :U 392 ]
+[; ;User_Interface.c: 93: {
 "93
-[e ( _printf , (. :s 14C :s 15C ]
-[; ;User_Interface.c: 94: LCD_CursorPosition(0,1);
+{
+[; ;User_Interface.c: 94: LCD_CursorHome();
 "94
-[e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;User_Interface.c: 95: printf("   Ser.No.%0003d   ",data->SerialNum);
+[e ( _LCD_CursorHome ..  ]
+[; ;User_Interface.c: 95: printf("SotWare ver%s","1.01");
 "95
-[e ( _printf , (. :s 16C -> . . . *U _data 0 1 0 `i ]
+[e ( _printf , (. :s 14C :s 15C ]
+[; ;User_Interface.c: 96: LCD_CursorPosition(0,1);
 "96
+[e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;User_Interface.c: 97: printf("   Ser.No.%0003d   ",data->SerialNum);
+"97
+[e ( _printf , (. :s 16C -> . . . *U _data 0 1 0 `i ]
+"98
 }
 [e :U 391 ]
-"90
+"92
 [e $ ! != -> ( _mTouch_Check (1 -> -> 0 `i `uc `i -> -> -> 0 `i `uc `i 392  ]
 [e :U 393 ]
-[; ;User_Interface.c: 96: }
-[; ;User_Interface.c: 97: while(!mTouch_Check(0x00))
-"97
+[; ;User_Interface.c: 98: }
+[; ;User_Interface.c: 99: while(!mTouch_Check(0x00))
+"99
 [e $U 394  ]
 [e :U 395 ]
-[; ;User_Interface.c: 98: {
-"98
-{
-[; ;User_Interface.c: 99: LCD_CursorHome();
-"99
-[e ( _LCD_CursorHome ..  ]
-[; ;User_Interface.c: 100: if(data->DeviceNum==0)
+[; ;User_Interface.c: 100: {
 "100
-[e $ ! == -> . . . *U _data 0 1 2 `i -> 0 `i 397  ]
-[; ;User_Interface.c: 101: printf("Deveice:H7826   ");
+{
+[; ;User_Interface.c: 101: LCD_CursorHome();
 "101
+[e ( _LCD_CursorHome ..  ]
+[; ;User_Interface.c: 102: if(data->DeviceNum==0)
+"102
+[e $ ! == -> . . . *U _data 0 1 2 `i -> 0 `i 397  ]
+[; ;User_Interface.c: 103: printf("Deveice:H7826   ");
+"103
 [e ( _printf :s 17C ]
 [e $U 398  ]
-"102
+"104
 [e :U 397 ]
-[; ;User_Interface.c: 102: else if(data->DeviceNum==1)
+[; ;User_Interface.c: 104: else if(data->DeviceNum==1)
 [e $ ! == -> . . . *U _data 0 1 2 `i -> 1 `i 399  ]
-[; ;User_Interface.c: 103: printf("Deveice:H7826_01");
-"103
+[; ;User_Interface.c: 105: printf("Deveice:H7826_01");
+"105
 [e ( _printf :s 18C ]
 [e :U 399 ]
-"104
-[e :U 398 ]
-[; ;User_Interface.c: 104: LCD_CursorPosition(0,1);
-[e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;User_Interface.c: 105: if(data->DeviceNum==0)
-"105
-[e $ ! == -> . . . *U _data 0 1 2 `i -> 0 `i 400  ]
-[; ;User_Interface.c: 106: printf(" Gain: %8s ",H7826_Gain[data->GainElements]);
 "106
+[e :U 398 ]
+[; ;User_Interface.c: 106: LCD_CursorPosition(0,1);
+[e ( _LCD_CursorPosition (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;User_Interface.c: 107: if(data->DeviceNum==0)
+"107
+[e $ ! == -> . . . *U _data 0 1 2 `i -> 0 `i 400  ]
+[; ;User_Interface.c: 108: printf(" Gain: %8s ",H7826_Gain[data->GainElements]);
+"108
 [e ( _printf , (. :s 19C -> *U + &U _H7826_Gain * -> . . . *U _data 0 1 1 `ux -> -> # *U &U _H7826_Gain `ui `ux `*Cuc ]
 [e $U 401  ]
-"107
+"109
 [e :U 400 ]
-[; ;User_Interface.c: 107: else if(data->DeviceNum==1)
+[; ;User_Interface.c: 109: else if(data->DeviceNum==1)
 [e $ ! == -> . . . *U _data 0 1 2 `i -> 1 `i 402  ]
-[; ;User_Interface.c: 108: printf(" Gain: %8s ",H7826_01_Gain[data->GainElements]);
-"108
+[; ;User_Interface.c: 110: printf(" Gain: %8s ",H7826_01_Gain[data->GainElements]);
+"110
 [e ( _printf , (. :s 20C -> *U + &U _H7826_01_Gain * -> . . . *U _data 0 1 1 `ux -> -> # *U &U _H7826_01_Gain `ui `ux `*Cuc ]
 [e :U 402 ]
-"109
+"111
 [e :U 401 ]
 }
 [e :U 394 ]
-"97
+"99
 [e $ ! != -> ( _mTouch_Check (1 -> -> 0 `i `uc `i -> -> -> 0 `i `uc `i 395  ]
 [e :U 396 ]
-[; ;User_Interface.c: 109: }
-[; ;User_Interface.c: 110: LCD_DisplayClear();
-"110
-[e ( _LCD_DisplayClear ..  ]
 [; ;User_Interface.c: 111: }
-"111
+[; ;User_Interface.c: 112: LCD_DisplayClear();
+"112
+[e ( _LCD_DisplayClear ..  ]
+[; ;User_Interface.c: 113: }
+"113
 [e :UE 390 ]
 }
 [p f _printf 8683652 ]
@@ -3485,8 +3488,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [a 10C 60 45 45 32 72 55 56 50 54 95 48 49 32 45 45 62 0 ]
 [a 9C 60 45 45 32 32 72 55 56 50 54 32 32 32 45 45 62 0 ]
 [a 18C 68 101 118 101 105 99 101 58 72 55 56 50 54 95 48 49 0 ]
-[a 4C 49 46 48 48 0 ]
-[a 15C 49 46 48 48 0 ]
+[a 4C 49 46 48 49 0 ]
+[a 15C 49 46 48 49 0 ]
 [a 19C 32 71 97 105 110 58 32 37 56 115 32 0 ]
 [a 20C 32 71 97 105 110 58 32 37 56 115 32 0 ]
 [a 1C 32 71 101 105 103 101 114 32 67 111 117 110 116 101 114 32 0 ]

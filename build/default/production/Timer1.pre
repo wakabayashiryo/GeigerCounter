@@ -4216,6 +4216,7 @@ void Timer1_StopCount(void);
 void Timer1_ClearRecord(void);
 
 
+
 uint32_t Timer1_GetCountSum(void);
 uint32_t Timer1_GetCPM(void);
 uint32_t Timer1_GetCPS(void);
@@ -4242,7 +4243,7 @@ T1CON |= (0x02<<6);
 
 T1GCON = 0x00;
 
-{TMR1ON = 0; TMR1 = (uint16_t)0xFFFF - 10UL+1; TMR1ON = 1; };
+{TMR1ON = 0; TMR1 = (uint16_t)0xFFFF-2UL+1; TMR1ON = 1; };
 
 TMR1IF = 0;
 TMR1IE = 1;
@@ -4332,9 +4333,9 @@ uint8_t Timer1_DetectAssignCount(void)
 {
 if(TMR1IF&&TMR1IE)
 {
-cnts.SigmaDeltaCount+= 10UL;
+cnts.SigmaDeltaCount+= 2UL;
 
-{TMR1ON = 0; TMR1 = (uint16_t)0xFFFF - 10UL+1; TMR1ON = 1; };
+{TMR1ON = 0; TMR1 = (uint16_t)0xFFFF-2UL+1; TMR1ON = 1; };
 
 TMR1IF = 0;
 

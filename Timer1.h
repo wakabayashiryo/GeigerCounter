@@ -35,14 +35,15 @@ typedef struct
                         TMR1 = (uint16_t)x;\
                         TMR1ON = 1;\
                         }   
-#define Timer1_Reset()  Timer1_Write(0xFFFF - DELTA_COUNT+1)
+#define Timer1_Reset()  Timer1_Write(0xFFFF-DELTA_COUNT+1)
     
 void Timer1_Init(void);
 void Timer1_StartCount(void);
 void Timer1_StopCount(void);
 void Timer1_ClearRecord(void);
 
-#define DELTA_COUNT 10UL
+#define DELTA_COUNT 2UL
+
 uint32_t Timer1_GetCountSum(void);
 uint32_t Timer1_GetCPM(void);
 uint32_t Timer1_GetCPS(void);

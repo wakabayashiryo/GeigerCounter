@@ -80,6 +80,8 @@ void Ssetting_PMT_Config(PMT_CONFIGURATION *data)
             printf("<-- %8s -->",H7826_01_Gain[data->GainElements]);
     }
     
+    DAC_WriteVoltage(DAC_DataTable[data->GainElements]);
+    
     LCD_DisplayClear();
 
     Save_PMTConfig(data);
