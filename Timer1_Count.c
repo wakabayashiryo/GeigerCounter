@@ -1,4 +1,4 @@
-#include "Timer1.h"
+#include "Timer1_Count.h"
 
 static Counters cnts;
 static TimeCounter tcnt;
@@ -86,14 +86,14 @@ void Timer1_Count1ms(void)
 
             if((56<tcnt.Second_t)&&(tcnt.Second_t<60))
             {
-                Buzzer_MiliSecond(300);
+                Buzzer_Sound_ms(300);
             }
             else if(tcnt.Second_t>59)
             {
                 tcnt.Second_t = 0;
                 tcnt.Minute_t++;
 
-                Buzzer_MiliSecond(600);
+                Buzzer_Sound_ms(600);
             }
 
             tcnt.RenewalRersult = 0;

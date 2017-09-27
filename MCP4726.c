@@ -13,7 +13,7 @@ static Voltage_Reg VoltageReg;
 
 void DAC_Initialize(void)
 {
-    I2C_Init(I2C2_MODULE,0x00,I2C_MODE_MASTER,I2C_SPEED_STANDARD);
+    I2C2_Init(I2C2_Init_Port,0x00,I2C_MODE_MASTER,I2C_SPEED_STANDARD);
 
     ConfigReg.Command = CONFIG_COMMAND;
     ConfigReg.Gain = 0x00;

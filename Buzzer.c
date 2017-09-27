@@ -1,5 +1,5 @@
 /*
- * File:   Buzer.c
+ * File:   Buzzer.c
  * Author: evaota
  *
  * Created on 2017/02/27, 13:10
@@ -8,21 +8,19 @@
 
 static uint16_t count;
 
-void Buzzer_Init(void)
+void Buzzer_Init(Buzzer_Init_PORTTypedef Buzzer_Init_PORT,TMR2_PRESCALER_VAL pre_val,uint8_t period)
 {
-    TRISA &= ~(0x01<<7);    //RA7 is output
-    ANSELA &= ~(0x01<<7);   //one is digital mode
-    APFCON0 |= (0x01<<3);   //Alternate of CCP2 is RA7
+    Buzzer_Init_PORT();
     
     T2CON |= (0x00<<3);     //output prescalor is 1
-    T2CON |= (0x02<<0);     //input clock which of prescalor is 1
+    T2CON |= ((uint8_t)pre_val<<0); //Set Clock Prescaler
     T2CON |= (0x01<<2);     //Timer2 is enabled
     
     TMR2 = 0x00;
-    PR2 = BUZZER_PR2;
+    PR2 = period;                   //Set Period Register
     
     CCP2CON &= ~(0x03<<6);  //PWM output configuration is single
-    CCP2CON |= (0x0C<<0);   //ECCP mpde is PWM
+    CCP2CON |= (0x0C<<0);   //ECCP mode is PWM
     CCPTMRS &= ~(0x03<<2);  //CCP2 is applied clock from TMR2
     
     CCPR2L = 0x00;
@@ -35,7 +33,7 @@ void Buzzer_SetDuty(uint16_t duty)
     CCP2CON = CCP2CON_Pre | ((duty&0x03)<<4);
 }
 
-void Buzzer_MiliSecond(uint16_t time)
+void Buzzer_Sound_ms(uint16_t time)
 {
     if(count==0)
         count = time;

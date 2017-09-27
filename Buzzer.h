@@ -25,9 +25,9 @@
  * Comments:
  * Revision history: 
  */
-
-// This is a guard condition so that contents of this file are not included
-// more than once.  
+/*
+ *This Library can use only PIC16F1827 family
+ */
 #ifndef BUZZER_H
 #define	BUZZER_H
 
@@ -38,11 +38,21 @@
 #define Buzzer_Sound() Buzzer_SetDuty(0x01FF)
 #define Buzzer_Silent() Buzzer_SetDuty(0x0000)
     
-void Buzzer_Init(void);
+typedef enum
+{
+    TMR2_PRESCALER1 = 0,
+    TMR2_PRESCALER4 = 1,
+    TMR2_PRESCALER16 = 2,
+    TMR2_PRESCALER64 = 3,
+}TMR2_PRESCALER_VAL;
+
+typedef void (*Buzzer_Init_PORTTypedef)(void);
+
+void Buzzer_Init(Buzzer_Init_PORTTypedef Buzzer_Init_PORT,TMR2_PRESCALER_VAL pre_val,uint8_t period);
 void Buzzer_SetDuty(uint16_t duty);
-void Buzzer_MiliSecond(uint16_t time);
+void Buzzer_Sound_ms(uint16_t time);
 void Buzzer_Count1ms(void);//Set Function Repeat for 1 mili second
 
 
-#endif	/* BUZER_H */
+#endif	/* BUZZER_H */
 

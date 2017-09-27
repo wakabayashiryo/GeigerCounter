@@ -5,15 +5,15 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>Buzzer.h</itemPath>
-      <itemPath>I2C.h</itemPath>
-      <itemPath>LCD.h</itemPath>
       <itemPath>MCP4726.h</itemPath>
-      <itemPath>Timer1.h</itemPath>
-      <itemPath>Timer6.h</itemPath>
       <itemPath>eeprom.h</itemPath>
-      <itemPath>mTouch.h</itemPath>
       <itemPath>main.h</itemPath>
       <itemPath>User_Interface.h</itemPath>
+      <itemPath>PIC_Timer6.h</itemPath>
+      <itemPath>PIC_I2C.h</itemPath>
+      <itemPath>LCD1602.h</itemPath>
+      <itemPath>Timer1_Count.h</itemPath>
+      <itemPath>PIC_mTouch.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -23,17 +23,18 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>Buzzer.c</itemPath>
-      <itemPath>I2C_Common.c</itemPath>
-      <itemPath>LCD.c</itemPath>
       <itemPath>MCP4726.c</itemPath>
-      <itemPath>Timer1.c</itemPath>
-      <itemPath>Timer6.c</itemPath>
       <itemPath>eeprom.c</itemPath>
-      <itemPath>mTouch.c</itemPath>
       <itemPath>main.c</itemPath>
       <itemPath>table.c</itemPath>
-      <itemPath>I2C2.c</itemPath>
       <itemPath>User_Interface.c</itemPath>
+      <itemPath>PIC_Timer6.c</itemPath>
+      <itemPath>PIC_I2C.c</itemPath>
+      <itemPath>PIC_I2C1.c</itemPath>
+      <itemPath>PIC_I2C2.c</itemPath>
+      <itemPath>LCD1602.c</itemPath>
+      <itemPath>Timer1_Count.c</itemPath>
+      <itemPath>PIC_mTouch.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -51,7 +52,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>1.41</languageToolchainVersion>
+        <languageToolchainVersion>1.43</languageToolchainVersion>
         <platform>2</platform>
       </toolsSet>
       <compileType>

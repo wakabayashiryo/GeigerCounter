@@ -1,13 +1,13 @@
  build/default/production/User_Interface.d  \
  build/default/production/User_Interface.p1:  \
  User_Interface.c  \
-I2C.h  \
+PIC_Timer6.h  \
+PIC_I2C.h  \
 main.h  \
+LCD1602.h  \
 User_Interface.h  \
 MCP4726.h  \
-LCD.h  \
-mTouch.h  \
-Timer1.h  \
+Timer1_Count.h  \
 eeprom.h  \
-Timer6.h  \
+PIC_mTouch.h  \
 Buzzer.h 

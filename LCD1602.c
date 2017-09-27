@@ -1,10 +1,10 @@
 /*
- * File:   LCD.c
+ * File:   LCD1602.c
  * Author: evaota
  *
  * Created on 2017/02/25, 23:08
  */
-#include "LCD.h"
+#include "LCD1602.h"
 
 /*----------------------------------------------------------
  * Feature:
@@ -12,49 +12,51 @@
  * Worning:
  *  User is not able to use.
 ----------------------------------------------------------*/
-static void LCD_WriteData(int8_t point)
+static void LCD1602_WriteData(int8_t point)
 {
     __delay_us(80);
-    LCD_BUS((point>>4)&0x0F);   //Higher 4Bit
-    LCD_STROBO();
-    LCD_BUS(point&0x0F);        //Lower 4Bit
-    LCD_STROBO();     
+    LCD1602_BUS((point>>4)&0x0F);   //Higher 4Bit
+    LCD1602_STROBO();
+    LCD1602_BUS(point&0x0F);        //Lower 4Bit
+    LCD1602_STROBO();     
 }
 
 /*----------------------------------------------------------
  * Feature:
  *  Intialize LCD module in 4Bit mode
 ----------------------------------------------------------*/
-void LCD_Init(void)
+void LCD1602_Init(LCD1602_Init_PORTTypedef LCD1602_Init_PORT)
 {
-    LCD_RS = 0;
-    LCD_E = 0;
+    LCD1602_Init_PORT();
+
+    LCD1602_RS = 0;
+    LCD1602_E = 0;
 
     __delay_ms(30);
-    LCD_BUS(0x03);
-    LCD_STROBO();
+    LCD1602_BUS(0x03);
+    LCD1602_STROBO();
     __delay_ms(5);
-    LCD_STROBO();
+    LCD1602_STROBO();
     __delay_us(400);
-    LCD_STROBO();
+    LCD1602_STROBO();
     __delay_us(400);
-    LCD_BUS(0x02);          // Fuction Set Mode = 4bit	
-    LCD_STROBO();
+    LCD1602_BUS(0x02);          // Fuction Set Mode = 4bit	
+    LCD1602_STROBO();
 
-    LCD_WriteData(0x28);    // Mode=4bit / Line=2 /Font=5x8dot	
-    LCD_WriteData(0x0c);    // Display=on / Cursol=off / Blink of Cursol=off
-    LCD_DisplayClear();  
-    LCD_WriteData(0x06);    // Cursor=incriment /Display_shift=off	
+    LCD1602_WriteData(0x28);    // Mode=4bit / Line=2 /Font=5x8dot	
+    LCD1602_WriteData(0x0c);    // Display=on / Cursol=off / Blink of Cursol=off
+    LCD1602_DisplayClear();  
+    LCD1602_WriteData(0x06);    // Cursor=incriment /Display_shift=off	
 }
 
 /*----------------------------------------------------------
  * Feature:
  *  Display a word on LCD
 ----------------------------------------------------------*/
-void LCD_Put(int8_t word)
+void LCD1602_Put(int8_t word)
 {
-    LCD_RS = 1;
-    LCD_WriteData(word);	
+    LCD1602_RS = 1;
+    LCD1602_WriteData(word);	
 }
 
 /*----------------------------------------------------------
@@ -63,17 +65,17 @@ void LCD_Put(int8_t word)
 ----------------------------------------------------------*/
 void putch(char c)
 {
-    LCD_RS = 1;
-    LCD_WriteData(c);
+    LCD1602_RS = 1;
+    LCD1602_WriteData(c);
 }
 /*----------------------------------------------------------
  * Feature:
  *  Clear all words on LCD
 ----------------------------------------------------------*/
-void LCD_DisplayClear(void)
+void LCD1602_DisplayClear(void)
 {
-    LCD_RS  = 0;				
-    LCD_WriteData(0x01);    //clear command
+    LCD1602_RS  = 0;				
+    LCD1602_WriteData(0x01);    //clear command
     __delay_ms(2);          //excuted time
 }
 
@@ -81,10 +83,10 @@ void LCD_DisplayClear(void)
  * Feature:
  *  Move cursor to first point.
 ----------------------------------------------------------*/
-void LCD_CursorHome(void)
+void LCD1602_CursorHome(void)
 {
-    LCD_RS = 0;			 					
-    LCD_WriteData(0x02);
+    LCD1602_RS = 0;			 					
+    LCD1602_WriteData(0x02);
     __delay_ms(2);          //excuted time
 }
 
@@ -92,10 +94,10 @@ void LCD_CursorHome(void)
  * Feature:
  *  Cursor is set arbitary point.
 ----------------------------------------------------------*/
-void LCD_CursorPosition(uint8_t tx ,uint8_t ty)
+void LCD1602_CursorPosition(uint8_t tx ,uint8_t ty)
 {
-    LCD_RS = 0; 					
-    LCD_WriteData(0x80|tx|(0x40*ty));	// Address =0 		
+    LCD1602_RS = 0; 					
+    LCD1602_WriteData(0x80|tx|(0x40*ty));	// Address =0 		
     __delay_us(40);                     //excuted time					
 } 
 
@@ -103,15 +105,15 @@ void LCD_CursorPosition(uint8_t tx ,uint8_t ty)
  * Feature:
  *  Cursor is moved Left or Right.
 ----------------------------------------------------------*/
-void LCD_CursorShift(uint8_t shift,uint8_t RL)
+void LCD1602_CursorShift(uint8_t shift,uint8_t RL)
 {
     uint8_t i;
     
-    LCD_RS = 0;			
+    LCD1602_RS = 0;			
 
     for(i=0;i<shift;i++)
     {
-        LCD_WriteData(0x10|((RL&0x01)<<2));
+        LCD1602_WriteData(0x10|((RL&0x01)<<2));
         __delay_us(40);                 //excuted time
     }
 }
@@ -120,13 +122,13 @@ void LCD_CursorShift(uint8_t shift,uint8_t RL)
  * Feature:
  *  Some words on LCD is moved right or left
 ----------------------------------------------------------*/
-void LCD_DispShift(uint8_t shift,uint8_t RL)
+void LCD1602_DispShift(uint8_t shift,uint8_t RL)
 {
     uint8_t i;
     
-    LCD_RS = 0;			 					
+    LCD1602_RS = 0;			 					
     for(i=0;i<shift;i++)
     {
-        LCD_WriteData(0x18|((RL&0x01)<<2));
+        LCD1602_WriteData(0x18|((RL&0x01)<<2));
     }
 }

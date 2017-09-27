@@ -1,20 +1,14 @@
-#include"I2C.h"
+#include"PIC_I2C.h"
 
-#if !I2C2_NOT_USE
+#if !I2C2_DONOT_USE
 //Check idle status use R_nW,SEN,RSEN,PEN,RCEN,ACKEN 
 #define I2C2_IdleCheck() while((SSP2CON2&0x1F)|(SSP2STAT&0x05))
 
 extern I2Cx_Configuration I2C2_Config;
 
-static void I2C2_PinInit(void)
+void I2C2_Init(I2C2_Init_PORTTypedef I2C2_Init_PORT,uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed)
 {
-    TRISB |= ((1<<2)|(1<<5));
-    ANSELB &= ~((1<<2)|(1<<5));
-}
-
-void I2C2_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed)
-{
-    I2C2_PinInit();                         //Intialize Port for I2C
+    I2C2_Init_PORT();                         //Intialize Port for I2C
     I2C2_Config.Mode = mode;                //Save I2C2 mode
 
     switch(mode)
@@ -47,6 +41,9 @@ void I2C2_Setting(uint8_t address,I2Cx_Mode mode,I2Cx_Speed Speed)
     BCL2IE = 1;                             //Enable Bus collisioni interrupt
     SSP2IF = 0;                             //Clear SSP interrupt flag
     BCL2IF = 0;                             //Clear Bus collisioni interrupt flag
+
+    PEIE = 1;
+    GIE = 1;
 }
 
 int8_t I2C2_Transmit(uint8_t address,uint8_t *pData,uint8_t size)

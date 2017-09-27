@@ -12,13 +12,13 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdio.h>
-#include "Timer1.h"
-#include "LCD.h"
-#include "I2C.h"
+#include "Timer1_Count.h"
+#include "LCD1602.h"
+#include "PIC_I2C.h"
 #include "MCP4726.h"
 #include "eeprom.h"
-#include "mTouch.h"
-#include "Timer6.h"
+#include "PIC_mTouch.h"
+#include "PIC_Timer6.h"
 #include "Buzzer.h"
 
 
@@ -81,9 +81,17 @@ typedef struct
 #define LED_ON      0
 #define LED_OFF     1
 #define LED_TOG     !LATA6
-#define LED_BLUE(x) LATA6 = x    
+#define LED_BLUE(x) LATA6 = x 
+
+#define START_SYMBOL 0x00        
+#define RESET_SYMBOL 0x01
+#define STOP_SYMBOL  0x02
     
-int8_t Basic_Init(void);
+#define START_SYMBOL_PARAM 100        
+#define RESET_SYMBOL_PARAM 100
+#define STOP_SYMBOL_PARAM  100
+
+void I2C2_Init_Port(void);
 #include "User_Interface.h"
 
 #ifdef	__cplusplus
